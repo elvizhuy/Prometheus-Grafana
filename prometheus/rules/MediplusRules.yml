@@ -25,7 +25,7 @@ groups:
         app_type: mediplus
         category: memory
       annotations:
-        summary: "Node memory usage is going high - above 60%"
+        summary: "Memory usage is going high - above 60%"
         description: "Node memory for instance {{ $labels.instance }} has reached {{ $value }}%"
 
     - alert: Memory Usage Above 75%
@@ -37,7 +37,7 @@ groups:
         app_type: mediplus
         category: memory
       annotations:
-        summary: "Node memory usage is very HIGH - above 75% - 25% left"
+        summary: "Memory usage is very HIGH - above 75% - 25% left"
         description: "Node memory for instance {{ $labels.instance }} has reached {{ $value }}%"
 
     - alert: CPU Usage High
