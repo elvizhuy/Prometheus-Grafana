@@ -15,28 +15,32 @@ receivers:
     parse_mode: ""
 
 - name: BV-BachMai-telegram
-  telegram_configs:
-  - api_url: https://api.telegram.org
-    bot_token: 5765051913:AAEXYcQKE0h8FTiC8Ba0DgNutliSMBbXAjw
-    chat_id: -932865047
-    #template: template.tmpl 
-    disable_notifications: false
-    http_config:
-      follow_redirects: true
-    send_resolved: true
-    parse_mode: ""
+  webhook_configs:
+  - url: 'http://10.0.0.232:9087/alert/-932865047'
+  # telegram_configs:
+  # - api_url: https://api.telegram.org
+  #   bot_token: 5765051913:AAEXYcQKE0h8FTiC8Ba0DgNutliSMBbXAjw
+  #   chat_id: -932865047
+  #   #template: template.tmpl 
+  #   disable_notifications: false
+  #   http_config:
+  #     follow_redirects: true
+  #   send_resolved: true
+  #   parse_mode: ""
 
 - name: Mediplus-telegram
-  telegram_configs:
-  - api_url: https://api.telegram.org
-    bot_token: 5765051913:AAEXYcQKE0h8FTiC8Ba0DgNutliSMBbXAjw
-    chat_id: -866646704
-    #template: template.tmpl
-    disable_notifications: false
-    http_config:
-      follow_redirects: true
-    send_resolved: true
-    parse_mode: ""
+  webhook_configs:
+  - url: 'http://10.0.0.232:9087/alert/-866646704'
+  # telegram_configs:
+  # - api_url: https://api.telegram.org
+  #   bot_token: 5765051913:AAEXYcQKE0h8FTiC8Ba0DgNutliSMBbXAjw
+  #   chat_id: -866646704
+  #   #template: template.tmpl
+  #   disable_notifications: false
+  #   http_config:
+  #     follow_redirects: true
+  #   send_resolved: true
+  #   parse_mode: ""
 
 route:
   continue: false
