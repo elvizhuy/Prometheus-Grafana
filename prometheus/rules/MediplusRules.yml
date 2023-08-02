@@ -74,7 +74,7 @@ groups:
 
     - alert: Free Disk Space Less 10%
       # expr: (sum by (instance) (node_filesystem_free_bytes{job="Mediplus"}) / sum by (instance) (node_filesystem_size_bytes{job="Mediplus"})) * 100 < 10
-      expr: ((node_filesystem_free_bytes{job="Bach-Mai"}) / (node_filesystem_size_bytes{job="Bach-Mai"})) * 100 <= 10
+      expr: ((node_filesystem_free_bytes{job="Mediplus"}) / (node_filesystem_size_bytes{job="Mediplus"})) * 100 <= 10
       for: 24h
       labels:
         severity: critical
