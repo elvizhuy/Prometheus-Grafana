@@ -14,11 +14,11 @@ groups:
         description: "Node Exporter is down for more than 2 minutes"
 
     - record: job:node_memory_Mem_bytes:available
-      expr: (node_memory_MemAvailable_bytes{job="Bach-Mai"} / node_memory_MemTotal_bytes{job="Bach-Mai"}) * 100
+      expr: (node_memory_MemFree_bytes{job="Bach-Mai"} / node_memory_MemTotal_bytes{job="Bach-Mai"}) * 100
       
     - alert: Memory Usage Above 60%
       # expr: 60 < (100 - job:node_memory_Mem_bytes:available) < 75
-      expr: 60 < ((node_memory_MemAvailable_bytes{job="Bach-Mai"} / node_memory_MemTotal_bytes{job="Bach-Mai"}) * 100) < 75
+      expr: 60 < ((node_memory_MemFree_bytes{job="Bach-Mai"} / node_memory_MemTotal_bytes{job="Bach-Mai"}) * 100) < 75
       for: 1m
       labels:
         severity: warning
@@ -30,7 +30,7 @@ groups:
 
     - alert: Memory Usage Above 75%
       # expr: (100 - job:node_memory_Mem_bytes:available) >= 75
-      expr: (node_memory_MemAvailable_bytes{job="Bach-Mai"} / node_memory_MemTotal_bytes{job="Bach-Mai"}) * 100 >= 75
+      expr: (node_memory_MemFree_bytes{job="Bach-Mai"} / node_memory_MemTotal_bytes{job="Bach-Mai"}) * 100 >= 75
       for: 1m
       labels:
         severity: critical
