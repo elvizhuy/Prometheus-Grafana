@@ -64,7 +64,7 @@ route:
     # Bạch Mai group
     - match:
         app_type: bachmai
-        instance : "10.0.0.210:9100"
+        instance : 10.0.0.210:9100
       receiver: BV-BachMai-telegram
     # Mediplus group
     - match:
