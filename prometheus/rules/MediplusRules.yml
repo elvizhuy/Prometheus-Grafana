@@ -99,4 +99,4 @@ groups:
         summary: "Free disk space is running out - less than 10%"
         description: |
           "HUY NG"
-          "Node disk is going to full (< 10% left)\n  Current free disk space is {{ $value }} GB"
+          "Node disk is going to full (< 10% left)\n  Current free disk space is {{ printf "%.2f" $value }} GB"
