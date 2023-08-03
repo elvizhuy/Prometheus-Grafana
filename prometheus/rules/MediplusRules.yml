@@ -30,7 +30,7 @@ groups:
     - alert: Memory Usage Above 75%
       # expr: (100 - job:node_memory_Mem_bytes:available) >= 75
       # expr: (node_memory_MemFree_bytes{job="Mediplus"} / node_memory_MemTotal_bytes{job="Mediplus"}) * 100 <= 25
-      expr: (node_memory_MemTotal_bytes{job="jenkins-tuan", instance=~".+"} - node_memory_MemFree_bytes{job="jenkins-tuan", instance=~".+"} - node_memory_Buffers_bytes{job="jenkins-tuan", instance=~".+"} - node_memory_Cached_bytes{job="jenkins-tuan", instance=~".+"}) / (node_memory_MemTotal_bytes{job="jenkins-tuan", instance=~".+"}) * 100 >= 1
+      expr: (node_memory_MemTotal_bytes{job="Mediplus", instance=~".+"} - node_memory_MemFree_bytes{job="Mediplus", instance=~".+"} - node_memory_Buffers_bytes{job="Mediplus", instance=~".+"} - node_memory_Cached_bytes{job="Mediplus", instance=~".+"}) / (node_memory_MemTotal_bytes{job="Mediplus", instance=~".+"}) * 100 >= 1
       for: 1m
       labels:
         severity: critical
@@ -41,9 +41,9 @@ groups:
         description: |
           "Node memory for instance {{ $labels.instance }} has reached {{ $value }}%"
           RAM đã sử dụng chiếm {{ printf "%.2f" $value }}%.
-          * Used : {{ query "node_memory_MemTotal_bytes{job='jenkins-tuan', instance=~'.+'} - node_memory_MemFree_bytes{job='jenkins-tuan', instance=~'.+'} - node_memory_Buffers_bytes{job='jenkins-tuan', instance=~'.+'} - node_memory_Cached_bytes{job='jenkins-tuan', instance=~'.+'}" | first | value | humanize }}
-          * Left : {{ query "node_memory_MemFree_bytes{job='jenkins-tuan', instance=~'.+'}" | first | value | humanize }}
-          * Total : {{ query "node_memory_MemTotal_bytes{job='jenkins-tuan', instance=~'.+'}" | first | value | humanize  }}
+          * Used : {{ query "node_memory_MemTotal_bytes{job='Mediplus', instance=~'.+'} - node_memory_MemFree_bytes{job='Mediplus', instance=~'.+'} - node_memory_Buffers_bytes{job='Mediplus', instance=~'.+'} - node_memory_Cached_bytes{job='Mediplus', instance=~'.+'}" | first | value | humanize }}
+          * Left : {{ query "node_memory_MemFree_bytes{job='Mediplus', instance=~'.+'}" | first | value | humanize }}
+          * Total : {{ query "node_memory_MemTotal_bytes{job='Mediplus', instance=~'.+'}" | first | value | humanize  }}
 
     - alert: CPU Usage High
       expr: 100 - (avg by(instance) (irate(node_cpu_seconds_total{job="Mediplus",mode="idle"}[1m])) * 100) > 80
