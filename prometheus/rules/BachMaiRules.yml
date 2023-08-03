@@ -43,6 +43,10 @@ groups:
         description: |
           "HUY NG"
           "Node memory for instance {{ $labels.instance }} has reached {{ $value }}%"
+          RAM Memory is used {{ printf "%.2f" $value }}%.
+          * Used : {{ query "node_memory_MemTotal_bytes{job='Bach-Mai', instance=~'.+'} - node_memory_MemFree_bytes{job='Bach-Mai', instance=~'.+'} - node_memory_Buffers_bytes{job='Bach-Mai', instance=~'.+'} - node_memory_Cached_bytes{job='Bach-Mai', instance=~'.+'}" | first | value | humanize }}
+          * Left : {{ query "node_memory_MemFree_bytes{job='Bach-Mai', instance=~'.+'}" | first | value | humanize }}
+          * Total : {{ query "node_memory_MemTotal_bytes{job='Bach-Mai', instance=~'.+'}" | first | value | humanize  }}
 
     - alert: CPU Usage High
       expr: 100 - (avg by(instance) (irate(node_cpu_seconds_total{job="Bach-Mai",mode="idle"}[1m])) * 100) > 80
