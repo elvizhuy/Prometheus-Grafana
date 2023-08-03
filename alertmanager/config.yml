@@ -72,6 +72,7 @@ route:
         instance: 
           - "10.0.0.55:9100"
           - "10.0.0.210:9100"
+          - "10.0.0.211:9100"
       receiver: Mediplus-telegram
     # - match:
     #     app_type: jenkins
