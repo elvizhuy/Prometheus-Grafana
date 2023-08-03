@@ -38,7 +38,7 @@ groups:
         severity: critical
         app_type: mediplus
         category: memory
-        instance: {{ $labels.instance }}
+        instance: "{{ $labels.instance }}"
       annotations:
         summary: "Memory usage is very HIGH - above 75% - 25% left"
         description: |
@@ -94,7 +94,7 @@ groups:
         severity: critical
         app_type: mediplus
         category: disk
-        instance: {{ $labels.instance }}
+        instance: "{{ $labels.instance }}"
       annotations:
         summary: "Free disk space is running out - less than 10%"
         description: |
