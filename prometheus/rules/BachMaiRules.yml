@@ -59,7 +59,9 @@ groups:
         category: cpu
       annotations:
         summary: "CPU_0 usage is HIGH"
-        description: "CPU_0 load for instance {{ $labels.instance }} has reached {{ $value }}%"
+        description: |
+         "HUY NG" 
+         "CPU_0 load for instance {{ $labels.instance }} has reached {{ $value }}%"
 
     - alert: CPU_1_High
       expr: 100 - (avg by(instance, cpu) (irate(node_cpu_seconds_total{job="Bach-Mai",mode="idle", cpu="1"}[1m])) * 100) > 80
