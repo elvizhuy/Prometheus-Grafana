@@ -24,8 +24,8 @@ receivers:
     chat_id: -932865047
     #template: template.tmpl 
     disable_notifications: false
-    http_config:
-      follow_redirects: true
+    # http_config:
+    #   follow_redirects: true
     send_resolved: true
     parse_mode: ""
 
@@ -39,8 +39,8 @@ receivers:
     chat_id: -866646704
     #template: template.tmpl
     disable_notifications: false
-    http_config:
-      follow_redirects: true
+    # http_config:
+    #   follow_redirects: true
     send_resolved: true
     parse_mode: ""
 
