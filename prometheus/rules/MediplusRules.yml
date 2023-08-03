@@ -57,8 +57,8 @@ groups:
       annotations:
         summary: "CPU usage is HIGH"
         description: |
-          "HUY NG"
-          "CPU load for instance {{ $labels.instance }} has reached {{ $value }}%"
+          HUY NG
+          CPU load for instance {{ $labels.instance }} has reached {{ $value }}%
 
     - alert: CPU_0_High
       expr: 100 - (avg by(instance, cpu) (irate(node_cpu_seconds_total{job="Mediplus",mode="idle", cpu="0"}[1m])) * 100) > 80
@@ -81,8 +81,8 @@ groups:
       annotations:
         summary: "CPU_1 usage is HIGH"
         description: |
-          "HUY NG"
-          "CPU_1 load for instance {{ $labels.instance }} has reached {{ $value }}%"
+          HUY NG
+          CPU_1 load for instance {{ $labels.instance }} has reached {{ $value }}%
 
     - alert: Free Disk Space Less 10%
       # expr: (sum by (instance) (node_filesystem_free_bytes{job="Mediplus"}) / sum by (instance) (node_filesystem_size_bytes{job="Mediplus"})) * 100 < 10
@@ -95,5 +95,5 @@ groups:
       annotations:
         summary: "Free disk space is running out - less than 10%"
         description: |
-          "HUY NG"
-          "Node disk is going to full (< 10% left)\n  Current free disk space is {{ printf "%.2f" $value }} GB"
+          HUY NG
+          Node disk is going to full (< 10% left)  Current free disk space is {{ printf "%.2f" $value }} GB
