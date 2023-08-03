@@ -70,8 +70,6 @@ route:
     - match:
         app_type: mediplus
         instance: ".+"
-        params:
-          instance: [".+"]
       receiver: Mediplus-telegram
     # - match:
     #     app_type: jenkins
