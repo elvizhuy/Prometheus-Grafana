@@ -44,6 +44,11 @@ receivers:
   #   send_resolved: true
   #   parse_mode: ""
 
+- name: Jenkins-telegram
+  webhook_configs:
+  - url: 'http://10.0.0.232:9087/alert/-866646704'
+    send_resolved: true
+
 route:
   continue: false
   group_by: ['job','severity']
@@ -53,7 +58,7 @@ route:
   receiver: System-Team
   routes:
   - match_re: 
-     app_type: (bachmai|mediplus)
+     app_type: (bachmai|mediplus|jenkins)
     receiver: System-Team 
     routes:
     # Bạch Mai group
@@ -64,6 +69,9 @@ route:
     - match:
         app_type: mediplus
       receiver: Mediplus-telegram
+    - match:
+        app_type: jenkins
+      receiver: Jenkins-telegram
 
 templates:
 - /etc/alertmanager/*.tmpl
