@@ -51,7 +51,7 @@ receivers:
 
 route:
   continue: false
-  group_by: ['job','severity']
+  group_by: ['job','severity','instance']
   group_interval: 1m
   group_wait: 30s
   repeat_interval: 1m
