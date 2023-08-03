@@ -66,8 +66,8 @@ groups:
       annotations:
         summary: "CPU_0 usage is HIGH"
         description: |
-         "HUY NG" 
-         "CPU_0 load for instance {{ $labels.instance }} has reached {{ $value }}%"
+          "HUY NG" 
+          "CPU_0 load for instance {{ $labels.instance }} has reached {{ $value }}%"
 
     - alert: CPU_1_High
       expr: 100 - (avg by(instance, cpu) (irate(node_cpu_seconds_total{job="Bach-Mai",mode="idle", cpu="1"}[1m])) * 100) > 80
@@ -78,7 +78,9 @@ groups:
         category: cpu
       annotations:
         summary: "CPU_1 usage is HIGH"
-        description: "CPU_1 load for instance {{ $labels.instance }} has reached {{ $value }}%"
+        description: |
+          "HUY NG"
+          "CPU_1 load for instance {{ $labels.instance }} has reached {{ $value }}%"
 
     - alert: Free Disk Space Less 10%
       # expr: (sum by (instance) (node_filesystem_free_bytes{job="Bach-Mai"}) / sum by (instance) (node_filesystem_size_bytes{job="Bach-Mai"})) * 100 < 10
