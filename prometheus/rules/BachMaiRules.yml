@@ -40,8 +40,7 @@ groups:
       annotations:
         summary: "Memory usage is very HIGH - above 75% - 25% left"
         description: |
-          "HUY NG"
-          "Node memory for instance {{ $labels.instance }} has reached {{ $value }}%"
+          HUY NG
           RAM Memory is used {{ printf "%.2f" $value }}%.
           * Used : {{ query "node_memory_MemTotal_bytes{job='Bach-Mai', instance=~'.+'} - node_memory_MemFree_bytes{job='Bach-Mai', instance=~'.+'} - node_memory_Buffers_bytes{job='Bach-Mai', instance=~'.+'} - node_memory_Cached_bytes{job='Bach-Mai', instance=~'.+'}" | first | value | humanize }}
           * Left : {{ query "node_memory_MemFree_bytes{job='Bach-Mai', instance=~'.+'}" | first | value | humanize }}
@@ -97,5 +96,5 @@ groups:
       annotations:
         summary: "Free disk space is running out - less than 10%"
         description: |
-          "HUY NG"
-          "Node disk is going to full (< 10% left)\n  Current free disk space is {{ printf "%.2f" $value }} GB"
+          HUY NG
+          Node disk is going to full (< 10% left)\n  Current free disk space is {{ printf "%.2f" $value }} GB
