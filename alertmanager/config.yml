@@ -44,6 +44,7 @@ receivers:
   #   send_resolved: true
   #   parse_mode: ""
 
+
 - name: Jenkins-telegram
   webhook_configs:
   - url: 'http://10.0.0.232:9087/alert/-866646704'
@@ -77,10 +78,16 @@ route:
         instance: 10.0.0.55:9100
       receiver: Mediplus-telegram
       group_wait: 3s
-    # - match:
-    #     app_type: jenkins
-    #   receiver: Jenkins-telegram
 
+  - match_re: 
+      app_type: (grafana)
+    receiver: BV-BachMai-telegram
+    routes:
+    - match:
+        app_type: grafana
+        container_name: system-grafana
+      receiver: BV-BachMai-telegram
+      
 templates:
 - /etc/alertmanager/*.tmpl
 # route:
