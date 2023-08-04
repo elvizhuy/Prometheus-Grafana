@@ -58,7 +58,7 @@ scrape_configs:
         type: 'A'
         port: 8080
     static_configs:
-      - targets: ['cadvisor:8080','10.0.0.55:8080','10.0.0.210:8080']
+      - targets: ['cadvisor:8080','10.0.0.55:11092']
 
 
   - job_name: 'node-exporter'
