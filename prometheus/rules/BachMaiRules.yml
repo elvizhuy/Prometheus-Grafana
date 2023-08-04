@@ -1,5 +1,5 @@
 groups:
-  - name: bachmai-rules
+  - name: BẠCH MAI
     rules:
 
     - alert: Node Exporter Down
