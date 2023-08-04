@@ -3,7 +3,7 @@ groups:
     rules:
 
     - alert: Grafana Container Cpu High
-      expr: rate(container_cpu_usage_seconds_total{name="system-grafana"}[1m])
+      expr: rate(container_cpu_usage_seconds_total{name="system-grafana"}[1m]) 
       for: 1m
       labels:
         severity: critical
@@ -23,7 +23,7 @@ groups:
         app_type: grafana
         category: memory
       annotations:
-        summary: "Memory of grafana container is high on {{ $labels.name }} for more than 1 minutes"
+        summary: "Memory of grafana container is high on {{ $labels.container }} for more than 1 minutes"
         description: |
           HUY NG
-          Memory of grafana container is high on {{ $labels.container_name }}, above 15GB
+          Memory of grafana container is high on {{ $labels.container }}, above 15GB
