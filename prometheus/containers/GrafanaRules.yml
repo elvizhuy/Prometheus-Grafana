@@ -16,14 +16,14 @@ groups:
           CPU of grafana container is high for more than 1 minutes
 
     - alert: Grafana Container Memory
-      expr: container_memory_usage_bytes{name="system-grafana"} / 1048576 < 1.5e+10
+      expr: container_memory_usage_bytes{name="system-grafana"} < 1.5e+10
       for: 1m
       labels:
         severity: critical
         app_type: grafana
         category: memory
       annotations:
-        summary: "Memory of grafana container is high on {{ $labels.container_name }}"
+        summary: "Memory of grafana container is high on {{ $labels.container_name }} for more than 1 minutes"
         description: |
           HUY NG
-          Memory of grafana container is high for more than 1 minutes
+          Memory of grafana container is high on {{ $labels.container_name }}, above 15GB
