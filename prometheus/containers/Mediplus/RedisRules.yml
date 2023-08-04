@@ -10,7 +10,7 @@ groups:
         app_type: redis-mediplus
         category: cpu
       annotations:
-        summary: "CPU of Redis container is high on {{ $labels.container }} of {{$labels.instance}}"
+        summary: "CPU of Redis container is high on {{$labels.instance}}"
         description: |
           HUY NG
           CPU of Redis container is high for more than 1 minutes

@@ -10,7 +10,7 @@ groups:
         app_type: grafana
         category: cpu
       annotations:
-        summary: "CPU of grafana container is high on {{ $labels.container_name }}"
+        summary: "CPU of grafana container is high on {{ $labels.instance }}"
         description: |
           HUY NG
           CPU of grafana container is high for more than 1 minutes
@@ -23,7 +23,7 @@ groups:
         app_type: grafana
         category: memory
       annotations:
-        summary: "Memory of grafana container is high on {{ $labels.container }} for more than 1 minutes"
+        summary: "Memory of grafana container is high on {{ $labels.instance }} for more than 1 minutes"
         description: |
           HUY NG
-          Memory of grafana container is high on {{ $labels.container }}, above 15GB
+          Memory of grafana container is high on {{ $labels.instance }}, above 15GB
