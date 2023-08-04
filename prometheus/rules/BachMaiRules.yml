@@ -41,10 +41,11 @@ groups:
         summary: "Memory usage is very HIGH - above 75% - 25% left"
         description: |
           HUY NG
-          RAM Memory is used {{ printf "%.2f" $value }}%.
-          * Used : {{ query "node_memory_MemTotal_bytes{job='Bach-Mai', instance=~'.+'} - node_memory_MemFree_bytes{job='Bach-Mai', instance=~'.+'} - node_memory_Buffers_bytes{job='Bach-Mai', instance=~'.+'} - node_memory_Cached_bytes{job='Bach-Mai', instance=~'.+'}" | first | value | humanize }}
-          * Left : {{ query "node_memory_MemFree_bytes{job='Bach-Mai', instance=~'.+'}" | first | value | humanize }}
-          * Total : {{ query "node_memory_MemTotal_bytes{job='Bach-Mai', instance=~'.+'}" | first | value | humanize  }}
+          RAM Memory is used {{ printf "%.2f" $value }}% on instance {{ $labels.instance }}..
+          Detail Information : 
+          * Used : {{ query (printf "node_memory_MemTotal_bytes{job='Bach-Mai', instance=~'%s'} - node_memory_MemFree_bytes{job='Bach-Mai', instance=~'%s'} - node_memory_Buffers_bytes{job='Bach-Mai', instance=~'%s'} - node_memory_Cached_bytes{job='Bach-Mai', instance=~'%s'}" $labels.instance $labels.instance $labels.instance $labels.instance) | first | value | humanize }}
+          * Left : {{ query (printf "node_memory_MemFree_bytes{job='Bach-Mai', instance=~'%s'}" $labels.instance) | first | value | humanize }}
+          * Total : {{ query (printf "node_memory_MemTotal_bytes{job='Bach-Mai', instance=~'%s'}" $labels.instance) | first | value | humanize }}
 
     - alert: CPU Usage High
       expr: 100 - (avg by(instance) (irate(node_cpu_seconds_total{job="Bach-Mai",mode="idle"}[1m])) * 100) > 80
