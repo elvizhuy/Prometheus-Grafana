@@ -9,6 +9,7 @@ services:
     volumes:
       - ./prometheus:/etc/prometheus/
       - ./data-prometheus-grafana/prometheus_data:/prometheus
+      - /etc/localtime:/etc/localtime:ro
     command:
       - '--config.file=/etc/prometheus/prometheus.yml'
       - '--storage.tsdb.path=/prometheus'
@@ -31,6 +32,7 @@ services:
       - /proc:/host/proc:ro
       - /sys:/host/sys:ro
       - /:/rootfs:ro
+      - /etc/localtime:/etc/localtime:ro
     command:
       - '--path.procfs=/host/proc'
       - '--path.sysfs=/host/sys'
@@ -49,6 +51,7 @@ services:
     ports:
       - 9093:9093
     volumes:
+      - /etc/localtime:/etc/localtime:ro
       - ./alertmanager/:/etc/alertmanager/
     command:
       - '--config.file=/etc/alertmanager/config.yml'
@@ -63,6 +66,7 @@ services:
       - /var/run:/var/run:rw
       - /sys:/sys:ro
       - /var/lib/docker/:/var/lib/docker:ro
+      - /etc/localtime:/etc/localtime:ro
     ports:
       - 8080:8080
     restart: always
@@ -79,6 +83,7 @@ services:
     volumes:
       - ./data-prometheus-grafana/grafana_data:/var/lib/grafana
       - ./grafana/provisioning/:/etc/grafana/provisioning/
+      - /etc/localtime:/etc/localtime:ro
     env_file:
       - ./grafana/config.monitoring
     ports:
