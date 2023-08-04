@@ -44,6 +44,20 @@ receivers:
   #   send_resolved: true
   #   parse_mode: ""
 
+- name: Grafana-telegram
+  # webhook_configs:
+  # - url: 'http://10.0.0.232:9087/alert/-866646704'
+  #   send_resolved: true
+  telegram_configs:
+  - api_url: https://api.telegram.org
+    bot_token: 5765051913:AAEXYcQKE0h8FTiC8Ba0DgNutliSMBbXAjw
+    chat_id: -866646704
+    #template: template.tmpl
+    disable_notifications: false
+    http_config:
+      follow_redirects: true
+    send_resolved: true
+    parse_mode: ""
 
 - name: Jenkins-telegram
   webhook_configs:
@@ -81,13 +95,13 @@ route:
 
   - match_re: 
       app_type: (grafana)
-    receiver: BV-BachMai-telegram
+    receiver: Grafana-telegram
     routes:
     - match:
         app_type: grafana
         container_name: system-grafana
-      receiver: BV-BachMai-telegram
-      
+      receiver: Grafana-telegram
+
 templates:
 - /etc/alertmanager/*.tmpl
 # route:
