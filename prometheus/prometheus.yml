@@ -14,6 +14,7 @@ rule_files:
   - 'rules/BachMaiRules.yml'
   - "rules/MediplusRules.yml"
   - "containers/GrafanaRules.yml"
+  - "containers/Mediplus/RedisRules.yml"
 
 # alert
 alerting:

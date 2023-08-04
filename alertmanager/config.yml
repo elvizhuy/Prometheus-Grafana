@@ -94,12 +94,17 @@ route:
       group_wait: 3s
 
   - match_re: 
-      app_type: (grafana)
+      app_type: (grafana|redis-mediplus)
     receiver: Grafana-telegram
     routes:
     - match:
         app_type: grafana
         container_name: system-grafana
+      receiver: Grafana-telegram
+    - match:
+        app_type: redis-mediplus
+        container_name: redis-server
+        instance: 10.0.0.55:11092
       receiver: Grafana-telegram
 
 templates:
