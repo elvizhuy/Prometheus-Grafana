@@ -57,8 +57,8 @@ scrape_configs:
           - 'tasks.cadvisor'
         type: 'A'
         port: 8080
-  #     static_configs:
-  #          - targets: ['cadvisor:8080']
+    static_configs:
+      - targets: ['cadvisor:8080']
 
   - job_name: 'node-exporter'
     scrape_interval: 5s
