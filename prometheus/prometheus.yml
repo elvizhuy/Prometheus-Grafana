@@ -13,7 +13,7 @@ global:
 rule_files:
   - 'rules/BachMaiRules.yml'
   - "rules/MediplusRules.yml"
-  # - "rules/JenkinsRules.yml"
+  - "containers/GrafanaRules.yml"
 
 # alert
 alerting:
