@@ -26,6 +26,7 @@ services:
 
   node-exporter:
     image: prom/node-exporter
+    container_name: system-node-exporter
     volumes:
       - /proc:/host/proc:ro
       - /sys:/host/sys:ro
@@ -56,6 +57,7 @@ services:
 
   cadvisor:
     image: gcr.io/cadvisor/cadvisor
+    container_name: system-cadvisor
     volumes:
       - /:/rootfs:ro
       - /var/run:/var/run:rw
