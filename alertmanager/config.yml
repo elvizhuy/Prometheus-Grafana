@@ -71,6 +71,9 @@ route:
   group_wait: 30s
   repeat_interval: 1m
   receiver: System-Team
+  rule_files: 
+    - includes: 'containers/DrAllen/CPU/DrAllenCpu.yml'
+    - includes: 'containers/DrAllen/CPU/DrAllenRam.yml'
   routes:
   - match_re: 
       app_type: (bachmai|mediplus)
@@ -105,18 +108,15 @@ route:
         instance: 10.0.0.55:11092
         category: cpu
       receiver: Dr-Allen-telegram
-      # rule_files: 
-      #   - 'containers/DrAllen/CPU/DrAllenCpu.yml'
+      
     - match:
         alertname: Container Memory For Dr Allen Server
         app_type: dr-allen-memory
         instance: 10.0.0.55:11092
         category: memory
         rule_files: 
-        - 'containers/DrAllen/CPU/DrAllenRam.yml'
       receiver: Dr-Allen-telegram
       
-
 templates:
 - /etc/alertmanager/*.tmpl
 # route:
