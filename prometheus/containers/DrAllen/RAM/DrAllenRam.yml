@@ -1,26 +1,26 @@
 groups:
-  - name: Grafana
+  - name: Container Memory For Dr Allen Server
     rules:
 
-    - alert: Grafana Container Cpu High
-      expr: rate(container_cpu_usage_seconds_total{name="system-grafana"}[1m]) 
+    - alert: Redis Container Memory
+      expr: container_memory_usage_bytes{name="system-grafana"} < 1.5e+10
       for: 1m
       labels:
         severity: critical
-        app_type: grafana
-        category: cpu
+        app_type: dr-allen-memory
+        category: memory
       annotations:
-        summary: "CPU of grafana container is high on {{ $labels.instance }}"
+        summary: "Memory of redis container is high on {{ $labels.instance }} for more than 1 minutes"
         description: |
           HUY NG
-          CPU of grafana container is high for more than 1 minutes
+          Memory of redis container is high on {{ $labels.instance }}, above 15GB
 
     - alert: Grafana Container Memory
       expr: container_memory_usage_bytes{name="system-grafana"} < 1.5e+10
       for: 1m
       labels:
         severity: critical
-        app_type: grafana
+        app_type: dr-allen-memory
         category: memory
       annotations:
         summary: "Memory of grafana container is high on {{ $labels.instance }} for more than 1 minutes"

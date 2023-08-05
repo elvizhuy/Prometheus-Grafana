@@ -44,14 +44,14 @@ receivers:
   #   send_resolved: true
   #   parse_mode: ""
 
-- name: Grafana-telegram
+- name: Dr-Allen-telegram
   # webhook_configs:
   # - url: 'http://10.0.0.232:9087/alert/-866646704'
   #   send_resolved: true
   telegram_configs:
   - api_url: https://api.telegram.org
     bot_token: 5765051913:AAEXYcQKE0h8FTiC8Ba0DgNutliSMBbXAjw
-    chat_id: -866646704
+    chat_id: -918887592
     #template: template.tmpl
     disable_notifications: false
     http_config:
@@ -76,12 +76,12 @@ route:
       app_type: (bachmai|mediplus)
     receiver: System-Team 
     routes:
-    # Bạch Mai group
+# Bạch Mai group
     - match:
         app_type: bachmai
         instance : 10.0.0.210:9100
       receiver: BV-BachMai-telegram
-    # Mediplus group
+# Mediplus group
     - match:
         app_type: mediplus
         instance: 10.0.0.211:19100
@@ -93,19 +93,25 @@ route:
       receiver: Mediplus-telegram
       group_wait: 3s
 
+#DrALLEN Containers
   - match_re: 
-      app_type: (grafana|redis-mediplus)
-    receiver: Grafana-telegram
+      app_type: (grafana|redis)
+    receiver: Dr-Allen-telegram
     routes:
     - match:
-        app_type: grafana
-        container_name: system-grafana
-      receiver: Grafana-telegram
+        alertname: Container CPU For Dr Allen Server
+        app_type: dr-allen-cpu
+        # container_name: system-grafana
+        category: cpu
+      receiver: Dr-Allen-telegram
+      rule_files: 'containers/DrAllen/CPU/DrAllenCpu.yml'
     - match:
-        app_type: redis-mediplus
-        container_name: redis-server
-        instance: 10.0.0.55:11092
-      receiver: Grafana-telegram
+        alertname: Container Memory For Dr Allen Server
+        app_type: dr-allen-memory
+        # instance: 10.0.0.55:11092
+        category: memory
+      receiver: Dr-Allen-telegram
+      rule_files: 'containers/DrAllen/CPU/DrAllenRam.yml'
 
 templates:
 - /etc/alertmanager/*.tmpl
