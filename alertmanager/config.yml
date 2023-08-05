@@ -46,7 +46,7 @@ receivers:
 
 - name: Dr-Allen-telegram
   webhook_configs:
-  - url: 'http://10.0.0.232:9087/alert/-999710731'
+  - url: 'http://10.0.0.232:9088/alert/-999710731'
     send_resolved: true
 
 - name: Jenkins-telegram
