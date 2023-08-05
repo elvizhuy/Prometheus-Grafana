@@ -3,7 +3,8 @@ groups:
     rules:
 
     - alert: Redis Container Cpu High
-      expr: rate(container_cpu_usage_seconds_total{instance="10.0.0.55:11092",name="redis-server"}[1m])
+      # expr: rate(container_cpu_usage_seconds_total{instance="10.0.0.55:11092",name="redis-server"}[1m])
+      expr: container_cpu_usage_seconds_total{instance="10.0.0.55:11092",name="redis-server"}
       for: 1m
       labels:
         severity: critical
