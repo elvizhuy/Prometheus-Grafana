@@ -71,7 +71,8 @@ route:
 
 #DrALLEN Containers
   - match_re: 
-      app_type: (dr-allen-cpu|dr-allen-memory)
+      # app_type: (dr-allen-cpu|dr-allen-memory)
+      groups: Container CPU For Dr Allen Server
     receiver: System-Container
     routes:
     - match:
