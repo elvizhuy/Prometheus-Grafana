@@ -96,11 +96,11 @@ route:
 
 #DrALLEN Containers
   - match_re: 
-      app_type: (grafana|redis)
+      app_type: (dr-allen-cpu|dr-allen-memory)
     receiver: Dr-Allen-telegram
     rule_files:
-      - 'containers/DrAllen/CPU/DrAllenCpu.yml'
-      - 'containers/DrAllen/RAM/DrAllenRam.yml'
+      - './containers/DrAllen/CPU/DrAllenCpu.yml'
+      - './containers/DrAllen/RAM/DrAllenRam.yml'
     routes:
     - match:
         alertname: Container CPU For Dr Allen Server
