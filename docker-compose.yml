@@ -94,7 +94,7 @@ services:
   # Bot Alert Physical
   prometheus-bot:
     container_name: system-bot
-    image: bachdangtuan/prom-golang-bot:latest
+    image: nguyenngochuy/prometheus-bot:latest
 
     volumes:
       - /etc/localtime:/etc/localtime:ro
