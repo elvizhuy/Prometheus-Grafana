@@ -88,7 +88,23 @@ route:
     - match:
         alertname: Container CPU For Dr Allen Server
         app_type: dr-allen-cpu
-        # container_name: system-grafana
+        container_name: redis-server
+        instance: 10.0.0.55:11092
+        category: cpu
+      receiver: System-Container
+
+    - match:
+        alertname: Container CPU For Dr Allen Server
+        app_type: dr-allen-cpu
+        container_name: kafka-isofh
+        instance: 10.0.0.55:11092
+        category: cpu
+      receiver: System-Container
+
+    - match:
+        alertname: Container CPU For Dr Allen Server
+        app_type: dr-allen-cpu
+        container_name: kafka-ui-isofh
         instance: 10.0.0.55:11092
         category: cpu
       receiver: System-Container
