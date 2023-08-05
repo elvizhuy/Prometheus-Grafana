@@ -102,13 +102,14 @@ route:
         alertname: Container CPU For Dr Allen Server
         app_type: dr-allen-cpu
         # container_name: system-grafana
+        instance: 10.0.0.55:11092
         category: cpu
       receiver: Dr-Allen-telegram
       rule_files: 'containers/DrAllen/CPU/DrAllenCpu.yml'
     - match:
         alertname: Container Memory For Dr Allen Server
         app_type: dr-allen-memory
-        # instance: 10.0.0.55:11092
+        instance: 10.0.0.55:11092
         category: memory
       receiver: Dr-Allen-telegram
       rule_files: 'containers/DrAllen/CPU/DrAllenRam.yml'
