@@ -16,7 +16,7 @@ rule_files:
 #  - "containers/GrafanaRules.yml"
 #  - "containers/Mediplus/RedisRules.yml"
   - 'containers/DrAllen/CPU/DrAllenRam.yml'
-  - 'containers/DrAllen/CPU/DrAllenCpu.yml'
+  # - 'containers/DrAllen/CPU/DrAllenCpu.yml'
 
 # alert
 alerting:
