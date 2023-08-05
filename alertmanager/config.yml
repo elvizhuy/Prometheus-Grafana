@@ -45,19 +45,9 @@ receivers:
   #   parse_mode: ""
 
 - name: Dr-Allen-telegram
-  # webhook_configs:
-  # - url: 'http://10.0.0.232:9087/alert/-866646704'
-  #   send_resolved: true
-  telegram_configs:
-  - api_url: https://api.telegram.org
-    bot_token: 5765051913:AAEXYcQKE0h8FTiC8Ba0DgNutliSMBbXAjw
-    chat_id: -918887592
-    #template: template.tmpl
-    disable_notifications: false
-    http_config:
-      follow_redirects: true
+  webhook_configs:
+  - url: 'http://10.0.0.232:9087/alert/-999710731'
     send_resolved: true
-    parse_mode: ""
 
 - name: Jenkins-telegram
   webhook_configs:

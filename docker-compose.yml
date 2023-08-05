@@ -90,3 +90,42 @@ services:
       - 3000:3000
     depends_on:
       - prometheus
+
+  # Bot Alert Physical
+  prometheus-bot:
+    container_name: system-bot
+    image: bachdangtuan/prom-golang-bot:latest
+
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ./telegrambot/:/etc/telegrambot/
+      - ./telegrambot/config.yaml:/config.yaml  
+    ports:
+      - 9087:9087
+    restart: always
+
+# Bot Alert Container
+  prometheus-bot-container:
+    container_name: system-bot-container
+    image: bachdangtuan/prom-golang-bot:latest
+
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ./telegrambot-container/:/etc/telegrambot/
+      - ./telegrambot-container/config.yaml:/config.yaml  
+    ports:
+      - 9088:9087
+    restart: always
+
+# Bot Alert For K8s
+  prometheus-bot-kubenetes:
+    container_name: system-bot-k8s
+    image: bachdangtuan/prom-golang-bot:latest
+
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ./telegrambot-kubenetes/:/etc/telegrambot/
+      - ./telegrambot-kubenetes/config.yaml:/config.yaml  
+    ports:
+      - 9089:9087
+    restart: always
