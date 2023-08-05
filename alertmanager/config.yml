@@ -112,12 +112,11 @@ route:
         app_type: dr-allen-memory
         instance: 10.0.0.55:11092
         category: memory
-        rule_files: 
       receiver: Dr-Allen-telegram
 # rule_files:
 # - 'containers/DrAllen/CPU/DrAllenCpu.yml'
 # - 'containers/DrAllen/RAM/DrAllenRam.yml'
-      
+
 templates:
 - /etc/alertmanager/*.tmpl
 
