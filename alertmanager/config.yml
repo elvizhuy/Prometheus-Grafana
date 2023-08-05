@@ -45,10 +45,19 @@ receivers:
   #   parse_mode: ""
 
 - name: System-Container
-  webhook_configs:
-  - url: 'http://10.0.0.13:9088/alert/-999710731'
+  # webhook_configs:
+  # - url: 'http://10.0.0.13:9088/alert/-999710731'
+  #   send_resolved: true
+  telegram_configs:
+  - api_url: https://api.telegram.org
+    bot_token: 6588801252:AAFJD4d1WW0L36mS_HfRlzTBIy3B7KJkIvc
+    chat_id: -999710731
+    #template: template.tmpl
+    disable_notifications: false
+    http_config:
+      follow_redirects: true
     send_resolved: true
-
+    parse_mode: ""
 
 route:
   continue: false
@@ -87,24 +96,27 @@ route:
     routes:
     - match:
         alertname: Redis Container Cpu High
-        # app_type: dr-allen-cpu-redis-server
-        instance: 10.0.0.55:11092
+        app_type: dr-allen-cpu
+        # instance: 10.0.0.55:11092
         category: cpu
       receiver: System-Container
+      group_wait: 1s
 
     - match:
         alertname: Kafka Container Cpu High
-        # app_type: dr-allen-cpu-kafka-isofh
-        instance: 10.0.0.55:11092
+        app_type: dr-allen-cpu
+        # instance: 10.0.0.55:11092
         category: cpu
       receiver: System-Container
+      group_wait: 2s
 
     - match:
         alertname: Kafka UI Container Cpu High
-        # app_type: dr-allen-cpu-kafka-ui-isofh
-        instance: 10.0.0.55:11092
+        app_type: dr-allen-cpu
+        # instance: 10.0.0.55:11092
         category: cpu
       receiver: System-Container
+      group_wait: 3s
       
     # - match:
     #     alertname: Container Memory For Dr Allen Server
