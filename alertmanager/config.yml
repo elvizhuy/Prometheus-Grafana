@@ -87,31 +87,31 @@ route:
     routes:
     - match:
         alertname: Redis Container Cpu High
-        app_type: dr-allen-cpu-redis-server
+        # app_type: dr-allen-cpu-redis-server
         instance: 10.0.0.55:11092
         category: cpu
       receiver: System-Container
 
     - match:
         alertname: Kafka Container Cpu High
-        app_type: dr-allen-cpu-kafka-isofh
+        # app_type: dr-allen-cpu-kafka-isofh
         instance: 10.0.0.55:11092
         category: cpu
       receiver: System-Container
 
     - match:
         alertname: Kafka UI Container Cpu High
-        app_type: dr-allen-cpu-kafka-ui-isofh
+        # app_type: dr-allen-cpu-kafka-ui-isofh
         instance: 10.0.0.55:11092
         category: cpu
       receiver: System-Container
       
-    - match:
-        alertname: Container Memory For Dr Allen Server
-        app_type: dr-allen-memory
-        instance: 10.0.0.55:11092
-        category: memory
-      receiver: System-Container
+    # - match:
+    #     alertname: Container Memory For Dr Allen Server
+    #     app_type: dr-allen-memory
+    #     instance: 10.0.0.55:11092
+    #     category: memory
+    #   receiver: System-Container
 # rule_files:
 # - 'containers/DrAllen/CPU/DrAllenCpu.yml'
 # - 'containers/DrAllen/RAM/DrAllenRam.yml'
