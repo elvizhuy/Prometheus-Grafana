@@ -18,11 +18,31 @@ receivers:
   webhook_configs:
   - url: 'http://10.0.0.232:9087/alert/-932865047'
     send_resolved: true
+  # telegram_configs:
+  # - api_url: https://api.telegram.org
+  #   bot_token: 5765051913:AAEXYcQKE0h8FTiC8Ba0DgNutliSMBbXAjw
+  #   chat_id: -932865047
+  #   #template: template.tmpl 
+  #   disable_notifications: false
+  #   http_config:
+  #     follow_redirects: true
+  #   send_resolved: true
+  #   parse_mode: ""
 
 - name: Mediplus-telegram
   webhook_configs:
   - url: 'http://10.0.0.232:9087/alert/-866646704'
     send_resolved: true
+  # telegram_configs:
+  # - api_url: https://api.telegram.org
+  #   bot_token: 5765051913:AAEXYcQKE0h8FTiC8Ba0DgNutliSMBbXAjw
+  #   chat_id: -866646704
+  #   #template: template.tmpl
+  #   disable_notifications: false
+  #   http_config:
+  #     follow_redirects: true
+  #   send_resolved: true
+  #   parse_mode: ""
 
 - name: System-Container
   # webhook_configs:
@@ -31,7 +51,7 @@ receivers:
   telegram_configs:
   - api_url: https://api.telegram.org
     bot_token: 5765051913:AAEXYcQKE0h8FTiC8Ba0DgNutliSMBbXAjw
-    chat_id: -999710731
+    chat_id: -866646704
     #template: template.tmpl
     disable_notifications: false
     http_config:
@@ -71,31 +91,33 @@ route:
 
 #DrALLEN Containers
   - match_re: 
-      app_type: (dr-allen-cpu)
+      app_type: (dr-allen-cpu|dr-allen-memory)
     receiver: System-Container
     routes:
     - match:
         alertname: Redis Container Cpu High
         app_type: dr-allen-cpu
-        instance: 10.0.0.55:11092
+        # instance: 10.0.0.55:11092
         category: cpu
       receiver: System-Container
       group_wait: 1s
 
-    # - match:
-    #     # alertname: Kafka Container Cpu High
-    #     app_type: dr-allen-cpu
-    #     category: cpu
-    #     receiver: System-Container
-    #     group_wait: 2s
+    - match:
+        alertname: Kafka Container Cpu High
+        app_type: dr-allen-cpu
+        # instance: 10.0.0.55:11092
+        category: cpu
+      receiver: System-Container
+      group_wait: 2s
 
-    # - match:
-    #     # alertname: Kafka UI Container Cpu High
-    #     app_type: dr-allen-cpu
-    #     category: cpu
-    #   receiver: System-Container
-    #   group_wait: 3s
-        
+    - match:
+        alertname: Kafka UI Container Cpu High
+        app_type: dr-allen-cpu
+        # instance: 10.0.0.55:11092
+        category: cpu
+      receiver: System-Container
+      group_wait: 3s
+      
     # - match:
     #     alertname: Container Memory For Dr Allen Server
     #     app_type: dr-allen-memory
