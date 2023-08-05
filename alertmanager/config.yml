@@ -70,31 +70,34 @@ route:
       group_wait: 3s
 
 #DrALLEN Containers
-  - match_re: 
+  # - match_re: 
       # app_type: (dr-allen-cpu|dr-allen-memory)
-      groups: Container CPU For Dr Allen Server
+      # group: Container CPU For Dr Allen Server
+    # receiver: System-Container
+    # routes:
+  - match:
+      alertname: Redis Container Cpu High
+        # app_type: dr-allen-cpu
+      group : Container CPU For Dr Allen Server
+      category: cpu
     receiver: System-Container
-    routes:
-    - match:
-        alertname: Redis Container Cpu High
-        # app_type: dr-allen-cpu
-        category: cpu
-      receiver: System-Container
-      group_wait: 1s
+    group_wait: 1s
 
-    - match:
-        alertname: Kafka Container Cpu High
+  - match:
+      alertname: Kafka Container Cpu High
         # app_type: dr-allen-cpu
-        category: cpu
+      group : Container CPU For Dr Allen Server
+      category: cpu
       receiver: System-Container
       group_wait: 2s
 
-    - match:
-        alertname: Kafka UI Container Cpu High
+  - match:
+      alertname: Kafka UI Container Cpu High
         # app_type: dr-allen-cpu
-        category: cpu
-      receiver: System-Container
-      group_wait: 3s
+      group : Container CPU For Dr Allen Server
+      category: cpu
+    receiver: System-Container
+    group_wait: 3s
       
     # - match:
     #     alertname: Container Memory For Dr Allen Server
