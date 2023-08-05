@@ -78,7 +78,7 @@ route:
     - match:
         alertname: Redis Container Cpu High
         app_type: dr-allen-cpu-redis
-        # group : Container CPU For Dr Allen Server
+        group : Container CPU For Dr Allen Server
         category: cpu
       receiver: System-Container
       group_wait: 1s
@@ -86,7 +86,7 @@ route:
     - match:
         alertname: Kafka Container Cpu High
         app_type: dr-allen-cpu-kafka
-        # group : Container CPU For Dr Allen Server
+        group : Container CPU For Dr Allen Server
         category: cpu
         receiver: System-Container
         group_wait: 2s
@@ -94,7 +94,7 @@ route:
     - match:
         alertname: Kafka UI Container Cpu High
         app_type: dr-allen-cpu-kafka-ui
-        # group : Container CPU For Dr Allen Server
+        group : Container CPU For Dr Allen Server
         category: cpu
       receiver: System-Container
       group_wait: 3s
