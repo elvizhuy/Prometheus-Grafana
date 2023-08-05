@@ -10,7 +10,7 @@ groups:
         severity: critical
         app_type: dr-allen-cpu
         category: cpu
-        container: kafka-isofh
+        container_name: kafka-isofh
       annotations:
         summary: "CPU of Redis container is high on {{$labels.instance}}"
         description: |
@@ -25,7 +25,7 @@ groups:
         severity: critical
         app_type: dr-allen-cpu
         category: cpu
-        container: kafka-ui-isofh
+        container_name: kafka-ui-isofh
       annotations:
         summary: "CPU of Redis container is high on {{$labels.instance}}"
         description: |
@@ -109,7 +109,7 @@ groups:
         severity: critical
         app_type: dr-allen-cpu
         category: cpu
-        container: redis-server
+        container_name: redis-server
       annotations:
         summary: "CPU of grafana container is high on {{ $labels.instance }}"
         description: |
