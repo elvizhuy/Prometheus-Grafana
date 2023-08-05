@@ -98,8 +98,8 @@ services:
 
     volumes:
       - /etc/localtime:/etc/localtime:ro
-      - ./telegrambot/:/etc/telegrambot/
-      - ./telegrambot/config.yaml:/config.yaml  
+      - ./Telegram-Bot/:/etc/telegrambot/
+      - ./Telegram-Bot/config.yaml:/config.yaml  
     ports:
       - 9087:9087
     restart: always
@@ -111,8 +111,8 @@ services:
 
     volumes:
       - /etc/localtime:/etc/localtime:ro
-      - ./telegrambot-container/:/etc/telegrambot/
-      - ./telegrambot-container/config.yaml:/config.yaml  
+      - ./Telegrambot-Container/:/etc/telegrambot/
+      - ./Telegrambot-Container/config.yaml:/config.yaml  
     ports:
       - 9088:9087
     restart: always
@@ -124,8 +124,8 @@ services:
 
     volumes:
       - /etc/localtime:/etc/localtime:ro
-      - ./telegrambot-kubenetes/:/etc/telegrambot/
-      - ./telegrambot-kubenetes/config.yaml:/config.yaml  
+      - ./Telegrambot-Kubenetes/:/etc/telegrambot/
+      - ./Telegrambot-Kubenetes/config.yaml:/config.yaml  
     ports:
       - 9089:9087
     restart: always
