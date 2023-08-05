@@ -98,9 +98,7 @@ route:
   - match_re: 
       app_type: (dr-allen-cpu|dr-allen-memory)
     receiver: Dr-Allen-telegram
-    rule_files:
-      - './containers/DrAllen/CPU/DrAllenCpu.yml'
-      - './containers/DrAllen/RAM/DrAllenRam.yml'
+   
     routes:
     - match:
         alertname: Container CPU For Dr Allen Server
@@ -117,7 +115,9 @@ route:
         category: memory
         rule_files: 
       receiver: Dr-Allen-telegram
-      
+rule_files:
+      - 'containers/DrAllen/CPU/DrAllenCpu.yml'
+      - 'containers/DrAllen/RAM/DrAllenRam.yml'      
 templates:
 - /etc/alertmanager/*.tmpl
 # route:
