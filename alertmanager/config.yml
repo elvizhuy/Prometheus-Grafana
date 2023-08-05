@@ -77,7 +77,7 @@ route:
     routes:
     - match:
         alertname: Redis Container Cpu High
-        # app_type: dr-allen-cpu-redis
+        app_type: dr-allen-cpu-redis
         # group : Container CPU For Dr Allen Server
         category: cpu
       receiver: System-Container
@@ -85,7 +85,7 @@ route:
 
     - match:
         alertname: Kafka Container Cpu High
-        # app_type: dr-allen-cpu-kafka
+        app_type: dr-allen-cpu-kafka
         # group : Container CPU For Dr Allen Server
         category: cpu
         receiver: System-Container
@@ -93,7 +93,7 @@ route:
 
     - match:
         alertname: Kafka UI Container Cpu High
-        # app_type: dr-allen-cpu-kafka-ui
+        app_type: dr-allen-cpu-kafka-ui
         # group : Container CPU For Dr Allen Server
         category: cpu
       receiver: System-Container
