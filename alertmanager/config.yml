@@ -71,9 +71,7 @@ route:
   group_wait: 30s
   repeat_interval: 1m
   receiver: System-Team
-  rule_files: 
-    - includes: 'containers/DrAllen/CPU/DrAllenCpu.yml'
-    - includes: 'containers/DrAllen/CPU/DrAllenRam.yml'
+  
   routes:
   - match_re: 
       app_type: (bachmai|mediplus)
@@ -101,6 +99,8 @@ route:
       app_type: (grafana|redis)
     receiver: Dr-Allen-telegram
     routes:
+    - includes: 'containers/DrAllen/CPU/DrAllenCpu.yml'
+    - includes: 'containers/DrAllen/CPU/DrAllenRam.yml'
     - match:
         alertname: Container CPU For Dr Allen Server
         app_type: dr-allen-cpu
