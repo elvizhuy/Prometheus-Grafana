@@ -98,9 +98,10 @@ route:
   - match_re: 
       app_type: (grafana|redis)
     receiver: Dr-Allen-telegram
+    rule_files:
+      - 'containers/DrAllen/CPU/DrAllenCpu.yml'
+      - 'containers/DrAllen/RAM/DrAllenRam.yml'
     routes:
-    - includes: 'containers/DrAllen/CPU/DrAllenCpu.yml'
-    - includes: 'containers/DrAllen/CPU/DrAllenRam.yml'
     - match:
         alertname: Container CPU For Dr Allen Server
         app_type: dr-allen-cpu
