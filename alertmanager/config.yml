@@ -44,15 +44,11 @@ receivers:
   #   send_resolved: true
   #   parse_mode: ""
 
-- name: Dr-Allen-telegram
+- name: System-Container
   webhook_configs:
   - url: 'http://10.0.0.232:9088/alert/-999710731'
     send_resolved: true
 
-- name: Jenkins-telegram
-  webhook_configs:
-  - url: 'http://10.0.0.232:9087/alert/-866646704'
-    send_resolved: true
 
 route:
   continue: false
@@ -87,7 +83,7 @@ route:
 #DrALLEN Containers
   - match_re: 
       app_type: (dr-allen-cpu|dr-allen-memory)
-    receiver: Dr-Allen-telegram
+    receiver: System-Container
     routes:
     - match:
         alertname: Container CPU For Dr Allen Server
@@ -95,14 +91,14 @@ route:
         # container_name: system-grafana
         instance: 10.0.0.55:11092
         category: cpu
-      receiver: Dr-Allen-telegram
+      receiver: System-Container
       
     - match:
         alertname: Container Memory For Dr Allen Server
         app_type: dr-allen-memory
         instance: 10.0.0.55:11092
         category: memory
-      receiver: Dr-Allen-telegram
+      receiver: System-Container
 # rule_files:
 # - 'containers/DrAllen/CPU/DrAllenCpu.yml'
 # - 'containers/DrAllen/RAM/DrAllenRam.yml'
