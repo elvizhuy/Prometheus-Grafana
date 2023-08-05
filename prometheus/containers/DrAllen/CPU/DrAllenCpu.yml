@@ -10,6 +10,7 @@ groups:
         severity: critical
         app_type: dr-allen-cpu
         category: cpu
+        alertname: Kafka Container Cpu High
       annotations:
         summary: "CPU of Redis container is high on {{$labels.instance}}"
         description: |
@@ -24,6 +25,7 @@ groups:
         severity: critical
         app_type: dr-allen-cpu
         category: cpu
+        alertname: Kafka UI Container Cpu High
       annotations:
         summary: "CPU of Redis container is high on {{$labels.instance}}"
         description: |
