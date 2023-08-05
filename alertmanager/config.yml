@@ -75,21 +75,21 @@ route:
     receiver: System-Container
     routes:
     - match:
-        alertname: Redis Container Cpu High
+        # alertname: Redis Container Cpu High
         app_type: dr-allen-cpu-redis
         category: cpu
       receiver: System-Container
       group_wait: 1s
 
     - match:
-        alertname: Kafka Container Cpu High
+        # alertname: Kafka Container Cpu High
         app_type: dr-allen-cpu-kafka
         category: cpu
         receiver: System-Container
         group_wait: 2s
 
     - match:
-        alertname: Kafka UI Container Cpu High
+        # alertname: Kafka UI Container Cpu High
         app_type: dr-allen-cpu-kafka-ui
         category: cpu
       receiver: System-Container
