@@ -2,28 +2,29 @@ groups:
   - name: Container Memory For Dr Allen Server
     rules:
 
-    - alert: Redis Container Memory
-      expr: container_memory_usage_bytes{name="system-grafana"} < 1.5e+10
-      for: 1m
-      labels:
-        severity: critical
-        app_type: dr-allen-memory
-        category: memory
-      annotations:
-        summary: "Memory of redis container is high on {{ $labels.instance }} for more than 1 minutes"
-        description: |
-          HUY NG
-          Memory of redis container is high on {{ $labels.instance }}, above 15GB
+    # - alert: Redis Container Memory
+    #   expr: container_memory_usage_bytes{name="system-grafana"} < 1.5e+10
+    #   for: 1m
+    #   labels:
+    #     severity: critical
+    #     app_type: dr-allen-memory
+    #     category: memory
+    #   annotations:
+    #     summary: "Memory of redis container is high on {{ $labels.instance }} for more than 1 minutes"
+    #     description: |
+    #       HUY NG
+    #       Memory of redis container is high on {{ $labels.instance }}, above 15GB
 
-    - alert: Grafana Container Memory
-      expr: container_memory_usage_bytes{name="system-grafana"} < 1.5e+10
+    - alert: Kafka Container Memory
+      # expr: container_memory_usage_bytes{name="system-grafana"} < 1.5e+10
+      expr: container_memory_usage_bytes{name="kafka-isofh",instance="10.0.0.55:11092"} / 1048576
       for: 1m
       labels:
         severity: critical
         app_type: dr-allen-memory
         category: memory
       annotations:
-        summary: "Memory of grafana container is high on {{ $labels.instance }} for more than 1 minutes"
+        summary: "Memory of KAFKA container is used on {{ $labels.instance }}"
         description: |
           HUY NG
-          Memory of grafana container is high on {{ $labels.instance }}, above 15GB
+          Memory of KAFKA container is used {{ query (printf "container_memory_usage_bytes{name="kafka-isofh",instance="10.0.0.55:11092"} / 1048576") | first | value | humanize}}
