@@ -4,7 +4,7 @@ groups:
 
     - alert: Redis Container Die
       # expr: container_memory_usage_bytes{name="redis-server"} < 1.5e+10
-      expr: absent(container_last_seen{name="redis-server"}) == 1
+      expr: absent(container_last_seen{name="redis-server",instance="10.0.0.55:11092"}) == 1
       for: 1m
       labels:
         severity: critical
@@ -17,7 +17,7 @@ groups:
           REDIS CONTAINER IS DEAD
 
     - alert: Kafka Container Die
-      expr: absent(container_last_seen{name="kafka-isofh"}) == 1
+      expr: absent(container_last_seen{name="kafka-isofh",instance="10.0.0.55:11092"}) == 1
       for: 1m
       labels:
         severity: critical
@@ -30,7 +30,7 @@ groups:
           KAFKA CONTAINER IS DEAD
 
     - alert: Kafka UI Container Die
-      expr: absent(container_last_seen{name="kafka-ui-isofh"}) == 1
+      expr: absent(container_last_seen{name="kafka-ui-isofh",instance="10.0.0.55:11092"}) == 1
       for: 1m
       labels:
         severity: critical
