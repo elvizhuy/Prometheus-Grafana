@@ -11,10 +11,10 @@ groups:
         app_type: dr-allen-cpu
         category: cpu
       annotations:
-        summary: "CPU of Redis container is high on {{$labels.instance}}"
+        summary: "CPU of KAFKA container is high on {{$labels.instance}}"
         description: |
           HUY NG
-          CPU of Redis container is high for more than 1 minutes
+          CPU of KAFKA container is high for more than 1 minutes
 
     - alert: Kafka UI Container Cpu High
       # expr: rate(container_cpu_usage_seconds_total{instance="10.0.0.55:11092",name="redis-server"}[1m])
@@ -25,10 +25,10 @@ groups:
         app_type: dr-allen-cpu
         category: cpu
       annotations:
-        summary: "CPU of Redis container is high on {{$labels.instance}}"
+        summary: "CPU of KAFKA UI container is high on {{$labels.instance}}"
         description: |
           HUY NG
-          CPU of Redis container is high for more than 1 minutes
+          CPU of KAFKA UI container is high for more than 1 minutes
 
     - alert: Zookeeper Container Cpu High
       # expr: rate(container_cpu_usage_seconds_total{instance="10.0.0.55:11092",name="redis-server"}[1m])
@@ -39,10 +39,10 @@ groups:
         app_type: dr-allen-cpu
         category: cpu
       annotations:
-        summary: "CPU of Redis container is high on {{$labels.instance}}"
+        summary: "CPU of ZOOKEEPER container is high on {{$labels.instance}}"
         description: |
           HUY NG
-          CPU of Redis container is high for more than 1 minutes
+          CPU of ZOOKEEPER container is high for more than 1 minutes
 
     - alert: Frontend Quanlybackup Container Cpu High
       # expr: rate(container_cpu_usage_seconds_total{instance="10.0.0.55:11092",name="redis-server"}[1m])
@@ -53,10 +53,10 @@ groups:
         app_type: dr-allen-cpu
         category: cpu
       annotations:
-        summary: "CPU of Redis container is high on {{$labels.instance}}"
+        summary: "CPU of FE QLBACKUP container is high on {{$labels.instance}}"
         description: |
           HUY NG
-          CPU of Redis container is high for more than 1 minutes
+          CPU of FE QLBACKUP container is high for more than 1 minutes
 
     - alert: Golang App Container Cpu High
       # expr: rate(container_cpu_usage_seconds_total{instance="10.0.0.55:11092",name="redis-server"}[1m])
@@ -67,10 +67,10 @@ groups:
         app_type: dr-allen-cpu-go
         category: cpu
       annotations:
-        summary: "CPU of Redis container is high on {{$labels.instance}}"
+        summary: "CPU of GO APP container is high on {{$labels.instance}}"
         description: |
           HUY NG
-          CPU of Redis container is high for more than 1 minutes
+          CPU of GO APP container is high for more than 1 minutes
 
     - alert: searching-service Container Cpu High
       # expr: rate(container_cpu_usage_seconds_total{instance="10.0.0.55:11092",name="redis-server"}[1m])
@@ -81,10 +81,10 @@ groups:
         app_type: dr-allen-cpu
         category: cpu
       annotations:
-        summary: "CPU of Redis container is high on {{$labels.instance}}"
+        summary: "CPU of SEARCHING container is high on {{$labels.instance}}"
         description: |
           HUY NG
-          CPU of Redis container is high for more than 1 minutes
+          CPU of SEARCHING container is high for more than 1 minutes
 
     - alert: disk-partition-service Container Cpu High
       # expr: rate(container_cpu_usage_seconds_total{instance="10.0.0.55:11092",name="redis-server"}[1m])
@@ -95,10 +95,10 @@ groups:
         app_type: dr-allen-cpu
         category: cpu
       annotations:
-        summary: "CPU of Redis container is high on {{$labels.instance}}"
+        summary: "CPU of DISK PARTITION container is high on {{$labels.instance}}"
         description: |
           HUY NG
-          CPU of Redis container is high for more than 1 minutes
+          CPU of DISK PARTITION container is high for more than 1 minutes
 
     - alert: Redis Container Cpu High
       expr: rate(container_cpu_usage_seconds_total{name="redis-server"}[1m]) 
@@ -107,7 +107,7 @@ groups:
         severity: critical
         app_type: dr-allen-cpu
       annotations:
-        summary: "CPU of grafana container is high on {{ $labels.instance }}"
+        summary: "CPU of redis container is high on {{ $labels.instance }}"
         description: |
           HUY NG
-          CPU of grafana container is high for more than 1 minutes
+          CPU of redis container is high for more than 1 minutes
