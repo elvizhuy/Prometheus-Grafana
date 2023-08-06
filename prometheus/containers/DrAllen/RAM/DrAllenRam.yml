@@ -16,7 +16,7 @@ groups:
     #       Memory of redis container is high on {{ $labels.instance }}, above 15GB
 
     - alert: Kafka Container Memory
-      expr: container_memory_usage_bytes{name="kafka-isofh",instance="10.0.0.55:11092"} / 1048576
+      expr: container_memory_usage_bytes{name="kafka-isofh",instance="10.0.0.55:11092"}
       for: 1m
       labels:
         severity: critical
