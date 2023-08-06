@@ -107,7 +107,7 @@ groups:
         severity: critical
         app_type: dr-allen-cpu
       annotations:
-        summary: "CPU of redis container is high on {{ $labels.instance }}"
+        summary: "CPU of REDIS container is high on {{ $labels.instance }}"
         description: |
           HUY NG
-          CPU of redis container is high for more than 1 minutes
+          CPU of REDIS container is high for more than 1 minutes
