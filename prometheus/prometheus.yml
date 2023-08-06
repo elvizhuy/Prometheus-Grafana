@@ -17,7 +17,7 @@ rule_files:
 #  - "containers/Mediplus/RedisRules.yml"
   - 'containers/DrAllen/RAM/DrAllenRam.yml'
   - 'containers/DrAllen/CPU/DrAllenCpu.yml'
-
+  - 'containers/DrAllen/DEAD/DrAllenServiceDead.yml'
 # alert
 alerting:
   alertmanagers:

@@ -82,7 +82,7 @@ route:
 
 #DrALLEN Containers
   - match_re: 
-      app_type: (dr-allen-cpu|dr-allen-memory)
+      app_type: (dr-allen-cpu|dr-allen-memory|dr-allen-service-dead)
     receiver: System-Container
     routes:
     - match:
@@ -153,6 +153,27 @@ route:
         app_type: dr-allen-memory
         instance: 10.0.0.55:11092
         category: memory
+      receiver: System-Container
+
+    - match:
+        alertname: Redis Container Die
+        app_type: dr-allen-service-dead
+        instance: 10.0.0.55:11092
+        category: service
+      receiver: System-Container
+
+    - match:
+        alertname: Kafka Container Die
+        app_type: dr-allen-service-dead
+        instance: 10.0.0.55:11092
+        category: service
+      receiver: System-Container
+
+    - match:
+        alertname: Kafka UI Container Die
+        app_type: dr-allen-service-dead
+        instance: 10.0.0.55:11092
+        category: service
       receiver: System-Container
 # rule_files:
 # - 'containers/DrAllen/CPU/DrAllenCpu.yml'

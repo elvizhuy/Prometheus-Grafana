@@ -1,0 +1,43 @@
+groups:
+  - name: Service Die or Container Shutdown For Dr Allen Server
+    rules:
+
+    - alert: Redis Container Die
+      # expr: container_memory_usage_bytes{name="redis-server"} < 1.5e+10
+      expr: absent(container_last_seen{name="redis-server"}) == 1
+      for: 1m
+      labels:
+        severity: critical
+        app_type: dr-allen-service-dead
+        category: service
+      annotations:
+        summary: "REDIS container is SHUTDOWN on {{ $labels.instance }} for more than 1 minutes"
+        description: |
+          HUY NG
+          REDIS CONTAINER IS DEAD
+
+    - alert: Kafka Container Die
+      expr: absent(container_last_seen{name="kafka-isofh"}) == 1
+      for: 1m
+      labels:
+        severity: critical
+        app_type: dr-allen-service-dead
+        category: service
+      annotations:
+        summary: "KAFKA container is SHUTDOWN on {{ $labels.instance }} for more than 1 minutes"
+        description: |
+          HUY NG
+          KAFKA CONTAINER IS DEAD
+
+    - alert: Kafka UI Container Die
+      expr: absent(container_last_seen{name="kafka-ui-isofh"}) == 1
+      for: 1m
+      labels:
+        severity: critical
+        app_type: dr-allen-service-dead
+        category: service
+      annotations:
+        summary: "KAFKA UI container is SHUTDOWN on {{ $labels.instance }} for more than 1 minutes"
+        description: |
+          HUY NG
+          KAFKA UI CONTAINER IS DEAD
