@@ -15,6 +15,18 @@ groups:
         description: |
           REDIS CONTAINER HIỆN TẠI ĐANG TẮT........
 
+    - alert: Frontend Quản lý máy chủ Container Tắt
+      expr: absent(container_last_seen{name="frontend_quanlybackup_dev",instance="10.0.0.55:11092"}) == 1
+      for: 1m
+      labels:
+        severity: KHẨN
+        app_type: dr-allen-service-dead
+        category: service
+      annotations:
+        summary: "REDIS container đã TẮT tại : [ {{ $labels.instance }} ]  trong 1 phút vừa qua"
+        description: |
+          REDIS CONTAINER HIỆN TẠI ĐANG TẮT........
+
     - alert: Kafka Container Die
       expr: absent(container_last_seen{name="kafka-isofh",instance="10.0.0.55:11092"}) == 1
       for: 1m

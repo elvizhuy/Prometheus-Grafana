@@ -49,6 +49,10 @@ receivers:
   - url: 'http://10.0.0.13:9088/alert/-824908019'
     send_resolved: true
 
+- name: Systems
+  webhook_configs:
+  - url: 'http://10.0.0.13:9087/alert/-815609975'
+    send_resolved: true
 
 route:
   continue: false
@@ -160,7 +164,14 @@ route:
         app_type: dr-allen-service-dead
         instance: 10.0.0.55:11092
         category: service
-      receiver: System-Container
+      receiver: Systems
+
+    - match:
+        alertname: Frontend Quản lý máy chủ Container Tắt
+        app_type: dr-allen-service-dead
+        instance: 10.0.0.55:11092
+        category: service
+      receiver: Systems
 
     - match:
         alertname: Kafka Container Die
