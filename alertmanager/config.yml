@@ -16,7 +16,7 @@ receivers:
 
 - name: BV-BachMai-telegram
   webhook_configs:
-  - url: 'http://10.0.0.232:9087/alert/-932865047'
+  - url: 'http://10.0.0.13:9088/alert/-945958075'
     send_resolved: true
   # telegram_configs:
   # - api_url: https://api.telegram.org
@@ -31,7 +31,7 @@ receivers:
 
 - name: Mediplus-telegram
   webhook_configs:
-  - url: 'http://10.0.0.232:9087/alert/-866646704'
+  - url: 'http://10.0.0.13:9088/alert/-945958075'
     send_resolved: true
   # telegram_configs:
   # - api_url: https://api.telegram.org
