@@ -98,6 +98,49 @@ route:
         instance: 10.0.0.55:11092
         category: cpu
       receiver: System-Container
+
+    - match:
+        alertname: Zookeeper Container Cpu High
+        app_type: dr-allen-cpu
+        instance: 10.0.0.55:11092
+        category: cpu
+      receiver: System-Container
+
+    - match:
+        alertname: Frontend Quanlybackup Container Cpu High
+        app_type: dr-allen-cpu
+        instance: 10.0.0.55:11092
+        category: cpu
+      receiver: System-Container
+
+    - match:
+        alertname: Golang App Container Cpu High
+        app_type: dr-allen-cpu
+        instance: 10.0.0.55:11092
+        category: cpu
+      receiver: System-Container
+
+    - match:
+        alertname: searching-service Container Cpu High
+        app_type: dr-allen-cpu
+        instance: 10.0.0.55:11092
+        category: cpu
+      receiver: System-Container
+
+    - match:
+        alertname: disk-partition-service Container Cpu High
+        app_type: dr-allen-cpu
+        instance: 10.0.0.55:11092
+        category: cpu
+      receiver: System-Container
+
+    - match:
+        alertname: Redis Container Cpu High
+        app_type: dr-allen-cpu
+        instance: 10.0.0.55:11092
+        category: cpu
+      receiver: System-Container
+  
 # rule_files:
 # - 'containers/DrAllen/CPU/DrAllenCpu.yml'
 # - 'containers/DrAllen/RAM/DrAllenRam.yml'
