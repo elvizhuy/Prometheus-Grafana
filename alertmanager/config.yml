@@ -140,6 +140,13 @@ route:
         instance: 10.0.0.55:11092
         category: cpu
       receiver: System-Container
+
+    - match:
+        alertname: Kafka Container Memory
+        app_type: dr-allen-memory
+        instance: 10.0.0.55:11092
+        category: memory
+      receiver: System-Container
   
 # rule_files:
 # - 'containers/DrAllen/CPU/DrAllenCpu.yml'
