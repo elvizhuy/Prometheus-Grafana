@@ -46,7 +46,7 @@ receivers:
 
 - name: System-Container
   webhook_configs:
-  - url: 'http://10.0.0.13:9088/alert/-999710731'
+  - url: 'http://10.0.0.13:9088/alert/-945958075'
     send_resolved: true
 
 
