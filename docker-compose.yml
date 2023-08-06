@@ -104,28 +104,28 @@ services:
       - 9087:9087
     restart: always
 
-# Bot Alert Container
-  prometheus-bot-container:
-    container_name: system-bot-container
-    image: bachdangtuan/prom-golang-bot:latest
+# # Bot Alert Container
+#   prometheus-bot-container:
+#     container_name: system-bot-container
+#     image: bachdangtuan/prom-golang-bot:latest
 
-    volumes:
-      - /etc/localtime:/etc/localtime:ro
-      - ./Telegrambot-Container/:/etc/telegrambot/
-      - ./Telegrambot-Container/config.yaml:/config.yaml  
-    ports:
-      - 9088:9087
-    restart: always
+#     volumes:
+#       - /etc/localtime:/etc/localtime:ro
+#       - ./Telegrambot-Container/:/etc/telegrambot/
+#       - ./Telegrambot-Container/config.yaml:/config.yaml  
+#     ports:
+#       - 9088:9087
+#     restart: always
 
-# Bot Alert For K8s
-  prometheus-bot-kubenetes:
-    container_name: system-bot-k8s
-    image: bachdangtuan/prom-golang-bot:latest
+# # Bot Alert For K8s
+#   prometheus-bot-kubenetes:
+#     container_name: system-bot-k8s
+#     image: bachdangtuan/prom-golang-bot:latest
 
-    volumes:
-      - /etc/localtime:/etc/localtime:ro
-      - ./Telegrambot-Kubenetes/:/etc/telegrambot/
-      - ./Telegrambot-Kubenetes/config.yaml:/config.yaml  
-    ports:
-      - 9089:9087
-    restart: always
+#     volumes:
+#       - /etc/localtime:/etc/localtime:ro
+#       - ./Telegrambot-Kubenetes/:/etc/telegrambot/
+#       - ./Telegrambot-Kubenetes/config.yaml:/config.yaml  
+#     ports:
+#       - 9089:9087
+#     restart: always
