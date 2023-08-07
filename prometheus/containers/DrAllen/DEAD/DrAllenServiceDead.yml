@@ -52,3 +52,29 @@ groups:
         description: |
           HUY NG
           KAFKA UI CONTAINER IS DEAD
+
+
+    - alert: Container Tắt
+      expr: container_memory_usage_bytes{name!=""} == 0
+      for: 1m
+      labels:
+        severity: KHẨN
+        app_type: Demo
+        category: container_service
+      annotations:
+        summary: "Container đã TẮT tại: [{{ $labels.instance }}]"
+        description: |
+          CONTAINER HIỆN TẠI ĐANG TẮT........
+        timestamp: "Thời gian bắt đầu xảy ra {{ $value }}"
+        
+    - alert: ContainerDownNew
+      expr: time() - container_last_seen > 60
+      for: 1m
+      labels:
+        severity: critical
+      annotations:
+        Description: |-
+          A container is down for 30s
+            VALUE = {{ $value }}
+            LABELS = {{ $labels }}
+        Title: Container down (instance {{ $labels.instance }})
