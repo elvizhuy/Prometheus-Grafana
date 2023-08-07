@@ -23,7 +23,7 @@ groups:
         app_type: dr-allen-service-dead
         category: service
       annotations:
-        summary: "REDIS container đã TẮT tại : [ {{ $labels.instance }} ]  trong 1 phút vừa qua"
+        summary: "FRONTEND QUẢN LÝ MÁY CHỦ container đã TẮT tại : [ {{ $labels.instance }} ]  trong 1 phút vừa qua"
         description: |
           FRONTEND QUẢN LÝ MÁY CHỦ CONTAINER HIỆN TẠI ĐANG TẮT........
 
