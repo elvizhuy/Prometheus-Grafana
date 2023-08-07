@@ -8,51 +8,51 @@ groups:
       for: 1m
       labels:
         severity: KHẨN
-        app_type: dr-allen-service-dead
+        app_type: dr allen service dead
         category: service
       annotations:
-        summary: "REDIS container đã TẮT tại : [ {{ $labels.instance }} ]  trong 1 phút vừa qua"
+        summary: "REDIS container đã TẮT tại : [ {{ $labels.instance }} ]"
         description: |
           REDIS CONTAINER HIỆN TẠI ĐANG TẮT........
+        timestamp: "Thời gian bắt đầu xảy ra {{ $value }}"
 
     - alert: Frontend Quản lý máy chủ Container Tắt
       expr: absent(container_last_seen{name="frontend_quanlybackup_dev",instance="10.0.0.55:11092"}) == 1
       for: 1m
       labels:
         severity: KHẨN
-        app_type: dr-allen-service-dead
+        app_type: dr allen service dead
         category: service
       annotations:
-        summary: "REDIS container đã TẮT tại : [ {{ $labels.instance }} ]  trong 1 phút vừa qua"
+        summary: "FRONTEND QUẢN LÝ MÁY CHỦ container đã TẮT tại : [ {{ $labels.instance }} ]"
         description: |
           FRONTEND QUẢN LÝ MÁY CHỦ CONTAINER HIỆN TẠI ĐANG TẮT........
+        timestamp: "Thời gian bắt đầu xảy ra {{ $value }}"
 
     - alert: Kafka Container Die
       expr: absent(container_last_seen{name="kafka-isofh",instance="10.0.0.55:11092"}) == 1
       for: 1m
       labels:
-        severity: critical
-        app_type: dr-allen-service-dead
+        severity: KHẨN
+        app_type: dr allen service dead
         category: service
       annotations:
-        summary: "KAFKA container is SHUTDOWN on {{ $labels.instance }} for more than 1 minutes"
+        summary: "KAFKA container is SHUTDOWN on {{ $labels.instance }}"
         description: |
           HUY NG
-          KAFKA CONTAINER IS DEAD
+          KAFKA CONTAINER HIỆN TẠI ĐANG TẮT........
 
     - alert: Kafka UI Container Die
       expr: absent(container_last_seen{name="kafka-ui-isofh",instance="10.0.0.55:11092"}) == 1
       for: 1m
       labels:
-        severity: critical
-        app_type: dr-allen-service-dead
+        severity: KHẨN
+        app_type: dr allen service dead
         category: service
       annotations:
-        summary: "KAFKA UI container is SHUTDOWN on {{ $labels.instance }} for more than 1 minutes"
+        summary: "KAFKA UI container is SHUTDOWN on {{ $labels.instance }}"
         description: |
           HUY NG
-          KAFKA UI CONTAINER IS DEAD
-
 
     - alert: Container Tắt
       expr: container_memory_usage_bytes{name!=""} == 0

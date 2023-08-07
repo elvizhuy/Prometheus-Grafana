@@ -86,7 +86,7 @@ route:
 
 #DrALLEN Containers
   - match_re: 
-      app_type: (dr-allen-cpu|dr-allen-memory|dr-allen-service-dead)
+      app_type: (dr-allen-cpu|dr-allen-memory|dr allen service dead)
     receiver: System-Container
     routes:
     - match:
@@ -161,34 +161,32 @@ route:
 
     - match:
         alertname: Redis Container Tắt
-        app_type: dr-allen-service-dead
+        app_type: dr allen service dead
         instance: 10.0.0.55:11092
         category: service
       receiver: Systems
 
     - match:
         alertname: Frontend Quản lý máy chủ Container Tắt
-        app_type: dr-allen-service-dead
+        app_type: dr allen service dead
         instance: 10.0.0.55:11092
         category: service
       receiver: Systems
 
     - match:
         alertname: Kafka Container Die
-        app_type: dr-allen-service-dead
+        app_type: dr allen service dead
         instance: 10.0.0.55:11092
         category: service
       receiver: System-Container
 
     - match:
         alertname: Kafka UI Container Die
-        app_type: dr-allen-service-dead
+        app_type: dr allen service dead
         instance: 10.0.0.55:11092
         category: service
       receiver: System-Container
-# rule_files:
-# - 'containers/DrAllen/CPU/DrAllenCpu.yml'
-# - 'containers/DrAllen/RAM/DrAllenRam.yml'
+
 
 templates:
 - /etc/alertmanager/*.tmpl
