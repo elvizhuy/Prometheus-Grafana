@@ -59,8 +59,7 @@ groups:
       for: 1m
       labels:
         severity: KHẨN
-        app_type: Demo
-        category: container_service
+        category: service
       annotations:
         summary: "Container đã TẮT tại: [{{ $labels.instance }}]"
         description: |
@@ -72,6 +71,7 @@ groups:
       for: 1m
       labels:
         severity: critical
+        category: service
       annotations:
         Description: |-
           A container is down for 30s
