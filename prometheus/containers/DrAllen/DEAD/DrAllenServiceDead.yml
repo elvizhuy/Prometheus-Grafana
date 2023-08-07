@@ -14,6 +14,7 @@ groups:
         summary: "REDIS container đã TẮT tại : [ {{ $labels.instance }} ]"
         description: |
           REDIS CONTAINER HIỆN TẠI ĐANG TẮT........
+        timestamp: "Thời gian bắt đầu xảy ra {{ $value }}"
 
     - alert: Frontend Quản lý máy chủ Container Tắt
       expr: absent(container_last_seen{name="frontend_quanlybackup_dev",instance="10.0.0.55:11092"}) == 1
@@ -26,6 +27,7 @@ groups:
         summary: "FRONTEND QUẢN LÝ MÁY CHỦ container đã TẮT tại : [ {{ $labels.instance }} ]"
         description: |
           FRONTEND QUẢN LÝ MÁY CHỦ CONTAINER HIỆN TẠI ĐANG TẮT........
+        timestamp: "Thời gian bắt đầu xảy ra {{ $value }}"
 
     - alert: Kafka Container Die
       expr: absent(container_last_seen{name="kafka-isofh",instance="10.0.0.55:11092"}) == 1
