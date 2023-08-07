@@ -34,7 +34,7 @@ groups:
       for: 1m
       labels:
         severity: KHẨN
-        app_type: dr allen service dead
+        app_type: test service dead
         category: service
       annotations:
         summary: "KAFKA container is SHUTDOWN on {{ $labels.instance }}"
@@ -47,7 +47,7 @@ groups:
       for: 1m
       labels:
         severity: KHẨN
-        app_type: dr allen service dead
+        app_type: test service dead
         category: service
       annotations:
         summary: "KAFKA UI container is SHUTDOWN on {{ $labels.instance }}"
@@ -60,6 +60,7 @@ groups:
       labels:
         severity: KHẨN
         category: service
+        app_type: test service dead
       annotations:
         summary: "Container đã TẮT tại: [{{ $labels.instance }}]"
         description: |
@@ -72,6 +73,7 @@ groups:
       labels:
         severity: critical
         category: service
+        app_type: test service dead
       annotations:
         Description: |-
           A container is down for 30s

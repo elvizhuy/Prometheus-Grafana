@@ -86,7 +86,7 @@ route:
 
 #DrALLEN Containers
   - match_re: 
-      app_type: (dr-allen-cpu|dr-allen-memory|dr allen service dead)
+      app_type: (dr-allen-cpu|dr-allen-memory|test service dead)
     receiver: System-Container
     routes:
     - match:
