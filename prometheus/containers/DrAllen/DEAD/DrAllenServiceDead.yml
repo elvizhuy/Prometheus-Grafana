@@ -75,8 +75,8 @@ groups:
         category: service
         app_type: test service dead
       annotations:
-        Description: |-
+        Description: |
           A container is down for 30s
-            Value = {{ $value }}
-            Container Name = {{ $labels.name }}
+          Value = {{ $value }}
+          Container Name = {{ $labels.name }}
         Title: Container down (instance {{ $labels.instance }})
