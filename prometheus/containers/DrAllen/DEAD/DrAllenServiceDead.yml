@@ -67,9 +67,9 @@ groups:
           CONTAINER HIỆN TẠI ĐANG TẮT........
         timestamp: "Thời gian bắt đầu xảy ra {{ $value }}"
         
-    - alert: ContainerDownNew
+    - alert: Container ĐÃ TẮT
       expr: time() - container_last_seen > 60
-      for: 0m
+      for: 1m
       labels:
         severity: critical
         category: service
