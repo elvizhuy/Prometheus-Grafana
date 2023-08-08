@@ -88,7 +88,7 @@ groups:
       labels:
         severity: critical
         category: service
-        app_type: test service dead
+        app_type: service die
       annotations:
         description: |
           A container is down
