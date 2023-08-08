@@ -84,8 +84,8 @@ groups:
 
     - alert: Container Exited !!! HUY Alert
       expr: container_status_state{state="Exited"} == 1
-      FOR: 2m
-      LABELS:
+      for: 2m
+      labels:
         severity: critical
         category: service
         app_type: test service dead
