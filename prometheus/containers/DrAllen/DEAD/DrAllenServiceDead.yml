@@ -82,12 +82,15 @@ groups:
           Container Name = {{ $labels.name }}
         title: Container down (instance {{ $labels.instance }})
 
-    - alert: HighCPUUsage
-      IF: container_status_state{state="Exited"} == 1
+    - alert: Container Exited !!! HUY Alert
+      expr: container_status_state{state="Exited"} == 1
       FOR: 2m
-      LABELS: 
-        severity="critical",
-        alertname="HighCPUUsage",
-        instance="{{ $labels.instance }}",
-        instance_type="{{ label_replace(instance, "instance_type", "$1", "instance", "(.*)-[0-9]+") }}"
+      LABELS:
+        severity: critical
+        category: service
+        app_type: test service dead
+        # severity="critical",
+        # alertname="Container Exited !!! HUY Alert",
+        # instance="{{ $labels.instance }}",
+        # instance_type="{{ label_replace(instance, "instance_type", "$1", "instance", "(.*)-[0-9]+") }}"
         

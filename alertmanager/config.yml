@@ -30,19 +30,19 @@ receivers:
   #   parse_mode: ""
 
 - name: Mediplus-telegram
-  webhook_configs:
-  - url: 'http://10.0.0.13:9088/alert/-945958075'
-    send_resolved: true
-  # telegram_configs:
-  # - api_url: https://api.telegram.org
-  #   bot_token: 5765051913:AAEXYcQKE0h8FTiC8Ba0DgNutliSMBbXAjw
-  #   chat_id: -866646704
-  #   #template: template.tmpl
-  #   disable_notifications: false
-  #   http_config:
-  #     follow_redirects: true
+  # webhook_configs:
+  # - url: 'http://10.0.0.13:9088/alert/-945958075'
   #   send_resolved: true
-  #   parse_mode: ""
+  telegram_configs:
+  - api_url: https://api.telegram.org
+    bot_token: 5765051913:AAEXYcQKE0h8FTiC8Ba0DgNutliSMBbXAjw
+    chat_id: -866646704
+    #template: template.tmpl
+    disable_notifications: false
+    http_config:
+      follow_redirects: true
+    send_resolved: true
+    parse_mode: ""
 
 # - name: System-Container
 #   webhook_configs:
@@ -53,6 +53,7 @@ receivers:
   webhook_configs:
   - url: 'http://10.0.0.13:9087/alert/-815609975'
     send_resolved: true
+
 
 route:
   continue: false
@@ -181,11 +182,11 @@ route:
       receiver: System-Container
 
     - match:
-        alertname: Container Tắt
+        alertname: Container Exited !!! HUY Alert
         app_type: test service dead
         instance: 10.0.0.55:11092
         category: service
-      receiver: Systems
+      receiver: Mediplus-telegram
 
     - match:
           alertname: Container ĐÃ TẮT
