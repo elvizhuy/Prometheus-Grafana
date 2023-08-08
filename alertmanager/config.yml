@@ -35,8 +35,8 @@ receivers:
   #   send_resolved: true
   telegram_configs:
   - api_url: https://api.telegram.org
-    bot_token: 5765051913:AAEXYcQKE0h8FTiC8Ba0DgNutliSMBbXAjw
-    chat_id: -866646704
+    bot_token: 6588801252:AAFJD4d1WW0L36mS_HfRlzTBIy3B7KJkIvc
+    chat_id: -824908019
     #template: template.tmpl
     disable_notifications: false
     http_config:
@@ -190,8 +190,8 @@ route:
 
   - match:
       alertname: Container Exited !!! HUY Alert
-      app_type: test service dead
-      instance: 10.0.0.55:11092
+      # app_type: test service dead
+      # instance: 10.0.0.55:11092
       category: service
     receiver: Mediplus-telegram
 
