@@ -68,7 +68,7 @@ groups:
         timestamp: "Thời gian bắt đầu xảy ra {{ $value }}"
         
     - alert: Container ĐÃ TẮT
-      expr: 60 < time() - container_last_seen < 1000
+      expr: time() - container_last_seen > 60
       # expr: container_state{state="stopped"} == 1
       for: 0m
       labels:
@@ -81,3 +81,13 @@ groups:
           Value = {{ $value }}
           Container Name = {{ $labels.name }}
         title: Container down (instance {{ $labels.instance }})
+
+    - alert: HighCPUUsage
+      IF: container_status_state{state="Exited"} == 1
+      FOR: 2m
+      LABELS: 
+        severity="critical",
+        alertname="HighCPUUsage",
+        instance="{{ $labels.instance }}",
+        instance_type="{{ label_replace(instance, "instance_type", "$1", "instance", "(.*)-[0-9]+") }}"
+        
