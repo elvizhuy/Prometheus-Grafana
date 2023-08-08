@@ -69,8 +69,6 @@ scrape_configs:
     static_configs:
       - targets: ['10.0.0.55:8080']
 
-
-
   - job_name: 'node-exporter'
     scrape_interval: 5s
     dns_sd_configs:
