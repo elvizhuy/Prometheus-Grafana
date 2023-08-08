@@ -188,7 +188,7 @@ route:
       receiver: Systems
 
     - match:
-          alertname: ContainerDownNew
+          alertname: Container ĐÃ TẮT
           app_type: test service dead
           instance: 10.0.0.55:11092
           category: service
