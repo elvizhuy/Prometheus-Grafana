@@ -44,10 +44,10 @@ receivers:
     send_resolved: true
     parse_mode: ""
 
-# - name: System-Container
-#   webhook_configs:
-#   - url: 'http://10.0.0.13:9088/alert/-824908019'
-#     send_resolved: true
+- name: System-Container
+  webhook_configs:
+  - url: 'http://10.0.0.13:9088/alert/-824908019'
+    send_resolved: true
 
 - name: Systems
   webhook_configs:
