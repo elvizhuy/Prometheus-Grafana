@@ -77,6 +77,6 @@ groups:
       annotations:
         Description: |-
           A container is down for 30s
-            VALUE = {{ $value }}
-            LABELS = {{ $labels }}
+            Value = {{ $value }}
+            Container Name = {{ $labels.name }}
         Title: Container down (instance {{ $labels.instance }})
