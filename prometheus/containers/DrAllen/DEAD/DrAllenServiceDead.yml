@@ -83,7 +83,7 @@ groups:
         title: Container down (instance {{ $labels.instance }})
 
     - alert: Container Exited !!! HUY Alert
-      expr: container_state_status{state="Exited"} == 1
+      expr: container_state_status{status="exited"} == 1
       for: 2m
       labels:
         severity: critical
