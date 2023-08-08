@@ -84,11 +84,15 @@ groups:
 
     - alert: Container Exited !!! HUY Alert
       expr: container_state_status{status="exited"} == 1
-      for: 2m
+      for: 1m
       labels:
         severity: critical
         category: service
         app_type: test service dead
+      annotations:
+        description: |
+          A container is down
+          Container Name = {{ $labels.name }}
         # severity="critical",
         # alertname="Container Exited !!! HUY Alert",
         # instance="{{ $labels.instance }}",
