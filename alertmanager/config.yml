@@ -182,18 +182,18 @@ route:
       receiver: System-Container
 
     - match:
-        alertname: Container Exited !!! HUY Alert
-        app_type: test service dead
-        instance: 10.0.0.55:11092
-        category: service
-      receiver: Mediplus-telegram
-
-    - match:
           alertname: Container ĐÃ TẮT
           app_type: test service dead
           instance: 10.0.0.55:11092
           category: service
       receiver: Systems
+      
+  - match:
+        alertname: Container Exited !!! HUY Alert
+        app_type: test service dead
+        instance: 10.0.0.55:11092
+        category: service
+    receiver: Mediplus-telegram
 
 templates:
 - /etc/alertmanager/*.tmpl
