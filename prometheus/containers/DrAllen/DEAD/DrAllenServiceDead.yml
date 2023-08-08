@@ -68,7 +68,7 @@ groups:
         timestamp: "Thời gian bắt đầu xảy ra {{ $value }}"
         
     - alert: Container ĐÃ TẮT
-      expr: time() - container_last_seen > 60 * 60
+      expr: 60 < time() - container_last_seen < 1000
       # expr: container_state{state="stopped"} == 1
       for: 0m
       labels:
