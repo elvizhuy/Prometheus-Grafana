@@ -18,7 +18,7 @@ rule_files:
   # - 'containers/DrAllen/RAM/DrAllenRam.yml'
   # - 'containers/DrAllen/CPU/DrAllenCpu.yml'
   - 'containers/DrAllen/DEAD/DrAllenServiceDead.yml'
-  
+
 # alert
 alerting:
   alertmanagers:
@@ -63,6 +63,12 @@ scrape_configs:
         port: 8080
     static_configs:
       - targets: ['cadvisor:8080','10.0.0.55:11092']
+
+  - job_name: 'docker-state'
+    scrape_interval: 5s
+    static_configs:
+      - targets: ['10.0.0.55:8080']
+
 
 
   - job_name: 'node-exporter'
