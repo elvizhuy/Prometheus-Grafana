@@ -181,7 +181,6 @@ route:
         category: service
       receiver: System-Container
 
-<<<<<<< HEAD
   - match:
       alertname: Container Tắt
       app_type: test service dead
