@@ -7,7 +7,7 @@ receivers:
   - api_url: https://api.telegram.org
     bot_token: 6612849064:AAGR795EyHyn278L0WRLeqiTyBuCWRRhjMg
     chat_id: -998222571
-    #template: template.tmpl  # Thay 'template-name' bằng tên template bạn đã tạo
+    #template: template.tmpl
     disable_notifications: false
     http_config:
       follow_redirects: true
@@ -51,7 +51,7 @@ receivers:
 
 - name: Systems
   webhook_configs:
-  - url: 'http://10.0.0.13:9087/alert/-815609975'
+  - url: 'http://10.0.0.13:9087/alert/-824908019'
     send_resolved: true
 
 route:
@@ -180,19 +180,20 @@ route:
         category: service
       receiver: System-Container
 
-    - match:
-        alertname: Container Tắt
-        app_type: test service dead
-        instance: 10.0.0.55:11092
-        category: service
-      receiver: Systems
+  - match:
+      alertname: Container Tắt
+      app_type: test service dead
+      instance: 10.0.0.55:11092
+      category: service
+    receiver: Systems
 
-    - match:
-          alertname: Container ĐÃ TẮT
-          app_type: test service dead
-          instance: 10.0.0.55:11092
-          category: service
-      receiver: Systems
+  - match:
+      alertname: HUY Container ĐÃ TẮT
+      app_type: test service dead
+      instance: 10.0.0.55:8080
+      category: service
+    receiver: Systems
+
 
 templates:
 - /etc/alertmanager/*.tmpl
