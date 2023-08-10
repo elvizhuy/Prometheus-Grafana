@@ -82,16 +82,20 @@ groups:
           Container Name = {{ $labels.name }}
         title: Container down (instance {{ $labels.instance }})
 
-    - alert: HUY Container ĐÃ TẮT
+    - alert: Container Exited !!! HUY Alert
       expr: container_state_status{status="exited"} == 1
-      for: 0m
+      for: 1m
       labels:
         severity: critical
         category: service
-        app_type: test service dead
+        app_type: service die
       annotations:
         description: |
-          A container is down for 30s
-          Value = {{ $value }}
+          A container is down
           Container Name = {{ $labels.name }}
-        title: Container down (instance {{ $labels.instance }})
+        # severity="critical",
+        # alertname="Container Exited !!! HUY Alert",
+        # instance="{{ $labels.instance }}",
+        # instance_type="{{ label_replace(instance, "instance_type", "$1", "instance", "(.*)-[0-9]+") }}"
+        
+
