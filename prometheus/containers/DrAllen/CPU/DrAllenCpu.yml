@@ -1,35 +1,7 @@
 groups:
   - name: Container CPU For Dr Allen Server
     rules:
-
-    - alert: Kafka Container Cpu High
-      # expr: rate(container_cpu_usage_seconds_total{instance="10.0.0.55:11092",name="redis-server"}[1m])
-      expr: 100 * (1 - rate(container_cpu_usage_seconds_total{instance="10.0.0.55:11092",name="kafka-isofh"}[5m])) > 80
-      for: 1m
-      labels:
-        severity: critical
-        app_type: dr-allen-cpu
-        category: cpu
-      annotations:
-        summary: "CPU of KAFKA container is high on {{$labels.instance}}"
-        description: |
-          HUY NG
-          CPU of KAFKA container is high for more than 1 minutes
-
-    - alert: Kafka UI Container Cpu High
-      # expr: rate(container_cpu_usage_seconds_total{instance="10.0.0.55:11092",name="redis-server"}[1m])
-      expr: 100 * (1 - rate(container_cpu_usage_seconds_total{instance="10.0.0.55:11092",name="kafka-ui-isofh"}[5m])) > 80
-      for: 1m
-      labels:
-        severity: critical
-        app_type: dr-allen-cpu
-        category: cpu
-      annotations:
-        summary: "CPU of KAFKA UI container is high on {{$labels.instance}}"
-        description: |
-          HUY NG
-          CPU of KAFKA UI container is high for more than 1 minutes
-
+    
     - alert: Zookeeper Container Cpu High
       # expr: rate(container_cpu_usage_seconds_total{instance="10.0.0.55:11092",name="redis-server"}[1m])
       expr: 100 * (1 - rate(container_cpu_usage_seconds_total{instance="10.0.0.55:11092",name="zookeeper-isofh"}[5m])) > 80

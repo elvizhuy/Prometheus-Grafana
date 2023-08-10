@@ -100,19 +100,6 @@ route:
       app_type: (dr-allen-cpu|dr-allen-memory|test service dead)
     receiver: System-Container
     routes:
-    - match:
-        alertname: Kafka Container Cpu High
-        app_type: dr-allen-cpu
-        instance: 10.0.0.55:11092
-        category: cpu
-      receiver: System-Container
-      
-    - match:
-        alertname: Kafka UI Container Cpu High
-        app_type: dr-allen-cpu
-        instance: 10.0.0.55:11092
-        category: cpu
-      receiver: System-Container
 
     - match:
         alertname: Zookeeper Container Cpu High
@@ -154,20 +141,6 @@ route:
         app_type: dr-allen-cpu
         instance: 10.0.0.55:11092
         category: cpu
-      receiver: System-Container
-
-    - match:
-        alertname: Kafka Container Memory
-        app_type: dr-allen-memory
-        instance: 10.0.0.55:11092
-        category: memory
-      receiver: System-Container
-  
-    - match:
-        alertname: Kafka UI Container Memory
-        app_type: dr-allen-memory
-        instance: 10.0.0.55:11092
-        category: memory
       receiver: System-Container
 
     - match:
