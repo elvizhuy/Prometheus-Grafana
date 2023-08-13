@@ -62,7 +62,7 @@ scrape_configs:
         type: 'A'
         port: 8080
     static_configs:
-      - targets: ['cadvisor:8080','10.0.0.55:19093']
+      - targets: ['10.0.0.55:19093']
 
   - job_name: 'docker-state'
     scrape_interval: 5s
