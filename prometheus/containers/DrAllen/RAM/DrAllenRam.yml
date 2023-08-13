@@ -16,28 +16,3 @@ groups:
           HUY NG
           Memory of REDIS container is USED => [ {{ query (printf "container_memory_usage_bytes{name='redis-server',instance=~'%s'}"   $labels.instance) | first | value | humanize}} ]
 
-    - alert: Kafka Container Memory
-      expr: container_memory_usage_bytes{name="kafka-isofh",instance="10.0.0.55:11092"}
-      for: 1m
-      labels:
-        severity: critical
-        app_type: dr-allen-memory
-        category: memory
-      annotations:
-        summary: "Memory of KAFKA container is used on {{ $labels.instance }} "
-        description: |
-          HUY NG
-          Memory of KAFKA container is USED => [ {{ query (printf "container_memory_usage_bytes{name='kafka-isofh',instance=~'%s'}"   $labels.instance) | first | value | humanize}} ]
-
-    - alert: Kafka UI Container Memory
-      expr: container_memory_usage_bytes{name="kafka-ui-isofh",instance="10.0.0.55:11092"}
-      for: 1m
-      labels:
-        severity: critical
-        app_type: dr-allen-memory
-        category: memory
-      annotations:
-        summary: "Memory of KAFKA UI container is used on {{ $labels.instance }} "
-        description: |
-          HUY NG
-          Memory of KAFKA UI container is USED => [ {{ query (printf "container_memory_usage_bytes{name='kafka-ui-isofh',instance=~'%s'}"   $labels.instance) | first | value | humanize}} ]

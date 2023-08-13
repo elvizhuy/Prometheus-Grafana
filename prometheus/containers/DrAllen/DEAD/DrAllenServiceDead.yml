@@ -29,30 +29,6 @@ groups:
           FRONTEND QUẢN LÝ MÁY CHỦ CONTAINER HIỆN TẠI ĐANG TẮT........
         timestamp: "Thời gian bắt đầu xảy ra {{ $value }}"
 
-    - alert: Kafka Container Die
-      expr: absent(container_last_seen{name="kafka-isofh",instance="10.0.0.55:11092"}) == 1
-      for: 1m
-      labels:
-        severity: KHẨN
-        app_type: test service dead
-        category: service
-      annotations:
-        summary: "KAFKA container is SHUTDOWN on {{ $labels.instance }}"
-        description: |
-          HUY NG
-          KAFKA CONTAINER HIỆN TẠI ĐANG TẮT........
-
-    - alert: Kafka UI Container Die
-      expr: absent(container_last_seen{name="kafka-ui-isofh",instance="10.0.0.55:11092"}) == 1
-      for: 1m
-      labels:
-        severity: KHẨN
-        app_type: test service dead
-        category: service
-      annotations:
-        summary: "KAFKA UI container is SHUTDOWN on {{ $labels.instance }}"
-        description: |
-          HUY NG
 
     - alert: Container Tắt
       expr: container_memory_usage_bytes{name!=""} == 0
@@ -69,7 +45,6 @@ groups:
         
     - alert: Container ĐÃ TẮT
       expr: time() - container_last_seen > 60
-      # expr: container_state{state="stopped"} == 1
       for: 0m
       labels:
         severity: critical
@@ -98,3 +73,4 @@ groups:
         # instance="{{ $labels.instance }}",
         # instance_type="{{ label_replace(instance, "instance_type", "$1", "instance", "(.*)-[0-9]+") }}"
         
+
