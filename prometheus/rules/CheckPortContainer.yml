@@ -4,9 +4,9 @@ groups:
 
     - alert: Port Container Down
       expr: probe_success{job="Check_Port_Container"} == 0
-      app_type: Port
       labels:
         severity: critical
+        app_type: Port
       annotations:
         description: |-
           Node memory is filling up (< 10% left)
