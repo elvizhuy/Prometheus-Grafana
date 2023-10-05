@@ -44,6 +44,21 @@ services:
     deploy:
       mode: global
 
+  blackbox-exporter:
+    image: prom/blackbox_exporter
+    container_name: system-blackbox-exporter
+    volumes:
+      - /blackbox :/config
+      - /etc/localtime:/etc/localtime:ro
+    command:
+      - '--config.file=/etc/blackbox_exporter/config.yml'
+    ports:
+      - 19400:9115
+    restart: always
+    deploy:
+      mode: global
+
+
   alertmanager:
     image: prom/alertmanager
     container_name: system-alertmanager
