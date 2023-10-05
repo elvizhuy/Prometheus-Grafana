@@ -45,7 +45,7 @@ services:
       mode: global
 
   blackbox-exporter:
-    image: prom/blackbox_exporter
+    image: prom/blackbox-exporter
     container_name: system-blackbox-exporter
     volumes:
       - ./blackbox/blackbox.yml :/etc/blackbox_exporter/config.yml
