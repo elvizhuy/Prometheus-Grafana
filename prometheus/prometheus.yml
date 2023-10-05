@@ -14,11 +14,6 @@ rule_files:
   - 'rules/BachMaiRules.yml'
   - 'rules/CheckDomainStatus.yml'
   - 'rules/CheckPortContainer.yml'
-#  - "rules/MediplusRules.yml"
-#  - "containers/GrafanaRules.yml"
-#  - "containers/Mediplus/RedisRules.yml"
-  # - 'containers/DrAllen/RAM/DrAllenRam.yml'
-  # - 'containers/DrAllen/CPU/DrAllenCpu.yml'
   - 'containers/DrAllen/DEAD/DrAllenServiceDead.yml'
 
 # alert
@@ -28,9 +23,9 @@ alerting:
       static_configs:
         - targets:
             - "alertmanager:9093"
-      basic_auth:
-        username: admin
-        password: daniel@0908
+      # basic_auth:
+      #   username: admin
+      #   password: daniel@0908
 
 # A scrape configuration containing exactly one endpoint to scrape:
 # Here it's Prometheus itself.

@@ -74,8 +74,8 @@ route:
   receiver: System-Team
     
   routes:
-  - match_re:
-      app_type: port
+  - match:
+      app_type: Port
     receiver: System-Team 
 
   - match_re: 
