@@ -72,8 +72,12 @@ route:
   group_wait: 30s
   repeat_interval: 1m
   receiver: System-Team
-  
+    
   routes:
+  - match:
+      app_type: port
+    receiver: System-Team 
+
   - match_re: 
       app_type: (bachmai|mediplus)
     receiver: System-Team 
