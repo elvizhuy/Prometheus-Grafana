@@ -51,7 +51,7 @@ services:
       - ./blackbox :/etc/blackbox_exporter/
       - /etc/localtime:/etc/localtime:ro
     command:
-      - '--config.file=/etc/blackbox_exporter/config.yml'
+      - '--config.file=/etc/blackbox_exporter/blackbox.yml'
     ports:
       - 19400:9115
     restart: always
