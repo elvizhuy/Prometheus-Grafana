@@ -32,5 +32,3 @@ modules:
       valid_status_codes: []  # Defaults to 2xx
       method: GET
       # valid_ssl_certificate: false
-    targets:
-      - http://10.0.0.235:19400
