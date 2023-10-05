@@ -27,11 +27,7 @@ alerting:
       #   username: admin
       #   password: daniel@0908
 
-# A scrape configuration containing exactly one endpoint to scrape:
-# Here it's Prometheus itself.
 scrape_configs:
-  # The job name is added as a label `job=<job_name>` to any timeseries scraped from this config.
-
   - job_name: 'Bach-Mai'
     scrape_interval: 5s
     static_configs:
@@ -51,7 +47,6 @@ scrape_configs:
       password: daniel@0908
 
   - job_name: 'cadvisor'
-    # Override the global default and scrape targets from this job every 5 seconds.
     scrape_interval: 5s
     dns_sd_configs:
       - names:
@@ -94,8 +89,6 @@ scrape_configs:
     scheme: http
     static_configs:
       - targets:
-        - http://prometheus.io    # Target to probe with http.
-        - https://prometheus.io   # Target to probe with https.
         - http://10.0.0.211:19400 # Target to probe with http on port 8080.
         - http://10.0.0.235:19400
     relabel_configs:
@@ -133,7 +126,7 @@ scrape_configs:
       - source_labels: [__meta_dns_name]
         target_label: vhost  # and store it in 'vh
 
-  - job_name: Check_Port_Container
+  - job_name: 'Check_Port_Container'
     params:
       module:
       - tcp_connect
@@ -144,6 +137,7 @@ scrape_configs:
     static_configs:
     - targets:
       - 10.0.0.176:30000
+      - 10.0.0.235:19400
     relabel_configs:
     - source_labels: [__address__]
       separator: ;
