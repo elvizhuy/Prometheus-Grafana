@@ -136,8 +136,8 @@ scrape_configs:
     scheme: http
     static_configs:
     - targets:
-      - 10.0.0.176:30000
-      - 10.0.0.235:19400
+      - 10.0.0.235:5000
+      - 10.0.0.235:9087
     relabel_configs:
     - source_labels: [__address__]
       separator: ;
