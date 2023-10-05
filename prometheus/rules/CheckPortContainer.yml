@@ -1,5 +1,5 @@
 alert: Port_Container_Down
-expr: probe_success{job="Check_port_container"} == 0 
+expr: probe_success{job="Check_Port_Container"} == 0 
 labels:
   severity: critical
 annotations:
