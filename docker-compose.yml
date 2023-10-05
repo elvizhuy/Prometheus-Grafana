@@ -54,6 +54,7 @@ services:
     #   - '--config.file=/etc/blackbox_exporter/config.yml'
     volumes:
       - ./blackbox:/etc/blackbox
+      - /etc/localtime:/etc/localtime:ro
     command:
       - "--config.file=/etc/blackbox/blackbox.yml"
     ports:
