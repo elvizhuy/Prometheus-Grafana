@@ -1,6 +1,6 @@
 alert: Port Container Down
 expr: probe_success{job="Check_Port_Container"} == 0
-app_type: port 
+app_type: port
 labels:
   severity: critical
 annotations:
