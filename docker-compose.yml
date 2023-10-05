@@ -48,7 +48,7 @@ services:
     image: prom/blackbox_exporter
     container_name: system-blackbox-exporter
     volumes:
-      - /blackbox :/config
+      - /blackbox/blackbox.yml :/etc/blackbox_exporter/config.yml
       - /etc/localtime:/etc/localtime:ro
     command:
       - '--config.file=/etc/blackbox_exporter/config.yml'
