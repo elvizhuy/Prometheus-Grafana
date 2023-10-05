@@ -33,4 +33,4 @@ modules:
       method: GET
       valid_ssl_certificate: false
     targets:
-      - http://10.0.0.235:9090
+      - http://10.0.0.235:19400
