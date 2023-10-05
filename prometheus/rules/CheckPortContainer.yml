@@ -1,0 +1,11 @@
+alert: Port_Container_Down
+expr: probe_success{job="Check_port_container"}
+  == 0
+labels:
+  severity: critical
+annotations:
+  description: |-
+    Node memory is filling up (< 10% left)
+      VALUE = {{ $value }}
+      LABELS = {{ $labels }}
+  summary: Host out of memory (instance {{ $labels.instance }})
