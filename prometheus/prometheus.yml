@@ -91,7 +91,7 @@ scrape_configs:
   - job_name: 'blackbox'
     metrics_path: /probe
     params:
-      module: [http_2xx,http_4xx]
+      module: [http_2xx]
     static_configs:
       - targets:
         - http://prometheus.io    # Target to probe with http.
