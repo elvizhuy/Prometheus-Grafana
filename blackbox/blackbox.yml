@@ -14,7 +14,7 @@ modules:
     prober: http
     http:
       preferred_ip_protocol: "ip4"
-      
+
   http_post_2xx:
     prober: http
     http:
@@ -33,4 +33,4 @@ modules:
       method: GET
       valid_ssl_certificate: false
     targets:
-      - http://10.0.0.13:9090
+      - http://10.0.0.235:9090
