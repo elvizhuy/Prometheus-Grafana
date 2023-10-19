@@ -14,7 +14,7 @@ rule_files:
   - 'rules/Jenkins.yml'
   - 'rules/CheckDomainStatus.yml'
   - 'rules/CheckPortContainer.yml'
-  - 'containers/DrAllen/DEAD/DrAllenServiceDead.yml'
+  # - 'containers/DrAllen/DEAD/DrAllenServiceDead.yml'
   # - "rules/NhiDongThanhPho.yml"
   # - "rules/phongkham40.yml"
   # - "rules/benhviene.yml"
@@ -38,6 +38,9 @@ alerting:
       static_configs:
         - targets:
             - "alertmanager:9093"
+      basic_auth:
+        username: admin
+        password: daniel@0908
 
 scrape_configs:
   - job_name: 'y-te-cong-cong'
