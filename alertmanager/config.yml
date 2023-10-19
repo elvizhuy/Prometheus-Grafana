@@ -33,7 +33,7 @@ receivers:
       follow_redirects: true
     send_resolved: true
     parse_mode: ""
-    
+
 - name: benhviene-telegram
   webhook_configs:
   - url: 'http://10.0.0.13:9087/alert/-944876422'
@@ -641,7 +641,7 @@ route:
       category: server  
     receiver: daihocy-telegram
     group_wait: 1s
-     
+
   - match:
       app_type: Đại Học Y
       instance: 192.168.55.197:9100

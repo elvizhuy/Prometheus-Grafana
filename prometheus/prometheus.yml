@@ -15,7 +15,7 @@ rule_files:
   - 'rules/CheckDomainStatus.yml'
   - 'rules/CheckPortContainer.yml'
   # - 'containers/DrAllen/DEAD/DrAllenServiceDead.yml'
-  # - "rules/NhiDongThanhPho.yml"
+  - "rules/NhiDongThanhPho.yml"
   # - "rules/phongkham40.yml"
   # - "rules/benhviene.yml"
   - "rules/benhvienquany110.yml"
