@@ -121,9 +121,9 @@ route:
   receiver: systems-team-telegram
 
   routes:
-  - match:
-      app_type: Port
-    receiver: systems-team-private-bot
+  # - match:
+  #     app_type: Port
+  #   receiver: systems-team-private-bot
 
   - match_re: 
       app_type: (jenkins)
