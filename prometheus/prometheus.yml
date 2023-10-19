@@ -40,8 +40,6 @@ alerting:
             - "alertmanager:9093"
 
 scrape_configs:
-  
-
   - job_name: 'y-te-cong-cong'
     scrape_interval: 5s
     static_configs:
@@ -271,7 +269,6 @@ scrape_configs:
     static_configs:
       - targets: ['10.0.0.131:9100']
 
-
   - job_name: 'prometheus'
     scrape_interval: 5s
     static_configs:
@@ -288,12 +285,12 @@ scrape_configs:
         type: 'A'
         port: 8080
     static_configs:
-      - targets: ['10.0.0.55:19093']
+      - targets: ['10.0.0.131:19093']
 
-  - job_name: 'docker-state'
-    scrape_interval: 5s
-    static_configs:
-      - targets: ['10.0.0.55:19092']
+  # - job_name: 'docker-state'
+  #   scrape_interval: 5s
+  #   static_configs:
+  #     - targets: ['10.0.0.131:19092']
 
   - job_name: 'node-exporter'
     scrape_interval: 5s
@@ -324,8 +321,7 @@ scrape_configs:
     scheme: http
     static_configs:
       - targets:
-        - http://10.0.0.211:19400 # Target to probe with http on port 8080.
-        - http://10.0.0.235:19400
+        - http://10.0.0.235:19400 # Target to probe with http on port 8080.
     relabel_configs:
       - source_labels: [__address__]
         target_label: __param_target
