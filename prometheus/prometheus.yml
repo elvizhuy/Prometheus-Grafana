@@ -270,7 +270,7 @@ scrape_configs:
   - job_name: 'Jenkins'
     scrape_interval: 5s
     static_configs:
-      - targets: ['10.0.0.131:9100']
+      - targets: ['10.0.0.131:19100']
 
   - job_name: 'prometheus'
     scrape_interval: 5s
