@@ -71,7 +71,7 @@ services:
     command:
       - '--config.file=/etc/alertmanager/config.yml'
       - '--storage.path=/alertmanager'
-      - '--web.config.file=/etc/alertmanager/web.yml'
+      # - '--web.config.file=/etc/alertmanager/web.yml'
 
   cadvisor:
     image: gcr.io/cadvisor/cadvisor
