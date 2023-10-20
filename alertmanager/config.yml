@@ -46,7 +46,7 @@ receivers:
   webhook_configs:
   - url: 'http://10.0.0.13:9087/alert/-901133248'
 
-- name: systems-team-private-bot
+- name: systems-team-telegram
   webhook_configs:
   - url: 'http://10.0.0.13:9087/alert/-858234435'
 
@@ -103,7 +103,7 @@ receivers:
   webhook_configs:
   - url: 'http://10.0.0.13:9087/alert/-815609975'
 
-- name: systems-team-private-bot
+- name: systems-private
   webhook_configs:
   - url: 'http://10.0.0.235:9087/alert/-1001975166821'
 
@@ -123,7 +123,7 @@ route:
   routes:
   # - match:
   #     app_type: Port
-  #   receiver: systems-team-private-bot
+  #   receiver: systems-team-telegram
 
   - match_re: 
       app_type: (jenkins)
@@ -133,7 +133,7 @@ route:
     - match:
         app_type: jenkins
         instance : 10.0.0.131:19100
-      receiver: systems-team-private-bot
+      receiver: systems-private
 
 
 # templates:
@@ -736,49 +736,49 @@ route:
       app_type: Bệnh Viện Quân Y 110
       instance: 10.110.55.11:9100
       category: server  
-    receiver: systems-team-private-bot
+    receiver: systems-team-telegram
     group_wait: 3s
   - match:
       app_type: Bệnh Viện Quân Y 110
       instance: 10.110.115.112:9100
       category: server  
-    receiver: systems-team-private-bot
+    receiver: systems-team-telegram
     group_wait: 3s
   - match:
       app_type: Bệnh Viện Quân Y 110
       instance: 10.110.115.89:9100
       category: server  
-    receiver: systems-team-private-bot
+    receiver: systems-team-telegram
     group_wait: 3s
   - match:
       app_type: Bệnh Viện Quân Y 110
       instance: 10.110.102.67:9100
       category: server  
-    receiver: systems-team-private-bot
+    receiver: systems-team-telegram
     group_wait: 3s
   - match:
       app_type: Bệnh Viện Quân Y 110
       instance: 10.110.115.110:9100
       category: server  
-    receiver: systems-team-private-bot
+    receiver: systems-team-telegram
     group_wait: 3s
   - match:
       app_type: Bệnh Viện Quân Y 110
       instance: 10.110.102.113:9100
       category: server  
-    receiver: systems-team-private-bot
+    receiver: systems-team-telegram
     group_wait: 3s
   - match:
         app_type: Bệnh Viện Quân Y 110
         instance: 10.110.102.88:9100
         category: server  
-    receiver: systems-team-private-bot
+    receiver: systems-team-telegram
     group_wait: 3s
   - match:
       app_type: Bệnh Viện Quân Y 110
       instance: 10.110.102.109:9100
       category: server  
-    receiver: systems-team-private-bot
+    receiver: systems-team-telegram
     group_wait: 3s
   # Bệnh Viện E
   - match:
@@ -1508,49 +1508,49 @@ route:
       app_type: Bệnh Viện Quân Y 110
       instance: 10.110.55.11:9100
       category: memory  
-    receiver: systems-team-private-bot
+    receiver: systems-team-telegram
     group_wait: 3s
   - match:
       app_type: Bệnh Viện Quân Y 110
       instance: 10.110.115.112:9100
       category: memory  
-    receiver: systems-team-private-bot
+    receiver: systems-team-telegram
     group_wait: 3s
   - match:
       app_type: Bệnh Viện Quân Y 110
       instance: 10.110.115.89:9100
       category: memory  
-    receiver: systems-team-private-bot
+    receiver: systems-team-telegram
     group_wait: 3s
   - match:
       app_type: Bệnh Viện Quân Y 110
       instance: 10.110.102.67:9100
       category: memory  
-    receiver: systems-team-private-bot
+    receiver: systems-team-telegram
     group_wait: 3s
   - match:
       app_type: Bệnh Viện Quân Y 110
       instance: 10.110.115.110:9100
       category: memory  
-    receiver: systems-team-private-bot
+    receiver: systems-team-telegram
     group_wait: 3s
   - match:
       app_type: Bệnh Viện Quân Y 110
       instance: 10.110.102.113:9100
       category: memory  
-    receiver: systems-team-private-bot
+    receiver: systems-team-telegram
     group_wait: 3s
   - match:
       app_type: Bệnh Viện Quân Y 110
       instance: 10.110.102.88:9100
       category: memory  
-    receiver: systems-team-private-bot
+    receiver: systems-team-telegram
     group_wait: 3s
   - match:
       app_type: Bệnh Viện Quân Y 110
       instance: 10.110.102.109:9100
       category: memory  
-    receiver: systems-team-private-bot
+    receiver: systems-team-telegram
     group_wait: 3s
   # Bệnh Viện E
   - match:
@@ -2287,49 +2287,49 @@ route:
       app_type: Bệnh Viện Quân Y 110
       instance: 10.110.55.11:9100
       category: cpu  
-    receiver: systems-team-private-bot
+    receiver: systems-team-telegram
     group_wait: 3s
   - match:
       app_type: Bệnh Viện Quân Y 110
       instance: 10.110.115.112:9100
       category: cpu  
-    receiver: systems-team-private-bot
+    receiver: systems-team-telegram
     group_wait: 3s
   - match:
       app_type: Bệnh Viện Quân Y 110
       instance: 10.110.115.89:9100
       category: cpu  
-    receiver: systems-team-private-bot
+    receiver: systems-team-telegram
     group_wait: 3s
   - match:
       app_type: Bệnh Viện Quân Y 110
       instance: 10.110.102.67:9100
       category: cpu  
-    receiver: systems-team-private-bot
+    receiver: systems-team-telegram
     group_wait: 3s
   - match:
       app_type: Bệnh Viện Quân Y 110
       instance: 10.110.115.110:9100
       category: cpu  
-    receiver: systems-team-private-bot
+    receiver: systems-team-telegram
     group_wait: 3s
   - match:
       app_type: Bệnh Viện Quân Y 110
       instance: 10.110.102.113:9100
       category: cpu  
-    receiver: systems-team-private-bot
+    receiver: systems-team-telegram
     group_wait: 3s
   - match:
       app_type: Bệnh Viện Quân Y 110
       instance: 10.110.102.88:9100
       category: cpu  
-    receiver: systems-team-private-bot
+    receiver: systems-team-telegram
     group_wait: 3s
   - match:
       app_type: Bệnh Viện Quân Y 110
       instance: 10.110.102.109:9100
       category: cpu  
-    receiver: systems-team-private-bot
+    receiver: systems-team-telegram
     group_wait: 3s
   # Bệnh Viện E
   - match:
@@ -3076,49 +3076,49 @@ route:
       app_type: Bệnh Viện Quân Y 110
       instance: 10.110.55.11:9100
       category: disk  
-    receiver: systems-team-private-bot
+    receiver: systems-team-telegram
     group_wait: 3s
   - match:
       app_type: Bệnh Viện Quân Y 110
       instance: 10.110.115.112:9100
       category: disk  
-    receiver: systems-team-private-bot
+    receiver: systems-team-telegram
     group_wait: 3s
   - match:
       app_type: Bệnh Viện Quân Y 110
       instance: 10.110.115.89:9100
       category: disk  
-    receiver: systems-team-private-bot
+    receiver: systems-team-telegram
     group_wait: 3s
   - match:
       app_type: Bệnh Viện Quân Y 110
       instance: 10.110.102.67:9100
       category: disk  
-    receiver: systems-team-private-bot
+    receiver: systems-team-telegram
     group_wait: 3s
   - match:
       app_type: Bệnh Viện Quân Y 110
       instance: 10.110.115.110:9100
       category: disk  
-    receiver: systems-team-private-bot
+    receiver: systems-team-telegram
     group_wait: 3s
   - match:
       app_type: Bệnh Viện Quân Y 110
       instance: 10.110.102.113:9100
       category: disk  
-    receiver: systems-team-private-bot
+    receiver: systems-team-telegram
     group_wait: 3s
   - match:
       app_type: Bệnh Viện Quân Y 110
       instance: 10.110.102.88:9100
       category: disk  
-    receiver: systems-team-private-bot
+    receiver: systems-team-telegram
     group_wait: 3s
   - match:
       app_type: Bệnh Viện Quân Y 110
       instance: 10.110.102.109:9100
       category: disk  
-    receiver: systems-team-private-bot
+    receiver: systems-team-telegram
     group_wait: 3s
   # Bệnh Viện Y
   - match:
