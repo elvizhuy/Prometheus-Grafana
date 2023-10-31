@@ -103,7 +103,7 @@ receivers:
   webhook_configs:
   - url: 'http://10.0.0.13:9087/alert/-815609975'
 
-- name: systems-team-private-bot
+- name: systems-test-private-bot
   webhook_configs:
   - url: 'http://10.0.50.27:9087/alert/-999710731'
 
