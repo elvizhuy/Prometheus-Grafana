@@ -75,6 +75,7 @@ scrape_configs:
           - 103.9.211.87:9100
           - 103.9.211.120:9100
           - 103.9.211.175:9100
+          - 103.9.211.108:9100
 
   - job_name: 'Benh-Vien-Bach-Mai'
     scrape_interval: 5s
