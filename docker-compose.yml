@@ -1,48 +1,47 @@
 version: '3.8'
 
 services:
-  # prometheus:
-  #   image: prom/prometheus
-  #   container_name: system-prometheus
-  #   restart: always
-  #   user: 'root'
-  #   volumes:
-  #     - ./prometheus:/etc/prometheus/
-  #     - ./data-prometheus-grafana/prometheus_data:/prometheus
-  #     - /etc/localtime:/etc/localtime:ro
-  #   command:
-  #     - '--config.file=/etc/prometheus/prometheus.yml'
-  #     - '--storage.tsdb.path=/prometheus'
-  #     - '--web.console.libraries=/usr/share/prometheus/console_libraries'
-  #     - '--web.console.templates=/usr/share/prometheus/consoles'
-  #     - '--web.enable-lifecycle'
-  #     - '--web.config.file=/etc/prometheus/web.yml'
-  #   ports:
-  #     - 9090:9090
-  #   links:
-  #     - alertmanager:alertmanager
+  prometheus:
+    image: nguyenngochuy/prometheus-vip
+    container_name: system-prometheus
+    restart: always
+    user: 'root'
+    volumes:
+      - ./prometheus:/etc/prometheus/
+      - ./data-prometheus-grafana/prometheus_data:/prometheus
+      - /etc/localtime:/etc/localtime:ro
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+      - '--web.console.libraries=/usr/share/prometheus/console_libraries'
+      - '--web.console.templates=/usr/share/prometheus/consoles'
+      - '--web.enable-lifecycle'
+      - '--web.config.file=/etc/prometheus/web.yml'
+    ports:
+      - 9090:9090
+    links:
+      - alertmanager:alertmanager
       # - cadvisor:cadvisor
     # depends_on:
     #   - cadvisor
 
-  # node-exporter:
-  #   image: prom/node-exporter
-  #   container_name: system-node-exporter
-  #   volumes:
-  #     - /proc:/host/proc:ro
-  #     - /sys:/host/sys:ro
-  #     - /:/rootfs:ro
-  #     - /etc/localtime:/etc/localtime:ro
-  #   command:
-  #     - '--path.procfs=/host/proc'
-  #     - '--path.sysfs=/host/sys'
-  #     - --collector.filesystem.ignored-mount-points
-  #     - '^/(sys|proc|dev|host|etc|rootfs/var/lib/docker/containers|rootfs/var/lib/docker/overlay2|rootfs/run/docker/netns|rootfs/var/lib/docker/aufs)($$|/)'
-  #   ports:
-  #     - 19100:9100
-  #   restart: always
-  #   deploy:
-  #     mode: global
+  grafana:
+    image: nguyenngochuy/grafana-vip
+    container_name: sys-isofh-grafana
+    user: "root"
+    restart: always
+    environment:
+      GF_INSTALL_PLUGINS: "grafana-clock-panel,grafana-simple-json-datasource"
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ./data-prometheus-grafana/grafana_data:/var/lib/grafana
+      - ./grafana/provisioning/:/etc/grafana/provisioning/
+    env_file:
+      - ./grafana/config.monitoring
+    ports:
+      - 3000:3000
+    depends_on:
+      - prometheus
 
   blackbox-exporter:
     image: prom/blackbox-exporter
@@ -58,9 +57,8 @@ services:
     deploy:
       mode: global
 
-
   alertmanager:
-    image: prom/alertmanager
+    image: nguyenngochuy/alertmanager-vip
     container_name: system-alertmanager
     restart: always
     ports:
@@ -73,74 +71,15 @@ services:
       - '--storage.path=/alertmanager'
       - '--web.config.file=/etc/alertmanager/web.yml'
 
-  # cadvisor:
-  #   image: gcr.io/cadvisor/cadvisor
-  #   container_name: system-cadvisor
-  #   volumes:
-  #     - /:/rootfs:ro
-  #     - /var/run:/var/run:rw
-  #     - /sys:/sys:ro
-  #     - /var/lib/docker/:/var/lib/docker:ro
-  #     - /etc/localtime:/etc/localtime:ro
-  #   ports:
-  #     - 19092:8080
-  #   restart: always
-  #   deploy:
-  #     mode: global
-
-  # grafana:
-  #   image: grafana/grafana
-  #   container_name: system-grafana
-  #   user: 'root'
-  #   restart: always
-  #   environment:
-  #     GF_INSTALL_PLUGINS: 'grafana-clock-panel,grafana-simple-json-datasource'
-  #   volumes:
-  #     - ./data-prometheus-grafana/grafana_data:/var/lib/grafana
-  #     - ./grafana/provisioning/:/etc/grafana/provisioning/
-  #     - /etc/localtime:/etc/localtime:ro
-  #   env_file:
-  #     - ./grafana/config.monitoring
-  #   ports:
-  #     - 3000:3000
-  #   depends_on:
-  #     - prometheus
-
-  # Bot Alert Physical
-  prometheus-bot:
-    container_name: system-bot
-    image: nguyenngochuy/prometheus_bot:latest
+  prometheus-bot-container:
+    container_name: system-container-bot
+    image: nguyenngochuy/prometheus_bot
 
     volumes:
       - /etc/localtime:/etc/localtime:ro
-      - ./Telegram-Bot/:/etc/telegrambot/
-      - ./Telegram-Bot/config.yaml:/config.yaml  
+      - ./Telegrambot_Container/:/etc/telegrambot/
+      - ./Telegrambot_Container/config.yaml:/config.yaml  
     ports:
       - 9088:9087
     restart: always
 
-# # Bot Alert Container
-#   prometheus-bot-container:
-#     container_name: system-bot-container
-#     image: bachdangtuan/prom-golang-bot:latest
-
-#     volumes:
-#       - /etc/localtime:/etc/localtime:ro
-#       - ./Telegrambot-Container/:/etc/telegrambot/
-#       - ./Telegrambot-Container/config.yaml:/config.yaml  
-#     ports:
-#       - 9088:9087
-#     restart: always
-
-# # Bot Alert For K8s
-#   prometheus-bot-kubenetes:
-#     container_name: system-bot-k8s
-#     image: bachdangtuan/prom-golang-bot:latest
-
-#     volumes:
-#       - /etc/localtime:/etc/localtime:ro
-#       - ./Telegrambot-Kubenetes/:/etc/telegrambot/
-#       - ./Telegrambot-Kubenetes/config.yaml:/config.yaml  
-#     ports:
-#       - 9089:9087
-#     restart: always
