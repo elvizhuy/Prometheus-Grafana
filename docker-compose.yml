@@ -25,24 +25,6 @@ services:
     # depends_on:
     #   - cadvisor
 
-  grafana:
-    image: nguyenngochuy/grafana-vip
-    container_name: sys-isofh-grafana
-    user: "root"
-    restart: always
-    environment:
-      GF_INSTALL_PLUGINS: "grafana-clock-panel,grafana-simple-json-datasource"
-    volumes:
-      - /etc/localtime:/etc/localtime:ro
-      - ./data-prometheus-grafana/grafana_data:/var/lib/grafana
-      - ./grafana/provisioning/:/etc/grafana/provisioning/
-    env_file:
-      - ./grafana/config.monitoring
-    ports:
-      - 3000:3000
-    depends_on:
-      - prometheus
-
   blackbox-exporter:
     image: prom/blackbox-exporter
     container_name: system-blackbox-exporter
