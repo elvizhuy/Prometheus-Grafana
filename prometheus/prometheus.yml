@@ -74,7 +74,7 @@ scrape_configs:
   - job_name: 'Jenkins'
     scrape_interval: 5s
     static_configs:
-      - targets: ['10.0.0.131:19100']
+      - targets: ['10.0.0.182:19100']
 
   - job_name: 'prometheus'
     scrape_interval: 5s
@@ -84,15 +84,15 @@ scrape_configs:
       username: admin
       password: toivaban
 
-  - job_name: 'cadvisor'
-    scrape_interval: 5s
-    dns_sd_configs:
-      - names:
-          - 'tasks.cadvisor'
-        type: 'A'
-        port: 8080
-    static_configs:
-      - targets: ['10.0.0.131:19093']
+  # - job_name: 'cadvisor'
+  #   scrape_interval: 5s
+  #   dns_sd_configs:
+  #     - names:
+  #         - 'tasks.cadvisor'
+  #       type: 'A'
+  #       port: 8080
+  #   static_configs:
+  #     - targets: ['10.0.0.182:19093']
 
   # - job_name: 'docker-state'
   #   scrape_interval: 5s
@@ -128,7 +128,7 @@ scrape_configs:
     scheme: http
     static_configs:
       - targets:
-        - http://10.0.0.235:19400 # Target to probe with http on port 8080.
+        - http://10.0.0.182:19400 # Target to probe with http on port 8080.
     relabel_configs:
       - source_labels: [__address__]
         target_label: __param_target
@@ -174,8 +174,8 @@ scrape_configs:
     scheme: http
     static_configs:
     - targets:
-      - 10.0.0.235:5000
-      - 10.0.0.235:9087
+      - 10.0.0.182:5000
+      - 10.0.0.182:9087
     relabel_configs:
     - source_labels: [__address__]
       separator: ;
