@@ -11,25 +11,10 @@ global:
 
 # Load and evaluate rules in this file every 'evaluation_interval' seconds.
 rule_files:
-  - 'rules/Jenkins.yml'
-  - 'rules/CheckDomainStatus.yml'
-  - 'rules/CheckPortContainer.yml'
-  # - 'containers/DrAllen/DEAD/DrAllenServiceDead.yml'
-  - "rules/NhiDongThanhPho.yml"
-  # - "rules/phongkham40.yml"
-  # - "rules/benhviene.yml"
-  - "rules/benhvienquany110.yml"
-  # - "rules/benhvienthanhhoa.yml"
-  # - "rules/daihocy.yml"
-  # - "rules/drallen.yml"
-  # - "rules/benhviensaintpaul.yml"
-  # - "rules/phongkhammediplus.yml"
-  # - "rules/trungtamtimmach.yml"
-  # - "rules/benhvienphoi.yml"
-  # - "rules/benhvienbachmai.yml"
-  # - "rules/phongkhamykhn.yml"
-  # - "rules/ivirse.yml"
-  # - "rules/isofhcare.yml"
+  - './rules/ndtp/*.yml'
+  - './rules/dhy/*.yml'
+  - './rules/pk40/*.yml'
+  - './rules/ivirse/*.yml'
 
 # alert
 alerting:
@@ -40,7 +25,7 @@ alerting:
             - "alertmanager:9093"
       basic_auth:
         username: admin
-        password: daniel@0908
+        password: toivaban
 
 scrape_configs:
   - job_name: 'y-te-cong-cong'
@@ -278,7 +263,7 @@ scrape_configs:
       - targets: ['localhost:9090']
     basic_auth:
       username: admin
-      password: daniel@0908
+      password: toivaban
 
   - job_name: 'cadvisor'
     scrape_interval: 5s

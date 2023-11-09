@@ -1,48 +1,29 @@
 version: '3.8'
 
 services:
-  prometheus:
-    image: prom/prometheus
-    container_name: system-prometheus
-    restart: always
-    user: 'root'
-    volumes:
-      - ./prometheus:/etc/prometheus/
-      - ./data-prometheus-grafana/prometheus_data:/prometheus
-      - /etc/localtime:/etc/localtime:ro
-    command:
-      - '--config.file=/etc/prometheus/prometheus.yml'
-      - '--storage.tsdb.path=/prometheus'
-      - '--web.console.libraries=/usr/share/prometheus/console_libraries'
-      - '--web.console.templates=/usr/share/prometheus/consoles'
-      - '--web.enable-lifecycle'
-      - '--web.config.file=/etc/prometheus/web.yml'
-    ports:
-      - 9090:9090
-    links:
-      - alertmanager:alertmanager
+  # prometheus:
+  #   image: prom/prometheus
+  #   container_name: system-prometheus
+  #   restart: always
+  #   user: 'root'
+  #   volumes:
+  #     - ./prometheus:/etc/prometheus/
+  #     - ./data-prometheus-grafana/prometheus_data:/prometheus
+  #     - /etc/localtime:/etc/localtime:ro
+  #   command:
+  #     - '--config.file=/etc/prometheus/prometheus.yml'
+  #     - '--storage.tsdb.path=/prometheus'
+  #     - '--web.console.libraries=/usr/share/prometheus/console_libraries'
+  #     - '--web.console.templates=/usr/share/prometheus/consoles'
+  #     - '--web.enable-lifecycle'
+  #     - '--web.config.file=/etc/prometheus/web.yml'
+  #   ports:
+  #     - 9090:9090
+  #   links:
+  #     - alertmanager:alertmanager
       # - cadvisor:cadvisor
     # depends_on:
     #   - cadvisor
-
-  # node-exporter:
-  #   image: prom/node-exporter
-  #   container_name: system-node-exporter
-  #   volumes:
-  #     - /proc:/host/proc:ro
-  #     - /sys:/host/sys:ro
-  #     - /:/rootfs:ro
-  #     - /etc/localtime:/etc/localtime:ro
-  #   command:
-  #     - '--path.procfs=/host/proc'
-  #     - '--path.sysfs=/host/sys'
-  #     - --collector.filesystem.ignored-mount-points
-  #     - '^/(sys|proc|dev|host|etc|rootfs/var/lib/docker/containers|rootfs/var/lib/docker/overlay2|rootfs/run/docker/netns|rootfs/var/lib/docker/aufs)($$|/)'
-  #   ports:
-  #     - 19100:9100
-  #   restart: always
-  #   deploy:
-  #     mode: global
 
   blackbox-exporter:
     image: prom/blackbox-exporter
@@ -58,9 +39,8 @@ services:
     deploy:
       mode: global
 
-
   alertmanager:
-    image: prom/alertmanager
+    image: nguyenngochuy/alertmanager-vip
     container_name: system-alertmanager
     restart: always
     ports:
@@ -107,40 +87,15 @@ services:
   #     - prometheus
 
   # Bot Alert Physical
-  prometheus-container-bot:
+  prometheus-bot:
     container_name: system-bot
     image: nguyenngochuy/prometheus_bot:latest
 
     volumes:
       - /etc/localtime:/etc/localtime:ro
-      - ./Telegram-Bot/:/etc/telegrambot/
-      - ./Telegram-Bot/config.yaml:/config.yaml  
+      - ./Telegrambot_Container/:/etc/telegrambot/
+      - ./Telegrambot_Container/config.yaml:/config.yaml  
     ports:
       - 9088:9087
     restart: always
 
-# # Bot Alert Container
-#   prometheus-bot-container:
-#     container_name: system-bot-container
-#     image: bachdangtuan/prom-golang-bot:latest
-
-#     volumes:
-#       - /etc/localtime:/etc/localtime:ro
-#       - ./Telegrambot-Container/:/etc/telegrambot/
-#       - ./Telegrambot-Container/config.yaml:/config.yaml  
-#     ports:
-#       - 9088:9087
-#     restart: always
-
-# # Bot Alert For K8s
-#   prometheus-bot-kubenetes:
-#     container_name: system-bot-k8s
-#     image: bachdangtuan/prom-golang-bot:latest
-
-#     volumes:
-#       - /etc/localtime:/etc/localtime:ro
-#       - ./Telegrambot-Kubenetes/:/etc/telegrambot/
-#       - ./Telegrambot-Kubenetes/config.yaml:/config.yaml  
-#     ports:
-#       - 9089:9087
-#     restart: always
