@@ -20,8 +20,8 @@ services:
     ports:
       - 9090:9090
     links:
-      # - cadvisor:cadvisor
       - alertmanager:alertmanager
+      # - cadvisor:cadvisor
     # depends_on:
     #   - cadvisor
 
@@ -107,8 +107,8 @@ services:
 
   # Bot Alert Physical
   prometheus-bot:
-    container_name: system-bot
-    image: nguyenngochuy/prometheus_bot:latest
+    container_name: system-server-bot
+    image: nguyenngochuy/prometheus_bot
 
     volumes:
       - /etc/localtime:/etc/localtime:ro
