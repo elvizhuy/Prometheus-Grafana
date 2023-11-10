@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   prometheus:
-    image: prom/prometheus
+    image: nguyenngochuy/prometheus-vip
     container_name: system-prometheus
     restart: always
     user: 'root'
@@ -20,10 +20,7 @@ services:
     ports:
       - 9090:9090
     links:
-      # - cadvisor:cadvisor
       - alertmanager:alertmanager
-    # depends_on:
-    #   - cadvisor
 
   node-exporter:
     image: prom/node-exporter
@@ -60,7 +57,7 @@ services:
 
 
   alertmanager:
-    image: prom/alertmanager
+    image: nguyenngochuy/alertmanager-vip
     container_name: system-alertmanager
     restart: always
     ports:
@@ -89,7 +86,7 @@ services:
       mode: global
 
   grafana:
-    image: grafana/grafana
+    image: nguyenngochuy/grafana-vip
     container_name: system-grafana
     user: 'root'
     restart: always
@@ -108,7 +105,7 @@ services:
 
   # Bot Alert Physical
   prometheus-bot:
-    container_name: system-bot
+    container_name: system-server-bot
     image: nguyenngochuy/prometheus_bot:latest
 
     volumes:
