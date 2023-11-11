@@ -87,28 +87,28 @@ services:
   #   deploy:
   #     mode: global
 
-  grafana:
-    image: nguyenngochuy/grafana-vip
-    container_name: system-grafana
-    user: 'root'
-    restart: always
-    environment:
-      GF_INSTALL_PLUGINS: 'grafana-clock-panel,grafana-simple-json-datasource'
-    volumes:
-      - ./data-prometheus-grafana/grafana_data:/var/lib/grafana
-      - ./grafana/provisioning/:/etc/grafana/provisioning/
-      - /etc/localtime:/etc/localtime:ro
-    env_file:
-      - ./grafana/config.monitoring
-    ports:
-      - 3000:3000
-    depends_on:
-      - prometheus
+  # grafana:
+  #   image: nguyenngochuy/grafana-vip
+  #   container_name: system-grafana
+  #   user: 'root'
+  #   restart: always
+  #   environment:
+  #     GF_INSTALL_PLUGINS: 'grafana-clock-panel,grafana-simple-json-datasource'
+  #   volumes:
+  #     - ./data-prometheus-grafana/grafana_data:/var/lib/grafana
+  #     - ./grafana/provisioning/:/etc/grafana/provisioning/
+  #     - /etc/localtime:/etc/localtime:ro
+  #   env_file:
+  #     - ./grafana/config.monitoring
+  #   ports:
+  #     - 3000:3000
+  #   depends_on:
+  #     - prometheus
 
   # Bot Alert Physical
   prometheus-bot:
     container_name: system-bot
-    image: nguyenngochuy/prometheus_bot:latest
+    image: nguyenngochuy/prometheus_bot
 
     volumes:
       - /etc/localtime:/etc/localtime:ro
