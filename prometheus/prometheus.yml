@@ -39,7 +39,7 @@ alerting:
             - "alertmanager:9093"
       basic_auth:
         username: admin
-        password: daniel@0908
+        password: toivaban
 
 scrape_configs:
   - job_name: 'y-te-cong-cong'
@@ -277,7 +277,7 @@ scrape_configs:
       - targets: ['localhost:9090']
     basic_auth:
       username: admin
-      password: daniel@0908
+      password: toivaban
 
 
   - job_name: 'node-exporter'
