@@ -16,20 +16,20 @@ rule_files:
   - 'rules/CheckPortContainer.yml'
   # - 'containers/DrAllen/DEAD/DrAllenServiceDead.yml'
   - "rules/NhiDongThanhPho.yml"
-  # - "rules/phongkham40.yml"
-  # - "rules/benhviene.yml"
+  - "rules/phongkham40.yml"
+  - "rules/benhviene.yml"
   - "rules/benhvienquany110.yml"
-  # - "rules/benhvienthanhhoa.yml"
-  # - "rules/daihocy.yml"
-  # - "rules/drallen.yml"
-  # - "rules/benhviensaintpaul.yml"
-  # - "rules/phongkhammediplus.yml"
-  # - "rules/trungtamtimmach.yml"
-  # - "rules/benhvienphoi.yml"
-  # - "rules/benhvienbachmai.yml"
-  # - "rules/phongkhamykhn.yml"
-  # - "rules/ivirse.yml"
-  # - "rules/isofhcare.yml"
+  - "rules/benhvienthanhhoa.yml"
+  - "rules/daihocy.yml"
+  - "rules/drallen.yml"
+  - "rules/benhviensaintpaul.yml"
+  - "rules/phongkhammediplus.yml"
+  - "rules/trungtamtimmach.yml"
+  - "rules/benhvienphoi.yml"
+  - "rules/benhvienbachmai.yml"
+  - "rules/phongkhamykhn.yml"
+  - "rules/ivirse.yml"
+  - "rules/isofhcare.yml"
 
 # alert
 alerting:
@@ -270,7 +270,7 @@ scrape_configs:
   - job_name: 'Jenkins'
     scrape_interval: 5s
     static_configs:
-      - targets: ['10.0.0.131:19100']
+      - targets: ['10.0.0.182:19100']
 
   - job_name: 'prometheus'
     scrape_interval: 5s
@@ -280,15 +280,15 @@ scrape_configs:
       username: admin
       password: daniel@0908
 
-  - job_name: 'cadvisor'
-    scrape_interval: 5s
-    dns_sd_configs:
-      - names:
-          - 'tasks.cadvisor'
-        type: 'A'
-        port: 8080
-    static_configs:
-      - targets: ['10.0.0.131:19093']
+  # - job_name: 'cadvisor'
+  #   scrape_interval: 5s
+  #   dns_sd_configs:
+  #     - names:
+  #         - 'tasks.cadvisor'
+  #       type: 'A'
+  #       port: 8080
+  #   static_configs:
+  #     - targets: ['10.0.0.182:19093']
 
   # - job_name: 'docker-state'
   #   scrape_interval: 5s
@@ -324,7 +324,8 @@ scrape_configs:
     scheme: http
     static_configs:
       - targets:
-        - http://10.0.0.235:19400 # Target to probe with http on port 8080.
+        - http://10.0.0.182:19400 # Target to probe with http on port 8080.
+        - http://10.0.0.187:19400
     relabel_configs:
       - source_labels: [__address__]
         target_label: __param_target
@@ -335,7 +336,7 @@ scrape_configs:
   
   - job_name: 'blackbox_exporter'  # collect blackbox exporter's operational metrics.
     static_configs:
-      - targets: ['10.0.0.235:19400']
+      - targets: ['10.0.0.182:19400','10.0.0.187:19400']
 
   - job_name: blackbox_all
     metrics_path: /probe
@@ -370,8 +371,10 @@ scrape_configs:
     scheme: http
     static_configs:
     - targets:
-      - 10.0.0.235:5000
-      - 10.0.0.235:9087
+      - 10.0.0.182:5000
+      - 10.0.0.182:9087
+      - 10.0.0.187:5000
+      - 10.0.0.187:9087
     relabel_configs:
     - source_labels: [__address__]
       separator: ;

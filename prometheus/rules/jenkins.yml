@@ -3,7 +3,7 @@ groups:
     rules:
 
     - alert: Node Exporter Down
-      expr: up{job="Jenkins",instance="10.0.0.131:19100"} == 0
+      expr: up{job="Jenkins",instance="10.0.0.182:19100"} == 0
       for: 1m
       labels:
         severity: critical

@@ -36,76 +36,88 @@ receivers:
 
 - name: benhviene-telegram
   webhook_configs:
-  - url: 'http://10.0.0.13:9087/alert/-944876422'
+  # - url: 'http://10.0.0.13:9087/alert/-944876422'
+  - url: 'http://10.0.0.187:9087/alert/-815609975'
 
 - name: phongkham40-telegram
   webhook_configs:
-  - url: 'http://10.0.0.13:9087/alert/-988783003'
+  # - url: 'http://10.0.0.13:9087/alert/-988783003'
+  - url: 'http://10.0.0.187:9087/alert/-815609975'
 
 - name: nhidongthanhpho-telegram
   webhook_configs:
-  - url: 'http://10.0.0.13:9087/alert/-901133248'
+  # - url: 'http://10.0.0.13:9087/alert/-901133248'
+  - url: 'http://10.0.0.187:9087/alert/-815609975'
 
 - name: systems-team-telegram
   webhook_configs:
-  - url: 'http://10.0.0.13:9087/alert/-858234435'
+  # - url: 'http://10.0.0.13:9087/alert/-858234435'
+  - url: 'http://10.0.0.187:9087/alert/-815609975'
 
 - name: dakhoathanhhoa-telegram
   webhook_configs:
-  - url: 'http://10.0.0.13:9087/alert/-921182723'
+  # - url: 'http://10.0.0.13:9087/alert/-921182723'
+  - url: 'http://10.0.0.187:9087/alert/-815609975'
 
 - name: daihocy-telegram
   webhook_configs:
-  - url: 'http://10.0.0.13:9087/alert/-870297775'
+  # - url: 'http://10.0.0.13:9087/alert/-870297775'
+  - url: 'http://10.0.0.187:9087/alert/-815609975'
 
 - name: allen-telegram
   webhook_configs:
-  - url: 'http://10.0.0.13:9087/alert/-918887592'
+  # - url: 'http://10.0.0.13:9087/alert/-918887592'
+  - url: 'http://10.0.0.187:9087/alert/-815609975'
 
 - name: saintpaul-telegram
   webhook_configs:
-  - url: 'http://10.0.0.13:9087/alert/-999844035'
+  # - url: 'http://10.0.0.13:9087/alert/-999844035'
+  - url: 'http://10.0.0.187:9087/alert/-815609975'
 
 - name: mediplus-telegram
   webhook_configs:
-  - url: 'http://10.0.0.13:9087/alert/-866646704'
+  # - url: 'http://10.0.0.13:9087/alert/-866646704'
+  - url: 'http://10.0.0.187:9087/alert/-815609975'
 
 - name: benhvienphoi-telegram
   webhook_configs:
-  - url: 'http://10.0.0.13:9087/alert/-908574338'
+  # - url: 'http://10.0.0.13:9087/alert/-908574338'
+  - url: 'http://10.0.0.187:9087/alert/-815609975'
 
 - name: trungtamtimmach-telegram
   webhook_configs:
-  - url: 'http://10.0.0.13:9087/alert/-969060421'
+  # - url: 'http://10.0.0.13:9087/alert/-969060421'
+  - url: 'http://10.0.0.187:9087/alert/-815609975'
 
 - name: ykhn-telegram
   webhook_configs:
-  - url: 'http://10.0.0.13:9087/alert/-906386087'
+  # - url: 'http://10.0.0.13:9087/alert/-906386087'
+  - url: 'http://10.0.0.187:9087/alert/-815609975'
 
 - name: bachmai-telegram
   webhook_configs:
-  - url: 'http://10.0.0.13:9087/alert/-932865047'
+  # - url: 'http://10.0.0.13:9087/alert/-932865047'
+  - url: 'http://10.0.0.187:9087/alert/-815609975'
 
 - name: ivirse-telegram
   webhook_configs:
-  - url: 'http://10.0.0.13:9087/alert/-856704110'
+  # - url: 'http://10.0.0.13:9087/alert/-856704110'
+  - url: 'http://10.0.0.187:9087/alert/-815609975'
 
 - name: ytcc-telegram
   webhook_configs:
-  - url: 'http://10.0.0.13:9087/alert/-829088376'
+  # - url: 'http://10.0.0.13:9087/alert/-829088376'
+  - url: 'http://10.0.0.187:9087/alert/-815609975'
 
 - name: isofhcare-telegram
   webhook_configs:
-  - url: 'http://10.0.0.13:9087/alert/-987838747'
+  # - url: 'http://10.0.0.13:9087/alert/-987838747'
+  - url: 'http://10.0.0.187:9087/alert/-815609975'
 
 # Group Dự phòng
-- name: systems-team-telegram
-  webhook_configs:
-  - url: 'http://10.0.0.13:9087/alert/-815609975'
-
 - name: systems-test-private-bot
   webhook_configs:
-  - url: 'http://10.0.0.187:9087/alert/-999710731'
+  - url: 'http://10.0.0.187:9087/alert/-815609975'
 
 # ========================================================================================= ROUTE ================================================================================================
 # ========================================================================================= ROUTE ================================================================================================
@@ -118,7 +130,7 @@ route:
   group_interval: 1m
   group_wait: 5s
   repeat_interval: 15m
-  receiver: systems-team-telegram
+  receiver: systems-test-private-bot
 
   routes:
   # - match:
@@ -132,7 +144,7 @@ route:
 # Jenkins group
     - match:
         app_type: jenkins
-        instance : 10.0.0.131:19100
+        instance : 10.0.0.182:19100
       receiver: systems-test-private-bot
 
 
