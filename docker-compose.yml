@@ -8,7 +8,8 @@ services:
     user: 'root'
     volumes:
       - ./prometheus:/etc/prometheus/
-      - ./data-prometheus-grafana/prometheus_data:/prometheus
+      # - /data-prometheus-grafana/prometheus_data:/prometheus
+      - /home/isofh/Docker-compose-prometheus/prometheus-grafana/data-prometheus-grafana/prometheus_data:/prometheus
       - /etc/localtime:/etc/localtime:ro
     command:
       - '--config.file=/etc/prometheus/prometheus.yml'
