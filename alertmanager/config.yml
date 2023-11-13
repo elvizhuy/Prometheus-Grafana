@@ -2,21 +2,6 @@ global:
   resolve_timeout: 1m
 
 receivers:
-- name: System-Team
-  # webhook_configs:
-  # - url: 'http://10.0.0.13:9088/alert/-945958075'
-  #   send_resolved: true
-  telegram_configs:
-  - api_url: https://api.telegram.org
-    bot_token: 6612849064:AAGR795EyHyn278L0WRLeqiTyBuCWRRhjMg
-    chat_id: -998222571
-    #template: template.tmpl
-    disable_notifications: false
-    http_config:
-      follow_redirects: true
-    send_resolved: true
-    parse_mode: ""
-
 - name: System-Container
   webhook_configs:
   - url: 'http://10.0.0.13:9088/alert/-824908019'
@@ -127,7 +112,7 @@ route:
 
   - match_re: 
       app_type: (jenkins)
-    receiver: System-Team 
+    receiver: systems-test-private-bot 
     routes:
 # Jenkins group
     - match:
