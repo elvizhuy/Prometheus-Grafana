@@ -2,11 +2,6 @@ global:
   resolve_timeout: 1m
 
 receivers:
-- name: System-Container
-  webhook_configs:
-  - url: 'http://10.0.0.13:9088/alert/-824908019'
-    send_resolved: true
-
 - name: Systems
   telegram_configs:
   - api_url: https://api.telegram.org
@@ -84,13 +79,13 @@ receivers:
   - url: 'http://10.0.0.13:9087/alert/-987838747'
 
 # Group Dự phòng
-- name: systems-team-telegram
-  webhook_configs:
-  - url: 'http://10.0.0.13:9087/alert/-815609975'
+# - name: systems-team-telegram
+#   webhook_configs:
+#   - url: 'http://10.0.0.13:9087/alert/-815609975'
 
 - name: systems-test-private-bot
   webhook_configs:
-  - url: 'http://10.0.0.187:9087/alert/-999710731'
+  - url: 'http://10.0.0.13:9087/alert/-999710731'
 
 # ========================================================================================= ROUTE ================================================================================================
 # ========================================================================================= ROUTE ================================================================================================
@@ -103,7 +98,7 @@ route:
   group_interval: 1m
   group_wait: 5s
   repeat_interval: 15m
-  receiver: systems-team-telegram
+  receiver: systems-test-private-bot
 
   routes:
   # - match:
