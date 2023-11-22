@@ -266,6 +266,12 @@ scrape_configs:
           - '192.168.1.242:9100'
           - '192.168.1.243:9100'
           - '192.168.1.250:9100'
+  
+  # - job_name: 'My-Rehab'
+  #   scrape_interval: 5s
+  #   static_configs:
+  #     - targets: 
+  #         - ''
 # ========================================== PRIVATE ==========================================
   - job_name: 'Jenkins'
     scrape_interval: 5s
