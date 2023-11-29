@@ -101,7 +101,7 @@ groups:
        CONTAINER BỊ TẮT 
 
   - alert: Container Status nginx-docker_app_1
-    expr: container_state_status{status="exited",name=~"nginx-docker_app_1"} == 1
+    expr: container_state_status{status="exited",name=~"nginx-app"} == 1
     for: 1s
     labels:
       severity: khẩn cấp
@@ -398,7 +398,7 @@ groups:
   #   for: 10s
   #   labels:
   #     severity: khẩn cấp
-  #     app_type: Server Test
+  #     app_type: IVIRSE
   #     category: container-cpu    
   #     container_name: project-react-js-payment-gateway-isofh-production
   #   annotations:

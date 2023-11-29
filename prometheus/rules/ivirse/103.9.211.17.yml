@@ -186,7 +186,7 @@ groups:
 ################################################  
 
   - alert: Container Memory project-node-js-expiredactionschedule-isofh-production
-    expr: sum(container_memory_working_set_bytes{job='ivirse', name='project-react-js-payment-gateway-isofh-production'}) / sum(container_spec_memory_limit_bytes{job="ivirse", id="/", instance="103.9.211.87:19094"}) * 100 > 90
+    expr: sum(container_memory_working_set_bytes{job='ivirse', name='project-react-js-payment-gateway-isofh-production'}) / sum(container_spec_memory_limit_bytes{job="ivirse", id="/", instance="103.9.211.87:19093"}) * 100 > 90
     for: 10s
     labels:
       severity: khẩn cấp
@@ -207,7 +207,7 @@ groups:
 
 
   - alert: Container Memory project-node-js-exchange-rate-isofh-production
-    expr: sum(container_memory_working_set_bytes{job='ivirse', name='project-node-js-exchange-rate-isofh-production'}) / sum(container_spec_memory_limit_bytes{job="ivirse", id="/", instance="103.9.211.87:19094"}) * 100 > 90
+    expr: sum(container_memory_working_set_bytes{job='ivirse', name='project-node-js-exchange-rate-isofh-production'}) / sum(container_spec_memory_limit_bytes{job="ivirse", id="/", instance="103.9.211.87:19093"}) * 100 > 90
     for: 10s
     labels:
       severity: khẩn cấp
@@ -227,7 +227,7 @@ groups:
           RAM USED: {{ printf "%.2f" $value}}% / 100%
 
   - alert: Container Memory project-node-js-expiredactionschedule-isofh-production
-    expr: sum(container_memory_working_set_bytes{job='ivirse', name='project-node-js-expiredactionschedule-isofh-production'}) / sum(container_spec_memory_limit_bytes{job="ivirse", id="/", instance="103.9.211.87:19094"}) * 100 > 90
+    expr: sum(container_memory_working_set_bytes{job='ivirse', name='project-node-js-expiredactionschedule-isofh-production'}) / sum(container_spec_memory_limit_bytes{job="ivirse", id="/", instance="103.9.211.87:19093"}) * 100 > 90
     for: 10s
     labels:
       severity: khẩn cấp
@@ -247,7 +247,7 @@ groups:
           RAM USED: {{ printf "%.2f" $value}}% / 100%
 
   - alert: Container Memory project-node-ts-payment-gateway-isofh-production
-    expr: sum(container_memory_working_set_bytes{job='ivirse', name='project-node-ts-payment-gateway-isofh-production'}) / sum(container_spec_memory_limit_bytes{job="ivirse", id="/", instance="103.9.211.87:19094"}) * 100 > 90
+    expr: sum(container_memory_working_set_bytes{job='ivirse', name='project-node-ts-payment-gateway-isofh-production'}) / sum(container_spec_memory_limit_bytes{job="ivirse", id="/", instance="103.9.211.87:19093"}) * 100 > 90
     for: 10s
     labels:
       severity: khẩn cấp
@@ -267,7 +267,7 @@ groups:
           RAM USED: {{ printf "%.2f" $value}}% / 100%
 
   - alert: Container Memory project-node-js-getblockinfo-isofh-production
-    expr: sum(container_memory_working_set_bytes{job='ivirse', name='project-node-js-getblockinfo-isofh-production'}) / sum(container_spec_memory_limit_bytes{job="ivirse", id="/", instance="103.9.211.87:19094"}) * 100 > 90
+    expr: sum(container_memory_working_set_bytes{job='ivirse', name='project-node-js-getblockinfo-isofh-production'}) / sum(container_spec_memory_limit_bytes{job="ivirse", id="/", instance="103.9.211.87:19093"}) * 100 > 90
     for: 10s
     labels:
       severity: khẩn cấp
@@ -287,7 +287,7 @@ groups:
           RAM USED: {{ printf "%.2f" $value}}% / 100%
 
   - alert: Container Memory nginx-docker_app_1
-    expr: sum(container_memory_working_set_bytes{job='ivirse', name='nginx-docker_app_1'}) / sum(container_spec_memory_limit_bytes{job="ivirse", id="/", instance="103.9.211.87:19094"}) * 100 > 90
+    expr: sum(container_memory_working_set_bytes{job='ivirse', name='nginx-docker_app_1'}) / sum(container_spec_memory_limit_bytes{job="ivirse", id="/", instance="103.9.211.87:19093"}) * 100 > 90
     for: 10s
     labels:
       severity: khẩn cấp
@@ -308,7 +308,7 @@ groups:
 
 
   - alert: Container Memory project-node-js-gettxlogs-isofh-production
-    expr: sum(container_memory_working_set_bytes{job='ivirse', name='project-node-js-gettxlogs-isofh-production'}) / sum(container_spec_memory_limit_bytes{job="ivirse", id="/", instance="103.9.211.87:19094"}) * 100 > 90
+    expr: sum(container_memory_working_set_bytes{job='ivirse', name='project-node-js-gettxlogs-isofh-production'}) / sum(container_spec_memory_limit_bytes{job="ivirse", id="/", instance="103.9.211.87:19093"}) * 100 > 90
     for: 10s
     labels:
       severity: khẩn cấp
@@ -328,7 +328,7 @@ groups:
           RAM USED: {{ printf "%.2f" $value}}% / 100%
 
   - alert: Container Memory kafka-isofh
-    expr: sum(container_memory_working_set_bytes{job='ivirse', name='kafka-isofh'}) / sum(container_spec_memory_limit_bytes{job="ivirse", id="/", instance="103.9.211.87:19094"}) * 100 > 90
+    expr: sum(container_memory_working_set_bytes{job='ivirse', name='kafka-isofh'}) / sum(container_spec_memory_limit_bytes{job="ivirse", id="/", instance="103.9.211.87:19093"}) * 100 > 90
     for: 10s
     labels:
       severity: khẩn cấp
@@ -348,7 +348,7 @@ groups:
           RAM USED: {{ printf "%.2f" $value}}% / 100%
 
   - alert: Container Memory zookeeper-isofh
-    expr: sum(container_memory_working_set_bytes{job='ivirse', name='zookeeper-isofh'}) / sum(container_spec_memory_limit_bytes{job="ivirse", id="/", instance="103.9.211.87:19094"}) * 100 > 90
+    expr: sum(container_memory_working_set_bytes{job='ivirse', name='zookeeper-isofh'}) / sum(container_spec_memory_limit_bytes{job="ivirse", id="/", instance="103.9.211.87:19093"}) * 100 > 90
     for: 10s
     labels:
       severity: khẩn cấp
@@ -368,7 +368,7 @@ groups:
           RAM USED: {{ printf "%.2f" $value}}% / 100%
 
   - alert: Container Memory kafka-ui-isofh
-    expr: sum(container_memory_working_set_bytes{job='ivirse', name='kafka-ui-isofh'}) / sum(container_spec_memory_limit_bytes{job="ivirse", id="/", instance="103.9.211.87:19094"}) * 100 > 90
+    expr: sum(container_memory_working_set_bytes{job='ivirse', name='kafka-ui-isofh'}) / sum(container_spec_memory_limit_bytes{job="ivirse", id="/", instance="103.9.211.87:19093"}) * 100 > 90
     for: 10s
     labels:
       severity: khẩn cấp
