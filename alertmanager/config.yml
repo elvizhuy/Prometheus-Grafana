@@ -32,11 +32,11 @@ receivers:
 
 - name: dakhoathanhhoa-telegram
   webhook_configs:
-  - url: 'http://10.0.0.13:9087/alert/-921182723'
+  - url: 'http://10.0.0.13:9087/alert/-2104193649'
 
 - name: daihocy-telegram
   webhook_configs:
-  - url: 'http://10.0.0.13:9087/alert/-870297775'
+  - url: 'http://10.0.0.13:9087/alert/-2129986412'
 
 - name: allen-telegram
   webhook_configs:
@@ -44,7 +44,7 @@ receivers:
 
 - name: saintpaul-telegram
   webhook_configs:
-  - url: 'http://10.0.0.13:9087/alert/-999844035'
+  - url: 'http://10.0.0.13:9087/alert/-2092299167'
 
 - name: mediplus-telegram
   webhook_configs:
@@ -68,7 +68,7 @@ receivers:
 
 - name: ivirse-telegram
   webhook_configs:
-  - url: 'http://10.0.0.13:9087/alert/-856704110'
+  - url: 'http://10.0.0.13:9087/alert/-2124260999'
 
 - name: ytcc-telegram
   webhook_configs:
