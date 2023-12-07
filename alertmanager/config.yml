@@ -8,7 +8,7 @@ receivers:
 
 - name: System-Team
   webhook_configs:
-  - url: 'http://10.0.0.14:9088/alert/-983667254'
+  - url: 'http://10.0.0.14:9088/alert/-815609975'
 
 - name: isofh-server
   webhook_configs:
