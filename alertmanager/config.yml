@@ -44,23 +44,23 @@ receivers:
 
 - name: mediplus-telegram
   webhook_configs:
-  - url: 'http://10.0.0.13:9087/alert/-866646704'
+  - url: 'http://10.0.0.13:9087/alert/-2009891886'
 
 - name: benhvienphoi-telegram
   webhook_configs:
-  - url: 'http://10.0.0.13:9087/alert/-908574338'
+  - url: 'http://10.0.0.13:9087/alert/-2092479933'
 
 - name: trungtamtimmach-telegram
   webhook_configs:
-  - url: 'http://10.0.0.13:9087/alert/-969060421'
+  - url: 'http://10.0.0.13:9087/alert/-2053195406'
 
 - name: ykhn-telegram
   webhook_configs:
-  - url: 'http://10.0.0.13:9087/alert/-906386087'
+  - url: 'http://10.0.0.13:9087/alert/-2095950733'
 
 - name: bachmai-telegram
   webhook_configs:
-  - url: 'http://10.0.0.13:9087/alert/-932865047'
+  - url: 'http://10.0.0.13:9087/alert/-2017696534'
 
 - name: ivirse-telegram
   webhook_configs:
@@ -68,11 +68,11 @@ receivers:
 
 - name: ytcc-telegram
   webhook_configs:
-  - url: 'http://10.0.0.13:9087/alert/-829088376'
+  - url: 'http://10.0.0.13:9087/alert/-2031060059'
 
 - name: isofhcare-telegram
   webhook_configs:
-  - url: 'http://10.0.0.13:9087/alert/-987838747'
+  - url: 'http://10.0.0.13:9087/alert/-2107403114'
 
 #Group Dự phòng
 # - name: systems-team
