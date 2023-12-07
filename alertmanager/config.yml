@@ -78,14 +78,11 @@ receivers:
   webhook_configs:
   - url: 'http://10.0.0.13:9087/alert/-987838747'
 
-# Group Dự phòng
-# - name: systems-team-telegram
-#   webhook_configs:
-#   - url: 'http://10.0.0.13:9087/alert/-815609975'
-
-- name: systems-test-private-bot
+Group Dự phòng
+- name: systems-team-telegram
   webhook_configs:
-  - url: 'http://10.0.0.13:9087/alert/-999710731'
+  - url: 'http://10.0.0.13:9087/alert/-815609975'
+
 
 # ========================================================================================= ROUTE ================================================================================================
 # ========================================================================================= ROUTE ================================================================================================
@@ -98,7 +95,7 @@ route:
   group_interval: 1m
   group_wait: 5s
   repeat_interval: 15m
-  receiver: systems-test-private-bot
+  receiver: system-team-telegram
 
   routes:
   # - match:
@@ -107,13 +104,13 @@ route:
 
   - match_re: 
       app_type: (jenkins)
-    receiver: systems-test-private-bot 
+    receiver: system-team-telegram 
     routes:
 # Jenkins group
     - match:
         app_type: jenkins
         instance : 10.0.0.131:19100
-      receiver: systems-test-private-bot
+      receiver: system-team-telegram
 
 
 # templates:
