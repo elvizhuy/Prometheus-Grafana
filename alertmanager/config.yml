@@ -16,15 +16,15 @@ receivers:
 
 - name: benhviene-telegram
   webhook_configs:
-  - url: 'http://10.0.0.13:9087/alert/-944876422'
+  - url: 'http://10.0.0.13:9087/alert/-2027572866'
 
 - name: phongkham40-telegram
   webhook_configs:
-  - url: 'http://10.0.0.13:9087/alert/-988783003'
+  - url: 'http://10.0.0.13:9087/alert/-2134473168'
 
 - name: nhidongthanhpho-telegram
   webhook_configs:
-  - url: 'http://10.0.0.13:9087/alert/-901133248'
+  - url: 'http://10.0.0.13:9087/alert/-2019540689'
 
 - name: systems-team-telegram
   webhook_configs:
