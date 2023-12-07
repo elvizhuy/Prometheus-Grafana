@@ -4,7 +4,7 @@ global:
 receivers:
 - name: ivirse-telegram
   webhook_configs:
-  - url: 'http://10.0.0.14:9088/alert/-856704110'
+  - url: 'http://10.0.0.14:9088/alert/-2124260999'
 
 - name: System-Team
   webhook_configs:
@@ -16,15 +16,15 @@ receivers:
 
 - name: phongkham40-telegram
   webhook_configs:
-  - url: 'http://10.0.0.14:9088/alert/-988783003'
+  - url: 'http://10.0.0.14:9088/alert/-2134473168'
 
 - name: daihocy-telegram
   webhook_configs:
-  - url: 'http://10.0.0.14:9088/alert/-870297775'
+  - url: 'http://10.0.0.14:9088/alert/-2129986412'
 
 - name: ndtp-telegram
   webhook_configs:
-  - url: 'http://10.0.0.14:9088/alert/-901133248'
+  - url: 'http://10.0.0.14:9088/alert/-2019540689'
 
 route:
   continue: false
