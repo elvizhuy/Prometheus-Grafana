@@ -26,10 +26,6 @@ receivers:
   webhook_configs:
   - url: 'http://10.0.0.13:9087/alert/-2019540689'
 
-- name: systems-team-telegram
-  webhook_configs:
-  - url: 'http://10.0.0.13:9087/alert/-858234435'
-
 - name: dakhoathanhhoa-telegram
   webhook_configs:
   - url: 'http://10.0.0.13:9087/alert/-2104193649'
