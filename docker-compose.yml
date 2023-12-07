@@ -72,13 +72,13 @@ services:
   #     - prometheus
 
   # Bot Alert Physical
-  prometheus-bot:
-    container_name: system-server-bot
-    image: nguyenngochuy/prometheus_bot
-    volumes:
-      - /etc/localtime:/etc/localtime:ro
-      - ./Telegram-Bot/:/etc/telegrambot/
-      - ./Telegram-Bot/config.yaml:/config.yaml  
-    ports:
-      - 9087:9087
-    restart: always
+  # prometheus-bot:
+  #   container_name: system-server-bot
+  #   image: nguyenngochuy/prometheus_bot
+  #   volumes:
+  #     - /etc/localtime:/etc/localtime:ro
+  #     - ./Telegram-Bot/:/etc/telegrambot/
+  #     - ./Telegram-Bot/config.yaml:/config.yaml  
+  #   ports:
+  #     - 9087:9087
+  #   restart: always
