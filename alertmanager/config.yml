@@ -79,7 +79,7 @@ receivers:
   - url: 'http://10.0.0.13:9087/alert/-987838747'
 
 #Group Dự phòng
-- name: systems-team-telegram
+- name: systems-team
   webhook_configs:
   - url: 'http://10.0.0.13:9087/alert/-815609975'
 
@@ -95,7 +95,7 @@ route:
   group_interval: 1m
   group_wait: 5s
   repeat_interval: 15m
-  receiver: system-team-telegram
+  receiver: system-team
 
   routes:
   # - match:
@@ -104,13 +104,13 @@ route:
 
   - match_re: 
       app_type: (jenkins)
-    receiver: system-team-telegram 
+    receiver: system-team 
     routes:
 # Jenkins group
     - match:
         app_type: jenkins
         instance : 10.0.0.131:19100
-      receiver: system-team-telegram
+      receiver: system-team
 
 
 # templates:
