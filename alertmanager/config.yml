@@ -6,7 +6,7 @@ receivers:
   telegram_configs:
   - api_url: https://api.telegram.org
     bot_token: 6588801252:AAFJD4d1WW0L36mS_HfRlzTBIy3B7KJkIvc
-    chat_id: -824908019
+    chat_id: -815609975
     #template: template.tmpl
     disable_notifications: false
     http_config:
@@ -79,9 +79,9 @@ receivers:
   - url: 'http://10.0.0.13:9087/alert/-987838747'
 
 #Group Dự phòng
-- name: systems-team
-  webhook_configs:
-  - url: 'http://10.0.0.13:9087/alert/-815609975'
+# - name: systems-team
+#   webhook_configs:
+#   - url: 'http://10.0.0.13:9087/alert/-815609975'
 
 
 # ========================================================================================= ROUTE ================================================================================================
@@ -95,7 +95,7 @@ route:
   group_interval: 1m
   group_wait: 5s
   repeat_interval: 15m
-  receiver: system-team
+  receiver: Systems
 
   routes:
   # - match:
@@ -104,13 +104,13 @@ route:
 
   - match_re: 
       app_type: (jenkins)
-    receiver: system-team 
+    receiver: Systems 
     routes:
 # Jenkins group
     - match:
         app_type: jenkins
         instance : 10.0.0.131:19100
-      receiver: system-team
+      receiver: Systems
 
 
 # templates:
