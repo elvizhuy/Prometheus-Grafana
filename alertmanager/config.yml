@@ -40,7 +40,7 @@ receivers:
 
 - name: allen-telegram
   webhook_configs:
-  - url: 'http://10.0.0.13:9087/alert/-918887592'
+  - url: 'http://10.0.0.13:9087/alert/-1701917936'
 
 - name: saintpaul-telegram
   webhook_configs:
