@@ -55,7 +55,7 @@ groups:
 
       # Disk Rules
       - alert: Dung lượng DISK
-        expr: (100 - ((node_filesystem_free_bytes{instance=~".+",job="Benh-Vien-Phoi",mountpoint=~".+"}) / (node_filesystem_size_bytes{instance=~".+",job="Benh-Vien-Phoi",mountpoint=~".+"}))* 100) > 95
+        expr: (100 - ((node_filesystem_free_bytes{instance=~".+",job="Benh-Vien-Phoi",mountpoint=~".+"}) / (node_filesystem_size_bytes{instance=~".+",job="Benh-Vien-Phoi",mountpoint=~".+"}))* 100) > 90
         for: 72h
         labels:
           severity: Khẩn cấp
@@ -75,4 +75,3 @@ groups:
 
                   * KL Còn lại:  {{ query (printf "node_filesystem_free_bytes{job='Benh-Vien-Phoi', instance=~'%s', mountpoint=~'%s'}" $labels.instance $labels.mountpoint) | first | value | humanize1024}}
 
-              Vào fix đi anh em !
