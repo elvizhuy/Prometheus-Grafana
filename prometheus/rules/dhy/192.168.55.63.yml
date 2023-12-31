@@ -3,7 +3,7 @@ groups:
   rules:
 
   - alert: Container Status his-app-8081-dhy-production
-    expr: container_state_status{status="exited",name=~"his-app-8081-dhy-production",instance='192.168.55.63:19092'} == 1
+    expr: container_state_status{status="exited",name=~"his-app-8081-dhy-production",instance='192.168.55.63:19094'} == 1
     for: 1s
     labels:
       severity: khẩn cấp
@@ -57,7 +57,7 @@ groups:
           CPU USED : {{ printf "%.2f" $value}}%
 
   - alert: Container Status his-app-8082-dhy-production
-    expr: container_state_status{status="exited",name=~"his-app-8082-dhy-production",instance='192.168.55.63:19092'} == 1
+    expr: container_state_status{status="exited",name=~"his-app-8082-dhy-production",instance='192.168.55.63:19094'} == 1
     for: 1s
     labels:
       severity: khẩn cấp
@@ -111,7 +111,7 @@ groups:
           CPU USED : {{ printf "%.2f" $value}}%
 
   - alert: Container Status gb-dhy-production
-    expr: container_state_status{status="exited",name=~"gb-dhy-production",instance='192.168.55.63:19092'} == 1
+    expr: container_state_status{status="exited",name=~"gb-dhy-production",instance='192.168.55.63:19094'} == 1
     for: 1s
     labels:
       severity: khẩn cấp
@@ -165,7 +165,7 @@ groups:
           CPU USED : {{ printf "%.2f" $value}}%
   
   - alert: Container Status gs-dhy-production
-    expr: container_state_status{status="exited",name=~"gs-dhy-production",instance='192.168.55.63:19092'} == 1
+    expr: container_state_status{status="exited",name=~"gs-dhy-production",instance='192.168.55.63:19094'} == 1
     for: 1s
     labels:
       severity: khẩn cấp
