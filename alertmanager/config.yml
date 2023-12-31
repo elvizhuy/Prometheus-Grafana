@@ -2664,12 +2664,12 @@ route:
     receiver: benhvienphoi-telegram
     group_wait: 28s
     
-  - match:
-      app_type: Bệnh Viện Phổi
-      instance: 10.0.30.45:9100
-      category: disk  
-    receiver: benhvienphoi-telegram
-    group_wait: 28s
+  # - match:
+  #     app_type: Bệnh Viện Phổi
+  #     instance: 10.0.30.45:9100
+  #     category: disk  
+  #   receiver: benhvienphoi-telegram
+  #   group_wait: 28s
   - match:
       app_type: Bệnh Viện Phổi
       instance: 10.0.30.60:9100
