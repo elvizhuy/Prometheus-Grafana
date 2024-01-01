@@ -1281,12 +1281,12 @@ route:
     receiver: saintpaul-telegram
     group_wait: 1s
   # Doctor Allen
-  - match:
-      app_type: Doctor Allen
-      instance: 27.71.235.143:9100
-      category: memory  
-    receiver: allen-telegram
-    group_wait: 1s
+  # - match:
+  #     app_type: Doctor Allen
+  #     instance: 27.71.235.143:9100
+  #     category: memory  
+  #   receiver: allen-telegram
+  #   group_wait: 1s
   - match:
       app_type: Doctor Allen
       instance: 27.71.235.144:9100
