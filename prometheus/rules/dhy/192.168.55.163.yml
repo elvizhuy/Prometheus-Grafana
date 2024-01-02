@@ -127,7 +127,7 @@ groups:
        CONTAINER BỊ TẮT 
 
   - alert: Container Memory gb-dhy-production
-    expr: (container_memory_working_set_bytes{job='dhy', name='gb-dhy-production'}) / (container_spec_memory_limit_bytes{job="dhy", name='his-app-8082-dhy-production', instance='192.168.55.163:9099'}) * 100 > 90
+    expr: (container_memory_working_set_bytes{job='dhy', name='gb-dhy-production'}) / (container_spec_memory_limit_bytes{job="dhy", name='gb-dhy-production', instance='192.168.55.163:9099'}) * 100 > 90
     for: 10s
     labels:
       severity: khẩn cấp
@@ -181,7 +181,7 @@ groups:
        CONTAINER BỊ TẮT 
 
   - alert: Container Memory gs-dhy-production
-    expr: (container_memory_working_set_bytes{job='dhy', name='gs-dhy-production'}) / (container_spec_memory_limit_bytes{job="dhy", name='his-app-8082-dhy-production', instance='192.168.55.163:9099'}) * 100 > 90
+    expr: (container_memory_working_set_bytes{job='dhy', name='gs-dhy-production'}) / (container_spec_memory_limit_bytes{job="dhy", name='gs-dhy-production', instance='192.168.55.163:9099'}) * 100 > 90
     for: 10s
     labels:
       severity: khẩn cấp
