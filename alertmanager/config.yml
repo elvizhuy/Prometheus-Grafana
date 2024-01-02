@@ -715,6 +715,20 @@ route:
       group_wait: 5s
 
     - match:
+        category: container-status
+        container_name: gb-dhy-production
+        app_type: Đại Học Y
+      receiver: daihocy-telegram
+      group_wait: 5s
+    
+    - match:
+        category: container-status
+        container_name: gs-dhy-production
+        app_type: Đại Học Y
+      receiver: daihocy-telegram
+      group_wait: 5s
+    
+    - match:
         category: container-memory
         container_name: his-app-8081-dhy-production
         app_type: Đại Học Y
@@ -729,6 +743,20 @@ route:
       group_wait: 5s
 
     - match:
+        category: container-memory
+        container_name: gb-dhy-production
+        app_type: Đại Học Y
+      receiver: daihocy-telegram
+      group_wait: 5s
+    
+    - match:
+        category: container-memory
+        container_name: gs-dhy-production
+        app_type: Đại Học Y
+      receiver: daihocy-telegram
+      group_wait: 5s
+
+    - match:
         category: container-cpu
         container_name: his-app-8081-dhy-production
         app_type: Đại Học Y
@@ -738,6 +766,20 @@ route:
     - match:
         category: container-cpu
         container_name: his-app-8082-dhy-production
+        app_type: Đại Học Y
+      receiver: daihocy-telegram
+      group_wait: 5s
+
+    - match:
+        category: container-cpu
+        container_name: gb-dhy-production
+        app_type: Đại Học Y
+      receiver: daihocy-telegram
+      group_wait: 5s
+    
+    - match:
+        category: container-cpu
+        container_name: gs-dhy-production
         app_type: Đại Học Y
       receiver: daihocy-telegram
       group_wait: 5s
