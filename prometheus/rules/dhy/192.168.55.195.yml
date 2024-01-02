@@ -2,6 +2,8 @@ groups:
 - name: Container
   rules:
 
+# =================================================================== REPORT ====================================================================
+
   - alert: Container Status report-service-dhy-production
     expr: container_state_status{status="exited",name=~"report-service-dhy-production",instance='192.168.55.195:19094'} == 1
     for: 1s
@@ -110,6 +112,8 @@ groups:
 
           CPU USED : {{ printf "%.2f" $value}}%
   
+# =================================================================== SIGNER ====================================================================
+
   - alert: Container Status signer-connector-dhy-production
     expr: container_state_status{status="exited",name=~"signer-connector-dhy-production",instance='192.168.55.195:19094'} == 1
     for: 1s
@@ -164,6 +168,8 @@ groups:
 
           CPU USED : {{ printf "%.2f" $value}}%
 
+# =================================================================== PDF ====================================================================
+
   - alert: Container Status pdf-generator-dhy-production
     expr: container_state_status{status="exited",name=~"pdf-generator-dhy-production",instance='192.168.55.195:19094'} == 1
     for: 1s
@@ -217,3 +223,6 @@ groups:
         Thông tin cụ thể: 
 
           CPU USED : {{ printf "%.2f" $value}}%
+
+
+# =================================================================== PDF ====================================================================
