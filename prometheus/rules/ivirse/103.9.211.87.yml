@@ -19,21 +19,6 @@ groups:
 
        CONTAINER BỊ TẮT 
 
-  - alert: Container Status project-react-js-payment-gateway-isofh-production
-    expr: container_state_status{status="exited",name=~"project-react-js-payment-gateway-isofh-production"} == 1
-    for: 1s
-    labels:
-      severity: khẩn cấp
-      category: container-status
-      container_name: project-react-js-payment-gateway-isofh-production
-      app_type: IVIRSE
-    annotations:
-      summary: Container exited
-      description: |
-
-       CONTAINER NAME:-  {{ $labels.name }}
-
-       CONTAINER BỊ TẮT 
 
   - alert: Container Status project-node-js-getblockinfo-isofh-production
     expr: container_state_status{status="exited",name=~"project-node-js-getblockinfo-isofh-production"} == 1
@@ -100,13 +85,13 @@ groups:
 
        CONTAINER BỊ TẮT 
 
-  - alert: Container Status nginx-docker_app_1
-    expr: container_state_status{status="exited",name=~"nginx-docker_app_1"} == 1
+  - alert: Container Status ivirse-nginx
+    expr: container_state_status{status="exited",name=~"ivirse-nginx"} == 1
     for: 1s
     labels:
       severity: khẩn cấp
       category: container-status
-      container_name: nginx-docker_app_1
+      container_name: ivirse-nginx
       app_type: IVIRSE
     annotations:
       summary: Container exited
@@ -286,21 +271,21 @@ groups:
 
           RAM USED: {{ printf "%.2f" $value}}% / 100%
 
-  - alert: Container Memory nginx-docker_app_1
-    expr: sum(container_memory_working_set_bytes{job='ivirse', name='nginx-docker_app_1'}) / sum(container_spec_memory_limit_bytes{job="ivirse", id="/", instance="103.9.211.87:19094"}) * 100 > 90
+  - alert: Container Memory ivirse-nginx
+    expr: sum(container_memory_working_set_bytes{job='ivirse', name='ivirse-nginx'}) / sum(container_spec_memory_limit_bytes{job="ivirse", id="/", instance="103.9.211.87:19094"}) * 100 > 90
     for: 10s
     labels:
       severity: khẩn cấp
       app_type: IVIRSE
       category: container-memory    
-      container_name: nginx-docker_app_1
+      container_name: ivirse-nginx
     annotations:
       summary: "RAM container quá 90%"
       description: |
       
         CONTAINER NAME:  
         
-        **nginx-docker_app_1**
+        **ivirse-nginx**
 
         Thông tin cụ thể: 
 
