@@ -1033,12 +1033,12 @@ route:
     receiver: trungtamtimmach-telegram
     group_wait: 12s
     
-  - match:
-      app_type: Trung Tâm Tim Mạch
-      instance: 192.168.1.243:9100
-      category: memory  
-    receiver: trungtamtimmach-telegram
-    group_wait: 12s
+  # - match:
+  #     app_type: Trung Tâm Tim Mạch
+  #     instance: 192.168.1.243:9100
+  #     category: memory  
+  #   receiver: trungtamtimmach-telegram
+  #   group_wait: 12s
   - match:
       app_type: Trung Tâm Tim Mạch
       instance: 192.168.1.250:9100
