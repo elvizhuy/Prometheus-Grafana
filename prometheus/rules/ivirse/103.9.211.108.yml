@@ -41,7 +41,7 @@ groups:
 ################################################  
 
   - alert: Container Memory mongodb
-    expr: sum(container_memory_working_set_bytes{job='ivirse', name='mongodb'}) / sum(container_spec_memory_limit_bytes{job="ivirse", id="/", instance="103.9.211.87:19094"}) * 100 > 90
+    expr: sum(container_memory_working_set_bytes{job='ivirse', name='mongodb'}) / sum(container_spec_memory_limit_bytes{job="ivirse", id="/", instance="103.9.211.108:19094"}) * 100 > 90
     for: 10s
     labels:
       severity: khẩn cấp
@@ -62,7 +62,7 @@ groups:
 
 
   - alert: Container Memory ivirse-flask-chatbot-doc-production
-    expr: sum(container_memory_working_set_bytes{job='ivirse', name='ivirse-flask-chatbot-doc-production'}) / sum(container_spec_memory_limit_bytes{job="ivirse", id="/", instance="103.9.211.87:19094"}) * 100 > 90
+    expr: sum(container_memory_working_set_bytes{job='ivirse', name='ivirse-flask-chatbot-doc-production'}) / sum(container_spec_memory_limit_bytes{job="ivirse", id="/", instance="103.9.211.108:19094"}) * 100 > 90
     for: 10s
     labels:
       severity: khẩn cấp
@@ -86,20 +86,38 @@ groups:
 ################## CPU #########################  
 ################################################  
 
-  # - alert: Container CPU mongodb
-  #   expr: (sum(rate(container_cpu_usage_seconds_total{name!="",job='ivirse',name='mongodb'}[1m])) BY (instance, name) * 100) > 95
-  #   for: 10s
-  #   labels:
-  #     severity: khẩn cấp
-  #     app_type: IVIRSE
-  #     category: container-cpu    
-  #     container_name: mongodb
-  #   annotations:
-  #     summary: "CPU container quá 95%"
-  #     description: |
+  - alert: Container CPU mongodb
+    expr: (sum(rate(container_cpu_usage_seconds_total{name!="",job='ivirse',name='mongodb',instance='103.9.211.108:19094'}[1m])) BY (instance, name) * 100) > 95
+    for: 10s
+    labels:
+      severity: khẩn cấp
+      app_type: Server Test
+      category: container-cpu    
+      container_name: mongodb
+    annotations:
+      summary: "CPU container quá 95%"
+      description: |
       
-  #       CONTAINER NAME: {{ $labels.name }}
+        CONTAINER NAME: {{ $labels.name }}
 
-  #       Thông tin cụ thể: 
+        Thông tin cụ thể: 
 
-  #         CPU USED : {{ printf "%.2f" $value}}%
+          CPU USED : {{ printf "%.2f" $value}}%
+
+  - alert: Container CPU ivirse-flask-chatbot-doc-production
+    expr: (sum(rate(container_cpu_usage_seconds_total{name!="",job='ivirse',name='ivirse-flask-chatbot-doc-production',instance='103.9.211.108:19094'}[1m])) BY (instance, name) * 100) > 95
+    for: 10s
+    labels:
+      severity: khẩn cấp
+      app_type: Server Test
+      category: container-cpu    
+      container_name: ivirse-flask-chatbot-doc-production
+    annotations:
+      summary: "CPU container quá 95%"
+      description: |
+      
+        CONTAINER NAME: {{ $labels.name }}
+
+        Thông tin cụ thể: 
+
+          CPU USED : {{ printf "%.2f" $value}}%

@@ -25,7 +25,7 @@ groups:
 ################################################  
 
   - alert: Container Memory mongo
-    expr: sum(container_memory_working_set_bytes{job='ivirse', name='mongo'}) / sum(container_spec_memory_limit_bytes{job="ivirse", id="/", instance="103.9.211.87:19094"}) * 100 > 90
+    expr: sum(container_memory_working_set_bytes{job='ivirse', name='mongo'}) / sum(container_spec_memory_limit_bytes{job="ivirse", id="/", instance="103.9.211.93:19094"}) * 100 > 90
     for: 10s
     labels:
       severity: khẩn cấp
@@ -50,7 +50,7 @@ groups:
 ################################################  
 
   - alert: Container CPU mongo
-    expr: (sum(rate(container_cpu_usage_seconds_total{name!="",job='ivirse',name='mongo',instance='103.9.211.87:19094'}[1m])) BY (instance, name) * 100) > 95
+    expr: (sum(rate(container_cpu_usage_seconds_total{name!="",job='ivirse',name='mongo',instance='103.9.211.93:19094'}[1m])) BY (instance, name) * 100) > 95
     for: 10s
     labels:
       severity: khẩn cấp

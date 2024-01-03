@@ -506,6 +506,76 @@ route:
         app_type: IVIRSE
       receiver: ivirse-telegram
       group_wait: 3s
+    
+    - match:
+        category: container-memory
+        container_name: mongodb 
+        app_type: IVIRSE
+      receiver: ivirse-telegram
+      group_wait: 3s
+    
+    - match:
+        category: container-memory
+        container_name: ivirse-flask-chatbot-doc-production 
+        app_type: IVIRSE
+      receiver: ivirse-telegram
+      group_wait: 3s
+
+    - match:
+        category: container-memory
+        container_name: mongo 
+        app_type: IVIRSE
+      receiver: ivirse-telegram
+      group_wait: 3s
+
+    - match:
+        category: container-memory
+        container_name: ivirse-rasa-instructions-bot-production 
+        app_type: IVIRSE
+      receiver: ivirse-telegram
+      group_wait: 3s
+
+    - match:
+        category: container-memory
+        container_name: ivirse-django-hdsd-label-production 
+        app_type: IVIRSE
+      receiver: ivirse-telegram
+      group_wait: 3s
+
+    - match:
+        category: container-cpu
+        container_name: mongodb 
+        app_type: IVIRSE
+      receiver: ivirse-telegram
+      group_wait: 3s
+    
+    - match:
+        category: container-cpu
+        container_name: ivirse-flask-chatbot-doc-production 
+        app_type: IVIRSE
+      receiver: ivirse-telegram
+      group_wait: 3s
+
+    - match:
+        category: container-cpu
+        container_name: mongo 
+        app_type: IVIRSE
+      receiver: ivirse-telegram
+      group_wait: 3s
+
+    - match:
+        category: container-cpu
+        container_name: ivirse-rasa-instructions-bot-production 
+        app_type: IVIRSE
+      receiver: ivirse-telegram
+      group_wait: 3s
+
+    - match:
+        category: container-cpu
+        container_name: ivirse-django-hdsd-label-production 
+        app_type: IVIRSE
+      receiver: ivirse-telegram
+      group_wait: 3s
 
 ####################################################
 ####################################################
