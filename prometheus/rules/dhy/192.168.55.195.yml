@@ -22,7 +22,7 @@ groups:
 
   - alert: Container Memory report-service-dhy-production
     expr: (container_memory_working_set_bytes{job='dhy', name='report-service-dhy-production'}) / (container_spec_memory_limit_bytes{job="dhy", name='report-service-dhy-production', instance='192.168.55.195:19093'}) * 100 > 90
-    for: 60s
+    for: 1m
     labels:
       severity: khẩn cấp
       app_type: Đại Học Y
@@ -42,7 +42,7 @@ groups:
 
   - alert: Container CPU report-service-dhy-production
     expr: (sum(rate(container_cpu_usage_seconds_total{name!="",job='dhy',name='report-service-dhy-production',instance='192.168.55.195:19093' }[1m])) BY (instance, name) * 100) > 500
-    for: 60s
+    for: 1m
     labels:
       severity: khẩn cấp
       app_type: Đại Học Y
@@ -76,7 +76,7 @@ groups:
 
   - alert: Container Memory report-service-dhy-production-2415
     expr: (container_memory_working_set_bytes{job='dhy', name='report-service-dhy-production-2415'}) / (container_spec_memory_limit_bytes{job="dhy", name='report-service-dhy-production-2415', instance='192.168.55.195:19093'}) * 100 > 90
-    for: 60s
+    for: 1m
     labels:
       severity: khẩn cấp
       app_type: Đại Học Y
@@ -96,7 +96,7 @@ groups:
 
   - alert: Container CPU report-service-dhy-production-2415
     expr: (sum(rate(container_cpu_usage_seconds_total{name!="",job='dhy',name='report-service-dhy-production-2415',instance='192.168.55.195:19093' }[1m])) BY (instance, name) * 100) > 500
-    for: 60s
+    for: 1m
     labels:
       severity: khẩn cấp
       app_type: Đại Học Y
@@ -132,7 +132,7 @@ groups:
 
   - alert: Container Memory signer-connector-dhy-production
     expr: (container_memory_working_set_bytes{job='dhy', name='signer-connector-dhy-production'}) / (container_spec_memory_limit_bytes{job="dhy", name='signer-connector-dhy-production', instance='192.168.55.195:19093'}) * 100 > 90
-    for: 60s
+    for: 1m
     labels:
       severity: khẩn cấp
       app_type: Đại Học Y
@@ -152,7 +152,7 @@ groups:
 
   - alert: Container CPU signer-connector-dhy-production
     expr: (sum(rate(container_cpu_usage_seconds_total{name!="",job='dhy',name='signer-connector-dhy-production',instance='192.168.55.195:19093' }[1m])) BY (instance, name) * 100) > 500
-    for: 60s
+    for: 1m
     labels:
       severity: khẩn cấp
       app_type: Đại Học Y
@@ -188,7 +188,7 @@ groups:
 
   - alert: Container Memory pdf-generator-dhy-production
     expr: (container_memory_working_set_bytes{job='dhy',name='pdf-generator-dhy-production'}) / (container_spec_memory_limit_bytes{job="dhy", name='pdf-generator-dhy-production', instance='192.168.55.195:19093'}) * 100 > 90
-    for: 60s
+    for: 1m
     labels:
       severity: khẩn cấp
       app_type: Đại Học Y
@@ -208,7 +208,7 @@ groups:
 
   - alert: Container CPU pdf-generator-dhy-production
     expr: (sum(rate(container_cpu_usage_seconds_total{name!="",job='dhy',name='pdf-generator-dhy-production',instance='192.168.55.195:19093' }[1m])) BY (instance, name) * 100) > 500
-    for: 60s
+    for: 1m
     labels:
       severity: khẩn cấp
       app_type: Đại Học Y
