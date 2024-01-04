@@ -827,6 +827,34 @@ route:
       group_wait: 5s
 
     - match:
+        category: container-memory
+        container_name: pdf-generator-dhy-production
+        app_type: Đại Học Y
+      receiver: daihocy-telegram
+      group_wait: 5s
+
+    - match:
+        category: container-memory
+        container_name: signer-connector-dhy-production
+        app_type: Đại Học Y
+      receiver: daihocy-telegram
+      group_wait: 5s
+
+    - match:
+        category: container-memory
+        container_name: report-service-dhy-production-2415
+        app_type: Đại Học Y
+      receiver: daihocy-telegram
+      group_wait: 5s
+
+    - match:
+        category: container-memory
+        container_name: report-service-dhy-production
+        app_type: Đại Học Y
+      receiver: daihocy-telegram
+      group_wait: 5s
+
+    - match:
         category: container-cpu
         container_name: his-app-8081-dhy-production
         app_type: Đại Học Y
