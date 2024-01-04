@@ -109,7 +109,7 @@ groups:
         Thông tin cụ thể: 
 
           CPU USED : {{ printf "%.2f" $value}}%
-  
+
   - alert: Container Status gb-dhy-production
     expr: container_state_status{status="exited",name=~"gb-dhy-production",instance='192.168.55.164:19094'} == 1
     for: 1s
