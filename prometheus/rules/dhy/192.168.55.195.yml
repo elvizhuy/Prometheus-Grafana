@@ -187,7 +187,7 @@ groups:
        CONTAINER BỊ TẮT 
 
   - alert: Container Memory pdf-generator-dhy-production
-    expr: (container_memory_working_set_bytes{job='dhy'pdf-generator-dhy-production'}) / (container_spec_memory_limit_bytes{job="dhy", name='pdf-generator-dhy-production', instance='192.168.55.195:19093'}) * 100 > 90
+    expr: (container_memory_working_set_bytes{job='dhy',name='pdf-generator-dhy-production'}) / (container_spec_memory_limit_bytes{job="dhy", name='pdf-generator-dhy-production', instance='192.168.55.195:19093'}) * 100 > 90
     for: 10s
     labels:
       severity: khẩn cấp
