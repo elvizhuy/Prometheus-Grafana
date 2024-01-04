@@ -1456,3 +1456,165 @@ groups:
         Thông tin cụ thể: 
 
           CPU USED : {{ printf "%.2f" $value}}%
+  
+  - alert: Container CPU kafka-ui-isofh
+    expr: (sum(rate(container_cpu_usage_seconds_total{name!="",job='dhy',name='kafka-ui-isofh',instance='103.9.211.87:19093' }[1m])) BY (instance, name) * 100) > 500
+    for: 60s
+    labels:
+      severity: khẩn cấp
+      app_type: IVIRSE
+      category: container-cpu    
+      container_name: kafka-ui-isofh
+    annotations:
+      summary: "CPU container quá 95%"
+      description: |
+      
+        CONTAINER NAME: {{ $labels.name }}
+
+        Thông tin cụ thể: 
+
+          CPU USED : {{ printf "%.2f" $value}}%
+  
+  - alert: Container CPU kafka-isofh
+    expr: (sum(rate(container_cpu_usage_seconds_total{name!="",job='dhy',name='kafka-isofh',instance='103.9.211.87:19093' }[1m])) BY (instance, name) * 100) > 500
+    for: 60s
+    labels:
+      severity: khẩn cấp
+      app_type: IVIRSE
+      category: container-cpu    
+      container_name: kafka-isofh
+    annotations:
+      summary: "CPU container quá 95%"
+      description: |
+      
+        CONTAINER NAME: {{ $labels.name }}
+
+        Thông tin cụ thể: 
+
+          CPU USED : {{ printf "%.2f" $value}}%
+  
+  - alert: Container CPU zookeeper-isofh
+    expr: (sum(rate(container_cpu_usage_seconds_total{name!="",job='dhy',name='zookeeper-isofh',instance='103.9.211.87:19093' }[1m])) BY (instance, name) * 100) > 500
+    for: 60s
+    labels:
+      severity: khẩn cấp
+      app_type: IVIRSE
+      category: container-cpu    
+      container_name: zookeeper-isofh
+    annotations:
+      summary: "CPU container quá 95%"
+      description: |
+      
+        CONTAINER NAME: {{ $labels.name }}
+
+        Thông tin cụ thể: 
+
+          CPU USED : {{ printf "%.2f" $value}}%
+  
+  - alert: Container CPU project-node-js-gettxlogs-isofh-production
+    expr: (sum(rate(container_cpu_usage_seconds_total{name!="",job='dhy',name='project-node-js-gettxlogs-isofh-production',instance='103.9.211.87:19093' }[1m])) BY (instance, name) * 100) > 500
+    for: 60s
+    labels:
+      severity: khẩn cấp
+      app_type: IVIRSE
+      category: container-cpu    
+      container_name: project-node-js-gettxlogs-isofh-production
+    annotations:
+      summary: "CPU container quá 95%"
+      description: |
+      
+        CONTAINER NAME: {{ $labels.name }}
+
+        Thông tin cụ thể: 
+
+          CPU USED : {{ printf "%.2f" $value}}%
+  
+  - alert: Container CPU project-node-js-expiredactionschedule-isofh-production
+    expr: (sum(rate(container_cpu_usage_seconds_total{name!="",job='dhy',name='project-node-js-expiredactionschedule-isofh-production',instance='103.9.211.87:19093' }[1m])) BY (instance, name) * 100) > 500
+    for: 60s
+    labels:
+      severity: khẩn cấp
+      app_type: IVIRSE
+      category: container-cpu    
+      container_name: project-node-js-expiredactionschedule-isofh-production
+    annotations:
+      summary: "CPU container quá 95%"
+      description: |
+      
+        CONTAINER NAME: {{ $labels.name }}
+
+        Thông tin cụ thể: 
+
+          CPU USED : {{ printf "%.2f" $value}}%
+
+  - alert: Container CPU project-node-js-exchange-rate-isofh-production
+    expr: (sum(rate(container_cpu_usage_seconds_total{name!="",job='dhy',name='project-node-js-exchange-rate-isofh-production',instance='103.9.211.87:19093' }[1m])) BY (instance, name) * 100) > 500
+    for: 60s
+    labels:
+      severity: khẩn cấp
+      app_type: IVIRSE
+      category: container-cpu    
+      container_name: project-node-js-exchange-rate-isofh-production
+    annotations:
+      summary: "CPU container quá 95%"
+      description: |
+      
+        CONTAINER NAME: {{ $labels.name }}
+
+        Thông tin cụ thể: 
+
+          CPU USED : {{ printf "%.2f" $value}}%
+  
+  - alert: Container CPU project-reactjs-dex-ivirse-isofh-production
+    expr: (sum(rate(container_cpu_usage_seconds_total{name!="",job='dhy',name='project-reactjs-dex-ivirse-isofh-production',instance='103.9.211.87:19093' }[1m])) BY (instance, name) * 100) > 500
+    for: 60s
+    labels:
+      severity: khẩn cấp
+      app_type: IVIRSE
+      category: container-cpu    
+      container_name: project-reactjs-dex-ivirse-isofh-production
+    annotations:
+      summary: "CPU container quá 95%"
+      description: |
+      
+        CONTAINER NAME: {{ $labels.name }}
+
+        Thông tin cụ thể: 
+
+          CPU USED : {{ printf "%.2f" $value}}%
+
+  - alert: Container CPU project-react-js-payment-gateway-isofh-production
+    expr: (sum(rate(container_cpu_usage_seconds_total{name!="",job='dhy',name='project-react-js-payment-gateway-isofh-production',instance='103.9.211.87:19093' }[1m])) BY (instance, name) * 100) > 500
+    for: 60s
+    labels:
+      severity: khẩn cấp
+      app_type: IVIRSE
+      category: container-cpu    
+      container_name: project-react-js-payment-gateway-isofh-production
+    annotations:
+      summary: "CPU container quá 95%"
+      description: |
+      
+        CONTAINER NAME: {{ $labels.name }}
+
+        Thông tin cụ thể: 
+
+          CPU USED : {{ printf "%.2f" $value}}%
+
+  - alert: Container CPU ivirse-isofh-production
+    expr: (sum(rate(container_cpu_usage_seconds_total{name!="",job='dhy',name='ivirse-isofh-production',instance='103.9.211.87:19093' }[1m])) BY (instance, name) * 100) > 500
+    for: 60s
+    labels:
+      severity: khẩn cấp
+      app_type: IVIRSE
+      category: container-cpu    
+      container_name: ivirse-isofh-production
+    annotations:
+      summary: "CPU container quá 95%"
+      description: |
+      
+        CONTAINER NAME: {{ $labels.name }}
+
+        Thông tin cụ thể: 
+
+          CPU USED : {{ printf "%.2f" $value}}%
