@@ -341,11 +341,123 @@ route:
       # 103.9.211.87
     - match:
         category: container-status
-        container_name: project-react-js-payment-gateway-isofh-production
+        container_name: project-nestjs-gamefi-service-production
+        app_type: IVIRSE
+      receiver: ivirse-telegram
+      group_wait: 3s
+    
+    - match:
+        category: container-status
+        container_name: project-nestjs-gateway-service-production
+        app_type: IVIRSE
+      receiver: ivirse-telegram
+      group_wait: 3s
+    
+    - match:
+        category: container-status
+        container_name: project-nestjs-user-service-production
+        app_type: IVIRSE
+      receiver: ivirse-telegram
+      group_wait: 3s
+    
+    - match:
+        category: container-status
+        container_name: project-react-js-wallet-ivirse-isofh-production
+        app_type: IVIRSE
+      receiver: ivirse-telegram
+      group_wait: 3s
+    
+    - match:
+        category: container-status
+        container_name: project-nestjs-community-service-production
+        app_type: IVIRSE
+      receiver: ivirse-telegram
+      group_wait: 3s
+    
+    - match:
+        category: container-status
+        container_name: ivirse-instructions-bot-fe-isofh-production
+        app_type: IVIRSE
+      receiver: ivirse-telegram
+      group_wait: 3s
+    
+    - match:
+        category: container-status
+        container_name: project-nestjs-datahub-service-production
+        app_type: IVIRSE
+      receiver: ivirse-telegram
+      group_wait: 3s
+    
+    - match:
+        category: container-status
+        container_name: project-nestjs-notification-service-production
+        app_type: IVIRSE
+      receiver: ivirse-telegram
+      group_wait: 3s
+    
+    - match:
+        category: container-status
+        container_name: project-nestjs-file-service-production
+        app_type: IVIRSE
+      receiver: ivirse-telegram
+      group_wait: 3s
+    
+    - match:
+        category: container-status
+        container_name: project-node-js-scan-reserves-isofh-production
+        app_type: IVIRSE
+      receiver: ivirse-telegram
+      group_wait: 3s
+    
+    - match:
+        category: container-status
+        container_name: redis
+        app_type: IVIRSE
+      receiver: ivirse-telegram
+      group_wait: 3s
+    
+    - match:
+        category: container-status
+        container_name: project-next-ts-ivirse-website-isofh-production
+        app_type: IVIRSE
+      receiver: ivirse-telegram
+      group_wait: 3s
+    
+    - match:
+        category: container-status
+        container_name: project-react-js-chatbot-doc-isofh-production
+        app_type: IVIRSE
+      receiver: ivirse-telegram
+      group_wait: 3s
+    
+    - match:
+        category: container-status
+        container_name: project-react-js-ivirse-isofh-production
+        app_type: IVIRSE
+      receiver: ivirse-telegram
+      group_wait: 3s
+    
+    - match:
+        category: container-status
+        container_name: project-nodejs-ivirse-be-isofh-production
+        app_type: IVIRSE
+      receiver: ivirse-telegram
+      group_wait: 3s
+    
+    - match:
+        category: container-status
+        container_name: ivirse-isofh-production
         app_type: IVIRSE
       receiver: ivirse-telegram
       group_wait: 3s
 
+    - match:
+        category: container-status
+        container_name: project-react-js-payment-gateway-isofh-production
+        app_type: IVIRSE
+      receiver: ivirse-telegram
+      group_wait: 3s
+    
     - match:
         category: container-status
         container_name: project-node-ts-payment-gateway-isofh-production 
@@ -383,14 +495,21 @@ route:
 
     - match:
         category: container-status
-        container_name: nginx-docker_app_1 
+        container_name: project-node-js-gettxlogs-isofh-production 
+        app_type: IVIRSE
+      receiver: ivirse-telegram
+      group_wait: 3s
+    
+    - match:
+        category: container-status
+        container_name: project-reactjs-dex-ivirse-isofh-production 
         app_type: IVIRSE
       receiver: ivirse-telegram
       group_wait: 3s
 
     - match:
         category: container-status
-        container_name: project-node-js-gettxlogs-isofh-production 
+        container_name: nginx-app
         app_type: IVIRSE
       receiver: ivirse-telegram
       group_wait: 3s
@@ -415,73 +534,31 @@ route:
         app_type: IVIRSE
       receiver: ivirse-telegram
       group_wait: 3s
-
+    
+    - match:
+        category: container-status
+        container_name: mongo
+        app_type: IVIRSE
+      receiver: ivirse-telegram
+      group_wait: 3s
+    
+    - match:
+        category: container-status
+        container_name: postgres 
+        app_type: IVIRSE
+      receiver: ivirse-telegram
+      group_wait: 3s
+                  #=============================
     - match:
         category: container-memory
-        container_name: isofh_postgres_1
+        container_name: postgres
         app_type: IVIRSE
       receiver: ivirse-telegram
       group_wait: 3s
 
     - match:
         category: container-memory
-        container_name: isofh_caserver_1
-        app_type: IVIRSE
-      receiver: ivirse-telegram
-      group_wait: 3s
-
-    - match:
-        category: container-memory
-        container_name: project-react-js-payment-gateway-isofh-production
-        app_type: IVIRSE
-      receiver: ivirse-telegram
-      group_wait: 3s
-
-    - match:
-        category: container-memory
-        container_name: project-node-ts-payment-gateway-isofh-production 
-        app_type: IVIRSE
-      receiver: ivirse-telegram
-      group_wait: 3s
-
-    - match:
-        category: container-memory
-        container_name: project-node-js-getblockinfo-isofh-production 
-        app_type: IVIRSE
-      receiver: ivirse-telegram
-      group_wait: 3s
-
-    - match:
-        category: container-memory
-        container_name: project-node-js-expiredactionschedule-isofh-production 
-        app_type: IVIRSE
-      receiver: ivirse-telegram
-      group_wait: 3s
-
-    - match:
-        category: container-memory
-        container_name: project-node-js-paymentactiontrigger-isofh-production
-        app_type: IVIRSE
-      receiver: ivirse-telegram
-      group_wait: 3s
-
-    - match:
-        category: container-memory
-        container_name: project-node-js-exchange-rate-isofh-production 
-        app_type: IVIRSE
-      receiver: ivirse-telegram
-      group_wait: 3s
-
-    - match:
-        category: container-memory
-        container_name: nginx-docker_app_1 
-        app_type: IVIRSE
-      receiver: ivirse-telegram
-      group_wait: 3s
-
-    - match:
-        category: container-memory
-        container_name: project-node-js-gettxlogs-isofh-production 
+        container_name: nginx-app
         app_type: IVIRSE
       receiver: ivirse-telegram
       group_wait: 3s
@@ -516,6 +593,174 @@ route:
     
     - match:
         category: container-memory
+        container_name: project-nestjs-gamefi-service-production
+        app_type: IVIRSE
+      receiver: ivirse-telegram
+      group_wait: 3s
+    
+    - match:
+        category: container-memory
+        container_name: project-nestjs-gateway-service-production
+        app_type: IVIRSE
+      receiver: ivirse-telegram
+      group_wait: 3s
+    
+    - match:
+        category: container-memory
+        container_name: project-nestjs-user-service-production
+        app_type: IVIRSE
+      receiver: ivirse-telegram
+      group_wait: 3s
+    
+    - match:
+        category: container-memory
+        container_name: project-react-js-wallet-ivirse-isofh-production
+        app_type: IVIRSE
+      receiver: ivirse-telegram
+      group_wait: 3s
+    
+    - match:
+        category: container-memory
+        container_name: project-nestjs-community-service-production
+        app_type: IVIRSE
+      receiver: ivirse-telegram
+      group_wait: 3s
+    
+    - match:
+        category: container-memory
+        container_name: ivirse-instructions-bot-fe-isofh-production
+        app_type: IVIRSE
+      receiver: ivirse-telegram
+      group_wait: 3s
+    
+    - match:
+        category: container-memory
+        container_name: project-nestjs-datahub-service-production
+        app_type: IVIRSE
+      receiver: ivirse-telegram
+      group_wait: 3s
+    
+    - match:
+        category: container-memory
+        container_name: project-nestjs-notification-service-production
+        app_type: IVIRSE
+      receiver: ivirse-telegram
+      group_wait: 3s
+    
+    - match:
+        category: container-memory
+        container_name: project-nestjs-file-service-production
+        app_type: IVIRSE
+      receiver: ivirse-telegram
+      group_wait: 3s
+    
+    - match:
+        category: container-memory
+        container_name: project-node-js-scan-reserves-isofh-production
+        app_type: IVIRSE
+      receiver: ivirse-telegram
+      group_wait: 3s
+    
+    - match:
+        category: container-memory
+        container_name: redis
+        app_type: IVIRSE
+      receiver: ivirse-telegram
+      group_wait: 3s
+    
+    - match:
+        category: container-memory
+        container_name: project-next-ts-ivirse-website-isofh-production
+        app_type: IVIRSE
+      receiver: ivirse-telegram
+      group_wait: 3s
+    
+    - match:
+        category: container-memory
+        container_name: project-react-js-chatbot-doc-isofh-production
+        app_type: IVIRSE
+      receiver: ivirse-telegram
+      group_wait: 3s
+    
+    - match:
+        category: container-memory
+        container_name: project-react-js-ivirse-isofh-production
+        app_type: IVIRSE
+      receiver: ivirse-telegram
+      group_wait: 3s
+    
+    - match:
+        category: container-memory
+        container_name: project-nodejs-ivirse-be-isofh-production
+        app_type: IVIRSE
+      receiver: ivirse-telegram
+      group_wait: 3s
+    
+    - match:
+        category: container-memory
+        container_name: ivirse-isofh-production
+        app_type: IVIRSE
+      receiver: ivirse-telegram
+      group_wait: 3s
+
+    - match:
+        category: container-memory
+        container_name: project-react-js-payment-gateway-isofh-production
+        app_type: IVIRSE
+      receiver: ivirse-telegram
+      group_wait: 3s
+    
+    - match:
+        category: container-memory
+        container_name: project-node-ts-payment-gateway-isofh-production 
+        app_type: IVIRSE
+      receiver: ivirse-telegram
+      group_wait: 3s
+
+    - match:
+        category: container-memory
+        container_name: project-node-js-getblockinfo-isofh-production 
+        app_type: IVIRSE
+      receiver: ivirse-telegram
+      group_wait: 3s
+
+    - match:
+        category: container-memory
+        container_name: project-node-js-expiredactionschedule-isofh-production 
+        app_type: IVIRSE
+      receiver: ivirse-telegram
+      group_wait: 3s
+
+    - match:
+        category: container-memory
+        container_name: project-node-js-paymentactiontrigger-isofh-production
+        app_type: IVIRSE
+      receiver: ivirse-telegram
+      group_wait: 3s
+
+    - match:
+        category: container-memory
+        container_name: project-node-js-exchange-rate-isofh-production 
+        app_type: IVIRSE
+      receiver: ivirse-telegram
+      group_wait: 3s
+
+    - match:
+        category: container-memory
+        container_name: project-node-js-gettxlogs-isofh-production 
+        app_type: IVIRSE
+      receiver: ivirse-telegram
+      group_wait: 3s
+    
+    - match:
+        category: container-memory
+        container_name: project-reactjs-dex-ivirse-isofh-production 
+        app_type: IVIRSE
+      receiver: ivirse-telegram
+      group_wait: 3s
+
+    - match:
+        category: container-memory
         container_name: ivirse-flask-chatbot-doc-production 
         app_type: IVIRSE
       receiver: ivirse-telegram
@@ -538,6 +783,182 @@ route:
     - match:
         category: container-memory
         container_name: ivirse-django-hdsd-label-production 
+        app_type: IVIRSE
+      receiver: ivirse-telegram
+      group_wait: 3s
+                      # ==================================
+    
+    - match:
+        category: container-cpu
+        container_name: project-nestjs-gamefi-service-production
+        app_type: IVIRSE
+      receiver: ivirse-telegram
+      group_wait: 3s
+    
+    - match:
+        category: container-cpu
+        container_name: project-nestjs-gateway-service-production
+        app_type: IVIRSE
+      receiver: ivirse-telegram
+      group_wait: 3s
+    
+    - match:
+        category: container-cpu
+        container_name: project-nestjs-user-service-production
+        app_type: IVIRSE
+      receiver: ivirse-telegram
+      group_wait: 3s
+    
+    - match:
+        category: container-cpu
+        container_name: project-react-js-wallet-ivirse-isofh-production
+        app_type: IVIRSE
+      receiver: ivirse-telegram
+      group_wait: 3s
+    
+    - match:
+        category: container-cpu
+        container_name: project-nestjs-community-service-production
+        app_type: IVIRSE
+      receiver: ivirse-telegram
+      group_wait: 3s
+    
+    - match:
+        category: container-cpu
+        container_name: ivirse-instructions-bot-fe-isofh-production
+        app_type: IVIRSE
+      receiver: ivirse-telegram
+      group_wait: 3s
+    
+    - match:
+        category: container-cpu
+        container_name: project-nestjs-datahub-service-production
+        app_type: IVIRSE
+      receiver: ivirse-telegram
+      group_wait: 3s
+    
+    - match:
+        category: container-cpu
+        container_name: project-nestjs-notification-service-production
+        app_type: IVIRSE
+      receiver: ivirse-telegram
+      group_wait: 3s
+    
+    - match:
+        category: container-cpu
+        container_name: project-nestjs-file-service-production
+        app_type: IVIRSE
+      receiver: ivirse-telegram
+      group_wait: 3s
+    
+    - match:
+        category: container-cpu
+        container_name: project-node-js-scan-reserves-isofh-production
+        app_type: IVIRSE
+      receiver: ivirse-telegram
+      group_wait: 3s
+    
+    - match:
+        category: container-cpu
+        container_name: redis
+        app_type: IVIRSE
+      receiver: ivirse-telegram
+      group_wait: 3s
+    
+    - match:
+        category: container-cpu
+        container_name: project-next-ts-ivirse-website-isofh-production
+        app_type: IVIRSE
+      receiver: ivirse-telegram
+      group_wait: 3s
+    
+    - match:
+        category: container-cpu
+        container_name: project-react-js-chatbot-doc-isofh-production
+        app_type: IVIRSE
+      receiver: ivirse-telegram
+      group_wait: 3s
+    
+    - match:
+        category: container-cpu
+        container_name: project-react-js-ivirse-isofh-production
+        app_type: IVIRSE
+      receiver: ivirse-telegram
+      group_wait: 3s
+    
+    - match:
+        category: container-cpu
+        container_name: project-nodejs-ivirse-be-isofh-production
+        app_type: IVIRSE
+      receiver: ivirse-telegram
+      group_wait: 3s
+    
+    - match:
+        category: container-cpu
+        container_name: ivirse-isofh-production
+        app_type: IVIRSE
+      receiver: ivirse-telegram
+      group_wait: 3s
+
+    - match:
+        category: container-cpu
+        container_name: project-react-js-payment-gateway-isofh-production
+        app_type: IVIRSE
+      receiver: ivirse-telegram
+      group_wait: 3s
+    
+    - match:
+        category: container-cpu
+        container_name: project-node-ts-payment-gateway-isofh-production 
+        app_type: IVIRSE
+      receiver: ivirse-telegram
+      group_wait: 3s
+
+    - match:
+        category: container-cpu
+        container_name: project-node-js-getblockinfo-isofh-production 
+        app_type: IVIRSE
+      receiver: ivirse-telegram
+      group_wait: 3s
+
+    - match:
+        category: container-cpu
+        container_name: project-node-js-expiredactionschedule-isofh-production 
+        app_type: IVIRSE
+      receiver: ivirse-telegram
+      group_wait: 3s
+
+    - match:
+        category: container-cpu
+        container_name: project-node-js-paymentactiontrigger-isofh-production
+        app_type: IVIRSE
+      receiver: ivirse-telegram
+      group_wait: 3s
+
+    - match:
+        category: container-cpu
+        container_name: project-node-js-exchange-rate-isofh-production 
+        app_type: IVIRSE
+      receiver: ivirse-telegram
+      group_wait: 3s
+
+    - match:
+        category: container-cpu
+        container_name: project-node-js-gettxlogs-isofh-production 
+        app_type: IVIRSE
+      receiver: ivirse-telegram
+      group_wait: 3s
+    
+    - match:
+        category: container-cpu
+        container_name: project-reactjs-dex-ivirse-isofh-production 
+        app_type: IVIRSE
+      receiver: ivirse-telegram
+      group_wait: 3s
+
+    - match:
+        category: container-cpu
+        container_name: postgres 
         app_type: IVIRSE
       receiver: ivirse-telegram
       group_wait: 3s
