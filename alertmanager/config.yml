@@ -1391,7 +1391,7 @@ route:
     receiver: daihocy-telegram
     group_wait: 1s
 
-   - match:
+  - match:
       app_type: Đại Học Y
       instance: 192.168.55.195:19100
       category: memory
