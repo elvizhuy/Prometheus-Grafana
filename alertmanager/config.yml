@@ -543,7 +543,7 @@ route:
     group_wait: 1s
   - match:
       app_type: Đại Học Y
-      instance: 192.168.55.163:9100
+      instance: 192.168.55.163:19100
       category: server  
     receiver: daihocy-telegram
     group_wait: 1s
