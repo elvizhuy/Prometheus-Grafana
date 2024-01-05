@@ -18,7 +18,7 @@ groups:
       # Ram Rules
       - alert: Cảnh báo RAM
         expr: (node_memory_MemTotal_bytes{job="Dai-Hoc-Y", instance=~".+"} - node_memory_MemFree_bytes{job="Dai-Hoc-Y", instance=~".+"} - node_memory_Buffers_bytes{job="Dai-Hoc-Y", instance=~".+"} - node_memory_Cached_bytes{job="Dai-Hoc-Y", instance=~".+"} ) / (node_memory_MemTotal_bytes{job="Dai-Hoc-Y", instance=~".+"}) * 100 > 96
-        for: 5m
+        for: 10m
         labels:
           severity: Khẩn cấp
           app_type: Đại Học Y
@@ -42,7 +42,7 @@ groups:
       # CPU Rules
       - alert: CPU Tăng cao
         expr: 100 - (avg by(instance) (irate(node_cpu_seconds_total{job="Dai-Hoc-Y", instance=~".+",mode="idle"}[1m])) * 100) > 96
-        for: 5m
+        for: 10m
         labels:
           severity: Khẩn cấp
           app_type: Đại Học Y
