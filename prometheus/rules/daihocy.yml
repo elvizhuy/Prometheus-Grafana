@@ -54,26 +54,46 @@ groups:
             CPU máy chủ sử dụng đạt tới  {{ printf "%.2f" $value }}% / 100%
 
       # Disk Rules
-      - alert: Dung lượng DISK
-        expr: (100 - ((node_filesystem_free_bytes{instance=~".+",job="Dai-Hoc-Y",mountpoint=~".+"} unless node_filesystem_free_bytes{instance=~".+",job="Dai-Hoc-Y",device="192.168.55.200:/volume1/XN",mountpoint=~".+"}) / (node_filesystem_size_bytes{instance=~".+",job="Dai-Hoc-Y",mountpoint=~".+"}))* 100) > 92
+      # - alert: Dung lượng DISK
+      #   expr: (100 - ((node_filesystem_free_bytes{instance=~".+",job="Dai-Hoc-Y",mountpoint=~".+"} unless node_filesystem_free_bytes{instance=~".+",job="Dai-Hoc-Y",device="192.168.55.200:/volume1/XN",mountpoint=~".+"}) / (node_filesystem_size_bytes{instance=~".+",job="Dai-Hoc-Y",mountpoint=~".+"}))* 100) > 92
+      #   for: 72h
+      #   labels:
+      #     severity: Khẩn cấp
+      #     app_type: Đại Học Y
+      #     category: disk
+      #   annotations:
+      #     summary: "Ổ CỨNG SẮP ĐẦY"
+      #     description: | 
+          
+      #         Dung lượng {{ $labels.device }} mount vào thư mục {{ $labels.mountpoint }} đã đạt tới {{ printf "%.2f" $value }}% / 100%
+
+      #         Thông Tin Cụ Thể:
+
+      #             * TOTAL DISK:  {{ query (printf "node_filesystem_size_bytes{job='Dai-Hoc-Y', instance=~'%s', mountpoint=~'%s'}" $labels.instance $labels.mountpoint) | first | value | humanize1024}}
+
+      #             * KL Đã dùng:  {{ query (printf "node_filesystem_size_bytes{job='Dai-Hoc-Y', instance=~'%s', mountpoint=~'%s'} - node_filesystem_free_bytes{job='Dai-Hoc-Y', instance=~'%s', mountpoint=~'%s'}" $labels.instance $labels.mountpoint $labels.instance $labels.mountpoint) | first | value | humanize1024}}
+
+      #             * KL Còn lại:  {{ query (printf "node_filesystem_free_bytes{job='Dai-Hoc-Y', instance=~'%s', mountpoint=~'%s'} unless node_filesystem_free_bytes{instance=~".+",job="Dai-Hoc-Y",device="192.168.55.200:/volume1/XN",mountpoint=~".+"}" $labels.instance $labels.mountpoint $labels.instance $labels.mountpoint) | first | value | humanize1024}}
+
+      - alert: Dung_luong_DISK
+        expr: |
+          (100 - ((node_filesystem_free_bytes{instance=~".+",job="Dai-Hoc-Y",mountpoint=~".+"} != on (device) node_filesystem_free_bytes{instance=~".+",job="Dai-Hoc-Y",device="192.168.55.200:/volume1/XN",mountpoint=~".+"}) / (node_filesystem_size_bytes{instance=~".+",job="Dai-Hoc-Y",mountpoint=~".+"} != on (device) node_filesystem_size_bytes{instance=~".+",job="Dai-Hoc-Y",device="192.168.55.200:/volume1/XN",mountpoint=~".+"})* 100) > 92
         for: 72h
         labels:
-          severity: Khẩn cấp
-          app_type: Đại Học Y
+          severity: Khẩn_cấp
+          app_type: Đại_Học_Y
           category: disk
         annotations:
           summary: "Ổ CỨNG SẮP ĐẦY"
           description: | 
-          
-              Dung lượng {{ $labels.device }} mount vào thư mục {{ $labels.mountpoint }} đã đạt tới {{ printf "%.2f" $value }}% / 100%
+            Dung lượng {{ $labels.device }} mount vào thư mục {{ $labels.mountpoint }} đã đạt tới {{ printf "%.2f" $value }}% / 100%
 
-              Thông Tin Cụ Thể:
+            Thông Tin Cụ Thể:
 
-                  * TOTAL DISK:  {{ query (printf "node_filesystem_size_bytes{job='Dai-Hoc-Y', instance=~'%s', mountpoint=~'%s'}" $labels.instance $labels.mountpoint) | first | value | humanize1024}}
+            * TOTAL DISK:  {{ query (printf "node_filesystem_size_bytes{job='Dai-Hoc-Y', instance=~'%s', mountpoint=~'%s'}" $labels.instance $labels.mountpoint) | first | value | humanize1024}}
 
-                  * KL Đã dùng:  {{ query (printf "node_filesystem_size_bytes{job='Dai-Hoc-Y', instance=~'%s', mountpoint=~'%s'} - node_filesystem_free_bytes{job='Dai-Hoc-Y', instance=~'%s', mountpoint=~'%s'}" $labels.instance $labels.mountpoint $labels.instance $labels.mountpoint) | first | value | humanize1024}}
+            * KL Đã dùng:  {{ query (printf "node_filesystem_size_bytes{job='Dai-Hoc-Y', instance=~'%s', mountpoint=~'%s'} - on (device) node_filesystem_free_bytes{job='Dai-Hoc-Y', instance=~'%s', device='192.168.55.200:/volume1/XN', mountpoint=~'%s'}" $labels.instance $labels.mountpoint $labels.instance $labels.mountpoint) | first | value | humanize1024}}
 
-                  * KL Còn lại:  {{ query (printf "node_filesystem_free_bytes{job='Dai-Hoc-Y', instance=~'%s', mountpoint=~'%s'} unless node_filesystem_free_bytes{instance=~".+",job="Dai-Hoc-Y",device="192.168.55.200:/volume1/XN",mountpoint=~".+"}" $labels.instance $labels.mountpoint $labels.instance $labels.mountpoint) | first | value | humanize1024}}
+            * KL Còn lại:  {{ query (printf "on (device) node_filesystem_free_bytes{job='Dai-Hoc-Y', instance=~'%s', device!='192.168.55.200:/volume1/XN', mountpoint=~'%s'}" $labels.instance $labels.mountpoint) | first | value | humanize1024}}
 
-              
-              
+                    
