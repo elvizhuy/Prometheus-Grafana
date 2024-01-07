@@ -55,7 +55,7 @@ groups:
 
       # Disk Rules
       - alert: Dung lượng DISK
-        expr: (100 - ((node_filesystem_free_bytes{instance=~".+",job="Dai-Hoc-Y",mountpoint=~".+"}) / (node_filesystem_size_bytes{instance=~".+",job="Dai-Hoc-Y",mountpoint=~".+"}))* 100) > 92
+        expr: (100 - ((node_filesystem_free_bytes{instance=~".+",job="Dai-Hoc-Y",mountpoint=~".+"} unless node_filesystem_free_bytes{instance=~".+",job="Dai-Hoc-Y",device="192.168.55.200:/volume1/XN",mountpoint=~".+"}) / (node_filesystem_size_bytes{instance=~".+",job="Dai-Hoc-Y",mountpoint=~".+"}))* 100) > 92
         for: 72h
         labels:
           severity: Khẩn cấp
@@ -73,7 +73,7 @@ groups:
 
                   * KL Đã dùng:  {{ query (printf "node_filesystem_size_bytes{job='Dai-Hoc-Y', instance=~'%s', mountpoint=~'%s'} - node_filesystem_free_bytes{job='Dai-Hoc-Y', instance=~'%s', mountpoint=~'%s'}" $labels.instance $labels.mountpoint $labels.instance $labels.mountpoint) | first | value | humanize1024}}
 
-                  * KL Còn lại:  {{ query (printf "node_filesystem_free_bytes{job='Dai-Hoc-Y', instance=~'%s', mountpoint=~'%s'}" $labels.instance $labels.mountpoint) | first | value | humanize1024}}
+                  * KL Còn lại:  {{ query (printf "node_filesystem_free_bytes{job='Dai-Hoc-Y', instance=~'%s', mountpoint=~'%s'} unless node_filesystem_free_bytes{instance=~".+",job="Dai-Hoc-Y",device="192.168.55.200:/volume1/XN",mountpoint=~".+"}" $labels.instance $labels.mountpoint $labels.instance $labels.mountpoint) | first | value | humanize1024}}
 
               
               
