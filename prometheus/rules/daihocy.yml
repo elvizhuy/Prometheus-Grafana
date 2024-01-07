@@ -55,7 +55,8 @@ groups:
 
       # Disk Rules
       - alert: Dung lượng DISK
-        expr: (100 - ((node_filesystem_free_bytes{instance=~".+",job="Dai-Hoc-Y",device!="192.168.55.200:/volume1/XN",mountpoint=~".+"}) / (node_filesystem_size_bytes{instance=~".+",job="Dai-Hoc-Y",device!="192.168.55.200:/volume1/XN",mountpoint=~".+"}))* 100) > 92
+        # expr: (100 - ((node_filesystem_free_bytes{instance=~".+",job="Dai-Hoc-Y",device!="192.168.55.200:/volume1/XN",mountpoint=~".+"}) / (node_filesystem_size_bytes{instance=~".+",job="Dai-Hoc-Y",device!="192.168.55.200:/volume1/XN",mountpoint=~".+"}))* 100) > 92
+        expr: (100 - ((node_filesystem_free_bytes{instance=~".+",job="Dai-Hoc-Y",device!="192.168.55.200:/volume1/XN",mountpoint!="/HIS"} / node_filesystem_size_bytes{instance=~".+",job="Dai-Hoc-Y",device!="192.168.55.200:/volume1/XN",mountpoint!="/HIS"})* 100)) > 92
         for: 72h
         labels:
           severity: Khẩn cấp
