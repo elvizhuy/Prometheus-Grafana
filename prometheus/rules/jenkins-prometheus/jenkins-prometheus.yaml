@@ -17,4 +17,4 @@ groups:
 
        CONTAINER NAME:-  {{ $labels.name }}
 
-       CONTAINER BỊ TẮT 
+       CONTAINER BỊ TẮT
