@@ -26,6 +26,10 @@ receivers:
   webhook_configs:
   - url: 'http://10.0.0.14:9088/alert/-1002019540689'
 
+- name: bvp-telegram
+  webhook_configs:
+  - url: 'http://10.0.0.14:9088/alert/-1002019540689'
+
 route:
   continue: false
   group_by: ['instance']
@@ -1329,6 +1333,40 @@ route:
         container_name: report-service-dhy-production
         app_type: Đại Học Y
       receiver: daihocy-telegram
+      group_wait: 5s
+
+# ================================================================= BVP =====================================================
+
+
+
+# ============== RAM ================
+- match:
+        category: container-memory
+        container_name: his-app-8081-bvp-production
+        app_type: Bệnh Viện Phổi
+      receiver: bvp-telegram
+      group_wait: 5s
+
+    - match:
+        category: container-memory
+        container_name: his-app-8082-bvp-production
+        app_type: Bệnh Viện Phổi
+      receiver: bvp-telegram
+      group_wait: 5s
+
+# ============= CPU ===============
+- match:
+        category: container-cpu
+        container_name: his-app-8081-bvp-production
+        app_type: Bệnh Viện Phổi
+      receiver: bvp-telegram
+      group_wait: 5s
+
+    - match:
+        category: container-cpu
+        container_name: his-app-8082-bvp-production
+        app_type: Bệnh Viện Phổi
+      receiver: bvp-telegram
       group_wait: 5s
 
 templates:
