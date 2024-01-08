@@ -15,6 +15,7 @@ rule_files:
   - './rules/dhy/*.yml'
   - './rules/pk40/*.yml'
   - './rules/ivirse/*.yml'
+  - './rules/bvp/*.yml'
 
 # alert
 alerting:
