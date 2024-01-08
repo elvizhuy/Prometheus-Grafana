@@ -3,7 +3,7 @@ groups:
   rules:
 
   - alert: Container Status his-app-8081-dhy-production
-    expr: container_state_status{status="exited",name=~"his-app-8081-dhy-production",instance='10.0.30.9:9092'} == 1
+    expr: container_state_status{status="exited",name=~"his-app-8081-dhy-production",instance='10.0.30.33:19093'} == 1
     for: 1s
     labels:
       severity: khẩn cấp
@@ -19,7 +19,7 @@ groups:
        CONTAINER BỊ TẮT 
 
   - alert: Container Memory his-app-8081-dhy-production
-    expr: (container_memory_working_set_bytes{job='dhy', name='his-app-8081-dhy-production'}) / (container_spec_memory_limit_bytes{job="dhy", name='his-app-8081-dhy-production', instance='10.0.30.9:9092'}) * 100 > 90
+    expr: (container_memory_working_set_bytes{job='dhy', name='his-app-8081-dhy-production'}) / (container_spec_memory_limit_bytes{job="dhy", name='his-app-8081-dhy-production', instance='10.0.30.33:19093'}) * 100 > 90
     for: 30s
     labels:
       severity: khẩn cấp
@@ -39,7 +39,7 @@ groups:
           RAM USED: {{ printf "%.2f" $value}}% / 100%
 
   - alert: Container CPU his-app-8081-dhy-production
-    expr: (sum(rate(container_cpu_usage_seconds_total{name!="",job='dhy',name='his-app-8081-dhy-production',instance='10.0.30.9:9092' }[1m])) BY (instance, name) * 100) > 500
+    expr: (sum(rate(container_cpu_usage_seconds_total{name!="",job='dhy',name='his-app-8081-dhy-production',instance='10.0.30.33:19093' }[1m])) BY (instance, name) * 100) > 500
     for: 30s
     labels:
       severity: khẩn cấp
@@ -57,7 +57,7 @@ groups:
           CPU USED : {{ printf "%.2f" $value}}%
 
   - alert: Container Status his-app-8082-dhy-production
-    expr: container_state_status{status="exited",name=~"his-app-8082-dhy-production",instance='10.0.30.9:9092'} == 1
+    expr: container_state_status{status="exited",name=~"his-app-8082-dhy-production",instance='10.0.30.33:19093'} == 1
     for: 1s
     labels:
       severity: khẩn cấp
@@ -73,7 +73,7 @@ groups:
        CONTAINER BỊ TẮT 
 
   - alert: Container Memory his-app-8082-dhy-production
-    expr: (container_memory_working_set_bytes{job='dhy', name='his-app-8082-dhy-production'}) / (container_spec_memory_limit_bytes{job="dhy", name='his-app-8082-dhy-production', instance='10.0.30.9:9092'}) * 100 > 90
+    expr: (container_memory_working_set_bytes{job='dhy', name='his-app-8082-dhy-production'}) / (container_spec_memory_limit_bytes{job="dhy", name='his-app-8082-dhy-production', instance='10.0.30.33:19093'}) * 100 > 90
     for: 30s
     labels:
       severity: khẩn cấp
@@ -93,7 +93,7 @@ groups:
           RAM USED: {{ printf "%.2f" $value}}% / 100%
 
   - alert: Container CPU his-app-8082-dhy-production
-    expr: (sum(rate(container_cpu_usage_seconds_total{name!="",job='dhy',name='his-app-8082-dhy-production',instance='10.0.30.9:9092' }[1m])) BY (instance, name) * 100) > 500
+    expr: (sum(rate(container_cpu_usage_seconds_total{name!="",job='dhy',name='his-app-8082-dhy-production',instance='10.0.30.33:19093' }[1m])) BY (instance, name) * 100) > 500
     for: 30s
     labels:
       severity: khẩn cấp
