@@ -38,6 +38,15 @@ scrape_configs:
         - '10.0.2.41:19092'
         - '10.0.2.41:9092'
 
+  - job_name: 'bvp'
+    scrape_interval: 5s
+    static_configs:
+      - targets:
+        - '10.0.30.40:9092'
+        - '10.0.30.41:9092'
+        - '10.0.30.9:9092'
+        - '10.0.30.31:9092'
+
   - job_name: 'ivirse'
     scrape_interval: 5s
     static_configs:
