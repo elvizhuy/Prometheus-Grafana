@@ -28,7 +28,7 @@ receivers:
 
 - name: bvp-telegram
   webhook_configs:
-  - url: 'http://10.0.0.14:9088/alert/-1002019540689'
+  - url: 'http://10.0.0.14:9088/alert/-1002092479933'
 
 route:
   continue: false
