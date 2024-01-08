@@ -16,6 +16,7 @@ rule_files:
   - './rules/pk40/*.yml'
   - './rules/ivirse/*.yml'
   - './rules/bvp/*.yml'
+  - './rules/jenkins-prometheus/*.yml'
 
 # alert
 alerting:
@@ -101,6 +102,12 @@ scrape_configs:
         - '172.16.16.15:9092'
         - '172.16.16.24:9092'
         - '172.16.16.28:9092'
+  
+  - job_name: 'jenkins-prometheus'
+    scrape_interval: 5s
+    static_configs:
+      - targets: 
+        - '10.0.0.14:19092'
 # ========================================== PRIVATE ==========================================
   - job_name: 'Jenkins'
     scrape_interval: 5s

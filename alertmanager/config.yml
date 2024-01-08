@@ -1800,5 +1800,15 @@ route:
         app_type: Bệnh Viện Phổi
       receiver: bvp-telegram
       group_wait: 5s
+
+########################################## Jenkins Prom ##########################################
+
+    - match:
+        category: container-status
+        container_name: container-exporter
+        app_type: Jenkins Prometheus
+      receiver: System-Team
+      group_wait: 5s
+
 templates:
 - '/etc/alertmanager/template/template.tmpl'

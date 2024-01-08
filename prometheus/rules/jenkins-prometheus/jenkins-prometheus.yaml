@@ -1,0 +1,20 @@
+groups:
+- name: Container
+  rules:
+
+  - alert: Container Status jenkins-prometheus
+    # expr: container_state_status{status="exited",name=~"jenkins-prometheus",instance='10.0.30.9:9092'} == 1
+    expr: up == 1 - absent(container_last_seen{name="container-exporter",instance='10.0.0.14:19092',job='jenkins-prometheus'})
+    for: 1s
+    labels:
+      severity: khẩn cấp
+      category: container-status
+      container_name: jenkins-prometheus
+      app_type: Jenkins Prometheus
+    annotations:
+      summary: Container exited
+      description: |
+
+       CONTAINER NAME:-  {{ $labels.name }}
+
+       CONTAINER BỊ TẮT 
