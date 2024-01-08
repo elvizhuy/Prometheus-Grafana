@@ -1337,10 +1337,162 @@ route:
 
 # ================================================================= BVP =====================================================
 
+    - match:
+        category: container-status
+        container_name: his-app-8081-bvp-production
+        app_type: Bệnh Viện Phổi
+      receiver: bvp-telegram
+      group_wait: 5s
 
+    - match:
+        category: container-status
+        container_name: his-app-8082-bvp-production
+        app_type: Bệnh Viện Phổi
+      receiver: bvp-telegram
+      group_wait: 5s
+
+    - match:
+        category: container-status
+        container_name: emr-web-app-bvp-production
+        app_type: Bệnh Viện Phổi
+      receiver: bvp-telegram
+      group_wait: 5s
+    
+    - match:
+        category: container-status
+        container_name: master-data-bvp-production
+        app_type: Bệnh Viện Phổi
+      receiver: bvp-telegram
+      group_wait: 5s
+    
+    - match:
+        category: container-status
+        container_name: patient-service-bvp-production
+        app_type: Bệnh Viện Phổi
+      receiver: bvp-telegram
+      group_wait: 5s
+    
+    - match:
+        category: container-status
+        container_name: report-service-bvp-production
+        app_type: Bệnh Viện Phổi
+      receiver: bvp-telegram
+      group_wait: 5s
+    
+    - match:
+        category: container-status
+        container_name: project-react-js-visualize-bvp-production
+        app_type: Bệnh Viện Phổi
+      receiver: bvp-telegram
+      group_wait: 5s
+    
+    - match:
+        category: container-status
+        container_name: auth-server-bvp-production
+        app_type: Bệnh Viện Phổi
+      receiver: bvp-telegram
+      group_wait: 5s
+    
+    - match:
+        category: container-status
+        container_name: signer-connector-web-bvp-production
+        app_type: Bệnh Viện Phổi
+      receiver: bvp-telegram
+      group_wait: 5s
+    
+    - match:
+        category: container-status
+        container_name: project-react-js-kiosk-tiep-don-bvp-production
+        app_type: Bệnh Viện Phổi
+      receiver: bvp-telegram
+      group_wait: 5s
+    
+    - match:
+        category: container-status
+        container_name: project-nodejs-visualize-bvp-production
+        app_type: Bệnh Viện Phổi
+      receiver: bvp-telegram
+      group_wait: 5s
+    
+    - match:
+        category: container-status
+        container_name: zipkin
+        app_type: Bệnh Viện Phổi
+      receiver: bvp-telegram
+      group_wait: 5s
+    
+    - match:
+        category: container-status
+        container_name: signer-connector-bvp-production
+        app_type: Bệnh Viện Phổi
+      receiver: bvp-telegram
+      group_wait: 5s
+    
+    - match:
+        category: container-status
+        container_name: redis-cache
+        app_type: Bệnh Viện Phổi
+      receiver: bvp-telegram
+      group_wait: 5s
+    
+    - match:
+        category: container-status
+        container_name: rabbitmq
+        app_type: Bệnh Viện Phổi
+      receiver: bvp-telegram
+      group_wait: 5s
+    
+    - match:
+        category: container-status
+        container_name: html-editor-bvp-production
+        app_type: Bệnh Viện Phổi
+      receiver: bvp-telegram
+      group_wait: 5s
+    
+    - match:
+        category: container-status
+        container_name: file-service-bvp-production
+        app_type: Bệnh Viện Phổi
+      receiver: bvp-telegram
+      group_wait: 5s
+    
+    - match:
+        category: container-status
+        container_name: phat-thuoc-bvp-production
+        app_type: Bệnh Viện Phổi
+      receiver: bvp-telegram
+      group_wait: 5s
+    
+    - match:
+        category: container-status
+        container_name: vital-signs-bvp-production
+        app_type: Bệnh Viện Phổi
+      receiver: bvp-telegram
+      group_wait: 5s
+    
+    - match:
+        category: container-status
+        container_name: emr-zuul-bvp-production
+        app_type: Bệnh Viện Phổi
+      receiver: bvp-telegram
+      group_wait: 5s
+    
+    - match:
+        category: container-status
+        container_name: emr-eureka-bvp-production
+        app_type: Bệnh Viện Phổi
+      receiver: bvp-telegram
+      group_wait: 5s
+    
+    - match:
+        category: container-status
+        container_name: emr-config
+        app_type: Bệnh Viện Phổi
+      receiver: bvp-telegram
+      group_wait: 5s
 
 # ============== RAM ================
-- match:
+    - match:
         category: container-memory
         container_name: his-app-8081-bvp-production
         app_type: Bệnh Viện Phổi
@@ -1350,12 +1502,152 @@ route:
     - match:
         category: container-memory
         container_name: his-app-8082-bvp-production
+        app_type: Bệnh Viện Phổi
+      receiver: bvp-telegram
+      group_wait: 5s
+    
+    - match:
+        category: container-memory
+        container_name: emr-web-app-bvp-production
+        app_type: Bệnh Viện Phổi
+      receiver: bvp-telegram
+      group_wait: 5s
+    
+    - match:
+        category: container-memory
+        container_name: master-data-bvp-production
+        app_type: Bệnh Viện Phổi
+      receiver: bvp-telegram
+      group_wait: 5s
+    
+    - match:
+        category: container-memory
+        container_name: patient-service-bvp-production
+        app_type: Bệnh Viện Phổi
+      receiver: bvp-telegram
+      group_wait: 5s
+    
+    - match:
+        category: container-memory
+        container_name: report-service-bvp-production
+        app_type: Bệnh Viện Phổi
+      receiver: bvp-telegram
+      group_wait: 5s
+    
+    - match:
+        category: container-memory
+        container_name: project-react-js-visualize-bvp-production
+        app_type: Bệnh Viện Phổi
+      receiver: bvp-telegram
+      group_wait: 5s
+    
+    - match:
+        category: container-memory
+        container_name: auth-server-bvp-production
+        app_type: Bệnh Viện Phổi
+      receiver: bvp-telegram
+      group_wait: 5s
+    
+    - match:
+        category: container-memory
+        container_name: signer-connector-web-bvp-production
+        app_type: Bệnh Viện Phổi
+      receiver: bvp-telegram
+      group_wait: 5s
+    
+    - match:
+        category: container-memory
+        container_name: project-react-js-kiosk-tiep-don-bvp-production
+        app_type: Bệnh Viện Phổi
+      receiver: bvp-telegram
+      group_wait: 5s
+    
+    - match:
+        category: container-memory
+        container_name: project-nodejs-visualize-bvp-production
+        app_type: Bệnh Viện Phổi
+      receiver: bvp-telegram
+      group_wait: 5s
+    
+    - match:
+        category: container-memory
+        container_name: zipkin
+        app_type: Bệnh Viện Phổi
+      receiver: bvp-telegram
+      group_wait: 5s
+    
+    - match:
+        category: container-memory
+        container_name: signer-connector-bvp-production
+        app_type: Bệnh Viện Phổi
+      receiver: bvp-telegram
+      group_wait: 5s
+    
+    - match:
+        category: container-memory
+        container_name: redis-cache
+        app_type: Bệnh Viện Phổi
+      receiver: bvp-telegram
+      group_wait: 5s
+    
+    - match:
+        category: container-memory
+        container_name: rabbitmq
+        app_type: Bệnh Viện Phổi
+      receiver: bvp-telegram
+      group_wait: 5s
+    
+    - match:
+        category: container-memory
+        container_name: html-editor-bvp-production
+        app_type: Bệnh Viện Phổi
+      receiver: bvp-telegram
+      group_wait: 5s
+    
+    - match:
+        category: container-memory
+        container_name: file-service-bvp-production
+        app_type: Bệnh Viện Phổi
+      receiver: bvp-telegram
+      group_wait: 5s
+    
+    - match:
+        category: container-memory
+        container_name: phat-thuoc-bvp-production
+        app_type: Bệnh Viện Phổi
+      receiver: bvp-telegram
+      group_wait: 5s
+    
+    - match:
+        category: container-memory
+        container_name: vital-signs-bvp-production
+        app_type: Bệnh Viện Phổi
+      receiver: bvp-telegram
+      group_wait: 5s
+    
+    - match:
+        category: container-memory
+        container_name: emr-zuul-bvp-production
+        app_type: Bệnh Viện Phổi
+      receiver: bvp-telegram
+      group_wait: 5s
+    
+    - match:
+        category: container-memory
+        container_name: emr-eureka-bvp-production
+        app_type: Bệnh Viện Phổi
+      receiver: bvp-telegram
+      group_wait: 5s
+    
+    - match:
+        category: container-memory
+        container_name: emr-config
         app_type: Bệnh Viện Phổi
       receiver: bvp-telegram
       group_wait: 5s
 
 # ============= CPU ===============
-- match:
+    - match:
         category: container-cpu
         container_name: his-app-8081-bvp-production
         app_type: Bệnh Viện Phổi
@@ -1369,5 +1661,144 @@ route:
       receiver: bvp-telegram
       group_wait: 5s
 
+    - match:
+        category: container-cpu
+        container_name: emr-web-app-bvp-production
+        app_type: Bệnh Viện Phổi
+      receiver: bvp-telegram
+      group_wait: 5s
+    
+    - match:
+        category: container-cpu
+        container_name: master-data-bvp-production
+        app_type: Bệnh Viện Phổi
+      receiver: bvp-telegram
+      group_wait: 5s
+    
+    - match:
+        category: container-cpu
+        container_name: patient-service-bvp-production
+        app_type: Bệnh Viện Phổi
+      receiver: bvp-telegram
+      group_wait: 5s
+    
+    - match:
+        category: container-cpu
+        container_name: report-service-bvp-production
+        app_type: Bệnh Viện Phổi
+      receiver: bvp-telegram
+      group_wait: 5s
+    
+    - match:
+        category: container-cpu
+        container_name: project-react-js-visualize-bvp-production
+        app_type: Bệnh Viện Phổi
+      receiver: bvp-telegram
+      group_wait: 5s
+    
+    - match:
+        category: container-cpu
+        container_name: auth-server-bvp-production
+        app_type: Bệnh Viện Phổi
+      receiver: bvp-telegram
+      group_wait: 5s
+    
+    - match:
+        category: container-cpu
+        container_name: signer-connector-web-bvp-production
+        app_type: Bệnh Viện Phổi
+      receiver: bvp-telegram
+      group_wait: 5s
+    
+    - match:
+        category: container-cpu
+        container_name: project-react-js-kiosk-tiep-don-bvp-production
+        app_type: Bệnh Viện Phổi
+      receiver: bvp-telegram
+      group_wait: 5s
+    
+    - match:
+        category: container-cpu
+        container_name: project-nodejs-visualize-bvp-production
+        app_type: Bệnh Viện Phổi
+      receiver: bvp-telegram
+      group_wait: 5s
+    
+    - match:
+        category: container-cpu
+        container_name: zipkin
+        app_type: Bệnh Viện Phổi
+      receiver: bvp-telegram
+      group_wait: 5s
+    
+    - match:
+        category: container-cpu
+        container_name: signer-connector-bvp-production
+        app_type: Bệnh Viện Phổi
+      receiver: bvp-telegram
+      group_wait: 5s
+    
+    - match:
+        category: container-cpu
+        container_name: redis-cache
+        app_type: Bệnh Viện Phổi
+      receiver: bvp-telegram
+      group_wait: 5s
+    
+    - match:
+        category: container-cpu
+        container_name: rabbitmq
+        app_type: Bệnh Viện Phổi
+      receiver: bvp-telegram
+      group_wait: 5s
+    
+    - match:
+        category: container-cpu
+        container_name: html-editor-bvp-production
+        app_type: Bệnh Viện Phổi
+      receiver: bvp-telegram
+      group_wait: 5s
+    
+    - match:
+        category: container-cpu
+        container_name: file-service-bvp-production
+        app_type: Bệnh Viện Phổi
+      receiver: bvp-telegram
+      group_wait: 5s
+    
+    - match:
+        category: container-cpu
+        container_name: phat-thuoc-bvp-production
+        app_type: Bệnh Viện Phổi
+      receiver: bvp-telegram
+      group_wait: 5s
+    
+    - match:
+        category: container-cpu
+        container_name: vital-signs-bvp-production
+        app_type: Bệnh Viện Phổi
+      receiver: bvp-telegram
+      group_wait: 5s
+    
+    - match:
+        category: container-cpu
+        container_name: emr-zuul-bvp-production
+        app_type: Bệnh Viện Phổi
+      receiver: bvp-telegram
+      group_wait: 5s
+    
+    - match:
+        category: container-cpu
+        container_name: emr-eureka-bvp-production
+        app_type: Bệnh Viện Phổi
+      receiver: bvp-telegram
+      group_wait: 5s
+    
+    - match:
+        category: container-cpu
+        container_name: emr-config
+        app_type: Bệnh Viện Phổi
+      receiver: bvp-telegram
+      group_wait: 5s
 templates:
 - '/etc/alertmanager/template/template.tmpl'

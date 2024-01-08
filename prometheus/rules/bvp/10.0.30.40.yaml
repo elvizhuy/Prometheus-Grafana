@@ -2,13 +2,14 @@ groups:
 - name: Container
   rules:
 
-  - alert: Container Status his-app-8081-dhy-production
-    expr: container_state_status{status="exited",name=~"his-app-8081-dhy-production",instance='10.0.30.40:9092'} == 1
+# ===================================== emr-web-app-bvp-production ========================================
+  - alert: Container Status emr-web-app-bvp-production
+    expr: container_state_status{status="exited",name=~"emr-web-app-bvp-production",instance='10.0.30.40:9092'} == 1
     for: 1s
     labels:
       severity: khẩn cấp
       category: container-status
-      container_name: his-app-8081-dhy-production
+      container_name: emr-web-app-bvp-production
       app_type: Bệnh Viện Phổi
     annotations:
       summary: Container exited
@@ -18,34 +19,34 @@ groups:
 
        CONTAINER BỊ TẮT 
 
-  - alert: Container Memory his-app-8081-dhy-production
-    expr: (container_memory_working_set_bytes{job='dhy', name='his-app-8081-dhy-production'}) / (container_spec_memory_limit_bytes{job="dhy", name='his-app-8081-dhy-production', instance='10.0.30.40:9092'}) * 100 > 90
+  - alert: Container Memory emr-web-app-bvp-production
+    expr: (container_memory_working_set_bytes{job='dhy', name='emr-web-app-bvp-production'}) / (container_spec_memory_limit_bytes{job="dhy", name='emr-web-app-bvp-production', instance='10.0.30.40:9092'}) * 100 > 90
     for: 30s
     labels:
       severity: khẩn cấp
       app_type: Bệnh Viện Phổi
       category: container-memory    
-      container_name: his-app-8081-dhy-production
+      container_name: emr-web-app-bvp-production
     annotations:
       summary: "RAM container quá 90%"
       description: |
       
         CONTAINER NAME: 
         
-        **his-app-8081-dhy-production**
+        **emr-web-app-bvp-production**
 
         Thông tin cụ thể: 
 
           RAM USED: {{ printf "%.2f" $value}}% / 100%
 
-  - alert: Container CPU his-app-8081-dhy-production
-    expr: (sum(rate(container_cpu_usage_seconds_total{name!="",job='dhy',name='his-app-8081-dhy-production',instance='10.0.30.40:9092' }[1m])) BY (instance, name) * 100) > 500
+  - alert: Container CPU emr-web-app-bvp-production
+    expr: (sum(rate(container_cpu_usage_seconds_total{name!="",job='dhy',name='emr-web-app-bvp-production',instance='10.0.30.40:9092' }[1m])) BY (instance, name) * 100) > 500
     for: 30s
     labels:
       severity: khẩn cấp
       app_type: Bệnh Viện Phổi
       category: container-cpu    
-      container_name: his-app-8081-dhy-production
+      container_name: emr-web-app-bvp-production
     annotations:
       summary: "CPU container quá 95%"
       description: |
@@ -56,13 +57,14 @@ groups:
 
           CPU USED : {{ printf "%.2f" $value}}%
 
-  - alert: Container Status his-app-8082-dhy-production
-    expr: container_state_status{status="exited",name=~"his-app-8082-dhy-production",instance='10.0.30.40:9092'} == 1
+#================================================ master-data-bvp-production ===================================================================
+  - alert: Container Status master-data-bvp-production
+    expr: container_state_status{status="exited",name=~"master-data-bvp-production",instance='10.0.30.40:9092'} == 1
     for: 1s
     labels:
       severity: khẩn cấp
       category: container-status
-      container_name: his-app-8082-dhy-production
+      container_name: master-data-bvp-production
       app_type: Bệnh Viện Phổi
     annotations:
       summary: Container exited
@@ -72,34 +74,34 @@ groups:
 
        CONTAINER BỊ TẮT 
 
-  - alert: Container Memory his-app-8082-dhy-production
-    expr: (container_memory_working_set_bytes{job='dhy', name='his-app-8082-dhy-production'}) / (container_spec_memory_limit_bytes{job="dhy", name='his-app-8082-dhy-production', instance='10.0.30.40:9092'}) * 100 > 90
+  - alert: Container Memory master-data-bvp-production
+    expr: (container_memory_working_set_bytes{job='dhy', name='master-data-bvp-production'}) / (container_spec_memory_limit_bytes{job="dhy", name='master-data-bvp-production', instance='10.0.30.40:9092'}) * 100 > 90
     for: 30s
     labels:
       severity: khẩn cấp
       app_type: Bệnh Viện Phổi
       category: container-memory    
-      container_name: his-app-8082-dhy-production
+      container_name: master-data-bvp-production
     annotations:
       summary: "RAM container quá 90%"
       description: |
       
         CONTAINER NAME: 
         
-        **his-app-8082-dhy-production**
+        **master-data-bvp-production**
 
         Thông tin cụ thể: 
 
           RAM USED: {{ printf "%.2f" $value}}% / 100%
 
-  - alert: Container CPU his-app-8082-dhy-production
-    expr: (sum(rate(container_cpu_usage_seconds_total{name!="",job='dhy',name='his-app-8082-dhy-production',instance='10.0.30.40:9092' }[1m])) BY (instance, name) * 100) > 500
+  - alert: Container CPU master-data-bvp-production
+    expr: (sum(rate(container_cpu_usage_seconds_total{name!="",job='dhy',name='master-data-bvp-production',instance='10.0.30.40:9092' }[1m])) BY (instance, name) * 100) > 500
     for: 30s
     labels:
       severity: khẩn cấp
       app_type: Bệnh Viện Phổi
       category: container-cpu    
-      container_name: his-app-8082-dhy-production
+      container_name: master-data-bvp-production
     annotations:
       summary: "CPU container quá 95%"
       description: |
@@ -110,13 +112,15 @@ groups:
 
           CPU USED : {{ printf "%.2f" $value}}%
 
-  - alert: Container Status gb-dhy-production
-    expr: container_state_status{status="exited",name=~"gb-dhy-production",instance='10.0.30.40:9092'} == 1
+# ================================================ patient-service-bvp-production ==============================================================
+
+  - alert: Container Status patient-service-bvp-production
+    expr: container_state_status{status="exited",name=~"patient-service-bvp-production",instance='10.0.30.40:9092'} == 1
     for: 1s
     labels:
       severity: khẩn cấp
       category: container-status
-      container_name: gb-dhy-production
+      container_name: patient-service-bvp-production
       app_type: Bệnh Viện Phổi
     annotations:
       summary: Container exited
@@ -126,34 +130,34 @@ groups:
 
        CONTAINER BỊ TẮT 
 
-  - alert: Container Memory gb-dhy-production
-    expr: (container_memory_working_set_bytes{job='dhy', name='gb-dhy-production'}) / (container_spec_memory_limit_bytes{job="dhy", name='gb-dhy-production', instance='10.0.30.40:9092'}) * 100 > 90
+  - alert: Container Memory patient-service-bvp-production
+    expr: (container_memory_working_set_bytes{job='dhy', name='patient-service-bvp-production'}) / (container_spec_memory_limit_bytes{job="dhy", name='patient-service-bvp-production', instance='10.0.30.40:9092'}) * 100 > 90
     for: 30s
     labels:
       severity: khẩn cấp
       app_type: Bệnh Viện Phổi
       category: container-memory    
-      container_name: gb-dhy-production
+      container_name: patient-service-bvp-production
     annotations:
       summary: "RAM container quá 90%"
       description: |
       
         CONTAINER NAME: 
         
-        **gb-dhy-production**
+        **patient-service-bvp-production**
 
         Thông tin cụ thể: 
 
           RAM USED: {{ printf "%.2f" $value}}% / 100%
 
-  - alert: Container CPU gb-dhy-production
-    expr: (sum(rate(container_cpu_usage_seconds_total{name!="",job='dhy',name='gb-dhy-production',instance='10.0.30.40:9092' }[1m])) BY (instance, name) * 100) > 500
+  - alert: Container CPU patient-service-bvp-production
+    expr: (sum(rate(container_cpu_usage_seconds_total{name!="",job='dhy',name='patient-service-bvp-production',instance='10.0.30.40:9092' }[1m])) BY (instance, name) * 100) > 500
     for: 30s
     labels:
       severity: khẩn cấp
       app_type: Bệnh Viện Phổi
       category: container-cpu    
-      container_name: gb-dhy-production
+      container_name: patient-service-bvp-production
     annotations:
       summary: "CPU container quá 95%"
       description: |
@@ -163,14 +167,16 @@ groups:
         Thông tin cụ thể: 
 
           CPU USED : {{ printf "%.2f" $value}}%
-  
-  - alert: Container Status gs-dhy-production
-    expr: container_state_status{status="exited",name=~"gs-dhy-production",instance='10.0.30.40:9092'} == 1
+
+# ============================================= report-service-bvp-production =====================================================
+
+  - alert: Container Status report-service-bvp-production
+    expr: container_state_status{status="exited",name=~"report-service-bvp-production",instance='10.0.30.40:9092'} == 1
     for: 1s
     labels:
       severity: khẩn cấp
       category: container-status
-      container_name: gs-dhy-production
+      container_name: report-service-bvp-production
       app_type: Bệnh Viện Phổi
     annotations:
       summary: Container exited
@@ -180,34 +186,34 @@ groups:
 
        CONTAINER BỊ TẮT 
 
-  - alert: Container Memory gs-dhy-production
-    expr: (container_memory_working_set_bytes{job='dhy', name='gs-dhy-production'}) / (container_spec_memory_limit_bytes{job="dhy", name='gs-dhy-production', instance='10.0.30.40:9092'}) * 100 > 90
+  - alert: Container Memory report-service-bvp-production
+    expr: (container_memory_working_set_bytes{job='dhy', name='report-service-bvp-production'}) / (container_spec_memory_limit_bytes{job="dhy", name='report-service-bvp-production', instance='10.0.30.40:9092'}) * 100 > 90
     for: 30s
     labels:
       severity: khẩn cấp
       app_type: Bệnh Viện Phổi
       category: container-memory    
-      container_name: gs-dhy-production
+      container_name: report-service-bvp-production
     annotations:
       summary: "RAM container quá 90%"
       description: |
       
         CONTAINER NAME: 
         
-        **gs-dhy-production**
+        **report-service-bvp-production**
 
         Thông tin cụ thể: 
 
           RAM USED: {{ printf "%.2f" $value}}% / 100%
 
-  - alert: Container CPU gs-dhy-production
-    expr: (sum(rate(container_cpu_usage_seconds_total{name!="",job='dhy',name='gs-dhy-production',instance='10.0.30.40:9092' }[1m])) BY (instance, name) * 100) > 500
+  - alert: Container CPU report-service-bvp-production
+    expr: (sum(rate(container_cpu_usage_seconds_total{name!="",job='dhy',name='report-service-bvp-production',instance='10.0.30.40:9092' }[1m])) BY (instance, name) * 100) > 500
     for: 30s
     labels:
       severity: khẩn cấp
       app_type: Bệnh Viện Phổi
       category: container-cpu    
-      container_name: gs-dhy-production
+      container_name: report-service-bvp-production
     annotations:
       summary: "CPU container quá 95%"
       description: |
@@ -217,3 +223,889 @@ groups:
         Thông tin cụ thể: 
 
           CPU USED : {{ printf "%.2f" $value}}%
+
+# ======================================================== project-react-js-visualize-bvp-production =================================================================
+
+  - alert: Container Status project-react-js-visualize-bvp-production
+    expr: container_state_status{status="exited",name=~"project-react-js-visualize-bvp-production",instance='10.0.30.40:9092'} == 1
+    for: 1s
+    labels:
+      severity: khẩn cấp
+      category: container-status
+      container_name: project-react-js-visualize-bvp-production
+      app_type: Bệnh Viện Phổi
+    annotations:
+      summary: Container exited
+      description: |
+
+       CONTAINER NAME:-  {{ $labels.name }}
+
+       CONTAINER BỊ TẮT 
+
+  - alert: Container Memory project-react-js-visualize-bvp-production
+    expr: (container_memory_working_set_bytes{job='dhy', name='project-react-js-visualize-bvp-production'}) / (container_spec_memory_limit_bytes{job="dhy", name='project-react-js-visualize-bvp-production', instance='10.0.30.40:9092'}) * 100 > 90
+    for: 30s
+    labels:
+      severity: khẩn cấp
+      app_type: Bệnh Viện Phổi
+      category: container-memory    
+      container_name: project-react-js-visualize-bvp-production
+    annotations:
+      summary: "RAM container quá 90%"
+      description: |
+      
+        CONTAINER NAME: 
+        
+        **project-react-js-visualize-bvp-production**
+
+        Thông tin cụ thể: 
+
+          RAM USED: {{ printf "%.2f" $value}}% / 100%
+
+  - alert: Container CPU project-react-js-visualize-bvp-production
+    expr: (sum(rate(container_cpu_usage_seconds_total{name!="",job='dhy',name='project-react-js-visualize-bvp-production',instance='10.0.30.40:9092' }[1m])) BY (instance, name) * 100) > 500
+    for: 30s
+    labels:
+      severity: khẩn cấp
+      app_type: Bệnh Viện Phổi
+      category: container-cpu    
+      container_name: project-react-js-visualize-bvp-production
+    annotations:
+      summary: "CPU container quá 95%"
+      description: |
+      
+        CONTAINER NAME: {{ $labels.name }}
+
+        Thông tin cụ thể: 
+
+          CPU USED : {{ printf "%.2f" $value}}%
+
+# ======================================================== auth-server-bvp-production =================================================================
+
+  - alert: Container Status auth-server-bvp-production
+    expr: container_state_status{status="exited",name=~"auth-server-bvp-production",instance='10.0.30.40:9092'} == 1
+    for: 1s
+    labels:
+      severity: khẩn cấp
+      category: container-status
+      container_name: auth-server-bvp-production
+      app_type: Bệnh Viện Phổi
+    annotations:
+      summary: Container exited
+      description: |
+
+       CONTAINER NAME:-  {{ $labels.name }}
+
+       CONTAINER BỊ TẮT 
+
+  - alert: Container Memory auth-server-bvp-production
+    expr: (container_memory_working_set_bytes{job='dhy', name='auth-server-bvp-production'}) / (container_spec_memory_limit_bytes{job="dhy", name='auth-server-bvp-production', instance='10.0.30.40:9092'}) * 100 > 90
+    for: 30s
+    labels:
+      severity: khẩn cấp
+      app_type: Bệnh Viện Phổi
+      category: container-memory    
+      container_name: auth-server-bvp-production
+    annotations:
+      summary: "RAM container quá 90%"
+      description: |
+      
+        CONTAINER NAME: 
+        
+        **auth-server-bvp-production**
+
+        Thông tin cụ thể: 
+
+          RAM USED: {{ printf "%.2f" $value}}% / 100%
+
+  - alert: Container CPU auth-server-bvp-production
+    expr: (sum(rate(container_cpu_usage_seconds_total{name!="",job='dhy',name='auth-server-bvp-production',instance='10.0.30.40:9092' }[1m])) BY (instance, name) * 100) > 500
+    for: 30s
+    labels:
+      severity: khẩn cấp
+      app_type: Bệnh Viện Phổi
+      category: container-cpu    
+      container_name: auth-server-bvp-production
+    annotations:
+      summary: "CPU container quá 95%"
+      description: |
+      
+        CONTAINER NAME: {{ $labels.name }}
+
+        Thông tin cụ thể: 
+
+          CPU USED : {{ printf "%.2f" $value}}%
+
+# ======================================================== signer-connector-web-bvp-production =================================================================
+
+  - alert: Container Status signer-connector-web-bvp-production
+    expr: container_state_status{status="exited",name=~"signer-connector-web-bvp-production",instance='10.0.30.40:9092'} == 1
+    for: 1s
+    labels:
+      severity: khẩn cấp
+      category: container-status
+      container_name: signer-connector-web-bvp-production
+      app_type: Bệnh Viện Phổi
+    annotations:
+      summary: Container exited
+      description: |
+
+       CONTAINER NAME:-  {{ $labels.name }}
+
+       CONTAINER BỊ TẮT 
+
+  - alert: Container Memory signer-connector-web-bvp-production
+    expr: (container_memory_working_set_bytes{job='dhy', name='signer-connector-web-bvp-production'}) / (container_spec_memory_limit_bytes{job="dhy", name='signer-connector-web-bvp-production', instance='10.0.30.40:9092'}) * 100 > 90
+    for: 30s
+    labels:
+      severity: khẩn cấp
+      app_type: Bệnh Viện Phổi
+      category: container-memory    
+      container_name: signer-connector-web-bvp-production
+    annotations:
+      summary: "RAM container quá 90%"
+      description: |
+      
+        CONTAINER NAME: 
+        
+        **signer-connector-web-bvp-production**
+
+        Thông tin cụ thể: 
+
+          RAM USED: {{ printf "%.2f" $value}}% / 100%
+
+  - alert: Container CPU signer-connector-web-bvp-production
+    expr: (sum(rate(container_cpu_usage_seconds_total{name!="",job='dhy',name='signer-connector-web-bvp-production',instance='10.0.30.40:9092' }[1m])) BY (instance, name) * 100) > 500
+    for: 30s
+    labels:
+      severity: khẩn cấp
+      app_type: Bệnh Viện Phổi
+      category: container-cpu    
+      container_name: signer-connector-web-bvp-production
+    annotations:
+      summary: "CPU container quá 95%"
+      description: |
+      
+        CONTAINER NAME: {{ $labels.name }}
+
+        Thông tin cụ thể: 
+
+          CPU USED : {{ printf "%.2f" $value}}%
+
+# ======================================================== project-react-js-kiosk-tiep-don-bvp-production =================================================================
+
+  - alert: Container Status project-react-js-kiosk-tiep-don-bvp-production
+    expr: container_state_status{status="exited",name=~"project-react-js-kiosk-tiep-don-bvp-production",instance='10.0.30.40:9092'} == 1
+    for: 1s
+    labels:
+      severity: khẩn cấp
+      category: container-status
+      container_name: project-react-js-kiosk-tiep-don-bvp-production
+      app_type: Bệnh Viện Phổi
+    annotations:
+      summary: Container exited
+      description: |
+
+       CONTAINER NAME:-  {{ $labels.name }}
+
+       CONTAINER BỊ TẮT 
+
+  - alert: Container Memory project-react-js-kiosk-tiep-don-bvp-production
+    expr: (container_memory_working_set_bytes{job='dhy', name='project-react-js-kiosk-tiep-don-bvp-production'}) / (container_spec_memory_limit_bytes{job="dhy", name='project-react-js-kiosk-tiep-don-bvp-production', instance='10.0.30.40:9092'}) * 100 > 90
+    for: 30s
+    labels:
+      severity: khẩn cấp
+      app_type: Bệnh Viện Phổi
+      category: container-memory    
+      container_name: project-react-js-kiosk-tiep-don-bvp-production
+    annotations:
+      summary: "RAM container quá 90%"
+      description: |
+      
+        CONTAINER NAME: 
+        
+        **project-react-js-kiosk-tiep-don-bvp-production**
+
+        Thông tin cụ thể: 
+
+          RAM USED: {{ printf "%.2f" $value}}% / 100%
+
+  - alert: Container CPU project-react-js-kiosk-tiep-don-bvp-production
+    expr: (sum(rate(container_cpu_usage_seconds_total{name!="",job='dhy',name='project-react-js-kiosk-tiep-don-bvp-production',instance='10.0.30.40:9092' }[1m])) BY (instance, name) * 100) > 500
+    for: 30s
+    labels:
+      severity: khẩn cấp
+      app_type: Bệnh Viện Phổi
+      category: container-cpu    
+      container_name: project-react-js-kiosk-tiep-don-bvp-production
+    annotations:
+      summary: "CPU container quá 95%"
+      description: |
+      
+        CONTAINER NAME: {{ $labels.name }}
+
+        Thông tin cụ thể: 
+
+          CPU USED : {{ printf "%.2f" $value}}%
+
+# ======================================================== project-nodejs-visualize-bvp-production =================================================================
+  - alert: Container Status project-nodejs-visualize-bvp-production
+    expr: container_state_status{status="exited",name=~"project-nodejs-visualize-bvp-production",instance='10.0.30.40:9092'} == 1
+    for: 1s
+    labels:
+      severity: khẩn cấp
+      category: container-status
+      container_name: project-nodejs-visualize-bvp-production
+      app_type: Bệnh Viện Phổi
+    annotations:
+      summary: Container exited
+      description: |
+
+       CONTAINER NAME:-  {{ $labels.name }}
+
+       CONTAINER BỊ TẮT 
+
+  - alert: Container Memory project-nodejs-visualize-bvp-production
+    expr: (container_memory_working_set_bytes{job='dhy', name='project-nodejs-visualize-bvp-production'}) / (container_spec_memory_limit_bytes{job="dhy", name='project-nodejs-visualize-bvp-production', instance='10.0.30.40:9092'}) * 100 > 90
+    for: 30s
+    labels:
+      severity: khẩn cấp
+      app_type: Bệnh Viện Phổi
+      category: container-memory    
+      container_name: project-nodejs-visualize-bvp-production
+    annotations:
+      summary: "RAM container quá 90%"
+      description: |
+      
+        CONTAINER NAME: 
+        
+        **project-nodejs-visualize-bvp-production**
+
+        Thông tin cụ thể: 
+
+          RAM USED: {{ printf "%.2f" $value}}% / 100%
+
+  - alert: Container CPU project-nodejs-visualize-bvp-production
+    expr: (sum(rate(container_cpu_usage_seconds_total{name!="",job='dhy',name='project-nodejs-visualize-bvp-production',instance='10.0.30.40:9092' }[1m])) BY (instance, name) * 100) > 500
+    for: 30s
+    labels:
+      severity: khẩn cấp
+      app_type: Bệnh Viện Phổi
+      category: container-cpu    
+      container_name: project-nodejs-visualize-bvp-production
+    annotations:
+      summary: "CPU container quá 95%"
+      description: |
+      
+        CONTAINER NAME: {{ $labels.name }}
+
+        Thông tin cụ thể: 
+
+          CPU USED : {{ printf "%.2f" $value}}%
+
+# ======================================================== zipkin =================================================================
+  - alert: Container Status report-service-bvp-production
+    expr: container_state_status{status="exited",name=~"zipkin",instance='10.0.30.40:9092'} == 1
+    for: 1s
+    labels:
+      severity: khẩn cấp
+      category: container-status
+      container_name: zipkin
+      app_type: Bệnh Viện Phổi
+    annotations:
+      summary: Container exited
+      description: |
+
+       CONTAINER NAME:-  {{ $labels.name }}
+
+       CONTAINER BỊ TẮT 
+
+  - alert: Container Memory zipkin
+    expr: (container_memory_working_set_bytes{job='dhy', name='zipkin'}) / (container_spec_memory_limit_bytes{job="dhy", name='zipkin', instance='10.0.30.40:9092'}) * 100 > 90
+    for: 30s
+    labels:
+      severity: khẩn cấp
+      app_type: Bệnh Viện Phổi
+      category: container-memory    
+      container_name: zipkin
+    annotations:
+      summary: "RAM container quá 90%"
+      description: |
+      
+        CONTAINER NAME: 
+        
+        **zipkin**
+
+        Thông tin cụ thể: 
+
+          RAM USED: {{ printf "%.2f" $value}}% / 100%
+
+  - alert: Container CPU zipkin
+    expr: (sum(rate(container_cpu_usage_seconds_total{name!="",job='dhy',name='zipkin',instance='10.0.30.40:9092' }[1m])) BY (instance, name) * 100) > 500
+    for: 30s
+    labels:
+      severity: khẩn cấp
+      app_type: Bệnh Viện Phổi
+      category: container-cpu    
+      container_name: zipkin
+    annotations:
+      summary: "CPU container quá 95%"
+      description: |
+      
+        CONTAINER NAME: {{ $labels.name }}
+
+        Thông tin cụ thể: 
+
+          CPU USED : {{ printf "%.2f" $value}}%
+
+# ======================================================== signer-connector-bvp-production =================================================================
+  - alert: Container Status signer-connector-bvp-production
+    expr: container_state_status{status="exited",name=~"signer-connector-bvp-production",instance='10.0.30.40:9092'} == 1
+    for: 1s
+    labels:
+      severity: khẩn cấp
+      category: container-status
+      container_name: signer-connector-bvp-production
+      app_type: Bệnh Viện Phổi
+    annotations:
+      summary: Container exited
+      description: |
+
+       CONTAINER NAME:-  {{ $labels.name }}
+
+       CONTAINER BỊ TẮT 
+
+  - alert: Container Memory signer-connector-bvp-production
+    expr: (container_memory_working_set_bytes{job='dhy', name='signer-connector-bvp-production'}) / (container_spec_memory_limit_bytes{job="dhy", name='signer-connector-bvp-production', instance='10.0.30.40:9092'}) * 100 > 90
+    for: 30s
+    labels:
+      severity: khẩn cấp
+      app_type: Bệnh Viện Phổi
+      category: container-memory    
+      container_name: signer-connector-bvp-production
+    annotations:
+      summary: "RAM container quá 90%"
+      description: |
+      
+        CONTAINER NAME: 
+        
+        **signer-connector-bvp-production**
+
+        Thông tin cụ thể: 
+
+          RAM USED: {{ printf "%.2f" $value}}% / 100%
+
+  - alert: Container CPU signer-connector-bvp-production
+    expr: (sum(rate(container_cpu_usage_seconds_total{name!="",job='dhy',name='signer-connector-bvp-production',instance='10.0.30.40:9092' }[1m])) BY (instance, name) * 100) > 500
+    for: 30s
+    labels:
+      severity: khẩn cấp
+      app_type: Bệnh Viện Phổi
+      category: container-cpu    
+      container_name: signer-connector-bvp-production
+    annotations:
+      summary: "CPU container quá 95%"
+      description: |
+      
+        CONTAINER NAME: {{ $labels.name }}
+
+        Thông tin cụ thể: 
+
+          CPU USED : {{ printf "%.2f" $value}}%
+
+# ======================================================== redis-cache =================================================================
+  - alert: Container Status redis-cache
+    expr: container_state_status{status="exited",name=~"redis-cache",instance='10.0.30.40:9092'} == 1
+    for: 1s
+    labels:
+      severity: khẩn cấp
+      category: container-status
+      container_name: redis-cache
+      app_type: Bệnh Viện Phổi
+    annotations:
+      summary: Container exited
+      description: |
+
+       CONTAINER NAME:-  {{ $labels.name }}
+
+       CONTAINER BỊ TẮT 
+
+  - alert: Container Memory redis-cache
+    expr: (container_memory_working_set_bytes{job='dhy', name='redis-cache'}) / (container_spec_memory_limit_bytes{job="dhy", name='redis-cache', instance='10.0.30.40:9092'}) * 100 > 90
+    for: 30s
+    labels:
+      severity: khẩn cấp
+      app_type: Bệnh Viện Phổi
+      category: container-memory    
+      container_name: redis-cache
+    annotations:
+      summary: "RAM container quá 90%"
+      description: |
+      
+        CONTAINER NAME: 
+        
+        **redis-cache**
+
+        Thông tin cụ thể: 
+
+          RAM USED: {{ printf "%.2f" $value}}% / 100%
+
+  - alert: Container CPU redis-cache
+    expr: (sum(rate(container_cpu_usage_seconds_total{name!="",job='dhy',name='redis-cache',instance='10.0.30.40:9092' }[1m])) BY (instance, name) * 100) > 500
+    for: 30s
+    labels:
+      severity: khẩn cấp
+      app_type: Bệnh Viện Phổi
+      category: container-cpu    
+      container_name: redis-cache
+    annotations:
+      summary: "CPU container quá 95%"
+      description: |
+      
+        CONTAINER NAME: {{ $labels.name }}
+
+        Thông tin cụ thể: 
+
+          CPU USED : {{ printf "%.2f" $value}}%
+
+# ======================================================== rabbitmq =================================================================
+  - alert: Container Status redis-cache
+    expr: container_state_status{status="exited",name=~"redis-cache",instance='10.0.30.40:9092'} == 1
+    for: 1s
+    labels:
+      severity: khẩn cấp
+      category: container-status
+      container_name: redis-cache
+      app_type: Bệnh Viện Phổi
+    annotations:
+      summary: Container exited
+      description: |
+
+       CONTAINER NAME:-  {{ $labels.name }}
+
+       CONTAINER BỊ TẮT 
+
+  - alert: Container Memory redis-cache
+    expr: (container_memory_working_set_bytes{job='dhy', name='redis-cache'}) / (container_spec_memory_limit_bytes{job="dhy", name='report-service-bvp-production', instance='10.0.30.40:9092'}) * 100 > 90
+    for: 30s
+    labels:
+      severity: khẩn cấp
+      app_type: Bệnh Viện Phổi
+      category: container-memory    
+      container_name: redis-cache
+    annotations:
+      summary: "RAM container quá 90%"
+      description: |
+      
+        CONTAINER NAME: 
+        
+        **redis-cache**
+
+        Thông tin cụ thể: 
+
+          RAM USED: {{ printf "%.2f" $value}}% / 100%
+
+  - alert: Container CPU redis-cache
+    expr: (sum(rate(container_cpu_usage_seconds_total{name!="",job='dhy',name='redis-cache',instance='10.0.30.40:9092' }[1m])) BY (instance, name) * 100) > 500
+    for: 30s
+    labels:
+      severity: khẩn cấp
+      app_type: Bệnh Viện Phổi
+      category: container-cpu    
+      container_name: redis-cache
+    annotations:
+      summary: "CPU container quá 95%"
+      description: |
+      
+        CONTAINER NAME: {{ $labels.name }}
+
+        Thông tin cụ thể: 
+
+          CPU USED : {{ printf "%.2f" $value}}%
+
+# ======================================================== html-editor-bvp-production =================================================================
+  - alert: Container Status html-editor-bvp-production
+    expr: container_state_status{status="exited",name=~"html-editor-bvp-production",instance='10.0.30.40:9092'} == 1
+    for: 1s
+    labels:
+      severity: khẩn cấp
+      category: container-status
+      container_name: html-editor-bvp-production
+      app_type: Bệnh Viện Phổi
+    annotations:
+      summary: Container exited
+      description: |
+
+       CONTAINER NAME:-  {{ $labels.name }}
+
+       CONTAINER BỊ TẮT 
+
+  - alert: Container Memory html-editor-bvp-production
+    expr: (container_memory_working_set_bytes{job='dhy', name='html-editor-bvp-production'}) / (container_spec_memory_limit_bytes{job="dhy", name='report-service-bvp-production', instance='10.0.30.40:9092'}) * 100 > 90
+    for: 30s
+    labels:
+      severity: khẩn cấp
+      app_type: Bệnh Viện Phổi
+      category: container-memory    
+      container_name: html-editor-bvp-production
+    annotations:
+      summary: "RAM container quá 90%"
+      description: |
+      
+        CONTAINER NAME: 
+        
+        **html-editor-bvp-production**
+
+        Thông tin cụ thể: 
+
+          RAM USED: {{ printf "%.2f" $value}}% / 100%
+
+  - alert: Container CPU html-editor-bvp-production
+    expr: (sum(rate(container_cpu_usage_seconds_total{name!="",job='dhy',name='html-editor-bvp-production',instance='10.0.30.40:9092' }[1m])) BY (instance, name) * 100) > 500
+    for: 30s
+    labels:
+      severity: khẩn cấp
+      app_type: Bệnh Viện Phổi
+      category: container-cpu    
+      container_name: html-editor-bvp-production
+    annotations:
+      summary: "CPU container quá 95%"
+      description: |
+      
+        CONTAINER NAME: {{ $labels.name }}
+
+        Thông tin cụ thể: 
+
+          CPU USED : {{ printf "%.2f" $value}}%
+
+# ======================================================== file-service-bvp-production =================================================================
+  - alert: Container Status file-service-bvp-production
+    expr: container_state_status{status="exited",name=~"file-service-bvp-production",instance='10.0.30.40:9092'} == 1
+    for: 1s
+    labels:
+      severity: khẩn cấp
+      category: container-status
+      container_name: file-service-bvp-production
+      app_type: Bệnh Viện Phổi
+    annotations:
+      summary: Container exited
+      description: |
+
+       CONTAINER NAME:-  {{ $labels.name }}
+
+       CONTAINER BỊ TẮT 
+
+  - alert: Container Memory file-service-bvp-production
+    expr: (container_memory_working_set_bytes{job='dhy', name='file-service-bvp-production'}) / (container_spec_memory_limit_bytes{job="dhy", name='file-service-bvp-production', instance='10.0.30.40:9092'}) * 100 > 90
+    for: 30s
+    labels:
+      severity: khẩn cấp
+      app_type: Bệnh Viện Phổi
+      category: container-memory    
+      container_name: file-service-bvp-production
+    annotations:
+      summary: "RAM container quá 90%"
+      description: |
+      
+        CONTAINER NAME: 
+        
+        **file-service-bvp-production**
+
+        Thông tin cụ thể: 
+
+          RAM USED: {{ printf "%.2f" $value}}% / 100%
+
+  - alert: Container CPU file-service-bvp-production
+    expr: (sum(rate(container_cpu_usage_seconds_total{name!="",job='dhy',name='file-service-bvp-production',instance='10.0.30.40:9092' }[1m])) BY (instance, name) * 100) > 500
+    for: 30s
+    labels:
+      severity: khẩn cấp
+      app_type: Bệnh Viện Phổi
+      category: container-cpu    
+      container_name: file-service-bvp-production
+    annotations:
+      summary: "CPU container quá 95%"
+      description: |
+      
+        CONTAINER NAME: {{ $labels.name }}
+
+        Thông tin cụ thể: 
+
+          CPU USED : {{ printf "%.2f" $value}}%
+
+# ======================================================== phat-thuoc-bvp-production =================================================================
+  - alert: Container Status phat-thuoc-bvp-production
+    expr: container_state_status{status="exited",name=~"phat-thuoc-bvp-production",instance='10.0.30.40:9092'} == 1
+    for: 1s
+    labels:
+      severity: khẩn cấp
+      category: container-status
+      container_name: phat-thuoc-bvp-production
+      app_type: Bệnh Viện Phổi
+    annotations:
+      summary: Container exited
+      description: |
+
+       CONTAINER NAME:-  {{ $labels.name }}
+
+       CONTAINER BỊ TẮT 
+
+  - alert: Container Memory phat-thuoc-bvp-production
+    expr: (container_memory_working_set_bytes{job='dhy', name='phat-thuoc-bvp-production'}) / (container_spec_memory_limit_bytes{job="dhy", name='phat-thuoc-bvp-production', instance='10.0.30.40:9092'}) * 100 > 90
+    for: 30s
+    labels:
+      severity: khẩn cấp
+      app_type: Bệnh Viện Phổi
+      category: container-memory    
+      container_name: phat-thuoc-bvp-production
+    annotations:
+      summary: "RAM container quá 90%"
+      description: |
+      
+        CONTAINER NAME: 
+        
+        **phat-thuoc-bvp-production**
+
+        Thông tin cụ thể: 
+
+          RAM USED: {{ printf "%.2f" $value}}% / 100%
+
+  - alert: Container CPU phat-thuoc-bvp-production
+    expr: (sum(rate(container_cpu_usage_seconds_total{name!="",job='dhy',name='phat-thuoc-bvp-production',instance='10.0.30.40:9092' }[1m])) BY (instance, name) * 100) > 500
+    for: 30s
+    labels:
+      severity: khẩn cấp
+      app_type: Bệnh Viện Phổi
+      category: container-cpu    
+      container_name: phat-thuoc-bvp-production
+    annotations:
+      summary: "CPU container quá 95%"
+      description: |
+      
+        CONTAINER NAME: {{ $labels.name }}
+
+        Thông tin cụ thể: 
+
+          CPU USED : {{ printf "%.2f" $value}}%
+
+# ======================================================== vital-signs-bvp-production =================================================================
+  - alert: Container Status vital-signs-bvp-production
+    expr: container_state_status{status="exited",name=~"vital-signs-bvp-production",instance='10.0.30.40:9092'} == 1
+    for: 1s
+    labels:
+      severity: khẩn cấp
+      category: container-status
+      container_name: vital-signs-bvp-production
+      app_type: Bệnh Viện Phổi
+    annotations:
+      summary: Container exited
+      description: |
+
+       CONTAINER NAME:-  {{ $labels.name }}
+
+       CONTAINER BỊ TẮT 
+
+  - alert: Container Memory vital-signs-bvp-production
+    expr: (container_memory_working_set_bytes{job='dhy', name='vital-signs-bvp-production'}) / (container_spec_memory_limit_bytes{job="dhy", name='vital-signs-bvp-production', instance='10.0.30.40:9092'}) * 100 > 90
+    for: 30s
+    labels:
+      severity: khẩn cấp
+      app_type: Bệnh Viện Phổi
+      category: container-memory    
+      container_name: vital-signs-bvp-production
+    annotations:
+      summary: "RAM container quá 90%"
+      description: |
+      
+        CONTAINER NAME: 
+        
+        **vital-signs-bvp-production**
+
+        Thông tin cụ thể: 
+
+          RAM USED: {{ printf "%.2f" $value}}% / 100%
+
+  - alert: Container CPU vital-signs-bvp-production
+    expr: (sum(rate(container_cpu_usage_seconds_total{name!="",job='dhy',name='vital-signs-bvp-production',instance='10.0.30.40:9092' }[1m])) BY (instance, name) * 100) > 500
+    for: 30s
+    labels:
+      severity: khẩn cấp
+      app_type: Bệnh Viện Phổi
+      category: container-cpu    
+      container_name: vital-signs-bvp-production
+    annotations:
+      summary: "CPU container quá 95%"
+      description: |
+      
+        CONTAINER NAME: {{ $labels.name }}
+
+        Thông tin cụ thể: 
+
+          CPU USED : {{ printf "%.2f" $value}}%
+
+# ======================================================== emr-zuul-bvp-production =================================================================
+  - alert: Container Status emr-zuul-bvp-production
+    expr: container_state_status{status="exited",name=~"emr-zuul-bvp-production",instance='10.0.30.40:9092'} == 1
+    for: 1s
+    labels:
+      severity: khẩn cấp
+      category: container-status
+      container_name: emr-zuul-bvp-production
+      app_type: Bệnh Viện Phổi
+    annotations:
+      summary: Container exited
+      description: |
+
+       CONTAINER NAME:-  {{ $labels.name }}
+
+       CONTAINER BỊ TẮT 
+
+  - alert: Container Memory emr-zuul-bvp-production
+    expr: (container_memory_working_set_bytes{job='dhy', name='emr-zuul-bvp-production'}) / (container_spec_memory_limit_bytes{job="dhy", name='emr-zuul-bvp-production', instance='10.0.30.40:9092'}) * 100 > 90
+    for: 30s
+    labels:
+      severity: khẩn cấp
+      app_type: Bệnh Viện Phổi
+      category: container-memory    
+      container_name: emr-zuul-bvp-production
+    annotations:
+      summary: "RAM container quá 90%"
+      description: |
+      
+        CONTAINER NAME: 
+        
+        **emr-zuul-bvp-production**
+
+        Thông tin cụ thể: 
+
+          RAM USED: {{ printf "%.2f" $value}}% / 100%
+
+  - alert: Container CPU emr-zuul-bvp-production
+    expr: (sum(rate(container_cpu_usage_seconds_total{name!="",job='dhy',name='emr-zuul-bvp-production',instance='10.0.30.40:9092' }[1m])) BY (instance, name) * 100) > 500
+    for: 30s
+    labels:
+      severity: khẩn cấp
+      app_type: Bệnh Viện Phổi
+      category: container-cpu    
+      container_name: emr-zuul-bvp-production
+    annotations:
+      summary: "CPU container quá 95%"
+      description: |
+      
+        CONTAINER NAME: {{ $labels.name }}
+
+        Thông tin cụ thể: 
+
+          CPU USED : {{ printf "%.2f" $value}}%
+
+# ======================================================== emr-eureka-bvp-production =================================================================
+  - alert: Container Status emr-eureka-bvp-production
+    expr: container_state_status{status="exited",name=~"emr-eureka-bvp-production",instance='10.0.30.40:9092'} == 1
+    for: 1s
+    labels:
+      severity: khẩn cấp
+      category: container-status
+      container_name: emr-eureka-bvp-production
+      app_type: Bệnh Viện Phổi
+    annotations:
+      summary: Container exited
+      description: |
+
+       CONTAINER NAME:-  {{ $labels.name }}
+
+       CONTAINER BỊ TẮT 
+
+  - alert: Container Memory emr-eureka-bvp-production
+    expr: (container_memory_working_set_bytes{job='dhy', name='emr-eureka-bvp-production'}) / (container_spec_memory_limit_bytes{job="dhy", name='emr-eureka-bvp-production', instance='10.0.30.40:9092'}) * 100 > 90
+    for: 30s
+    labels:
+      severity: khẩn cấp
+      app_type: Bệnh Viện Phổi
+      category: container-memory    
+      container_name: emr-eureka-bvp-production
+    annotations:
+      summary: "RAM container quá 90%"
+      description: |
+      
+        CONTAINER NAME: 
+        
+        **emr-eureka-bvp-production**
+
+        Thông tin cụ thể: 
+
+          RAM USED: {{ printf "%.2f" $value}}% / 100%
+
+  - alert: Container CPU emr-eureka-bvp-production
+    expr: (sum(rate(container_cpu_usage_seconds_total{name!="",job='dhy',name='emr-eureka-bvp-production',instance='10.0.30.40:9092' }[1m])) BY (instance, name) * 100) > 500
+    for: 30s
+    labels:
+      severity: khẩn cấp
+      app_type: Bệnh Viện Phổi
+      category: container-cpu    
+      container_name: emr-eureka-bvp-production
+    annotations:
+      summary: "CPU container quá 95%"
+      description: |
+      
+        CONTAINER NAME: {{ $labels.name }}
+
+        Thông tin cụ thể: 
+
+          CPU USED : {{ printf "%.2f" $value}}%
+
+# ======================================================== emr-config =================================================================
+  - alert: Container Status emr-config
+    expr: container_state_status{status="exited",name=~"emr-config",instance='10.0.30.40:9092'} == 1
+    for: 1s
+    labels:
+      severity: khẩn cấp
+      category: container-status
+      container_name: emr-config
+      app_type: Bệnh Viện Phổi
+    annotations:
+      summary: Container exited
+      description: |
+
+       CONTAINER NAME:-  {{ $labels.name }}
+
+       CONTAINER BỊ TẮT 
+
+  - alert: Container Memory emr-config
+    expr: (container_memory_working_set_bytes{job='dhy', name='emr-config'}) / (container_spec_memory_limit_bytes{job="dhy", name='emr-config', instance='10.0.30.40:9092'}) * 100 > 90
+    for: 30s
+    labels:
+      severity: khẩn cấp
+      app_type: Bệnh Viện Phổi
+      category: container-memory    
+      container_name: emr-config
+    annotations:
+      summary: "RAM container quá 90%"
+      description: |
+      
+        CONTAINER NAME: 
+        
+        **emr-config**
+
+        Thông tin cụ thể: 
+
+          RAM USED: {{ printf "%.2f" $value}}% / 100%
+
+  - alert: Container CPU emr-config
+    expr: (sum(rate(container_cpu_usage_seconds_total{name!="",job='dhy',name='emr-config',instance='10.0.30.40:9092' }[1m])) BY (instance, name) * 100) > 500
+    for: 30s
+    labels:
+      severity: khẩn cấp
+      app_type: Bệnh Viện Phổi
+      category: container-cpu    
+      container_name: emr-config
+    annotations:
+      summary: "CPU container quá 95%"
+      description: |
+      
+        CONTAINER NAME: {{ $labels.name }}
+
+        Thông tin cụ thể: 
+
+          CPU USED : {{ printf "%.2f" $value}}%
+
+
