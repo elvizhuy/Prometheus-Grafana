@@ -90,7 +90,7 @@ route:
   group_by: ['job','severity','instance']
   group_interval: 1m
   group_wait: 5s
-  repeat_interval: 15m
+  repeat_interval: 20m
   receiver: Systems
 
   routes:
@@ -105,7 +105,7 @@ route:
 # Jenkins group
     - match:
         app_type: jenkins
-        instance : 10.0.0.131:19100
+        instance : 10.0.0.182:19100
       receiver: Systems
 
 
