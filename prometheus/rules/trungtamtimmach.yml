@@ -55,7 +55,7 @@ groups:
 
       # Disk Rules
       - alert: Dung lượng DISK
-        expr: (100 - ((node_filesystem_free_bytes{instance=~".+",job="Trung-Tam-Tim-Mach",mountpoint=~".+"}) / (node_filesystem_size_bytes{instance=~".+",job="Trung-Tam-Tim-Mach",mountpoint=~".+"}))* 100) > 90
+        expr: (100 - ((node_filesystem_free_bytes{instance=~".+",job="Trung-Tam-Tim-Mach",mountpoint=~".+"}) / (node_filesystem_size_bytes{instance=~".+",job="Trung-Tam-Tim-Mach",mountpoint=~".+"}))* 100) > 88
         for: 72h
         labels:
           severity: Khẩn cấp
