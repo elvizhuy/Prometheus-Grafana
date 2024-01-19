@@ -29,6 +29,8 @@ rule_files:
   - "rules/phongkhamykhn.yml"
   - "rules/ivirse.yml"
   - "rules/isofhcare.yml"
+  # - "rules/rpt.yml"
+  # - "rules/viengut.yml"
 
 # alert
 alerting:
@@ -272,6 +274,14 @@ scrape_configs:
           - '192.168.1.242:9100'
           - '192.168.1.243:9100'
           - '192.168.1.250:9100'
+  
+  - job_name: 'RPT'
+    scrape_interval: 5s
+    static_configs:
+      - targets:
+        # Phòng Khám RPT
+          - '10.1.1.156:19100'
+          - '10.1.1.159:19100'
 # ========================================== PRIVATE ==========================================
   - job_name: 'Jenkins'
     scrape_interval: 5s

@@ -74,6 +74,9 @@ receivers:
   webhook_configs:
   - url: 'http://10.0.0.13:9087/alert/-1002107403114'
 
+- name: rpt-telegram
+  webhook_configs:
+  - url: 'http://10.0.0.13:9087/alert/-4165256062'
 #Group Dự phòng
 # - name: systems-team
 #   webhook_configs:
@@ -916,6 +919,21 @@ route:
         category: server  
     receiver: isofhcare-telegram
     group_wait: 2s
+
+##### RPT #####
+  - match:
+        app_type: RPT
+        instance: 10.1.1.156:19100
+        category: server
+    receiver: rpt-telegram
+    group_wait: 2s
+  
+  - match:
+        app_type: RPT
+        instance: 10.1.1.159:19100
+        category: server
+    receiver: rpt-telegram
+    group_wait: 2s
 #################### RAM #######################
 #################### RAM #######################
 #################### RAM #######################
@@ -1694,6 +1712,21 @@ route:
         instance: 3.0.58.192:19100
         category: memory  
     receiver: isofhcare-telegram
+    group_wait: 2s
+
+##### RPT #####
+  - match:
+        app_type: RPT
+        instance: 10.1.1.156:19100
+        category: memory 
+    receiver: rpt-telegram
+    group_wait: 2s
+  
+  - match:
+        app_type: RPT
+        instance: 10.1.1.159:19100
+        category: memory
+    receiver: rpt-telegram
     group_wait: 2s
 ################### CPU ##################################
 ################### CPU ##################################
@@ -2477,6 +2510,21 @@ route:
         category: cpu  
     receiver: isofhcare-telegram
     group_wait: 2s
+
+###### Phòng khám RPT
+  - match:
+        app_type: RPT
+        instance: 10.1.1.156:19100
+        category: cpu  
+    receiver: rpt-telegram
+    group_wait: 2s
+  
+  - match:
+        app_type: RPT
+        instance: 10.1.1.159:19100
+        category: cpu  
+    receiver: rpt-telegram
+    group_wait: 2s
 ################### DISK ##############################
 ################### DISK ##############################
 ################### DISK ##############################
@@ -3252,6 +3300,21 @@ route:
         instance: 3.0.58.192:19100
         category: disk  
     receiver: isofhcare-telegram
+    group_wait: 2s
+
+######### RPT ########
+  - match:
+        app_type: RPT
+        instance: 10.1.1.156:19100
+        category: disk 
+    receiver: rpt-telegram
+    group_wait: 2s
+  
+  - match:
+        app_type: RPT
+        instance: 10.1.1.159:19100
+        category: disk 
+    receiver: rpt-telegram
     group_wait: 2s
 ################### DATABASES ##############################
 ################### DATABASES ##############################
