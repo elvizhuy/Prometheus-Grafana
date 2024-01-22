@@ -3243,12 +3243,12 @@ route:
       category: disk
     receiver: daihocy-telegram
     group_wait: 1s
-  - match:
-      app_type: Đại Học Y
-      instance: 192.168.55.195:19100
-      category: disk
-    receiver: daihocy-telegram
-    group_wait: 1s
+  # - match:
+  #     app_type: Đại Học Y
+  #     instance: 192.168.55.195:19100
+  #     category: disk
+  #   receiver: daihocy-telegram
+  #   group_wait: 1s
     
   - match:
       app_type: Đại Học Y
