@@ -2887,12 +2887,12 @@ route:
       category: disk  
     receiver: saintpaul-telegram
     group_wait: 1s
-  - match:
-      app_type: Bệnh Viện Saint Paul
-      instance: 172.16.16.30:9100
-      category: disk  
-    receiver: saintpaul-telegram
-    group_wait: 1s
+  # - match:
+  #     app_type: Bệnh Viện Saint Paul
+  #     instance: 172.16.16.30:9100
+  #     category: disk  
+  #   receiver: saintpaul-telegram
+  #   group_wait: 1s
   # Doctor Allen
   - match:
       app_type: Doctor Allen
