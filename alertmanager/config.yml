@@ -577,7 +577,7 @@ route:
     group_wait: 1s
   - match:
       app_type: Đại Học Y
-      instance: 192.168.55.174:9100
+      instance: 192.168.55.174:19100
       category: server  
     receiver: daihocy-telegram
     group_wait: 1s
@@ -1368,7 +1368,7 @@ route:
     group_wait: 1s
   - match:
       app_type: Đại Học Y
-      instance: 192.168.55.174:9100
+      instance: 192.168.55.174:19100
       category: memory
     receiver: daihocy-telegram
     group_wait: 1s
@@ -2168,7 +2168,7 @@ route:
     group_wait: 1s
   - match:
       app_type: Đại Học Y
-      instance: 192.168.55.174:9100
+      instance: 192.168.55.174:19100
       category: cpu
     receiver: daihocy-telegram
     group_wait: 1s
@@ -3210,7 +3210,7 @@ route:
     group_wait: 1s
   - match:
       app_type: Đại Học Y
-      instance: 192.168.55.174:9100
+      instance: 192.168.55.174:19100
       category: disk
     receiver: daihocy-telegram
     group_wait: 1s
