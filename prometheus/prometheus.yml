@@ -29,7 +29,7 @@ rule_files:
   - "rules/phongkhamykhn.yml"
   - "rules/ivirse.yml"
   - "rules/isofhcare.yml"
-  # - "rules/rpt.yml"
+  - "rules/rpt.yml"
   # - "rules/viengut.yml"
 
 # alert

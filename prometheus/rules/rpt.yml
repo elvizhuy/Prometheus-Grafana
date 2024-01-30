@@ -75,5 +75,5 @@ groups:
 
                   * KL Còn lại:  {{ query (printf "node_filesystem_free_bytes{job='y-te-cong-cong', instance=~'%s', mountpoint=~'%s'}" $labels.instance $labels.mountpoint) | first | value | humanize1024}}
 
-              Vào fix đi anh em !
+              
               
