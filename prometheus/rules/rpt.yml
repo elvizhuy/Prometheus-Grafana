@@ -3,7 +3,7 @@ groups:
     rules:
       # Node Down
       - alert: Cảnh Báo Server
-        expr:  up{job="y-te-cong-cong",instance=~".+"} == 0
+        expr:  up{job="RPT",instance=~".+"} == 0
         for: 1m
         labels:
           severity: Khẩn cấp
@@ -17,7 +17,7 @@ groups:
 
       # Ram Rules
       - alert: Cảnh báo RAM
-        expr: (node_memory_MemTotal_bytes{job="y-te-cong-cong", instance=~".+"} - node_memory_MemFree_bytes{job="y-te-cong-cong", instance=~".+"} - node_memory_Buffers_bytes{job="y-te-cong-cong", instance=~".+"} - node_memory_Cached_bytes{job="y-te-cong-cong", instance=~".+"} ) / (node_memory_MemTotal_bytes{job="y-te-cong-cong", instance=~".+"}) * 100 > 90
+        expr: (node_memory_MemTotal_bytes{job="RPT", instance=~".+"} - node_memory_MemFree_bytes{job="RPT", instance=~".+"} - node_memory_Buffers_bytes{job="RPT", instance=~".+"} - node_memory_Cached_bytes{job="RPT", instance=~".+"} ) / (node_memory_MemTotal_bytes{job="RPT", instance=~".+"}) * 100 > 90
         for: 1m
         labels:
           severity: Khẩn cấp
@@ -31,17 +31,17 @@ groups:
 
             Thông Tin Cụ Thể:
 
-                 * TOTAL RAM: {{ query (printf "node_memory_MemTotal_bytes{job='y-te-cong-cong', instance=~'%s'}" $labels.instance) | first | value  | humanize1024}}
+                 * TOTAL RAM: {{ query (printf "node_memory_MemTotal_bytes{job='RPT', instance=~'%s'}" $labels.instance) | first | value  | humanize1024}}
 
-                 * Ram sử dụng: {{ query (printf "node_memory_MemTotal_bytes{job='y-te-cong-cong', instance=~'%s'} - node_memory_MemFree_bytes{job='y-te-cong-cong', instance=~'%s'} - node_memory_Cached_bytes{job='y-te-cong-cong', instance=~'%s'} - node_memory_Buffers_bytes{job='y-te-cong-cong', instance=~'%s'}" $labels.instance $labels.instance $labels.instance $labels.instance) | first | value | humanize1024 }}
+                 * Ram sử dụng: {{ query (printf "node_memory_MemTotal_bytes{job='RPT', instance=~'%s'} - node_memory_MemFree_bytes{job='RPT', instance=~'%s'} - node_memory_Cached_bytes{job='RPT', instance=~'%s'} - node_memory_Buffers_bytes{job='RPT', instance=~'%s'}" $labels.instance $labels.instance $labels.instance $labels.instance) | first | value | humanize1024 }}
                                    
-                 * Ram Cache/buffe: {{ query (printf "node_memory_Cached_bytes{job='y-te-cong-cong', instance=~'%s'} + node_memory_Buffers_bytes{job='y-te-cong-cong', instance=~'%s'}" $labels.instance $labels.instance) | first | value  | humanize1024}}
+                 * Ram Cache/buffe: {{ query (printf "node_memory_Cached_bytes{job='RPT', instance=~'%s'} + node_memory_Buffers_bytes{job='RPT', instance=~'%s'}" $labels.instance $labels.instance) | first | value  | humanize1024}}
 
-                 * Ram còn lại:  {{ query (printf "node_memory_MemFree_bytes{job='y-te-cong-cong', instance=~'%s'}" $labels.instance) | first | value | humanize1024 }}
+                 * Ram còn lại:  {{ query (printf "node_memory_MemFree_bytes{job='RPT', instance=~'%s'}" $labels.instance) | first | value | humanize1024 }}
 
       # CPU Rules
       - alert: CPU Tăng cao
-        expr: 100 - (avg by(instance) (irate(node_cpu_seconds_total{job="y-te-cong-cong", instance=~".+",mode="idle"}[1m])) * 100) > 96
+        expr: 100 - (avg by(instance) (irate(node_cpu_seconds_total{job="RPT", instance=~".+",mode="idle"}[1m])) * 100) > 96
         for: 1m
         labels:
           severity: Khẩn cấp
@@ -55,7 +55,7 @@ groups:
 
       # Disk Rules
       - alert: Dung lượng DISK
-        expr: (100 - ((node_filesystem_free_bytes{instance=~".+",job="y-te-cong-cong",mountpoint=~".+"}) / (node_filesystem_size_bytes{instance=~".+",job="y-te-cong-cong",mountpoint=~".+"}))* 100) > 95
+        expr: (100 - ((node_filesystem_free_bytes{instance=~".+",job="RPT",mountpoint=~".+"}) / (node_filesystem_size_bytes{instance=~".+",job="RPT",mountpoint=~".+"}))* 100) > 95
         for: 72h
         labels:
           severity: Khẩn cấp
@@ -69,11 +69,11 @@ groups:
 
               Thông Tin Cụ Thể:
 
-                  * TOTAL DISK:  {{ query (printf "node_filesystem_size_bytes{job='y-te-cong-cong', instance=~'%s', mountpoint=~'%s'}" $labels.instance $labels.mountpoint) | first | value | humanize1024}}
+                  * TOTAL DISK:  {{ query (printf "node_filesystem_size_bytes{job='RPT', instance=~'%s', mountpoint=~'%s'}" $labels.instance $labels.mountpoint) | first | value | humanize1024}}
 
-                  * KL Đã dùng:  {{ query (printf "node_filesystem_size_bytes{job='y-te-cong-cong', instance=~'%s', mountpoint=~'%s'} - node_filesystem_free_bytes{job='y-te-cong-cong', instance=~'%s', mountpoint=~'%s'}" $labels.instance $labels.mountpoint $labels.instance $labels.mountpoint) | first | value | humanize1024}}
+                  * KL Đã dùng:  {{ query (printf "node_filesystem_size_bytes{job='RPT', instance=~'%s', mountpoint=~'%s'} - node_filesystem_free_bytes{job='RPT', instance=~'%s', mountpoint=~'%s'}" $labels.instance $labels.mountpoint $labels.instance $labels.mountpoint) | first | value | humanize1024}}
 
-                  * KL Còn lại:  {{ query (printf "node_filesystem_free_bytes{job='y-te-cong-cong', instance=~'%s', mountpoint=~'%s'}" $labels.instance $labels.mountpoint) | first | value | humanize1024}}
+                  * KL Còn lại:  {{ query (printf "node_filesystem_free_bytes{job='RPT', instance=~'%s', mountpoint=~'%s'}" $labels.instance $labels.mountpoint) | first | value | humanize1024}}
 
               
               
