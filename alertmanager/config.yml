@@ -74,6 +74,9 @@ receivers:
   webhook_configs:
   - url: 'http://10.0.0.13:9087/alert/-1002107403114'
 
+- name: rpt-telegram
+  webhook_configs:
+  - url: 'http://10.0.0.13:9087/alert/-4165256062'
 #Group Dự phòng
 # - name: systems-team
 #   webhook_configs:
@@ -574,7 +577,7 @@ route:
     group_wait: 1s
   - match:
       app_type: Đại Học Y
-      instance: 192.168.55.174:9100
+      instance: 192.168.55.174:19100
       category: server  
     receiver: daihocy-telegram
     group_wait: 1s
@@ -915,6 +918,21 @@ route:
         instance: 3.0.58.192:19100
         category: server  
     receiver: isofhcare-telegram
+    group_wait: 2s
+
+##### RPT #####
+  - match:
+        app_type: RPT
+        instance: 10.1.1.156:19100
+        category: server
+    receiver: rpt-telegram
+    group_wait: 2s
+  
+  - match:
+        app_type: RPT
+        instance: 10.1.1.159:19100
+        category: server
+    receiver: rpt-telegram
     group_wait: 2s
 #################### RAM #######################
 #################### RAM #######################
@@ -1316,19 +1334,19 @@ route:
       instance: 192.168.55.162:9100
       category: memory
     receiver: daihocy-telegram
-    group_wait: 1s
+    group_wait: 30s
   - match:
       app_type: Đại Học Y
       instance: 192.168.55.163:19100
       category: memory
     receiver: daihocy-telegram
-    group_wait: 1s
+    group_wait: 30s
   - match:
       app_type: Đại Học Y
       instance: 192.168.55.164:9100
       category: memory
     receiver: daihocy-telegram
-    group_wait: 1s
+    group_wait: 30s
   - match:
       app_type: Đại Học Y
       instance: 192.168.55.168:9100
@@ -1350,7 +1368,7 @@ route:
     group_wait: 1s
   - match:
       app_type: Đại Học Y
-      instance: 192.168.55.174:9100
+      instance: 192.168.55.174:19100
       category: memory
     receiver: daihocy-telegram
     group_wait: 1s
@@ -1694,6 +1712,21 @@ route:
         instance: 3.0.58.192:19100
         category: memory  
     receiver: isofhcare-telegram
+    group_wait: 2s
+
+##### RPT #####
+  - match:
+        app_type: RPT
+        instance: 10.1.1.156:19100
+        category: memory 
+    receiver: rpt-telegram
+    group_wait: 2s
+  
+  - match:
+        app_type: RPT
+        instance: 10.1.1.159:19100
+        category: memory
+    receiver: rpt-telegram
     group_wait: 2s
 ################### CPU ##################################
 ################### CPU ##################################
@@ -2101,19 +2134,19 @@ route:
       instance: 192.168.55.162:9100
       category: cpu
     receiver: daihocy-telegram
-    group_wait: 1s
+    group_wait: 30s
   - match:
       app_type: Đại Học Y
       instance: 192.168.55.163:19100
       category: cpu
     receiver: daihocy-telegram
-    group_wait: 1s
+    group_wait: 30s
   - match:
       app_type: Đại Học Y
       instance: 192.168.55.164:9100
       category: cpu
     receiver: daihocy-telegram
-    group_wait: 1s
+    group_wait: 30s
   - match:
       app_type: Đại Học Y
       instance: 192.168.55.168:9100
@@ -2135,7 +2168,7 @@ route:
     group_wait: 1s
   - match:
       app_type: Đại Học Y
-      instance: 192.168.55.174:9100
+      instance: 192.168.55.174:19100
       category: cpu
     receiver: daihocy-telegram
     group_wait: 1s
@@ -2476,6 +2509,21 @@ route:
         instance: 3.0.58.192:19100
         category: cpu  
     receiver: isofhcare-telegram
+    group_wait: 2s
+
+###### Phòng khám RPT
+  - match:
+        app_type: RPT
+        instance: 10.1.1.156:19100
+        category: cpu  
+    receiver: rpt-telegram
+    group_wait: 2s
+  
+  - match:
+        app_type: RPT
+        instance: 10.1.1.159:19100
+        category: cpu  
+    receiver: rpt-telegram
     group_wait: 2s
 ################### DISK ##############################
 ################### DISK ##############################
@@ -2839,12 +2887,19 @@ route:
       category: disk  
     receiver: saintpaul-telegram
     group_wait: 1s
-  - match:
-      app_type: Bệnh Viện Saint Paul
-      instance: 172.16.16.30:9100
-      category: disk  
-    receiver: saintpaul-telegram
-    group_wait: 1s
+  # - match:
+  #     app_type: Bệnh Viện Saint Paul
+  #     instance: 172.16.16.30:9100
+  #     category: disk  
+  #   receiver: saintpaul-telegram
+  #   group_wait: 1s
+  # - match:
+  #     app_type: Bệnh Viện Saint Paul
+  #     instance: 172.16.16.31:9100
+  #     category: disk  
+  #   receiver: saintpaul-telegram
+  #   group_wait: 1s
+
   # Doctor Allen
   - match:
       app_type: Doctor Allen
@@ -3155,7 +3210,7 @@ route:
     group_wait: 1s
   - match:
       app_type: Đại Học Y
-      instance: 192.168.55.174:9100
+      instance: 192.168.55.174:19100
       category: disk
     receiver: daihocy-telegram
     group_wait: 1s
@@ -3195,12 +3250,12 @@ route:
       category: disk
     receiver: daihocy-telegram
     group_wait: 1s
-  - match:
-      app_type: Đại Học Y
-      instance: 192.168.55.195:19100
-      category: disk
-    receiver: daihocy-telegram
-    group_wait: 1s
+  # - match:
+  #     app_type: Đại Học Y
+  #     instance: 192.168.55.195:19100
+  #     category: disk
+  #   receiver: daihocy-telegram
+  #   group_wait: 1s
     
   - match:
       app_type: Đại Học Y
@@ -3252,6 +3307,21 @@ route:
         instance: 3.0.58.192:19100
         category: disk  
     receiver: isofhcare-telegram
+    group_wait: 2s
+
+######### RPT ########
+  - match:
+        app_type: RPT
+        instance: 10.1.1.156:19100
+        category: disk 
+    receiver: rpt-telegram
+    group_wait: 2s
+  
+  - match:
+        app_type: RPT
+        instance: 10.1.1.159:19100
+        category: disk 
+    receiver: rpt-telegram
     group_wait: 2s
 ################### DATABASES ##############################
 ################### DATABASES ##############################
