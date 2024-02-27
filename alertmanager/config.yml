@@ -391,7 +391,7 @@ route:
     group_wait: 13s
   - match:
       app_type: Bệnh Viện Phổi
-      instance: 10.0.30.224:9100
+      instance: 10.0.30.224:19100
       category: server  
     receiver: benhvienphoi-telegram
     group_wait: 6s
