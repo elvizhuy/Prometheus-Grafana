@@ -2,7 +2,7 @@ groups:
 - name: Container
   rules:
 
-# ===================================== emr-web-app-bvp-production ========================================
+# 1 ===================================== emr-web-app-bvp-production ========================================
   - alert: Container Status emr-web-app-bvp-production
     expr: container_state_status{status="exited",name=~"emr-web-app-bvp-production",instance='10.0.30.41:9092'} == 1
     for: 1s
@@ -57,7 +57,7 @@ groups:
 
           CPU USED : {{ printf "%.2f" $value}}%
 
-#================================================ master-data-bvp-production ===================================================================
+# 2 ================================================ master-data-bvp-production ===================================================================
   - alert: Container Status master-data-bvp-production
     expr: container_state_status{status="exited",name=~"master-data-bvp-production",instance='10.0.30.41:9092'} == 1
     for: 1s
@@ -112,7 +112,7 @@ groups:
 
           CPU USED : {{ printf "%.2f" $value}}%
 
-# ================================================ patient-service-bvp-production ==============================================================
+# 3 ================================================ patient-service-bvp-production ==============================================================
 
   - alert: Container Status patient-service-bvp-production
     expr: container_state_status{status="exited",name=~"patient-service-bvp-production",instance='10.0.30.41:9092'} == 1
@@ -168,7 +168,7 @@ groups:
 
           CPU USED : {{ printf "%.2f" $value}}%
 
-# ============================================= report-service-bvp-production =====================================================
+# 4 ============================================= report-service-bvp-production =====================================================
 
   - alert: Container Status report-service-bvp-production
     expr: container_state_status{status="exited",name=~"report-service-bvp-production",instance='10.0.30.41:9092'} == 1
@@ -224,7 +224,7 @@ groups:
 
           CPU USED : {{ printf "%.2f" $value}}%
 
-# ======================================================== project-react-js-visualize-bvp-production =================================================================
+# 5 ======================================================== project-react-js-visualize-bvp-production =================================================================
 
   - alert: Container Status project-react-js-visualize-bvp-production
     expr: container_state_status{status="exited",name=~"project-react-js-visualize-bvp-production",instance='10.0.30.41:9092'} == 1
@@ -280,7 +280,7 @@ groups:
 
           CPU USED : {{ printf "%.2f" $value}}%
 
-# ======================================================== auth-server-bvp-production =================================================================
+# 6 ======================================================== auth-server-bvp-production =================================================================
 
   - alert: Container Status auth-server-bvp-production
     expr: container_state_status{status="exited",name=~"auth-server-bvp-production",instance='10.0.30.41:9092'} == 1
@@ -336,7 +336,7 @@ groups:
 
           CPU USED : {{ printf "%.2f" $value}}%
 
-# ======================================================== signer-connector-web-bvp-production =================================================================
+# 7 ======================================================== signer-connector-web-bvp-production =================================================================
 
   - alert: Container Status signer-connector-web-bvp-production
     expr: container_state_status{status="exited",name=~"signer-connector-web-bvp-production",instance='10.0.30.41:9092'} == 1
@@ -392,7 +392,7 @@ groups:
 
           CPU USED : {{ printf "%.2f" $value}}%
 
-# ======================================================== project-react-js-kiosk-tiep-don-bvp-production =================================================================
+# 8 ======================================================== project-react-js-kiosk-tiep-don-bvp-production =================================================================
 
   - alert: Container Status project-react-js-kiosk-tiep-don-bvp-production
     expr: container_state_status{status="exited",name=~"project-react-js-kiosk-tiep-don-bvp-production",instance='10.0.30.41:9092'} == 1
@@ -448,7 +448,7 @@ groups:
 
           CPU USED : {{ printf "%.2f" $value}}%
 
-# ======================================================== project-nodejs-visualize-bvp-production =================================================================
+# 9 ======================================================== project-nodejs-visualize-bvp-production =================================================================
   - alert: Container Status project-nodejs-visualize-bvp-production
     expr: container_state_status{status="exited",name=~"project-nodejs-visualize-bvp-production",instance='10.0.30.41:9092'} == 1
     for: 1s
@@ -503,7 +503,7 @@ groups:
 
           CPU USED : {{ printf "%.2f" $value}}%
 
-# ======================================================== zipkin =================================================================
+# 10 ======================================================== zipkin =================================================================
   - alert: Container Status report-service-bvp-production
     expr: container_state_status{status="exited",name=~"zipkin",instance='10.0.30.41:9092'} == 1
     for: 1s
@@ -558,7 +558,7 @@ groups:
 
           CPU USED : {{ printf "%.2f" $value}}%
 
-# ======================================================== signer-connector-bvp-production =================================================================
+# 11 ======================================================== signer-connector-bvp-production =================================================================
   - alert: Container Status signer-connector-bvp-production
     expr: container_state_status{status="exited",name=~"signer-connector-bvp-production",instance='10.0.30.41:9092'} == 1
     for: 1s
@@ -613,7 +613,7 @@ groups:
 
           CPU USED : {{ printf "%.2f" $value}}%
 
-# ======================================================== redis-cache =================================================================
+# 12 ======================================================== redis-cache =================================================================
   - alert: Container Status redis-cache
     expr: container_state_status{status="exited",name=~"redis-cache",instance='10.0.30.41:9092'} == 1
     for: 1s
@@ -668,7 +668,7 @@ groups:
 
           CPU USED : {{ printf "%.2f" $value}}%
 
-# ======================================================== rabbitmq =================================================================
+# 13 ======================================================== rabbitmq =================================================================
   - alert: Container Status redis-cache
     expr: container_state_status{status="exited",name=~"redis-cache",instance='10.0.30.41:9092'} == 1
     for: 1s
@@ -723,7 +723,7 @@ groups:
 
           CPU USED : {{ printf "%.2f" $value}}%
 
-# ======================================================== html-editor-bvp-production =================================================================
+# 14 ======================================================== html-editor-bvp-production =================================================================
   - alert: Container Status html-editor-bvp-production
     expr: container_state_status{status="exited",name=~"html-editor-bvp-production",instance='10.0.30.41:9092'} == 1
     for: 1s
@@ -778,7 +778,7 @@ groups:
 
           CPU USED : {{ printf "%.2f" $value}}%
 
-# ======================================================== file-service-bvp-production =================================================================
+# 15 ======================================================== file-service-bvp-production =================================================================
   - alert: Container Status file-service-bvp-production
     expr: container_state_status{status="exited",name=~"file-service-bvp-production",instance='10.0.30.41:9092'} == 1
     for: 1s
@@ -833,7 +833,7 @@ groups:
 
           CPU USED : {{ printf "%.2f" $value}}%
 
-# ======================================================== phat-thuoc-bvp-production =================================================================
+# 16 ======================================================== phat-thuoc-bvp-production =================================================================
   - alert: Container Status phat-thuoc-bvp-production
     expr: container_state_status{status="exited",name=~"phat-thuoc-bvp-production",instance='10.0.30.41:9092'} == 1
     for: 1s
@@ -888,7 +888,7 @@ groups:
 
           CPU USED : {{ printf "%.2f" $value}}%
 
-# ======================================================== vital-signs-bvp-production =================================================================
+# 17 ======================================================== vital-signs-bvp-production =================================================================
   - alert: Container Status vital-signs-bvp-production
     expr: container_state_status{status="exited",name=~"vital-signs-bvp-production",instance='10.0.30.41:9092'} == 1
     for: 1s
@@ -943,7 +943,7 @@ groups:
 
           CPU USED : {{ printf "%.2f" $value}}%
 
-# ======================================================== emr-zuul-bvp-production =================================================================
+# 18 ======================================================== emr-zuul-bvp-production =================================================================
   - alert: Container Status emr-zuul-bvp-production
     expr: container_state_status{status="exited",name=~"emr-zuul-bvp-production",instance='10.0.30.41:9092'} == 1
     for: 1s
@@ -998,7 +998,7 @@ groups:
 
           CPU USED : {{ printf "%.2f" $value}}%
 
-# ======================================================== emr-eureka-bvp-production =================================================================
+# 19 ======================================================== emr-eureka-bvp-production =================================================================
   - alert: Container Status emr-eureka-bvp-production
     expr: container_state_status{status="exited",name=~"emr-eureka-bvp-production",instance='10.0.30.41:9092'} == 1
     for: 1s
