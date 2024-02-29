@@ -85,7 +85,7 @@ scrape_configs:
     static_configs:
       - targets:
         # Bệnh Viện Bạch Mai
-          - 10.0.1.34:19100
+          # - 10.0.1.34:19100
 
   - job_name: 'Y-Khoa-Ha-Noi'
     scrape_interval: 5s
