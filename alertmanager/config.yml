@@ -291,6 +291,18 @@ route:
     group_wait: 13s
   - match:
       app_type: Bệnh Viện Phổi
+      instance: 10.0.30.2:9100
+      category: server  
+    receiver: benhvienphoi-telegram
+    group_wait: 13s
+  # - match:
+  #     app_type: Bệnh Viện Phổi
+  #     instance: 10.0.30.4:9100
+  #     category: server  
+  #   receiver: benhvienphoi-telegram
+  #   group_wait: 13s
+  - match:
+      app_type: Bệnh Viện Phổi
       instance: 10.0.30.24:9100
       category: server  
     receiver: benhvienphoi-telegram
@@ -396,7 +408,7 @@ route:
     receiver: benhvienphoi-telegram
     group_wait: 6s
     
-  # Phòng Khám Mediplus
+  # Phòng Khám Mediplus ##############
   - match:
       app_type: Mediplus
       instance: 10.3.0.17:9100
@@ -445,7 +457,7 @@ route:
       category: server  
     receiver: mediplus-telegram
     group_wait: 1s
-  # Bệnh Viện Saint Paul
+  # Bệnh Viện Saint Paul ##############
   - match:
       app_type: Bệnh Viện Saint Paul
       instance: 172.16.16.14:9100
@@ -512,7 +524,7 @@ route:
       category: server  
     receiver: saintpaul-telegram
     group_wait: 1s
-  # Doctor Allen
+  # Doctor Allen ##############
   - match:
       app_type: Doctor Allen
       instance: 27.71.235.143:9100
@@ -531,7 +543,7 @@ route:
       category: server  
     receiver: allen-telegram
     group_wait: 1s
-  # Bệnh Viện Y
+  # Bệnh Viện Y ##############
   - match:
       app_type: Đại Học Y
       instance: 192.168.55.161:9100
@@ -629,7 +641,7 @@ route:
       category: server  
     receiver: daihocy-telegram
     group_wait: 1s
-  # Bệnh Viện Đa khoa thanh hóa
+  # Bệnh Viện Đa khoa thanh hóa ##############
   - match:
       app_type: Bệnh Viện Đa Khoa Thanh Hóa
       instance: 192.168.18.152:9100
@@ -712,7 +724,7 @@ route:
       category: server  
     receiver: dakhoathanhhoa-telegram
     group_wait: 3s
-  # Bệnh Viện Quân 110
+  # Bệnh Viện Quân 110 ##############
   - match:
       app_type: Bệnh Viện Quân Y 110
       instance: 10.110.55.11:9100
@@ -761,7 +773,7 @@ route:
       category: server  
     receiver: Systems
     group_wait: 3s
-  # Bệnh Viện E
+  # Bệnh Viện E ##############
   - match:
       app_type: Bệnh Viện E
       instance: 192.168.0.238:9100
@@ -805,7 +817,7 @@ route:
       category: server  
     receiver: benhviene-telegram
     group_wait: 2s
-  # PHòng Khám 40
+  # PHòng Khám 40 ##############
   - match:
       app_type: Phòng Khám 40
       instance: 192.168.10.230:19100
@@ -843,7 +855,7 @@ route:
       category: server  
     receiver: phongkham40-telegram
     group_wait: 2s
-  # Nhi Đồng Thành Phố
+  # Nhi Đồng Thành Phố ##############
   - match:
       app_type: Nhi Đồng Thành Phố
       instance: 10.0.2.38:9100
@@ -874,7 +886,7 @@ route:
       category: server  
     receiver: nhidongthanhpho-telegram
     group_wait: 2s  
- # Hệ Thống Isofhcare
+ # Hệ Thống Isofhcare #################
   - match:
         app_type: Isofhcare
         instance: 3.0.34.197:9100
@@ -1069,6 +1081,12 @@ route:
     receiver: trungtamtimmach-telegram
     group_wait: 12s      
 # Bệnh Viện Phổi
+  - match:
+      app_type: Bệnh Viện Phổi
+      instance: 10.0.30.2:9100
+      category: memory  
+    receiver: benhvienphoi-telegram
+    group_wait: 11s
   - match:
       app_type: Bệnh Viện Phổi
       instance: 10.0.30.8:9100
@@ -1866,7 +1884,13 @@ route:
       category: cpu  
     receiver: trungtamtimmach-telegram
     group_wait: 30s      
- # ệnh Viện Phổi
+ # ệnh Viện Phổi #############################
+  - match:
+      app_type: Bệnh Viện Phổi
+      instance: 10.0.30.2:9100
+      category: cpu  
+    receiver: benhvienphoi-telegram
+    group_wait: 25s
   - match:
       app_type: Bệnh Viện Phổi
       instance: 10.0.30.8:9100
@@ -2658,7 +2682,13 @@ route:
       category: disk  
     receiver: trungtamtimmach-telegram
     group_wait: 22s      
-  #Bệnh Viện Phổi
+  #Bệnh Viện Phổi #################
+  - match:
+      app_type: Bệnh Viện Phổi
+      instance: 10.0.30.2:9100
+      category: disk  
+    receiver: benhvienphoi-telegram
+    group_wait: 28s
   - match:
       app_type: Bệnh Viện Phổi
       instance: 10.0.30.8:9100
