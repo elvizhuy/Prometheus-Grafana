@@ -653,12 +653,12 @@ route:
       category: server  
     receiver: daihocy-telegram
     group_wait: 1s
-  - match:
-      app_type: Đại Học Y
-      instance: 192.168.55.206:9100
-      category: server  
-    receiver: daihocy-telegram
-    group_wait: 1s
+  # - match:
+  #     app_type: Đại Học Y
+  #     instance: 192.168.55.206:9100
+  #     category: server  
+  #   receiver: daihocy-telegram
+  #   group_wait: 1s
 
   # Bệnh Viện Đa khoa thanh hóa ##############
 
