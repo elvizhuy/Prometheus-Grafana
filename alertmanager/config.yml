@@ -3214,7 +3214,7 @@ route:
       category: disk  
     receiver: Systems
     group_wait: 3s
-  # Bệnh Viện Y
+  #======================= Bệnh Viện Y=============================
   - match:
       app_type: Đại Học Y
       instance: 192.168.55.161:9100
@@ -3313,7 +3313,25 @@ route:
       category: disk
     receiver: daihocy-telegram
     group_wait: 1s
-  #Hệ Thống Isofhcare
+  - match:
+      app_type: Đại Học Y
+      instance: 192.168.55.204:9100
+      category: disk
+    receiver: daihocy-telegram
+    group_wait: 1s
+  - match:
+      app_type: Đại Học Y
+      instance: 192.168.55.205:9100
+      category: disk
+    receiver: daihocy-telegram
+    group_wait: 1s
+  - match:
+      app_type: Đại Học Y
+      instance: 192.168.55.206:9100
+      category: disk
+    receiver: daihocy-telegram
+    group_wait: 1s
+  #================================ Hệ Thống Isofhcare =======================================
   - match:
         app_type: Isofhcare
         instance: 3.0.34.197:9100
