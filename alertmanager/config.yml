@@ -1436,7 +1436,7 @@ route:
     
   - match:
       app_type: Đại Học Y
-      instance: 192.168.55.197:9100
+      instance: 192.168.55.197:19100
       category: memory
     receiver: daihocy-telegram
     group_wait: 1s
@@ -1884,7 +1884,7 @@ route:
       category: cpu  
     receiver: trungtamtimmach-telegram
     group_wait: 30s      
- # ệnh Viện Phổi #############################
+ # Bệnh Viện Phổi #############################
   - match:
       app_type: Bệnh Viện Phổi
       instance: 10.0.30.2:9100
@@ -2241,7 +2241,7 @@ route:
     
   - match:
       app_type: Đại Học Y
-      instance: 192.168.55.197:9100
+      instance: 192.168.55.197:19100
       category: cpu
     receiver: daihocy-telegram
     group_wait: 1s
@@ -3289,7 +3289,7 @@ route:
     
   - match:
       app_type: Đại Học Y
-      instance: 192.168.55.197:9100
+      instance: 192.168.55.197:19100
       category: disk
     receiver: daihocy-telegram
     group_wait: 1s
