@@ -1,7 +1,7 @@
-# my global config
+# global config
 global:
-  scrape_interval:     15s # By default, scrape targets every 15 seconds.
-  evaluation_interval: 15s # By default, scrape targets every 15 seconds.
+  scrape_interval:     15s
+  evaluation_interval: 15s
   # scrape_timeout is set to the global default (10s).
 
   # Attach these labels to any time series or alerts when communicating with
@@ -9,7 +9,6 @@ global:
   external_labels:
     monitor: 'Hospitals'
 
-# Load and evaluate rules in this file every 'evaluation_interval' seconds.
 rule_files:
   - './rules/ndtp/*.yml'
   - './rules/dhy/*.yml'
