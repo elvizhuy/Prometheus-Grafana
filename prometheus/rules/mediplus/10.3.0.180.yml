@@ -1,0 +1,381 @@
+groups:
+- name: Container
+  rules:
+
+  - alert: Container Status his-frontend-medi-production
+    expr: container_state_status{status="exited",name=~"his-frontend-medi-production",instance='10.3.0.180:19094'} == 1
+    for: 1s
+    labels:
+      severity: khẩn cấp
+      category: container-status
+      container_name: his-frontend-medi-production
+      app_type: Mediplus
+    annotations:
+      summary: Container exited
+      description: |
+
+       CONTAINER NAME:-  {{ $labels.name }}
+
+       CONTAINER BỊ TẮT 
+
+  - alert: Container Memory his-frontend-medi-production
+    expr: (container_memory_working_set_bytes{job='mediplus', name='his-frontend-medi-production'}) / (container_spec_memory_limit_bytes{job="mediplus", name='his-frontend-medi-production', instance='10.3.0.180:19093'}) * 100 > 90
+    for: 30s
+    labels:
+      severity: khẩn cấp
+      app_type: Mediplus
+      category: container-memory    
+      container_name: his-frontend-medi-production
+    annotations:
+      summary: "RAM container quá 90%"
+      description: |
+      
+        CONTAINER NAME: 
+        
+        **his-frontend-medi-production**
+
+        Thông tin cụ thể: 
+
+          RAM USED: {{ printf "%.2f" $value}}% / 100%
+
+  - alert: Container CPU his-frontend-medi-production
+    expr: (sum(rate(container_cpu_usage_seconds_total{name!="",job='mediplus',name='his-frontend-medi-production',instance='10.3.0.180:19093' }[1m])) BY (instance, name) * 100) > 500
+    for: 30s
+    labels:
+      severity: khẩn cấp
+      app_type: Mediplus
+      category: container-cpu    
+      container_name: his-frontend-medi-production
+    annotations:
+      summary: "CPU container quá 95%"
+      description: |
+      
+        CONTAINER NAME: {{ $labels.name }}
+
+        Thông tin cụ thể: 
+
+          CPU USED : {{ printf "%.2f" $value}}%
+
+  - alert: Container Status his-dong-bo-medi-production
+    expr: container_state_status{status="exited",name=~"his-dong-bo-medi-production",instance='10.3.0.180:19094'} == 1
+    for: 30s
+    labels:
+      severity: khẩn cấp
+      category: container-status
+      container_name: his-dong-bo-medi-production
+      app_type: Mediplus
+    annotations:
+      summary: Container exited
+      description: |
+
+       CONTAINER NAME:-  {{ $labels.name }}
+
+       CONTAINER BỊ TẮT 
+
+  - alert: Container Memory his-dong-bo-medi-production
+    expr: (container_memory_working_set_bytes{job='mediplus', name='his-dong-bo-medi-production'}) / (container_spec_memory_limit_bytes{job="mediplus", name='his-dong-bo-medi-production', instance='10.3.0.180:19093'}) * 100 > 90
+    for: 30s
+    labels:
+      severity: khẩn cấp
+      app_type: Mediplus
+      category: container-memory    
+      container_name: his-dong-bo-medi-production
+    annotations:
+      summary: "RAM container quá 90%"
+      description: |
+      
+        CONTAINER NAME: 
+        
+        **his-dong-bo-medi-production**
+
+        Thông tin cụ thể: 
+
+          RAM USED: {{ printf "%.2f" $value}}% / 100%
+
+  - alert: Container CPU his-dong-bo-medi-production
+    expr: (sum(rate(container_cpu_usage_seconds_total{name!="",job='mediplus',name='his-dong-bo-medi-production',instance='10.3.0.180:19093' }[1m])) BY (instance, name) * 100) > 500
+    for: 30s
+    labels:
+      severity: khẩn cấp
+      app_type: Mediplus
+      category: container-cpu    
+      container_name: his-dong-bo-medi-production
+    annotations:
+      summary: "CPU container quá 95%"
+      description: |
+      
+        CONTAINER NAME: {{ $labels.name }}
+
+        Thông tin cụ thể: 
+
+          CPU USED : {{ printf "%.2f" $value}}%
+
+  - alert: Container Status pdf-generator
+    expr: container_state_status{status="exited",name=~"pdf-generator",instance='10.3.0.180:19094'} == 1
+    for: 1s
+    labels:
+      severity: khẩn cấp
+      category: container-status
+      container_name: pdf-generator
+      app_type: Mediplus
+    annotations:
+      summary: Container exited
+      description: |
+
+       CONTAINER NAME:-  {{ $labels.name }}
+
+       CONTAINER BỊ TẮT 
+
+  - alert: Container Memory pdf-generator
+    expr: (container_memory_working_set_bytes{job='mediplus', name='pdf-generator'}) / (container_spec_memory_limit_bytes{job="mediplus", name='pdf-generator', instance='10.3.0.180:19093'}) * 100 > 90
+    for: 30s
+    labels:
+      severity: khẩn cấp
+      app_type: Mediplus
+      category: container-memory    
+      container_name: pdf-generator
+    annotations:
+      summary: "RAM container quá 90%"
+      description: |
+      
+        CONTAINER NAME: 
+        
+        **pdf-generator**
+
+        Thông tin cụ thể: 
+
+          RAM USED: {{ printf "%.2f" $value}}% / 100%
+
+  - alert: Container CPU pdf-generator
+    expr: (sum(rate(container_cpu_usage_seconds_total{name!="",job='mediplus',name='pdf-generator',instance='10.3.0.180:19093' }[1m])) BY (instance, name) * 100) > 500
+    for: 30s
+    labels:
+      severity: khẩn cấp
+      app_type: Mediplus
+      category: container-cpu    
+      container_name: pdf-generator
+    annotations:
+      summary: "CPU container quá 95%"
+      description: |
+      
+        CONTAINER NAME: {{ $labels.name }}
+
+        Thông tin cụ thể: 
+
+          CPU USED : {{ printf "%.2f" $value}}%
+  
+  - alert: Container Status his-medi-production
+    expr: container_state_status{status="exited",name=~"his-medi-production",instance='10.3.0.180:19094'} == 1
+    for: 30s
+    labels:
+      severity: khẩn cấp
+      category: container-status
+      container_name: his-medi-production
+      app_type: Mediplus
+    annotations:
+      summary: Container exited
+      description: |
+
+       CONTAINER NAME:-  {{ $labels.name }}
+
+       CONTAINER BỊ TẮT 
+
+  - alert: Container Memory his-medi-production
+    expr: (container_memory_working_set_bytes{job='mediplus', name='his-medi-production'}) / (container_spec_memory_limit_bytes{job="mediplus", name='his-medi-production', instance='10.3.0.180:19093'}) * 100 > 90
+    for: 30s
+    labels:
+      severity: khẩn cấp
+      app_type: Mediplus
+      category: container-memory    
+      container_name: his-medi-production
+    annotations:
+      summary: "RAM container quá 90%"
+      description: |
+      
+        CONTAINER NAME: 
+        
+        **his-medi-production**
+
+        Thông tin cụ thể: 
+
+          RAM USED: {{ printf "%.2f" $value}}% / 100%
+
+  - alert: Container CPU his-medi-production
+    expr: (sum(rate(container_cpu_usage_seconds_total{name!="",job='mediplus',name='his-medi-production',instance='10.3.0.180:19093' }[1m])) BY (instance, name) * 100) > 500
+    for: 30s
+    labels:
+      severity: khẩn cấp
+      app_type: Mediplus
+      category: container-cpu    
+      container_name: his-medi-production
+    annotations:
+      summary: "CPU container quá 95%"
+      description: |
+      
+        CONTAINER NAME: {{ $labels.name }}
+
+        Thông tin cụ thể: 
+
+          CPU USED : {{ printf "%.2f" $value}}%
+
+  - alert: Container Status emr-zuul-medi-production
+    expr: container_state_status{status="exited",name=~"emr-zuul-medi-production",instance='10.3.0.180:19094'} == 1
+    for: 30s
+    labels:
+      severity: khẩn cấp
+      category: container-status
+      container_name: emr-zuul-medi-production
+      app_type: Mediplus
+    annotations:
+      summary: Container exited
+      description: |
+
+       CONTAINER NAME:-  {{ $labels.name }}
+
+       CONTAINER BỊ TẮT 
+
+  - alert: Container Memory emr-zuul-medi-production
+    expr: (container_memory_working_set_bytes{job='mediplus', name='emr-zuul-medi-production'}) / (container_spec_memory_limit_bytes{job="mediplus", name='emr-zuul-medi-production', instance='10.3.0.180:19093'}) * 100 > 90
+    for: 30s
+    labels:
+      severity: khẩn cấp
+      app_type: Mediplus
+      category: container-memory    
+      container_name: emr-zuul-medi-production
+    annotations:
+      summary: "RAM container quá 90%"
+      description: |
+      
+        CONTAINER NAME: 
+        
+        **emr-zuul-medi-production**
+
+        Thông tin cụ thể: 
+
+          RAM USED: {{ printf "%.2f" $value}}% / 100%
+
+  - alert: Container CPU emr-zuul-medi-production
+    expr: (sum(rate(container_cpu_usage_seconds_total{name!="",job='mediplus',name='emr-zuul-medi-production',instance='10.3.0.180:19093' }[1m])) BY (instance, name) * 100) > 500
+    for: 30s
+    labels:
+      severity: khẩn cấp
+      app_type: Mediplus
+      category: container-cpu    
+      container_name: emr-zuul-medi-production
+    annotations:
+      summary: "CPU container quá 95%"
+      description: |
+      
+        CONTAINER NAME: {{ $labels.name }}
+
+        Thông tin cụ thể: 
+
+          CPU USED : {{ printf "%.2f" $value}}%
+  
+  - alert: Container Status emr-eureka-medi-production
+    expr: container_state_status{status="exited",name=~"emr-eureka-medi-production",instance='10.3.0.180:19094'} == 1
+    for: 30s
+    labels:
+      severity: khẩn cấp
+      category: container-status
+      container_name: emr-eureka-medi-production
+      app_type: Mediplus
+    annotations:
+      summary: Container exited
+      description: |
+
+       CONTAINER NAME:-  {{ $labels.name }}
+
+       CONTAINER BỊ TẮT 
+
+  - alert: Container Memory emr-eureka-medi-production
+    expr: (container_memory_working_set_bytes{job='mediplus', name='emr-eureka-medi-production'}) / (container_spec_memory_limit_bytes{job="mediplus", name='emr-eureka-medi-production', instance='10.3.0.180:19093'}) * 100 > 90
+    for: 30s
+    labels:
+      severity: khẩn cấp
+      app_type: Mediplus
+      category: container-memory    
+      container_name: emr-eureka-medi-production
+    annotations:
+      summary: "RAM container quá 90%"
+      description: |
+      
+        CONTAINER NAME: 
+        
+        **emr-eureka-medi-production**
+
+        Thông tin cụ thể: 
+
+          RAM USED: {{ printf "%.2f" $value}}% / 100%
+
+  - alert: Container CPU emr-eureka-medi-production
+    expr: (sum(rate(container_cpu_usage_seconds_total{name!="",job='mediplus',name='emr-eureka-medi-production',instance='10.3.0.180:19093' }[1m])) BY (instance, name) * 100) > 500
+    for: 30s
+    labels:
+      severity: khẩn cấp
+      app_type: Mediplus
+      category: container-cpu    
+      container_name: emr-eureka-medi-production
+    annotations:
+      summary: "CPU container quá 95%"
+      description: |
+      
+        CONTAINER NAME: {{ $labels.name }}
+
+        Thông tin cụ thể: 
+
+          CPU USED : {{ printf "%.2f" $value}}%
+  
+  - alert: Container Status rabbitmq
+    expr: container_state_status{status="exited",name=~"rabbitmq",instance='10.3.0.180:19094'} == 1
+    for: 30s
+    labels:
+      severity: khẩn cấp
+      category: container-status
+      container_name: rabbitmq
+      app_type: Mediplus
+    annotations:
+      summary: Container exited
+      description: |
+
+       CONTAINER NAME:-  {{ $labels.name }}
+
+       CONTAINER BỊ TẮT 
+
+  - alert: Container Memory rabbitmq
+    expr: (container_memory_working_set_bytes{job='mediplus', name='rabbitmq'}) / (container_spec_memory_limit_bytes{job="mediplus", name='rabbitmq', instance='10.3.0.180:19093'}) * 100 > 90
+    for: 30s
+    labels:
+      severity: khẩn cấp
+      app_type: Mediplus
+      category: container-memory    
+      container_name: rabbitmq
+    annotations:
+      summary: "RAM container quá 90%"
+      description: |
+      
+        CONTAINER NAME: 
+        
+        **rabbitmq**
+
+        Thông tin cụ thể: 
+
+          RAM USED: {{ printf "%.2f" $value}}% / 100%
+
+  - alert: Container CPU rabbitmq
+    expr: (sum(rate(container_cpu_usage_seconds_total{name!="",job='mediplus',name='rabbitmq',instance='10.3.0.180:19093' }[1m])) BY (instance, name) * 100) > 500
+    for: 30s
+    labels:
+      severity: khẩn cấp
+      app_type: Mediplus
+      category: container-cpu    
+      container_name: rabbitmq
+    annotations:
+      summary: "CPU container quá 95%"
+      description: |
+      
+        CONTAINER NAME: {{ $labels.name }}
+
+        Thông tin cụ thể: 
+
+          CPU USED : {{ printf "%.2f" $value}}%

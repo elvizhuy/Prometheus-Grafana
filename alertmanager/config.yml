@@ -1376,7 +1376,157 @@ route:
         app_type: Đại Học Y
       receiver: daihocy-telegram
       group_wait: 5s
-# ================================================================= BVP =====================================================
+
+####################################################
+########### MEDIPLUS ##############################
+####################################################
+    - match:
+        category: container-status
+        container_name: his-frontend-medi-production
+        app_type: Mediplus
+      receiver: mediplus-telegram
+      group_wait: 5s
+    
+    - match:
+        category: container-status
+        container_name: his-dong-bo-medi-production
+        app_type: Mediplus
+      receiver: mediplus-telegram
+      group_wait: 5s
+
+    - match:
+        category: container-status
+        container_name: pdf-generator
+        app_type: Mediplus
+      receiver: mediplus-telegram
+      group_wait: 5s
+
+    - match:
+        category: container-status
+        container_name: his-medi-production
+        app_type: Mediplus
+      receiver: mediplus-telegram
+      group_wait: 5s
+
+    - match:
+        category: container-status
+        container_name: rabbitmq
+        app_type: Mediplus
+      receiver: mediplus-telegram
+      group_wait: 5s
+
+    - match:
+        category: container-status
+        container_name: emr-eureka-medi-production
+        app_type: Mediplus
+      receiver: mediplus-telegram
+      group_wait: 5s
+
+    - match:
+        category: container-status
+        container_name: emr-zuul-medi-production
+        app_type: Mediplus
+      receiver: mediplus-telegram
+      group_wait: 5s
+
+    - match:
+        category: container-cpu
+        container_name: his-frontend-medi-production
+        app_type: Mediplus
+      receiver: mediplus-telegram
+      group_wait: 5s
+    
+    - match:
+        category: container-cpu
+        container_name: his-dong-bo-medi-production
+        app_type: Mediplus
+      receiver: mediplus-telegram
+      group_wait: 5s
+
+    - match:
+        category: container-cpu
+        container_name: pdf-generator
+        app_type: Mediplus
+      receiver: mediplus-telegram
+      group_wait: 5s
+
+    - match:
+        category: container-cpu
+        container_name: his-medi-production
+        app_type: Mediplus
+      receiver: mediplus-telegram
+      group_wait: 5s
+
+    - match:
+        category: container-cpu
+        container_name: rabbitmq
+        app_type: Mediplus
+      receiver: mediplus-telegram
+      group_wait: 5s
+
+    - match:
+        category: container-cpu
+        container_name: emr-eureka-medi-production
+        app_type: Mediplus
+      receiver: mediplus-telegram
+      group_wait: 5s
+
+    - match:
+        category: container-cpu
+        container_name: emr-zuul-medi-production
+        app_type: Mediplus
+      receiver: mediplus-telegram
+      group_wait: 5s
+
+    - match:
+        category: container-memory
+        container_name: his-frontend-medi-production
+        app_type: Mediplus
+      receiver: mediplus-telegram
+      group_wait: 5s
+    
+    - match:
+        category: container-memory
+        container_name: his-dong-bo-medi-production
+        app_type: Mediplus
+      receiver: mediplus-telegram
+      group_wait: 5s
+
+    - match:
+        category: container-memory
+        container_name: pdf-generator
+        app_type: Mediplus
+      receiver: mediplus-telegram
+      group_wait: 5s
+
+    - match:
+        category: container-memory
+        container_name: his-medi-production
+        app_type: Mediplus
+      receiver: mediplus-telegram
+      group_wait: 5s
+
+    - match:
+        category: container-memory
+        container_name: rabbitmq
+        app_type: Mediplus
+      receiver: mediplus-telegram
+      group_wait: 5s
+
+    - match:
+        category: container-memory
+        container_name: emr-eureka-medi-production
+        app_type: Mediplus
+      receiver: mediplus-telegram
+      group_wait: 5s
+
+    - match:
+        category: container-memory
+        container_name: emr-zuul-medi-production
+        app_type: Mediplus
+      receiver: mediplus-telegram
+      group_wait: 5s
+#=============================================== BVP =====================================================
 
     - match:
         category: container-status

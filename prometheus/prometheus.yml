@@ -16,7 +16,7 @@ rule_files:
   - './rules/pk40/*.yml'
   - './rules/ivirse/*.yml'
   - './rules/bvp/*.yml'
-  # - './rules/jenkins-prometheus/*.yml'
+  - './rules/mediplus/*.yml'
 
 # alert
 alerting:
@@ -39,6 +39,13 @@ scrape_configs:
         - '10.0.2.40:9092'
         - '10.0.2.41:19092'
         - '10.0.2.41:9092'
+
+  - job_name: 'mediplus'
+    scrape_interval: 5s
+    static_configs:
+      - targets:
+        - '10.3.0.180:19093'
+        - '10.3.0.180:19094'
 
   - job_name: 'bvp'
     scrape_interval: 5s
