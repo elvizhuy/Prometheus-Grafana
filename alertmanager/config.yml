@@ -3242,7 +3242,7 @@ route:
       category: disk  
     receiver: Systems
     group_wait: 3s
-  #======================= Bệnh Viện Y=============================
+  #======================= Bệnh Viện Y =============================
   - match:
       app_type: Đại Học Y
       instance: 192.168.55.161:9100
@@ -3325,24 +3325,6 @@ route:
   - match:
       app_type: Đại Học Y
       instance: 192.168.55.192:9100
-      category: disk
-    receiver: daihocy-telegram
-    group_wait: 1s
-  - match:
-      app_type: Đại Học Y
-      instance: 192.168.55.197:19100
-      category: disk
-    receiver: daihocy-telegram
-    group_wait: 1s
-  - match:
-      app_type: Đại Học Y
-      instance: 192.168.55.205:9100
-      category: disk
-    receiver: daihocy-telegram
-    group_wait: 1s
-  - match:
-      app_type: Đại Học Y
-      instance: 192.168.55.206:9100
       category: disk
     receiver: daihocy-telegram
     group_wait: 1s
