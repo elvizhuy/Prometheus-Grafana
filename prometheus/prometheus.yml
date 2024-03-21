@@ -29,7 +29,6 @@ alerting:
         password: toivaban
 
 scrape_configs:
-  
   - job_name: 'ndtp'
     scrape_interval: 5s
     static_configs:
