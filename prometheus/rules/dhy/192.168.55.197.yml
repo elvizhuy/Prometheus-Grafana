@@ -3,7 +3,7 @@ groups:
   rules:
 
   - alert: Container Status his-app-8081-dhy-production
-    expr: container_state_status{status="exited",name=~"his-app-8081-dhy-production",instance='192.168.55.162:19092'} == 1
+    expr: container_state_status{status="exited",name=~"his-app-8081-dhy-production",instance='192.168.55.197:19094'} == 1
     for: 1s
     labels:
       severity: khẩn cấp
