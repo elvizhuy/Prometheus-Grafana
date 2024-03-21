@@ -457,6 +457,12 @@ route:
       category: server  
     receiver: mediplus-telegram
     group_wait: 1s
+  - match:
+      app_type: Mediplus
+      instance: 10.3.0.180:19100
+      category: server  
+    receiver: mediplus-telegram
+    group_wait: 1s
   #===================== Bệnh Viện Saint Paul ##############
   - match:
       app_type: Bệnh Viện Saint Paul
@@ -1271,6 +1277,12 @@ route:
   - match:
       app_type: Mediplus
       instance: 10.3.0.96:9100
+      category: memory  
+    receiver: mediplus-telegram
+    group_wait: 1s
+  - match:
+      app_type: Mediplus
+      instance: 10.3.0.180:19100
       category: memory  
     receiver: mediplus-telegram
     group_wait: 1s
@@ -2093,7 +2105,12 @@ route:
       category: cpu  
     receiver: mediplus-telegram
     group_wait: 1s
-
+  - match:
+      app_type: Mediplus
+      instance: 10.3.0.180:19100
+      category: cpu  
+    receiver: mediplus-telegram
+    group_wait: 1s
     # Bệnh Viện Saint Paul
   - match:
       app_type: Bệnh Viện Saint Paul
@@ -2901,6 +2918,12 @@ route:
   - match:
       app_type: Mediplus
       instance: 10.3.0.96:9100
+      category: disk  
+    receiver: mediplus-telegram
+    group_wait: 1s
+  - match:
+      app_type: Mediplus
+      instance: 10.3.0.180:19100
       category: disk  
     receiver: mediplus-telegram
     group_wait: 1s
