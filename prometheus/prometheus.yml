@@ -123,6 +123,13 @@ scrape_configs:
     static_configs:
       - targets: 
         - '10.0.0.14:19092'
+  
+  - job_name: 'pnt'
+    scrape_interval: 5s
+    static_configs:
+      - targets: 
+        - '183.80.255.19:19093'
+        - '183.80.255.19:19094'
 # ========================================== PRIVATE ==========================================
   - job_name: 'Jenkins'
     scrape_interval: 5s
