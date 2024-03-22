@@ -1,0 +1,1154 @@
+groups:
+- name: Container
+  rules:
+
+  - alert: Container Status project-react-js-visualize-dhy-production
+    expr: container_state_status{status="exited",name=~"project-react-js-visualize-dhy-production",instance='192.168.55.182:19094'} == 1
+    for: 1s
+    labels:
+      severity: khẩn cấp
+      category: container-status
+      container_name: project-react-js-visualize-dhy-production
+      app_type: Đại Học Y
+    annotations:
+      summary: Container exited
+      description: |
+
+       CONTAINER NAME:-  {{ $labels.name }}
+
+       CONTAINER BỊ TẮT 
+
+  - alert: Container Memory project-react-js-visualize-dhy-production
+    expr: (container_memory_working_set_bytes{job='dhy', name='project-react-js-visualize-dhy-production'}) / (container_spec_memory_limit_bytes{job="dhy", name='project-react-js-visualize-dhy-production', instance='192.168.55.182:9099'}) * 100 > 90
+    for: 5m
+    labels:
+      severity: khẩn cấp
+      app_type: Đại Học Y
+      category: container-memory    
+      container_name: project-react-js-visualize-dhy-production
+    annotations:
+      summary: "RAM container quá 90%"
+      description: |
+      
+        CONTAINER NAME: 
+        
+        **project-react-js-visualize-dhy-production**
+
+        Thông tin cụ thể: 
+
+          RAM USED: {{ printf "%.2f" $value}}% / 100%
+
+  - alert: Container CPU project-react-js-visualize-dhy-production
+    expr: (sum(rate(container_cpu_usage_seconds_total{name!="",job='dhy',name='project-react-js-visualize-dhy-production',instance='192.168.55.182:9099' }[1m])) BY (instance, name) * 100) > 500
+    for: 5m
+    labels:
+      severity: khẩn cấp
+      app_type: Đại Học Y
+      category: container-cpu    
+      container_name: project-react-js-visualize-dhy-production
+    annotations:
+      summary: "CPU container quá 95%"
+      description: |
+      
+        CONTAINER NAME: {{ $labels.name }}
+
+        Thông tin cụ thể: 
+
+          CPU USED : {{ printf "%.2f" $value}}%
+#========================================================
+  - alert: Container Status emr-web-app-dhy-production
+    expr: container_state_status{status="exited",name=~"emr-web-app-dhy-production",instance='192.168.55.182:19092'} == 1
+    for: 1s
+    labels:
+      severity: khẩn cấp
+      category: container-status
+      container_name: emr-web-app-dhy-production
+      app_type: Đại Học Y
+    annotations:
+      summary: Container exited
+      description: |
+
+       CONTAINER NAME:-  {{ $labels.name }}
+
+       CONTAINER BỊ TẮT 
+
+  - alert: Container Memory emr-web-app-dhy-production
+    expr: (container_memory_working_set_bytes{job='dhy', name='emr-web-app-dhy-production'}) / (container_spec_memory_limit_bytes{job="dhy", name='emr-web-app-dhy-production', instance='192.168.55.182:9099'}) * 100 > 90
+    for: 5m
+    labels:
+      severity: khẩn cấp
+      app_type: Đại Học Y
+      category: container-memory    
+      container_name: emr-web-app-dhy-production
+    annotations:
+      summary: "RAM container quá 90%"
+      description: |
+      
+        CONTAINER NAME: 
+        
+        **emr-web-app-dhy-production**
+
+        Thông tin cụ thể: 
+
+          RAM USED: {{ printf "%.2f" $value}}% / 100%
+
+  - alert: Container CPU emr-web-app-dhy-production
+    expr: (sum(rate(container_cpu_usage_seconds_total{name!="",job='dhy',name='emr-web-app-dhy-production',instance='192.168.55.182:9099' }[1m])) BY (instance, name) * 100) > 500
+    for: 5m
+    labels:
+      severity: khẩn cấp
+      app_type: Đại Học Y
+      category: container-cpu    
+      container_name: emr-web-app-dhy-production
+    annotations:
+      summary: "CPU container quá 95%"
+      description: |
+      
+        CONTAINER NAME: {{ $labels.name }}
+
+        Thông tin cụ thể: 
+
+          CPU USED : {{ printf "%.2f" $value}}%
+#========================================================
+  - alert: Container Status pdf-generator
+    expr: container_state_status{status="exited",name=~"pdf-generator",instance='192.168.55.182:19092'} == 1
+    for: 1s
+    labels:
+      severity: khẩn cấp
+      category: container-status
+      container_name: pdf-generator
+      app_type: Đại Học Y
+    annotations:
+      summary: Container exited
+      description: |
+
+       CONTAINER NAME:-  {{ $labels.name }}
+
+       CONTAINER BỊ TẮT 
+
+  - alert: Container Memory pdf-generator
+    expr: (container_memory_working_set_bytes{job='dhy', name='pdf-generator'}) / (container_spec_memory_limit_bytes{job="dhy", name='pdf-generator', instance='192.168.55.182:9099'}) * 100 > 90
+    for: 5m
+    labels:
+      severity: khẩn cấp
+      app_type: Đại Học Y
+      category: container-memory    
+      container_name: pdf-generator
+    annotations:
+      summary: "RAM container quá 90%"
+      description: |
+      
+        CONTAINER NAME: 
+        
+        **pdf-generator**
+
+        Thông tin cụ thể: 
+
+          RAM USED: {{ printf "%.2f" $value}}% / 100%
+
+  - alert: Container CPU pdf-generator
+    expr: (sum(rate(container_cpu_usage_seconds_total{name!="",job='dhy',name='pdf-generator',instance='192.168.55.182:9099' }[1m])) BY (instance, name) * 100) > 500
+    for: 5m
+    labels:
+      severity: khẩn cấp
+      app_type: Đại Học Y
+      category: container-cpu    
+      container_name: pdf-generator
+    annotations:
+      summary: "CPU container quá 95%"
+      description: |
+      
+        CONTAINER NAME: {{ $labels.name }}
+
+        Thông tin cụ thể: 
+
+          CPU USED : {{ printf "%.2f" $value}}%
+#========================================================
+  - alert: Container Status signer-connector-web-dhy-production
+    expr: container_state_status{status="exited",name=~"signer-connector-web-dhy-production",instance='192.168.55.182:19092'} == 1
+    for: 1s
+    labels:
+      severity: khẩn cấp
+      category: container-status
+      container_name: signer-connector-web-dhy-production
+      app_type: Đại Học Y
+    annotations:
+      summary: Container exited
+      description: |
+
+       CONTAINER NAME:-  {{ $labels.name }}
+
+       CONTAINER BỊ TẮT 
+
+  - alert: Container Memory signer-connector-web-dhy-production
+    expr: (container_memory_working_set_bytes{job='dhy', name='signer-connector-web-dhy-production'}) / (container_spec_memory_limit_bytes{job="dhy", name='signer-connector-web-dhy-production', instance='192.168.55.182:9099'}) * 100 > 90
+    for: 5m
+    labels:
+      severity: khẩn cấp
+      app_type: Đại Học Y
+      category: container-memory    
+      container_name: signer-connector-web-dhy-production
+    annotations:
+      summary: "RAM container quá 90%"
+      description: |
+      
+        CONTAINER NAME: 
+        
+        **signer-connector-web-dhy-production**
+
+        Thông tin cụ thể: 
+
+          RAM USED: {{ printf "%.2f" $value}}% / 100%
+
+  - alert: Container CPU signer-connector-web-dhy-production
+    expr: (sum(rate(container_cpu_usage_seconds_total{name!="",job='dhy',name='signer-connector-web-dhy-production',instance='192.168.55.182:9099' }[1m])) BY (instance, name) * 100) > 500
+    for: 5m
+    labels:
+      severity: khẩn cấp
+      app_type: Đại Học Y
+      category: container-cpu    
+      container_name: signer-connector-web-dhy-production
+    annotations:
+      summary: "CPU container quá 95%"
+      description: |
+      
+        CONTAINER NAME: {{ $labels.name }}
+
+        Thông tin cụ thể: 
+
+          CPU USED : {{ printf "%.2f" $value}}%
+
+#========================================================
+  - alert: Container Status signer-connector-dhy-production
+    expr: container_state_status{status="exited",name=~"signer-connector-dhy-production",instance='192.168.55.182:19092'} == 1
+    for: 1s
+    labels:
+      severity: khẩn cấp
+      category: container-status
+      container_name: signer-connector-dhy-production
+      app_type: Đại Học Y
+    annotations:
+      summary: Container exited
+      description: |
+
+       CONTAINER NAME:-  {{ $labels.name }}
+
+       CONTAINER BỊ TẮT 
+
+  - alert: Container Memory signer-connector-dhy-production
+    expr: (container_memory_working_set_bytes{job='dhy', name='signer-connector-dhy-production'}) / (container_spec_memory_limit_bytes{job="dhy", name='signer-connector-dhy-production', instance='192.168.55.182:9099'}) * 100 > 90
+    for: 5m
+    labels:
+      severity: khẩn cấp
+      app_type: Đại Học Y
+      category: container-memory    
+      container_name: signer-connector-dhy-production
+    annotations:
+      summary: "RAM container quá 90%"
+      description: |
+      
+        CONTAINER NAME: 
+        
+        **signer-connector-dhy-production**
+
+        Thông tin cụ thể: 
+
+          RAM USED: {{ printf "%.2f" $value}}% / 100%
+
+  - alert: Container CPU signer-connector-dhy-production
+    expr: (sum(rate(container_cpu_usage_seconds_total{name!="",job='dhy',name='signer-connector-dhy-production',instance='192.168.55.182:9099' }[1m])) BY (instance, name) * 100) > 500
+    for: 5m
+    labels:
+      severity: khẩn cấp
+      app_type: Đại Học Y
+      category: container-cpu    
+      container_name: signer-connector-dhy-production
+    annotations:
+      summary: "CPU container quá 95%"
+      description: |
+      
+        CONTAINER NAME: {{ $labels.name }}
+
+        Thông tin cụ thể: 
+
+          CPU USED : {{ printf "%.2f" $value}}%
+
+#========================================================
+  - alert: Container Status project-react-js-kiosk-tiep-don-dhy-production
+    expr: container_state_status{status="exited",name=~"project-react-js-kiosk-tiep-don-dhy-production",instance='192.168.55.182:19092'} == 1
+    for: 1s
+    labels:
+      severity: khẩn cấp
+      category: container-status
+      container_name: project-react-js-kiosk-tiep-don-dhy-production
+      app_type: Đại Học Y
+    annotations:
+      summary: Container exited
+      description: |
+
+       CONTAINER NAME:-  {{ $labels.name }}
+
+       CONTAINER BỊ TẮT 
+
+  - alert: Container Memory project-react-js-kiosk-tiep-don-dhy-production
+    expr: (container_memory_working_set_bytes{job='dhy', name='project-react-js-kiosk-tiep-don-dhy-production'}) / (container_spec_memory_limit_bytes{job="dhy", name='project-react-js-kiosk-tiep-don-dhy-production', instance='192.168.55.182:9099'}) * 100 > 90
+    for: 5m
+    labels:
+      severity: khẩn cấp
+      app_type: Đại Học Y
+      category: container-memory    
+      container_name: project-react-js-kiosk-tiep-don-dhy-production
+    annotations:
+      summary: "RAM container quá 90%"
+      description: |
+      
+        CONTAINER NAME: 
+        
+        **project-react-js-kiosk-tiep-don-dhy-production**
+
+        Thông tin cụ thể: 
+
+          RAM USED: {{ printf "%.2f" $value}}% / 100%
+
+  - alert: Container CPU project-react-js-kiosk-tiep-don-dhy-production
+    expr: (sum(rate(container_cpu_usage_seconds_total{name!="",job='dhy',name='project-react-js-kiosk-tiep-don-dhy-production',instance='192.168.55.182:9099' }[1m])) BY (instance, name) * 100) > 500
+    for: 5m
+    labels:
+      severity: khẩn cấp
+      app_type: Đại Học Y
+      category: container-cpu    
+      container_name: project-react-js-kiosk-tiep-don-dhy-production
+    annotations:
+      summary: "CPU container quá 95%"
+      description: |
+      
+        CONTAINER NAME: {{ $labels.name }}
+
+        Thông tin cụ thể: 
+
+          CPU USED : {{ printf "%.2f" $value}}%
+
+#========================================================
+  - alert: Container Status project-react-js-qr-thu-ngan-dhy-production
+    expr: container_state_status{status="exited",name=~"project-react-js-qr-thu-ngan-dhy-production",instance='192.168.55.182:19092'} == 1
+    for: 1s
+    labels:
+      severity: khẩn cấp
+      category: container-status
+      container_name: project-react-js-qr-thu-ngan-dhy-production
+      app_type: Đại Học Y
+    annotations:
+      summary: Container exited
+      description: |
+
+       CONTAINER NAME:-  {{ $labels.name }}
+
+       CONTAINER BỊ TẮT 
+
+  - alert: Container Memory project-react-js-qr-thu-ngan-dhy-production
+    expr: (container_memory_working_set_bytes{job='dhy', name='project-react-js-qr-thu-ngan-dhy-production'}) / (container_spec_memory_limit_bytes{job="dhy", name='project-react-js-qr-thu-ngan-dhy-production', instance='192.168.55.182:9099'}) * 100 > 90
+    for: 5m
+    labels:
+      severity: khẩn cấp
+      app_type: Đại Học Y
+      category: container-memory    
+      container_name: project-react-js-qr-thu-ngan-dhy-production
+    annotations:
+      summary: "RAM container quá 90%"
+      description: |
+      
+        CONTAINER NAME: 
+        
+        **project-react-js-qr-thu-ngan-dhy-production**
+
+        Thông tin cụ thể: 
+
+          RAM USED: {{ printf "%.2f" $value}}% / 100%
+
+  - alert: Container CPU project-react-js-qr-thu-ngan-dhy-production
+    expr: (sum(rate(container_cpu_usage_seconds_total{name!="",job='dhy',name='project-react-js-qr-thu-ngan-dhy-production',instance='192.168.55.182:9099' }[1m])) BY (instance, name) * 100) > 500
+    for: 5m
+    labels:
+      severity: khẩn cấp
+      app_type: Đại Học Y
+      category: container-cpu    
+      container_name: project-react-js-qr-thu-ngan-dhy-production
+    annotations:
+      summary: "CPU container quá 95%"
+      description: |
+      
+        CONTAINER NAME: {{ $labels.name }}
+
+        Thông tin cụ thể: 
+
+          CPU USED : {{ printf "%.2f" $value}}%
+
+#========================================================
+  - alert: Container Status project-react-js-110-doctor-web-app-dhy-production
+    expr: container_state_status{status="exited",name=~"project-react-js-110-doctor-web-app-dhy-production",instance='192.168.55.182:19092'} == 1
+    for: 1s
+    labels:
+      severity: khẩn cấp
+      category: container-status
+      container_name: project-react-js-110-doctor-web-app-dhy-production
+      app_type: Đại Học Y
+    annotations:
+      summary: Container exited
+      description: |
+
+       CONTAINER NAME:-  {{ $labels.name }}
+
+       CONTAINER BỊ TẮT 
+
+  - alert: Container Memory project-react-js-110-doctor-web-app-dhy-production
+    expr: (container_memory_working_set_bytes{job='dhy', name='project-react-js-110-doctor-web-app-dhy-production'}) / (container_spec_memory_limit_bytes{job="dhy", name='project-react-js-110-doctor-web-app-dhy-production', instance='192.168.55.182:9099'}) * 100 > 90
+    for: 5m
+    labels:
+      severity: khẩn cấp
+      app_type: Đại Học Y
+      category: container-memory    
+      container_name: project-react-js-110-doctor-web-app-dhy-production
+    annotations:
+      summary: "RAM container quá 90%"
+      description: |
+      
+        CONTAINER NAME: 
+        
+        **project-react-js-110-doctor-web-app-dhy-production**
+
+        Thông tin cụ thể: 
+
+          RAM USED: {{ printf "%.2f" $value}}% / 100%
+
+  - alert: Container CPU project-react-js-110-doctor-web-app-dhy-production
+    expr: (sum(rate(container_cpu_usage_seconds_total{name!="",job='dhy',name='project-react-js-110-doctor-web-app-dhy-production',instance='192.168.55.182:9099' }[1m])) BY (instance, name) * 100) > 500
+    for: 5m
+    labels:
+      severity: khẩn cấp
+      app_type: Đại Học Y
+      category: container-cpu    
+      container_name: project-react-js-110-doctor-web-app-dhy-production
+    annotations:
+      summary: "CPU container quá 95%"
+      description: |
+      
+        CONTAINER NAME: {{ $labels.name }}
+
+        Thông tin cụ thể: 
+
+          CPU USED : {{ printf "%.2f" $value}}%
+
+#========================================================
+  - alert: Container Status file-service-dhy-production
+    expr: container_state_status{status="exited",name=~"file-service-dhy-production",instance='192.168.55.182:19092'} == 1
+    for: 1s
+    labels:
+      severity: khẩn cấp
+      category: container-status
+      container_name: file-service-dhy-production
+      app_type: Đại Học Y
+    annotations:
+      summary: Container exited
+      description: |
+
+       CONTAINER NAME:-  {{ $labels.name }}
+
+       CONTAINER BỊ TẮT 
+
+  - alert: Container Memory file-service-dhy-production
+    expr: (container_memory_working_set_bytes{job='dhy', name='file-service-dhy-production'}) / (container_spec_memory_limit_bytes{job="dhy", name='file-service-dhy-production', instance='192.168.55.182:9099'}) * 100 > 90
+    for: 5m
+    labels:
+      severity: khẩn cấp
+      app_type: Đại Học Y
+      category: container-memory    
+      container_name: file-service-dhy-production
+    annotations:
+      summary: "RAM container quá 90%"
+      description: |
+      
+        CONTAINER NAME: 
+        
+        **file-service-dhy-production**
+
+        Thông tin cụ thể: 
+
+          RAM USED: {{ printf "%.2f" $value}}% / 100%
+
+  - alert: Container CPU file-service-dhy-production
+    expr: (sum(rate(container_cpu_usage_seconds_total{name!="",job='dhy',name='file-service-dhy-production',instance='192.168.55.182:9099' }[1m])) BY (instance, name) * 100) > 500
+    for: 5m
+    labels:
+      severity: khẩn cấp
+      app_type: Đại Học Y
+      category: container-cpu    
+      container_name: file-service-dhy-production
+    annotations:
+      summary: "CPU container quá 95%"
+      description: |
+      
+        CONTAINER NAME: {{ $labels.name }}
+
+        Thông tin cụ thể: 
+
+          CPU USED : {{ printf "%.2f" $value}}%
+
+#========================================================
+  - alert: Container Status phat-thuoc-dhy-production
+    expr: container_state_status{status="exited",name=~"phat-thuoc-dhy-production",instance='192.168.55.182:19092'} == 1
+    for: 1s
+    labels:
+      severity: khẩn cấp
+      category: container-status
+      container_name: phat-thuoc-dhy-production
+      app_type: Đại Học Y
+    annotations:
+      summary: Container exited
+      description: |
+
+       CONTAINER NAME:-  {{ $labels.name }}
+
+       CONTAINER BỊ TẮT 
+
+  - alert: Container Memory phat-thuoc-dhy-production
+    expr: (container_memory_working_set_bytes{job='dhy', name='phat-thuoc-dhy-production'}) / (container_spec_memory_limit_bytes{job="dhy", name='phat-thuoc-dhy-production', instance='192.168.55.182:9099'}) * 100 > 90
+    for: 5m
+    labels:
+      severity: khẩn cấp
+      app_type: Đại Học Y
+      category: container-memory    
+      container_name: phat-thuoc-dhy-production
+    annotations:
+      summary: "RAM container quá 90%"
+      description: |
+      
+        CONTAINER NAME: 
+        
+        **phat-thuoc-dhy-production**
+
+        Thông tin cụ thể: 
+
+          RAM USED: {{ printf "%.2f" $value}}% / 100%
+
+  - alert: Container CPU phat-thuoc-dhy-production
+    expr: (sum(rate(container_cpu_usage_seconds_total{name!="",job='dhy',name='phat-thuoc-dhy-production',instance='192.168.55.182:9099' }[1m])) BY (instance, name) * 100) > 500
+    for: 5m
+    labels:
+      severity: khẩn cấp
+      app_type: Đại Học Y
+      category: container-cpu    
+      container_name: phat-thuoc-dhy-production
+    annotations:
+      summary: "CPU container quá 95%"
+      description: |
+      
+        CONTAINER NAME: {{ $labels.name }}
+
+        Thông tin cụ thể: 
+
+          CPU USED : {{ printf "%.2f" $value}}%
+
+#========================================================
+  - alert: Container Status patient-service-dhy-production
+    expr: container_state_status{status="exited",name=~"patient-service-dhy-production",instance='192.168.55.182:19092'} == 1
+    for: 1s
+    labels:
+      severity: khẩn cấp
+      category: container-status
+      container_name: patient-service-dhy-production
+      app_type: Đại Học Y
+    annotations:
+      summary: Container exited
+      description: |
+
+       CONTAINER NAME:-  {{ $labels.name }}
+
+       CONTAINER BỊ TẮT 
+
+  - alert: Container Memory patient-service-dhy-production
+    expr: (container_memory_working_set_bytes{job='dhy', name='patient-service-dhy-production'}) / (container_spec_memory_limit_bytes{job="dhy", name='patient-service-dhy-production', instance='192.168.55.182:9099'}) * 100 > 90
+    for: 5m
+    labels:
+      severity: khẩn cấp
+      app_type: Đại Học Y
+      category: container-memory    
+      container_name: patient-service-dhy-production
+    annotations:
+      summary: "RAM container quá 90%"
+      description: |
+      
+        CONTAINER NAME: 
+        
+        **patient-service-dhy-production**
+
+        Thông tin cụ thể: 
+
+          RAM USED: {{ printf "%.2f" $value}}% / 100%
+
+  - alert: Container CPU patient-service-dhy-production
+    expr: (sum(rate(container_cpu_usage_seconds_total{name!="",job='dhy',name='patient-service-dhy-production',instance='192.168.55.182:9099' }[1m])) BY (instance, name) * 100) > 500
+    for: 5m
+    labels:
+      severity: khẩn cấp
+      app_type: Đại Học Y
+      category: container-cpu    
+      container_name: patient-service-dhy-production
+    annotations:
+      summary: "CPU container quá 95%"
+      description: |
+      
+        CONTAINER NAME: {{ $labels.name }}
+
+        Thông tin cụ thể: 
+
+          CPU USED : {{ printf "%.2f" $value}}%
+
+#========================================================
+  - alert: Container Status html-editor-dhy-production
+    expr: container_state_status{status="exited",name=~"html-editor-dhy-production",instance='192.168.55.182:19092'} == 1
+    for: 1s
+    labels:
+      severity: khẩn cấp
+      category: container-status
+      container_name: html-editor-dhy-production
+      app_type: Đại Học Y
+    annotations:
+      summary: Container exited
+      description: |
+
+       CONTAINER NAME:-  {{ $labels.name }}
+
+       CONTAINER BỊ TẮT 
+
+  - alert: Container Memory html-editor-dhy-production
+    expr: (container_memory_working_set_bytes{job='dhy', name='html-editor-dhy-production'}) / (container_spec_memory_limit_bytes{job="dhy", name='html-editor-dhy-production', instance='192.168.55.182:9099'}) * 100 > 90
+    for: 5m
+    labels:
+      severity: khẩn cấp
+      app_type: Đại Học Y
+      category: container-memory    
+      container_name: html-editor-dhy-production
+    annotations:
+      summary: "RAM container quá 90%"
+      description: |
+      
+        CONTAINER NAME: 
+        
+        **html-editor-dhy-production**
+
+        Thông tin cụ thể: 
+
+          RAM USED: {{ printf "%.2f" $value}}% / 100%
+
+  - alert: Container CPU html-editor-dhy-production
+    expr: (sum(rate(container_cpu_usage_seconds_total{name!="",job='dhy',name='html-editor-dhy-production',instance='192.168.55.182:9099' }[1m])) BY (instance, name) * 100) > 500
+    for: 5m
+    labels:
+      severity: khẩn cấp
+      app_type: Đại Học Y
+      category: container-cpu    
+      container_name: html-editor-dhy-production
+    annotations:
+      summary: "CPU container quá 95%"
+      description: |
+      
+        CONTAINER NAME: {{ $labels.name }}
+
+        Thông tin cụ thể: 
+
+          CPU USED : {{ printf "%.2f" $value}}%
+
+#========================================================
+  - alert: Container Status emr-zuul-dhy-production
+    expr: container_state_status{status="exited",name=~"emr-zuul-dhy-production",instance='192.168.55.182:19092'} == 1
+    for: 1s
+    labels:
+      severity: khẩn cấp
+      category: container-status
+      container_name: emr-zuul-dhy-production
+      app_type: Đại Học Y
+    annotations:
+      summary: Container exited
+      description: |
+
+       CONTAINER NAME:-  {{ $labels.name }}
+
+       CONTAINER BỊ TẮT 
+
+  - alert: Container Memory emr-zuul-dhy-production
+    expr: (container_memory_working_set_bytes{job='dhy', name='emr-zuul-dhy-production'}) / (container_spec_memory_limit_bytes{job="dhy", name='emr-zuul-dhy-production', instance='192.168.55.182:9099'}) * 100 > 90
+    for: 5m
+    labels:
+      severity: khẩn cấp
+      app_type: Đại Học Y
+      category: container-memory    
+      container_name: emr-zuul-dhy-production
+    annotations:
+      summary: "RAM container quá 90%"
+      description: |
+      
+        CONTAINER NAME: 
+        
+        **emr-zuul-dhy-production**
+
+        Thông tin cụ thể: 
+
+          RAM USED: {{ printf "%.2f" $value}}% / 100%
+
+  - alert: Container CPU emr-zuul-dhy-production
+    expr: (sum(rate(container_cpu_usage_seconds_total{name!="",job='dhy',name='emr-zuul-dhy-production',instance='192.168.55.182:9099' }[1m])) BY (instance, name) * 100) > 500
+    for: 5m
+    labels:
+      severity: khẩn cấp
+      app_type: Đại Học Y
+      category: container-cpu    
+      container_name: emr-zuul-dhy-production
+    annotations:
+      summary: "CPU container quá 95%"
+      description: |
+      
+        CONTAINER NAME: {{ $labels.name }}
+
+        Thông tin cụ thể: 
+
+          CPU USED : {{ printf "%.2f" $value}}%
+
+#========================================================
+  - alert: Container Status emr-eureka-dhy-production
+    expr: container_state_status{status="exited",name=~"emr-eureka-dhy-production",instance='192.168.55.182:19092'} == 1
+    for: 1s
+    labels:
+      severity: khẩn cấp
+      category: container-status
+      container_name: emr-eureka-dhy-production
+      app_type: Đại Học Y
+    annotations:
+      summary: Container exited
+      description: |
+
+       CONTAINER NAME:-  {{ $labels.name }}
+
+       CONTAINER BỊ TẮT 
+
+  - alert: Container Memory emr-eureka-dhy-production
+    expr: (container_memory_working_set_bytes{job='dhy', name='emr-eureka-dhy-production'}) / (container_spec_memory_limit_bytes{job="dhy", name='emr-eureka-dhy-production', instance='192.168.55.182:9099'}) * 100 > 90
+    for: 5m
+    labels:
+      severity: khẩn cấp
+      app_type: Đại Học Y
+      category: container-memory    
+      container_name: emr-eureka-dhy-production
+    annotations:
+      summary: "RAM container quá 90%"
+      description: |
+      
+        CONTAINER NAME: 
+        
+        **emr-eureka-dhy-production**
+
+        Thông tin cụ thể: 
+
+          RAM USED: {{ printf "%.2f" $value}}% / 100%
+
+  - alert: Container CPU emr-eureka-dhy-production
+    expr: (sum(rate(container_cpu_usage_seconds_total{name!="",job='dhy',name='emr-eureka-dhy-production',instance='192.168.55.182:9099' }[1m])) BY (instance, name) * 100) > 500
+    for: 5m
+    labels:
+      severity: khẩn cấp
+      app_type: Đại Học Y
+      category: container-cpu    
+      container_name: emr-eureka-dhy-production
+    annotations:
+      summary: "CPU container quá 95%"
+      description: |
+      
+        CONTAINER NAME: {{ $labels.name }}
+
+        Thông tin cụ thể: 
+
+          CPU USED : {{ printf "%.2f" $value}}%
+
+#========================================================
+  - alert: Container Status vital-signs-dhy-production
+    expr: container_state_status{status="exited",name=~"vital-signs-dhy-production",instance='192.168.55.182:19092'} == 1
+    for: 1s
+    labels:
+      severity: khẩn cấp
+      category: container-status
+      container_name: vital-signs-dhy-production
+      app_type: Đại Học Y
+    annotations:
+      summary: Container exited
+      description: |
+
+       CONTAINER NAME:-  {{ $labels.name }}
+
+       CONTAINER BỊ TẮT 
+
+  - alert: Container Memory vital-signs-dhy-production
+    expr: (container_memory_working_set_bytes{job='dhy', name='vital-signs-dhy-production'}) / (container_spec_memory_limit_bytes{job="dhy", name='vital-signs-dhy-production', instance='192.168.55.182:9099'}) * 100 > 90
+    for: 5m
+    labels:
+      severity: khẩn cấp
+      app_type: Đại Học Y
+      category: container-memory    
+      container_name: vital-signs-dhy-production
+    annotations:
+      summary: "RAM container quá 90%"
+      description: |
+      
+        CONTAINER NAME: 
+        
+        **vital-signs-dhy-production**
+
+        Thông tin cụ thể: 
+
+          RAM USED: {{ printf "%.2f" $value}}% / 100%
+
+  - alert: Container CPU vital-signs-dhy-production
+    expr: (sum(rate(container_cpu_usage_seconds_total{name!="",job='dhy',name='vital-signs-dhy-production',instance='192.168.55.182:9099' }[1m])) BY (instance, name) * 100) > 500
+    for: 5m
+    labels:
+      severity: khẩn cấp
+      app_type: Đại Học Y
+      category: container-cpu    
+      container_name: vital-signs-dhy-production
+    annotations:
+      summary: "CPU container quá 95%"
+      description: |
+      
+        CONTAINER NAME: {{ $labels.name }}
+
+        Thông tin cụ thể: 
+
+          CPU USED : {{ printf "%.2f" $value}}%
+
+#========================================================
+  - alert: Container Status master-data-dhy-production
+    expr: container_state_status{status="exited",name=~"master-data-dhy-production",instance='192.168.55.182:19092'} == 1
+    for: 1s
+    labels:
+      severity: khẩn cấp
+      category: container-status
+      container_name: master-data-dhy-production
+      app_type: Đại Học Y
+    annotations:
+      summary: Container exited
+      description: |
+
+       CONTAINER NAME:-  {{ $labels.name }}
+
+       CONTAINER BỊ TẮT 
+
+  - alert: Container Memory master-data-dhy-production
+    expr: (container_memory_working_set_bytes{job='dhy', name='master-data-dhy-production'}) / (container_spec_memory_limit_bytes{job="dhy", name='master-data-dhy-production', instance='192.168.55.182:9099'}) * 100 > 90
+    for: 5m
+    labels:
+      severity: khẩn cấp
+      app_type: Đại Học Y
+      category: container-memory    
+      container_name: master-data-dhy-production
+    annotations:
+      summary: "RAM container quá 90%"
+      description: |
+      
+        CONTAINER NAME: 
+        
+        **master-data-dhy-production**
+
+        Thông tin cụ thể: 
+
+          RAM USED: {{ printf "%.2f" $value}}% / 100%
+
+  - alert: Container CPU master-data-dhy-production
+    expr: (sum(rate(container_cpu_usage_seconds_total{name!="",job='dhy',name='master-data-dhy-production',instance='192.168.55.182:9099' }[1m])) BY (instance, name) * 100) > 500
+    for: 5m
+    labels:
+      severity: khẩn cấp
+      app_type: Đại Học Y
+      category: container-cpu    
+      container_name: master-data-dhy-production
+    annotations:
+      summary: "CPU container quá 95%"
+      description: |
+      
+        CONTAINER NAME: {{ $labels.name }}
+
+        Thông tin cụ thể: 
+
+          CPU USED : {{ printf "%.2f" $value}}%
+
+#========================================================
+  - alert: Container Status master-data-dhy-production
+    expr: container_state_status{status="exited",name=~"master-data-dhy-production",instance='192.168.55.182:19092'} == 1
+    for: 1s
+    labels:
+      severity: khẩn cấp
+      category: container-status
+      container_name: master-data-dhy-production
+      app_type: Đại Học Y
+    annotations:
+      summary: Container exited
+      description: |
+
+       CONTAINER NAME:-  {{ $labels.name }}
+
+       CONTAINER BỊ TẮT 
+
+  - alert: Container Memory master-data-dhy-production
+    expr: (container_memory_working_set_bytes{job='dhy', name='master-data-dhy-production'}) / (container_spec_memory_limit_bytes{job="dhy", name='master-data-dhy-production', instance='192.168.55.182:9099'}) * 100 > 90
+    for: 5m
+    labels:
+      severity: khẩn cấp
+      app_type: Đại Học Y
+      category: container-memory    
+      container_name: master-data-dhy-production
+    annotations:
+      summary: "RAM container quá 90%"
+      description: |
+      
+        CONTAINER NAME: 
+        
+        **master-data-dhy-production**
+
+        Thông tin cụ thể: 
+
+          RAM USED: {{ printf "%.2f" $value}}% / 100%
+
+  - alert: Container CPU master-data-dhy-production
+    expr: (sum(rate(container_cpu_usage_seconds_total{name!="",job='dhy',name='master-data-dhy-production',instance='192.168.55.182:9099' }[1m])) BY (instance, name) * 100) > 500
+    for: 5m
+    labels:
+      severity: khẩn cấp
+      app_type: Đại Học Y
+      category: container-cpu    
+      container_name: master-data-dhy-production
+    annotations:
+      summary: "CPU container quá 95%"
+      description: |
+      
+        CONTAINER NAME: {{ $labels.name }}
+
+        Thông tin cụ thể: 
+
+          CPU USED : {{ printf "%.2f" $value}}%
+
+#========================================================
+  - alert: Container Status pay-dhy-production
+    expr: container_state_status{status="exited",name=~"pay-dhy-production",instance='192.168.55.182:19092'} == 1
+    for: 1s
+    labels:
+      severity: khẩn cấp
+      category: container-status
+      container_name: pay-dhy-production
+      app_type: Đại Học Y
+    annotations:
+      summary: Container exited
+      description: |
+
+       CONTAINER NAME:-  {{ $labels.name }}
+
+       CONTAINER BỊ TẮT 
+
+  - alert: Container Memory pay-dhy-production
+    expr: (container_memory_working_set_bytes{job='dhy', name='pay-dhy-production'}) / (container_spec_memory_limit_bytes{job="dhy", name='pay-dhy-production', instance='192.168.55.182:9099'}) * 100 > 90
+    for: 5m
+    labels:
+      severity: khẩn cấp
+      app_type: Đại Học Y
+      category: container-memory    
+      container_name: pay-dhy-production
+    annotations:
+      summary: "RAM container quá 90%"
+      description: |
+      
+        CONTAINER NAME: 
+        
+        **pay-dhy-production**
+
+        Thông tin cụ thể: 
+
+          RAM USED: {{ printf "%.2f" $value}}% / 100%
+
+  - alert: Container CPU pay-dhy-production
+    expr: (sum(rate(container_cpu_usage_seconds_total{name!="",job='dhy',name='pay-dhy-production',instance='192.168.55.182:9099' }[1m])) BY (instance, name) * 100) > 500
+    for: 5m
+    labels:
+      severity: khẩn cấp
+      app_type: Đại Học Y
+      category: container-cpu    
+      container_name: pay-dhy-production
+    annotations:
+      summary: "CPU container quá 95%"
+      description: |
+      
+        CONTAINER NAME: {{ $labels.name }}
+
+        Thông tin cụ thể: 
+
+          CPU USED : {{ printf "%.2f" $value}}%
+
+#========================================================
+  - alert: Container Status auth-server-dhy-production
+    expr: container_state_status{status="exited",name=~"auth-server-dhy-production",instance='192.168.55.182:19092'} == 1
+    for: 1s
+    labels:
+      severity: khẩn cấp
+      category: container-status
+      container_name: auth-server-dhy-production
+      app_type: Đại Học Y
+    annotations:
+      summary: Container exited
+      description: |
+
+       CONTAINER NAME:-  {{ $labels.name }}
+
+       CONTAINER BỊ TẮT 
+
+  - alert: Container Memory auth-server-dhy-production
+    expr: (container_memory_working_set_bytes{job='dhy', name='auth-server-dhy-production'}) / (container_spec_memory_limit_bytes{job="dhy", name='auth-server-dhy-production', instance='192.168.55.182:9099'}) * 100 > 90
+    for: 5m
+    labels:
+      severity: khẩn cấp
+      app_type: Đại Học Y
+      category: container-memory    
+      container_name: auth-server-dhy-production
+    annotations:
+      summary: "RAM container quá 90%"
+      description: |
+      
+        CONTAINER NAME: 
+        
+        **auth-server-dhy-production**
+
+        Thông tin cụ thể: 
+
+          RAM USED: {{ printf "%.2f" $value}}% / 100%
+
+  - alert: Container CPU auth-server-dhy-production
+    expr: (sum(rate(container_cpu_usage_seconds_total{name!="",job='dhy',name='auth-server-dhy-production',instance='192.168.55.182:9099' }[1m])) BY (instance, name) * 100) > 500
+    for: 5m
+    labels:
+      severity: khẩn cấp
+      app_type: Đại Học Y
+      category: container-cpu    
+      container_name: auth-server-dhy-production
+    annotations:
+      summary: "CPU container quá 95%"
+      description: |
+      
+        CONTAINER NAME: {{ $labels.name }}
+
+        Thông tin cụ thể: 
+
+          CPU USED : {{ printf "%.2f" $value}}%
+
+#========================================================
+  - alert: Container Status zipkin
+    expr: container_state_status{status="exited",name=~"zipkin",instance='192.168.55.182:19092'} == 1
+    for: 1s
+    labels:
+      severity: khẩn cấp
+      category: container-status
+      container_name: zipkin
+      app_type: Đại Học Y
+    annotations:
+      summary: Container exited
+      description: |
+
+       CONTAINER NAME:-  {{ $labels.name }}
+
+       CONTAINER BỊ TẮT 
+
+  - alert: Container Memory zipkin
+    expr: (container_memory_working_set_bytes{job='dhy', name='zipkin'}) / (container_spec_memory_limit_bytes{job="dhy", name='zipkin', instance='192.168.55.182:9099'}) * 100 > 90
+    for: 5m
+    labels:
+      severity: khẩn cấp
+      app_type: Đại Học Y
+      category: container-memory    
+      container_name: zipkin
+    annotations:
+      summary: "RAM container quá 90%"
+      description: |
+      
+        CONTAINER NAME: 
+        
+        **zipkin**
+
+        Thông tin cụ thể: 
+
+          RAM USED: {{ printf "%.2f" $value}}% / 100%
+
+  - alert: Container CPU zipkin
+    expr: (sum(rate(container_cpu_usage_seconds_total{name!="",job='dhy',name='zipkin',instance='192.168.55.182:9099' }[1m])) BY (instance, name) * 100) > 500
+    for: 5m
+    labels:
+      severity: khẩn cấp
+      app_type: Đại Học Y
+      category: container-cpu    
+      container_name: zipkin
+    annotations:
+      summary: "CPU container quá 95%"
+      description: |
+      
+        CONTAINER NAME: {{ $labels.name }}
+
+        Thông tin cụ thể: 
+
+          CPU USED : {{ printf "%.2f" $value}}%
+
+#========================================================
+  - alert: Container Status rabbitmq
+    expr: container_state_status{status="exited",name=~"rabbitmq",instance='192.168.55.182:19092'} == 1
+    for: 1s
+    labels:
+      severity: khẩn cấp
+      category: container-status
+      container_name: rabbitmq
+      app_type: Đại Học Y
+    annotations:
+      summary: Container exited
+      description: |
+
+       CONTAINER NAME:-  {{ $labels.name }}
+
+       CONTAINER BỊ TẮT 
+
+  - alert: Container Memory rabbitmq
+    expr: (container_memory_working_set_bytes{job='dhy', name='rabbitmq'}) / (container_spec_memory_limit_bytes{job="dhy", name='rabbitmq', instance='192.168.55.182:9099'}) * 100 > 90
+    for: 5m
+    labels:
+      severity: khẩn cấp
+      app_type: Đại Học Y
+      category: container-memory    
+      container_name: rabbitmq
+    annotations:
+      summary: "RAM container quá 90%"
+      description: |
+      
+        CONTAINER NAME: 
+        
+        **rabbitmq**
+
+        Thông tin cụ thể: 
+
+          RAM USED: {{ printf "%.2f" $value}}% / 100%
+
+  - alert: Container CPU rabbitmq
+    expr: (sum(rate(container_cpu_usage_seconds_total{name!="",job='dhy',name='rabbitmq',instance='192.168.55.182:9099' }[1m])) BY (instance, name) * 100) > 500
+    for: 5m
+    labels:
+      severity: khẩn cấp
+      app_type: Đại Học Y
+      category: container-cpu    
+      container_name: rabbitmq
+    annotations:
+      summary: "CPU container quá 95%"
+      description: |
+      
+        CONTAINER NAME: {{ $labels.name }}
+
+        Thông tin cụ thể: 
+
+          CPU USED : {{ printf "%.2f" $value}}%
