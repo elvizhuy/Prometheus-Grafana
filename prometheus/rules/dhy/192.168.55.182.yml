@@ -57,7 +57,7 @@ groups:
           CPU USED : {{ printf "%.2f" $value}}%
 #========================================================
   - alert: Container Status emr-web-app-dhy-production
-    expr: container_state_status{status="exited",name=~"emr-web-app-dhy-production",instance='192.168.55.182:19092'} == 1
+    expr: container_state_status{status="exited",name=~"emr-web-app-dhy-production",instance='192.168.55.182:19094'} == 1
     for: 1s
     labels:
       severity: khẩn cấp
@@ -111,7 +111,7 @@ groups:
           CPU USED : {{ printf "%.2f" $value}}%
 #========================================================
   - alert: Container Status pdf-generator
-    expr: container_state_status{status="exited",name=~"pdf-generator",instance='192.168.55.182:19092'} == 1
+    expr: container_state_status{status="exited",name=~"pdf-generator",instance='192.168.55.182:19094'} == 1
     for: 1s
     labels:
       severity: khẩn cấp
@@ -165,7 +165,7 @@ groups:
           CPU USED : {{ printf "%.2f" $value}}%
 #========================================================
   - alert: Container Status signer-connector-web-dhy-production
-    expr: container_state_status{status="exited",name=~"signer-connector-web-dhy-production",instance='192.168.55.182:19092'} == 1
+    expr: container_state_status{status="exited",name=~"signer-connector-web-dhy-production",instance='192.168.55.182:19094'} == 1
     for: 1s
     labels:
       severity: khẩn cấp
@@ -220,7 +220,7 @@ groups:
 
 #========================================================
   - alert: Container Status signer-connector-dhy-production
-    expr: container_state_status{status="exited",name=~"signer-connector-dhy-production",instance='192.168.55.182:19092'} == 1
+    expr: container_state_status{status="exited",name=~"signer-connector-dhy-production",instance='192.168.55.182:19094'} == 1
     for: 1s
     labels:
       severity: khẩn cấp
@@ -275,7 +275,7 @@ groups:
 
 #========================================================
   - alert: Container Status project-react-js-kiosk-tiep-don-dhy-production
-    expr: container_state_status{status="exited",name=~"project-react-js-kiosk-tiep-don-dhy-production",instance='192.168.55.182:19092'} == 1
+    expr: container_state_status{status="exited",name=~"project-react-js-kiosk-tiep-don-dhy-production",instance='192.168.55.182:19094'} == 1
     for: 1s
     labels:
       severity: khẩn cấp
@@ -330,7 +330,7 @@ groups:
 
 #========================================================
   - alert: Container Status project-react-js-qr-thu-ngan-dhy-production
-    expr: container_state_status{status="exited",name=~"project-react-js-qr-thu-ngan-dhy-production",instance='192.168.55.182:19092'} == 1
+    expr: container_state_status{status="exited",name=~"project-react-js-qr-thu-ngan-dhy-production",instance='192.168.55.182:19094'} == 1
     for: 1s
     labels:
       severity: khẩn cấp
@@ -385,7 +385,7 @@ groups:
 
 #========================================================
   - alert: Container Status project-react-js-110-doctor-web-app-dhy-production
-    expr: container_state_status{status="exited",name=~"project-react-js-110-doctor-web-app-dhy-production",instance='192.168.55.182:19092'} == 1
+    expr: container_state_status{status="exited",name=~"project-react-js-110-doctor-web-app-dhy-production",instance='192.168.55.182:19094'} == 1
     for: 1s
     labels:
       severity: khẩn cấp
@@ -440,7 +440,7 @@ groups:
 
 #========================================================
   - alert: Container Status file-service-dhy-production
-    expr: container_state_status{status="exited",name=~"file-service-dhy-production",instance='192.168.55.182:19092'} == 1
+    expr: container_state_status{status="exited",name=~"file-service-dhy-production",instance='192.168.55.182:19094'} == 1
     for: 1s
     labels:
       severity: khẩn cấp
@@ -495,7 +495,7 @@ groups:
 
 #========================================================
   - alert: Container Status phat-thuoc-dhy-production
-    expr: container_state_status{status="exited",name=~"phat-thuoc-dhy-production",instance='192.168.55.182:19092'} == 1
+    expr: container_state_status{status="exited",name=~"phat-thuoc-dhy-production",instance='192.168.55.182:19094'} == 1
     for: 1s
     labels:
       severity: khẩn cấp
@@ -550,7 +550,7 @@ groups:
 
 #========================================================
   - alert: Container Status patient-service-dhy-production
-    expr: container_state_status{status="exited",name=~"patient-service-dhy-production",instance='192.168.55.182:19092'} == 1
+    expr: container_state_status{status="exited",name=~"patient-service-dhy-production",instance='192.168.55.182:19094'} == 1
     for: 1s
     labels:
       severity: khẩn cấp
@@ -605,7 +605,7 @@ groups:
 
 #========================================================
   - alert: Container Status html-editor-dhy-production
-    expr: container_state_status{status="exited",name=~"html-editor-dhy-production",instance='192.168.55.182:19092'} == 1
+    expr: container_state_status{status="exited",name=~"html-editor-dhy-production",instance='192.168.55.182:19094'} == 1
     for: 1s
     labels:
       severity: khẩn cấp
@@ -660,7 +660,7 @@ groups:
 
 #========================================================
   - alert: Container Status emr-zuul-dhy-production
-    expr: container_state_status{status="exited",name=~"emr-zuul-dhy-production",instance='192.168.55.182:19092'} == 1
+    expr: container_state_status{status="exited",name=~"emr-zuul-dhy-production",instance='192.168.55.182:19094'} == 1
     for: 1s
     labels:
       severity: khẩn cấp
@@ -715,7 +715,7 @@ groups:
 
 #========================================================
   - alert: Container Status emr-eureka-dhy-production
-    expr: container_state_status{status="exited",name=~"emr-eureka-dhy-production",instance='192.168.55.182:19092'} == 1
+    expr: container_state_status{status="exited",name=~"emr-eureka-dhy-production",instance='192.168.55.182:19094'} == 1
     for: 1s
     labels:
       severity: khẩn cấp
@@ -770,7 +770,7 @@ groups:
 
 #========================================================
   - alert: Container Status vital-signs-dhy-production
-    expr: container_state_status{status="exited",name=~"vital-signs-dhy-production",instance='192.168.55.182:19092'} == 1
+    expr: container_state_status{status="exited",name=~"vital-signs-dhy-production",instance='192.168.55.182:19094'} == 1
     for: 1s
     labels:
       severity: khẩn cấp
@@ -825,7 +825,7 @@ groups:
 
 #========================================================
   - alert: Container Status master-data-dhy-production
-    expr: container_state_status{status="exited",name=~"master-data-dhy-production",instance='192.168.55.182:19092'} == 1
+    expr: container_state_status{status="exited",name=~"master-data-dhy-production",instance='192.168.55.182:19094'} == 1
     for: 1s
     labels:
       severity: khẩn cấp
@@ -880,7 +880,7 @@ groups:
 
 #========================================================
   - alert: Container Status master-data-dhy-production
-    expr: container_state_status{status="exited",name=~"master-data-dhy-production",instance='192.168.55.182:19092'} == 1
+    expr: container_state_status{status="exited",name=~"master-data-dhy-production",instance='192.168.55.182:19094'} == 1
     for: 1s
     labels:
       severity: khẩn cấp
@@ -935,7 +935,7 @@ groups:
 
 #========================================================
   - alert: Container Status pay-dhy-production
-    expr: container_state_status{status="exited",name=~"pay-dhy-production",instance='192.168.55.182:19092'} == 1
+    expr: container_state_status{status="exited",name=~"pay-dhy-production",instance='192.168.55.182:19094'} == 1
     for: 1s
     labels:
       severity: khẩn cấp
@@ -990,7 +990,7 @@ groups:
 
 #========================================================
   - alert: Container Status auth-server-dhy-production
-    expr: container_state_status{status="exited",name=~"auth-server-dhy-production",instance='192.168.55.182:19092'} == 1
+    expr: container_state_status{status="exited",name=~"auth-server-dhy-production",instance='192.168.55.182:19094'} == 1
     for: 1s
     labels:
       severity: khẩn cấp
@@ -1045,7 +1045,7 @@ groups:
 
 #========================================================
   - alert: Container Status zipkin
-    expr: container_state_status{status="exited",name=~"zipkin",instance='192.168.55.182:19092'} == 1
+    expr: container_state_status{status="exited",name=~"zipkin",instance='192.168.55.182:19094'} == 1
     for: 1s
     labels:
       severity: khẩn cấp
@@ -1100,7 +1100,7 @@ groups:
 
 #========================================================
   - alert: Container Status rabbitmq
-    expr: container_state_status{status="exited",name=~"rabbitmq",instance='192.168.55.182:19092'} == 1
+    expr: container_state_status{status="exited",name=~"rabbitmq",instance='192.168.55.182:19094'} == 1
     for: 1s
     labels:
       severity: khẩn cấp
