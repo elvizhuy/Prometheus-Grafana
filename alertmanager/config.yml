@@ -140,8 +140,14 @@ route:
   #   routes:
 
   - match:
-      app_type: Y Tế Công Cộng
-      instance: 183.80.255.19:19105
+      app_type: pnt
+      instance: 183.80.255.19:19100
+      category: server  
+    receiver: ytcc-telegram
+    group_wait: 10s
+  - match:
+      app_type: pnt
+      instance: 183.80.255.19:9100
       category: server  
     receiver: ytcc-telegram
     group_wait: 10s
@@ -980,11 +986,18 @@ route:
 #################### RAM #######################
   # Hệ Thống Y Tế Công Cộng
   - match:
-      app_type: Y Tế Công Cộng
-      instance: 183.80.255.19:19105
+      app_type: pnt
+      instance: 183.80.255.19:19100
       category: memory  
     receiver: ytcc-telegram
     group_wait: 10s
+  - match:
+      app_type: pnt
+      instance: 183.80.255.19:9100
+      category: memory  
+    receiver: ytcc-telegram
+    group_wait: 10s
+
   # Hệ Thống ivirse
   - match:
       app_type: Ivirse Project
@@ -1803,11 +1816,18 @@ route:
 ################### CPU ##################################
   # Hệ Thống Y Tế Công Cộng
   - match:
-      app_type: Y Tế Công Cộng
-      instance: 183.80.255.19:19105
+      app_type: pnt
+      instance: 183.80.255.19:19100
       category: cpu  
     receiver: ytcc-telegram
     group_wait: 10s
+  - match:
+      app_type: pnt
+      instance: 183.80.255.19:9100
+      category: cpu  
+    receiver: ytcc-telegram
+    group_wait: 10s
+
   # Hệ Thống ivirse
   - match:
       app_type: Ivirse Project
@@ -2614,6 +2634,7 @@ route:
         category: cpu  
     receiver: rpt-telegram
     group_wait: 2s
+
 ################### DISK ##############################
 ################### DISK ##############################
 ################### DISK ##############################
@@ -2622,11 +2643,18 @@ route:
 ################### DISK ##############################
   # Hệ Thống Y Tế Công Cộng
   - match:
-      app_type: Y Tế Công Cộng
-      instance: 183.80.255.19:19105
+      app_type: pnt
+      instance: 183.80.255.19:19100
       category: disk  
     receiver: ytcc-telegram
     group_wait: 10s
+    - match:
+      app_type: pnt
+      instance: 183.80.255.19:9100
+      category: disk  
+    receiver: ytcc-telegram
+    group_wait: 10s
+
   # Hệ Thống ivirse
   - match:
       app_type: Ivirse Project

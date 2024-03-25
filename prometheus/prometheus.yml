@@ -30,7 +30,7 @@ rule_files:
   - "rules/ivirse.yml"
   - "rules/isofhcare.yml"
   - "rules/rpt.yml"
-  # - "rules/viengut.yml"
+  - "rules/pnt.yml"
 
 # alert
 alerting:
@@ -44,13 +44,6 @@ alerting:
         password: toivaban
 
 scrape_configs:
-  - job_name: 'y-te-cong-cong'
-    scrape_interval: 5s
-    static_configs:
-      - targets:
-        # Hệ Thống y tế công cộng
-          - 183.80.255.19:19105
-
   - job_name: 'isofh-care'
     scrape_interval: 5s
     static_configs:
@@ -94,6 +87,12 @@ scrape_configs:
         # Y Khoa Hà Nội
           - 113.190.44.104:19100
 
+  - job_name: 'pnt'
+    scrape_interval: 5s
+    static_configs:
+      - targets:
+          - 183.80.255.19:19100
+          - 183.80.255.19:9100
 
   - job_name: 'Nhi-Dong-Thanh-Pho'
     scrape_interval: 5s
