@@ -34,6 +34,10 @@ receivers:
   webhook_configs:
   - url: 'http://10.0.0.14:9088/alert/-1002009891886'
 
+- name: ytcc-telegram
+  webhook_configs:
+  - url: 'http://10.0.0.13:9087/alert/-1002031060059'
+
 route:
   continue: false
   group_by: ['instance']
@@ -1905,24 +1909,170 @@ route:
         category: container-status
         container_name: rabbitmq
         app_type: PNT
-      receiver: mediplus-telegram
+      receiver: ytcc-telegram
       group_wait: 5s
 
     - match:
         category: container-memory
-        container_name: emr-eureka-medi-production
+        container_name: rabbitmq
         app_type: PNT
-      receiver: mediplus-telegram
+      receiver: ytcc-telegram
       group_wait: 5s
 
     - match:
         category: container-cpu
-        container_name: emr-zuul-medi-production
+        container_name: rabbitmq
         app_type: PNT
-      receiver: mediplus-telegram
+      receiver: ytcc-telegram
       group_wait: 5s
 
-    
+    - match:
+        category: container-status
+        container_name: zipkin
+        app_type: PNT
+      receiver: ytcc-telegram
+      group_wait: 5s
+
+    - match:
+        category: container-memory
+        container_name: zipkin
+        app_type: PNT
+      receiver: ytcc-telegram
+      group_wait: 5s
+
+    - match:
+        category: container-cpu
+        container_name: zipkin
+        app_type: PNT
+      receiver: ytcc-telegram
+      group_wait: 5s
+
+    - match:
+        category: container-status
+        container_name: emr-eureka-pnt-production
+        app_type: PNT
+      receiver: ytcc-telegram
+      group_wait: 5s
+
+    - match:
+        category: container-memory
+        container_name: emr-eureka-pnt-production
+        app_type: PNT
+      receiver: ytcc-telegram
+      group_wait: 5s
+
+    - match:
+        category: container-cpu
+        container_name: emr-eureka-pnt-production
+        app_type: PNT
+      receiver: ytcc-telegram
+      group_wait: 5s
+
+    - match:
+        category: container-status
+        container_name: emr-zuul-pnt-production
+        app_type: PNT
+      receiver: ytcc-telegram
+      group_wait: 5s
+
+    - match:
+        category: container-memory
+        container_name: emr-zuul-pnt-production
+        app_type: PNT
+      receiver: ytcc-telegram
+      group_wait: 5s
+
+    - match:
+        category: container-cpu
+        container_name: emr-zuul-pnt-production
+        app_type: PNT
+      receiver: ytcc-telegram
+      group_wait: 5s
+
+    - match:
+        category: container-status
+        container_name: his-pnt-production
+        app_type: PNT
+      receiver: ytcc-telegram
+      group_wait: 5s
+
+    - match:
+        category: container-memory
+        container_name: his-pnt-production
+        app_type: PNT
+      receiver: ytcc-telegram
+      group_wait: 5s
+
+    - match:
+        category: container-cpu
+        container_name: his-pnt-production
+        app_type: PNT
+      receiver: ytcc-telegram
+      group_wait: 5s
+
+    - match:
+        category: container-status
+        container_name: his-pnt-production-2529
+        app_type: PNT
+      receiver: ytcc-telegram
+      group_wait: 5s
+
+    - match:
+        category: container-memory
+        container_name: his-pnt-production-2529
+        app_type: PNT
+      receiver: ytcc-telegram
+      group_wait: 5s
+
+    - match:
+        category: container-cpu
+        container_name: his-pnt-production-2529
+        app_type: PNT
+      receiver: ytcc-telegram
+      group_wait: 5s
+
+    - match:
+        category: container-status
+        container_name: his-frontend-pnt-production
+        app_type: PNT
+      receiver: ytcc-telegram
+      group_wait: 5s
+
+    - match:
+        category: container-memory
+        container_name: his-frontend-pnt-production
+        app_type: PNT
+      receiver: ytcc-telegram
+      group_wait: 5s
+
+    - match:
+        category: container-cpu
+        container_name: his-frontend-pnt-production
+        app_type: PNT
+      receiver: ytcc-telegram
+      group_wait: 5s
+
+    - match:
+        category: container-status
+        container_name: pdf-generator
+        app_type: PNT
+      receiver: ytcc-telegram
+      group_wait: 5s
+
+    - match:
+        category: container-memory
+        container_name: pdf-generator
+        app_type: PNT
+      receiver: ytcc-telegram
+      group_wait: 5s
+
+    - match:
+        category: container-cpu
+        container_name: pdf-generator
+        app_type: PNT
+      receiver: ytcc-telegram
+      group_wait: 5s
+      
 #=============================================== BVP =====================================================
 
     - match:
