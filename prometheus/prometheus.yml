@@ -11,7 +11,7 @@ global:
 
 # Load and evaluate rules in this file every 'evaluation_interval' seconds.
 rule_files:
-  - 'rules/jenkins.yml'
+  # - 'rules/jenkins.yml'
   # - 'rules/CheckDomainStatus.yml'
   # - 'rules/CheckPortContainer.yml'
   - "rules/NhiDongThanhPho.yml"
