@@ -55,7 +55,7 @@ groups:
         Thông tin cụ thể: 
 
           CPU USED : {{ printf "%.2f" $value}}%
-
+#================================================================
   - alert: Container Status his-dong-bo-medi-production
     expr: container_state_status{status="exited",name=~"his-dong-bo-medi-production",instance='10.3.0.180:19094'} == 1
     for: 30s
@@ -109,7 +109,7 @@ groups:
         Thông tin cụ thể: 
 
           CPU USED : {{ printf "%.2f" $value}}%
-
+  #================================================================
   - alert: Container Status pdf-generator
     expr: container_state_status{status="exited",name=~"pdf-generator",instance='10.3.0.180:19094'} == 1
     for: 1s
@@ -163,7 +163,7 @@ groups:
         Thông tin cụ thể: 
 
           CPU USED : {{ printf "%.2f" $value}}%
-  
+#================================================================
   - alert: Container Status his-medi-production
     expr: container_state_status{status="exited",name=~"his-medi-production",instance='10.3.0.180:19094'} == 1
     for: 30s
@@ -217,7 +217,7 @@ groups:
         Thông tin cụ thể: 
 
           CPU USED : {{ printf "%.2f" $value}}%
-
+#================================================================
   - alert: Container Status emr-zuul-medi-production
     expr: container_state_status{status="exited",name=~"emr-zuul-medi-production",instance='10.3.0.180:19094'} == 1
     for: 30s
@@ -271,7 +271,7 @@ groups:
         Thông tin cụ thể: 
 
           CPU USED : {{ printf "%.2f" $value}}%
-  
+    #================================================================
   - alert: Container Status emr-eureka-medi-production
     expr: container_state_status{status="exited",name=~"emr-eureka-medi-production",instance='10.3.0.180:19094'} == 1
     for: 30s
@@ -325,7 +325,7 @@ groups:
         Thông tin cụ thể: 
 
           CPU USED : {{ printf "%.2f" $value}}%
-  
+  #================================================================
   - alert: Container Status rabbitmq
     expr: container_state_status{status="exited",name=~"rabbitmq",instance='10.3.0.180:19094'} == 1
     for: 30s
