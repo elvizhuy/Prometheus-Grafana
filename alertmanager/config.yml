@@ -1901,7 +1901,28 @@ route:
 ########### PNT ##############################
 ####################################################
 
+    - match:
+        category: container-status
+        container_name: rabbitmq
+        app_type: PNT
+      receiver: mediplus-telegram
+      group_wait: 5s
 
+    - match:
+        category: container-memory
+        container_name: emr-eureka-medi-production
+        app_type: PNT
+      receiver: mediplus-telegram
+      group_wait: 5s
+
+    - match:
+        category: container-cpu
+        container_name: emr-zuul-medi-production
+        app_type: PNT
+      receiver: mediplus-telegram
+      group_wait: 5s
+
+    
 #=============================================== BVP =====================================================
 
     - match:
