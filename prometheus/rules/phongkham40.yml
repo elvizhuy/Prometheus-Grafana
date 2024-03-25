@@ -89,7 +89,6 @@ groups:
         annotations:
           summary: "Có lock databases"
           description: | 
-            Lock rồi anh em
             DATABASE : {{ $labels.datname }}
             MODEL : {{ $labels.mode }}
 
