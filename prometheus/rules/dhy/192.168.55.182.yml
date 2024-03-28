@@ -19,7 +19,7 @@ groups:
        CONTAINER BỊ TẮT 
 
   - alert: Container Memory project-react-js-visualize-dhy-production
-    expr: (container_memory_working_set_bytes{job='dhy', name='project-react-js-visualize-dhy-production'}) / (container_spec_memory_limit_bytes{job="dhy", name='project-react-js-visualize-dhy-production', instance='192.168.55.182:9099'}) * 100 > 90
+    expr: (container_memory_working_set_bytes{job='dhy', name='project-react-js-visualize-dhy-production'}) / (container_spec_memory_limit_bytes{job="dhy", name='project-react-js-visualize-dhy-production', instance='192.168.55.182:9099'}) * 100 > 95
     for: 5m
     labels:
       severity: khẩn cấp
@@ -73,7 +73,7 @@ groups:
        CONTAINER BỊ TẮT 
 
   - alert: Container Memory emr-web-app-dhy-production
-    expr: (container_memory_working_set_bytes{job='dhy', name='emr-web-app-dhy-production'}) / (container_spec_memory_limit_bytes{job="dhy", name='emr-web-app-dhy-production', instance='192.168.55.182:9099'}) * 100 > 90
+    expr: (container_memory_working_set_bytes{job='dhy', name='emr-web-app-dhy-production'}) / (container_spec_memory_limit_bytes{job="dhy", name='emr-web-app-dhy-production', instance='192.168.55.182:9099'}) * 100 > 95
     for: 5m
     labels:
       severity: khẩn cấp
@@ -127,7 +127,7 @@ groups:
        CONTAINER BỊ TẮT 
 
   - alert: Container Memory pdf-generator
-    expr: (container_memory_working_set_bytes{job='dhy', name='pdf-generator'}) / (container_spec_memory_limit_bytes{job="dhy", name='pdf-generator', instance='192.168.55.182:9099'}) * 100 > 90
+    expr: (container_memory_working_set_bytes{job='dhy', name='pdf-generator'}) / (container_spec_memory_limit_bytes{job="dhy", name='pdf-generator', instance='192.168.55.182:9099'}) * 100 > 95
     for: 5m
     labels:
       severity: khẩn cấp
@@ -181,7 +181,7 @@ groups:
        CONTAINER BỊ TẮT 
 
   - alert: Container Memory signer-connector-web-dhy-production
-    expr: (container_memory_working_set_bytes{job='dhy', name='signer-connector-web-dhy-production'}) / (container_spec_memory_limit_bytes{job="dhy", name='signer-connector-web-dhy-production', instance='192.168.55.182:9099'}) * 100 > 90
+    expr: (container_memory_working_set_bytes{job='dhy', name='signer-connector-web-dhy-production'}) / (container_spec_memory_limit_bytes{job="dhy", name='signer-connector-web-dhy-production', instance='192.168.55.182:9099'}) * 100 > 95
     for: 5m
     labels:
       severity: khẩn cấp
@@ -236,7 +236,7 @@ groups:
        CONTAINER BỊ TẮT 
 
   - alert: Container Memory signer-connector-dhy-production
-    expr: (container_memory_working_set_bytes{job='dhy', name='signer-connector-dhy-production'}) / (container_spec_memory_limit_bytes{job="dhy", name='signer-connector-dhy-production', instance='192.168.55.182:9099'}) * 100 > 90
+    expr: (container_memory_working_set_bytes{job='dhy', name='signer-connector-dhy-production'}) / (container_spec_memory_limit_bytes{job="dhy", name='signer-connector-dhy-production', instance='192.168.55.182:9099'}) * 100 > 95
     for: 5m
     labels:
       severity: khẩn cấp
@@ -291,7 +291,7 @@ groups:
        CONTAINER BỊ TẮT 
 
   - alert: Container Memory project-react-js-kiosk-tiep-don-dhy-production
-    expr: (container_memory_working_set_bytes{job='dhy', name='project-react-js-kiosk-tiep-don-dhy-production'}) / (container_spec_memory_limit_bytes{job="dhy", name='project-react-js-kiosk-tiep-don-dhy-production', instance='192.168.55.182:9099'}) * 100 > 90
+    expr: (container_memory_working_set_bytes{job='dhy', name='project-react-js-kiosk-tiep-don-dhy-production'}) / (container_spec_memory_limit_bytes{job="dhy", name='project-react-js-kiosk-tiep-don-dhy-production', instance='192.168.55.182:9099'}) * 100 > 95
     for: 5m
     labels:
       severity: khẩn cấp
@@ -346,7 +346,7 @@ groups:
        CONTAINER BỊ TẮT 
 
   - alert: Container Memory project-react-js-qr-thu-ngan-dhy-production
-    expr: (container_memory_working_set_bytes{job='dhy', name='project-react-js-qr-thu-ngan-dhy-production'}) / (container_spec_memory_limit_bytes{job="dhy", name='project-react-js-qr-thu-ngan-dhy-production', instance='192.168.55.182:9099'}) * 100 > 90
+    expr: (container_memory_working_set_bytes{job='dhy', name='project-react-js-qr-thu-ngan-dhy-production'}) / (container_spec_memory_limit_bytes{job="dhy", name='project-react-js-qr-thu-ngan-dhy-production', instance='192.168.55.182:9099'}) * 100 > 95
     for: 5m
     labels:
       severity: khẩn cấp
@@ -401,7 +401,7 @@ groups:
        CONTAINER BỊ TẮT 
 
   - alert: Container Memory project-react-js-110-doctor-web-app-dhy-production
-    expr: (container_memory_working_set_bytes{job='dhy', name='project-react-js-110-doctor-web-app-dhy-production'}) / (container_spec_memory_limit_bytes{job="dhy", name='project-react-js-110-doctor-web-app-dhy-production', instance='192.168.55.182:9099'}) * 100 > 90
+    expr: (container_memory_working_set_bytes{job='dhy', name='project-react-js-110-doctor-web-app-dhy-production'}) / (container_spec_memory_limit_bytes{job="dhy", name='project-react-js-110-doctor-web-app-dhy-production', instance='192.168.55.182:9099'}) * 100 > 95
     for: 5m
     labels:
       severity: khẩn cấp
@@ -456,7 +456,7 @@ groups:
        CONTAINER BỊ TẮT 
 
   - alert: Container Memory file-service-dhy-production
-    expr: (container_memory_working_set_bytes{job='dhy', name='file-service-dhy-production'}) / (container_spec_memory_limit_bytes{job="dhy", name='file-service-dhy-production', instance='192.168.55.182:9099'}) * 100 > 90
+    expr: (container_memory_working_set_bytes{job='dhy', name='file-service-dhy-production'}) / (container_spec_memory_limit_bytes{job="dhy", name='file-service-dhy-production', instance='192.168.55.182:9099'}) * 100 > 95
     for: 5m
     labels:
       severity: khẩn cấp
@@ -511,7 +511,7 @@ groups:
        CONTAINER BỊ TẮT 
 
   - alert: Container Memory phat-thuoc-dhy-production
-    expr: (container_memory_working_set_bytes{job='dhy', name='phat-thuoc-dhy-production'}) / (container_spec_memory_limit_bytes{job="dhy", name='phat-thuoc-dhy-production', instance='192.168.55.182:9099'}) * 100 > 90
+    expr: (container_memory_working_set_bytes{job='dhy', name='phat-thuoc-dhy-production'}) / (container_spec_memory_limit_bytes{job="dhy", name='phat-thuoc-dhy-production', instance='192.168.55.182:9099'}) * 100 > 95
     for: 5m
     labels:
       severity: khẩn cấp
@@ -566,7 +566,7 @@ groups:
        CONTAINER BỊ TẮT 
 
   - alert: Container Memory patient-service-dhy-production
-    expr: (container_memory_working_set_bytes{job='dhy', name='patient-service-dhy-production'}) / (container_spec_memory_limit_bytes{job="dhy", name='patient-service-dhy-production', instance='192.168.55.182:9099'}) * 100 > 90
+    expr: (container_memory_working_set_bytes{job='dhy', name='patient-service-dhy-production'}) / (container_spec_memory_limit_bytes{job="dhy", name='patient-service-dhy-production', instance='192.168.55.182:9099'}) * 100 > 95
     for: 5m
     labels:
       severity: khẩn cấp
@@ -621,7 +621,7 @@ groups:
        CONTAINER BỊ TẮT 
 
   - alert: Container Memory html-editor-dhy-production
-    expr: (container_memory_working_set_bytes{job='dhy', name='html-editor-dhy-production'}) / (container_spec_memory_limit_bytes{job="dhy", name='html-editor-dhy-production', instance='192.168.55.182:9099'}) * 100 > 90
+    expr: (container_memory_working_set_bytes{job='dhy', name='html-editor-dhy-production'}) / (container_spec_memory_limit_bytes{job="dhy", name='html-editor-dhy-production', instance='192.168.55.182:9099'}) * 100 > 95
     for: 5m
     labels:
       severity: khẩn cấp
@@ -676,7 +676,7 @@ groups:
        CONTAINER BỊ TẮT 
 
   - alert: Container Memory emr-zuul-dhy-production
-    expr: (container_memory_working_set_bytes{job='dhy', name='emr-zuul-dhy-production'}) / (container_spec_memory_limit_bytes{job="dhy", name='emr-zuul-dhy-production', instance='192.168.55.182:9099'}) * 100 > 90
+    expr: (container_memory_working_set_bytes{job='dhy', name='emr-zuul-dhy-production'}) / (container_spec_memory_limit_bytes{job="dhy", name='emr-zuul-dhy-production', instance='192.168.55.182:9099'}) * 100 > 95
     for: 5m
     labels:
       severity: khẩn cấp
@@ -731,7 +731,7 @@ groups:
        CONTAINER BỊ TẮT 
 
   - alert: Container Memory emr-eureka-dhy-production
-    expr: (container_memory_working_set_bytes{job='dhy', name='emr-eureka-dhy-production'}) / (container_spec_memory_limit_bytes{job="dhy", name='emr-eureka-dhy-production', instance='192.168.55.182:9099'}) * 100 > 90
+    expr: (container_memory_working_set_bytes{job='dhy', name='emr-eureka-dhy-production'}) / (container_spec_memory_limit_bytes{job="dhy", name='emr-eureka-dhy-production', instance='192.168.55.182:9099'}) * 100 > 95
     for: 5m
     labels:
       severity: khẩn cấp
@@ -786,7 +786,7 @@ groups:
        CONTAINER BỊ TẮT 
 
   - alert: Container Memory vital-signs-dhy-production
-    expr: (container_memory_working_set_bytes{job='dhy', name='vital-signs-dhy-production'}) / (container_spec_memory_limit_bytes{job="dhy", name='vital-signs-dhy-production', instance='192.168.55.182:9099'}) * 100 > 90
+    expr: (container_memory_working_set_bytes{job='dhy', name='vital-signs-dhy-production'}) / (container_spec_memory_limit_bytes{job="dhy", name='vital-signs-dhy-production', instance='192.168.55.182:9099'}) * 100 > 95
     for: 5m
     labels:
       severity: khẩn cấp
@@ -841,7 +841,7 @@ groups:
        CONTAINER BỊ TẮT 
 
   - alert: Container Memory master-data-dhy-production
-    expr: (container_memory_working_set_bytes{job='dhy', name='master-data-dhy-production'}) / (container_spec_memory_limit_bytes{job="dhy", name='master-data-dhy-production', instance='192.168.55.182:9099'}) * 100 > 90
+    expr: (container_memory_working_set_bytes{job='dhy', name='master-data-dhy-production'}) / (container_spec_memory_limit_bytes{job="dhy", name='master-data-dhy-production', instance='192.168.55.182:9099'}) * 100 > 95
     for: 5m
     labels:
       severity: khẩn cấp
@@ -896,7 +896,7 @@ groups:
        CONTAINER BỊ TẮT 
 
   - alert: Container Memory pay-dhy-production
-    expr: (container_memory_working_set_bytes{job='dhy', name='pay-dhy-production'}) / (container_spec_memory_limit_bytes{job="dhy", name='pay-dhy-production', instance='192.168.55.182:9099'}) * 100 > 90
+    expr: (container_memory_working_set_bytes{job='dhy', name='pay-dhy-production'}) / (container_spec_memory_limit_bytes{job="dhy", name='pay-dhy-production', instance='192.168.55.182:9099'}) * 100 > 95
     for: 5m
     labels:
       severity: khẩn cấp
@@ -951,7 +951,7 @@ groups:
        CONTAINER BỊ TẮT 
 
   - alert: Container Memory auth-server-dhy-production
-    expr: (container_memory_working_set_bytes{job='dhy', name='auth-server-dhy-production'}) / (container_spec_memory_limit_bytes{job="dhy", name='auth-server-dhy-production', instance='192.168.55.182:9099'}) * 100 > 90
+    expr: (container_memory_working_set_bytes{job='dhy', name='auth-server-dhy-production'}) / (container_spec_memory_limit_bytes{job="dhy", name='auth-server-dhy-production', instance='192.168.55.182:9099'}) * 100 > 95
     for: 5m
     labels:
       severity: khẩn cấp
@@ -1006,7 +1006,7 @@ groups:
        CONTAINER BỊ TẮT 
 
   - alert: Container Memory zipkin
-    expr: (container_memory_working_set_bytes{job='dhy', name='zipkin'}) / (container_spec_memory_limit_bytes{job="dhy", name='zipkin', instance='192.168.55.182:9099'}) * 100 > 90
+    expr: (container_memory_working_set_bytes{job='dhy', name='zipkin'}) / (container_spec_memory_limit_bytes{job="dhy", name='zipkin', instance='192.168.55.182:9099'}) * 100 > 95
     for: 5m
     labels:
       severity: khẩn cấp
@@ -1061,7 +1061,7 @@ groups:
        CONTAINER BỊ TẮT 
 
   - alert: Container Memory rabbitmq
-    expr: (container_memory_working_set_bytes{job='dhy', name='rabbitmq'}) / (container_spec_memory_limit_bytes{job="dhy", name='rabbitmq', instance='192.168.55.182:9099'}) * 100 > 90
+    expr: (container_memory_working_set_bytes{job='dhy', name='rabbitmq'}) / (container_spec_memory_limit_bytes{job="dhy", name='rabbitmq', instance='192.168.55.182:9099'}) * 100 > 95
     for: 5m
     labels:
       severity: khẩn cấp
@@ -1116,7 +1116,7 @@ groups:
        CONTAINER BỊ TẮT 
 
   - alert: Container Memory redis-cache
-    expr: (container_memory_working_set_bytes{job='dhy', name='redis-cache'}) / (container_spec_memory_limit_bytes{job="dhy", name='redis-cache', instance='192.168.55.182:9099'}) * 100 > 90
+    expr: (container_memory_working_set_bytes{job='dhy', name='redis-cache'}) / (container_spec_memory_limit_bytes{job="dhy", name='redis-cache', instance='192.168.55.182:9099'}) * 100 > 95
     for: 5m
     labels:
       severity: khẩn cấp
