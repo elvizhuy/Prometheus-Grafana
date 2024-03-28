@@ -1626,7 +1626,7 @@ route:
       receiver: daihocy-telegram
       group_wait: 5s
 
-      - match:
+    - match:
         category: container-status
         container_name: master-data-dhy-production
         app_type: Đại Học Y
@@ -1647,7 +1647,7 @@ route:
       receiver: daihocy-telegram
       group_wait: 5s
 
-      - match:
+    - match:
         category: container-status
         container_name: pay-dhy-production
         app_type: Đại Học Y
@@ -1668,7 +1668,7 @@ route:
       receiver: daihocy-telegram
       group_wait: 5s
 
-      - match:
+    - match:
         category: container-status
         container_name: auth-server-dhy-production
         app_type: Đại Học Y
@@ -1689,7 +1689,7 @@ route:
       receiver: daihocy-telegram
       group_wait: 5s
 
-      - match:
+    - match:
         category: container-status
         container_name: zipkin
         app_type: Đại Học Y
@@ -1710,7 +1710,7 @@ route:
       receiver: daihocy-telegram
       group_wait: 5s
 
-      - match:
+    - match:
         category: container-status
         container_name: rabbitmq
         app_type: Đại Học Y
@@ -1731,7 +1731,7 @@ route:
       receiver: daihocy-telegram
       group_wait: 5s
 
-      - match:
+    - match:
         category: container-status
         container_name: redis-cache
         app_type: Đại Học Y
