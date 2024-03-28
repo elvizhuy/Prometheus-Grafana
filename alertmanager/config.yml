@@ -1190,14 +1190,14 @@ route:
         container_name: project-react-js-visualize-dhy-production
         app_type: Đại Học Y
       receiver: daihocy-telegram
-      group_wait: 5s
+      group_wait: 45s
 
     - match:
         category: container-status
         container_name: emr-web-app-dhy-production
         app_type: Đại Học Y
       receiver: daihocy-telegram
-      group_wait: 5s
+      group_wait: 45s
 
     - match:
         category: container-status
@@ -1218,539 +1218,539 @@ route:
         container_name: gb-dhy-production
         app_type: Đại Học Y
       receiver: daihocy-telegram
-      group_wait: 5s
+      group_wait: 45s
     
     - match:
         category: container-status
         container_name: gs-dhy-production
         app_type: Đại Học Y
       receiver: daihocy-telegram
-      group_wait: 5s
+      group_wait: 45s
     
     - match:
         category: container-status
         container_name: emr-eureka-dhy-production
         app_type: Đại Học Y
       receiver: daihocy-telegram
-      group_wait: 5s
+      group_wait: 45s
 
     - match:
         category: container-status
         container_name: emr-zuul-dhy-production
         app_type: Đại Học Y
       receiver: daihocy-telegram
-      group_wait: 5s
+      group_wait: 45s
 
     - match:
         category: container-status
         container_name: pdf-generator
         app_type: Đại Học Y
       receiver: daihocy-telegram
-      group_wait: 5s
+      group_wait: 45s
 
     - match:
         category: container-status
         container_name: signer-connector-web-dhy-production
         app_type: Đại Học Y
       receiver: daihocy-telegram
-      group_wait: 5s
+      group_wait: 45s
 
     - match:
         category: container-status
         container_name: signer-connector-dhy-production
         app_type: Đại Học Y
       receiver: daihocy-telegram
-      group_wait: 5s
+      group_wait: 45s
 
     - match:
         category: container-status
         container_name: project-react-js-kiosk-tiep-don-dhy-production
         app_type: Đại Học Y
       receiver: daihocy-telegram
-      group_wait: 5s
+      group_wait: 45s
 
     - match:
         category: container-status
         container_name: project-react-js-qr-thu-ngan-dhy-production
         app_type: Đại Học Y
       receiver: daihocy-telegram
-      group_wait: 5s
+      group_wait: 45s
 
     - match:
         category: container-status
         container_name: project-react-js-110-doctor-web-app-dhy-production
         app_type: Đại Học Y
       receiver: daihocy-telegram
-      group_wait: 5s
+      group_wait: 45s
 
     - match:
         category: container-status
         container_name: file-service-dhy-production
         app_type: Đại Học Y
       receiver: daihocy-telegram
-      group_wait: 5s
+      group_wait: 45s
 
     - match:
         category: container-status
         container_name: phat-thuoc-dhy-production
         app_type: Đại Học Y
       receiver: daihocy-telegram
-      group_wait: 5s
+      group_wait: 45s
 
     - match:
         category: container-memory
         container_name: his-app-8081-dhy-production
         app_type: Đại Học Y
       receiver: daihocy-telegram
-      group_wait: 5s
+      group_wait: 45s
 
     - match:
         category: container-memory
         container_name: his-app-8082-dhy-production
         app_type: Đại Học Y
       receiver: daihocy-telegram
-      group_wait: 5s
+      group_wait: 45s
 
     - match:
         category: container-memory
         container_name: gb-dhy-production
         app_type: Đại Học Y
       receiver: daihocy-telegram
-      group_wait: 5s
+      group_wait: 45s
     
     - match:
         category: container-memory
         container_name: gs-dhy-production
         app_type: Đại Học Y
       receiver: daihocy-telegram
-      group_wait: 5s
+      group_wait: 45s
 
     - match:
         category: container-memory
         container_name: pdf-generator
         app_type: Đại Học Y
       receiver: daihocy-telegram
-      group_wait: 5s
+      group_wait: 45s
 
     - match:
         category: container-memory
         container_name: signer-connector-web-dhy-production
         app_type: Đại Học Y
       receiver: daihocy-telegram
-      group_wait: 5s
+      group_wait: 45s
 
     - match:
         category: container-memory
         container_name: signer-connector-dhy-production
         app_type: Đại Học Y
       receiver: daihocy-telegram
-      group_wait: 5s
+      group_wait: 45s
 
     - match:
         category: container-memory
         container_name: report-service-dhy-production-2415
         app_type: Đại Học Y
       receiver: daihocy-telegram
-      group_wait: 5s
+      group_wait: 45s
 
     - match:
         category: container-memory
         container_name: report-service-dhy-production
         app_type: Đại Học Y
       receiver: daihocy-telegram
-      group_wait: 5s
+      group_wait: 45s
 
     - match:
         category: container-memory
         container_name: emr-eureka-dhy-production
         app_type: Đại Học Y
       receiver: daihocy-telegram
-      group_wait: 5s
+      group_wait: 45s
 
     - match:
         category: container-memory
         container_name: emr-zuul-dhy-production
         app_type: Đại Học Y
       receiver: daihocy-telegram
-      group_wait: 5s
+      group_wait: 45s
 
     - match:
         category: container-memory
         container_name: project-react-js-visualize-dhy-production
         app_type: Đại Học Y
       receiver: daihocy-telegram
-      group_wait: 5s
+      group_wait: 45s
 
     - match:
         category: container-memory
         container_name: project-react-js-kiosk-tiep-don-dhy-production
         app_type: Đại Học Y
       receiver: daihocy-telegram
-      group_wait: 5s
+      group_wait: 45s
 
     - match:
         category: container-memory
         container_name: project-react-js-qr-thu-ngan-dhy-production
         app_type: Đại Học Y
       receiver: daihocy-telegram
-      group_wait: 5s
+      group_wait: 45s
 
     - match:
         category: container-memory
         container_name: emr-web-app-dhy-production
         app_type: Đại Học Y
       receiver: daihocy-telegram
-      group_wait: 5s
+      group_wait: 45s
 
     - match:
         category: container-memory
         container_name: project-react-js-110-doctor-web-app-dhy-production
         app_type: Đại Học Y
       receiver: daihocy-telegram
-      group_wait: 5s
+      group_wait: 45s
 
     - match:
         category: container-memory
         container_name: file-service-dhy-production
         app_type: Đại Học Y
       receiver: daihocy-telegram
-      group_wait: 5s
+      group_wait: 45s
 
     - match:
         category: container-memory
         container_name: phat-thuoc-dhy-production
         app_type: Đại Học Y
       receiver: daihocy-telegram
-      group_wait: 5s
+      group_wait: 45s
 
     - match:
         category: container-cpu
         container_name: his-app-8081-dhy-production
         app_type: Đại Học Y
       receiver: daihocy-telegram
-      group_wait: 5s
+      group_wait: 45s
 
     - match:
         category: container-cpu
         container_name: his-app-8082-dhy-production
         app_type: Đại Học Y
       receiver: daihocy-telegram
-      group_wait: 5s
+      group_wait: 45s
 
     - match:
         category: container-cpu
         container_name: gb-dhy-production
         app_type: Đại Học Y
       receiver: daihocy-telegram
-      group_wait: 5s
+      group_wait: 45s
     
     - match:
         category: container-cpu
         container_name: gs-dhy-production
         app_type: Đại Học Y
       receiver: daihocy-telegram
-      group_wait: 5s
+      group_wait: 45s
     
     - match:
         category: container-cpu
         container_name: pdf-generator
         app_type: Đại Học Y
       receiver: daihocy-telegram
-      group_wait: 5s
+      group_wait: 45s
 
     - match:
         category: container-cpu
         container_name: signer-connector-web-dhy-production
         app_type: Đại Học Y
       receiver: daihocy-telegram
-      group_wait: 5s
+      group_wait: 45s
 
     - match:
         category: container-cpu
         container_name: signer-connector-dhy-production
         app_type: Đại Học Y
       receiver: daihocy-telegram
-      group_wait: 5s
+      group_wait: 45s
 
     - match:
         category: container-cpu
         container_name: report-service-dhy-production-2415
         app_type: Đại Học Y
       receiver: daihocy-telegram
-      group_wait: 5s
+      group_wait: 45s
 
     - match:
         category: container-cpu
         container_name: report-service-dhy-production
         app_type: Đại Học Y
       receiver: daihocy-telegram
-      group_wait: 5s
+      group_wait: 45s
 
     - match:
         category: container-cpu
         container_name: emr-eureka-dhy-production
         app_type: Đại Học Y
       receiver: daihocy-telegram
-      group_wait: 5s
+      group_wait: 45s
 
     - match:
         category: container-cpu
         container_name: emr-zuul-dhy-production
         app_type: Đại Học Y
       receiver: daihocy-telegram
-      group_wait: 5s
+      group_wait: 45s
 
     - match:
         category: container-cpu
         container_name: project-react-js-visualize-dhy-production
         app_type: Đại Học Y
       receiver: daihocy-telegram
-      group_wait: 5s
+      group_wait: 45s
 
     - match:
         category: container-cpu
         container_name: project-react-js-kiosk-tiep-don-dhy-production
         app_type: Đại Học Y
       receiver: daihocy-telegram
-      group_wait: 5s
+      group_wait: 45s
 
     - match:
         category: container-cpu
         container_name: project-react-js-qr-thu-ngan-dhy-production
         app_type: Đại Học Y
       receiver: daihocy-telegram
-      group_wait: 5s
+      group_wait: 45s
 
     - match:
         category: container-cpu
         container_name: emr-web-app-dhy-production
         app_type: Đại Học Y
       receiver: daihocy-telegram
-      group_wait: 5s
+      group_wait: 45s
 
     - match:
         category: container-cpu
         container_name: project-react-js-110-doctor-web-app-dhy-production
         app_type: Đại Học Y
       receiver: daihocy-telegram
-      group_wait: 5s
+      group_wait: 45s
 
     - match:
         category: container-cpu
         container_name: file-service-dhy-production
         app_type: Đại Học Y
       receiver: daihocy-telegram
-      group_wait: 5s
+      group_wait: 45s
 
     - match:
         category: container-status
         container_name: phat-thuoc-dhy-production
         app_type: Đại Học Y
       receiver: daihocy-telegram
-      group_wait: 5s
+      group_wait: 45s
 
     - match:
         category: container-cpu
         container_name: phat-thuoc-dhy-production
         app_type: Đại Học Y
       receiver: daihocy-telegram
-      group_wait: 5s
+      group_wait: 45s
 
     - match:
         category: container-memory
         container_name: phat-thuoc-dhy-production
         app_type: Đại Học Y
       receiver: daihocy-telegram
-      group_wait: 5s
+      group_wait: 45s
 
     - match:
         category: container-status
         container_name: patient-service-dhy-production
         app_type: Đại Học Y
       receiver: daihocy-telegram
-      group_wait: 5s
+      group_wait: 45s
 
     - match:
         category: container-memory
         container_name: patient-service-dhy-production
         app_type: Đại Học Y
       receiver: daihocy-telegram
-      group_wait: 5s
+      group_wait: 45s
 
     - match:
         category: container-cpu
         container_name: patient-service-dhy-production
         app_type: Đại Học Y
       receiver: daihocy-telegram
-      group_wait: 5s
+      group_wait: 45s
   
     - match:
         category: container-status
         container_name: html-editor-dhy-production
         app_type: Đại Học Y
       receiver: daihocy-telegram
-      group_wait: 5s
+      group_wait: 45s
 
     - match:
         category: container-memory
         container_name: html-editor-dhy-production
         app_type: Đại Học Y
       receiver: daihocy-telegram
-      group_wait: 5s
+      group_wait: 45s
 
     - match:
         category: container-cpu
         container_name: html-editor-dhy-production
         app_type: Đại Học Y
       receiver: daihocy-telegram
-      group_wait: 5s
+      group_wait: 45s
 
     - match:
         category: container-status
         container_name: vital-signs-dhy-production
         app_type: Đại Học Y
       receiver: daihocy-telegram
-      group_wait: 5s
+      group_wait: 45s
 
     - match:
         category: container-memory
         container_name: vital-signs-dhy-production
         app_type: Đại Học Y
       receiver: daihocy-telegram
-      group_wait: 5s
+      group_wait: 45s
 
     - match:
         category: container-cpu
         container_name: vital-signs-dhy-production
         app_type: Đại Học Y
       receiver: daihocy-telegram
-      group_wait: 5s
+      group_wait: 45s
 
     - match:
         category: container-status
         container_name: master-data-dhy-production
         app_type: Đại Học Y
       receiver: daihocy-telegram
-      group_wait: 5s
+      group_wait: 45s
 
     - match:
         category: container-memory
         container_name: master-data-dhy-production
         app_type: Đại Học Y
       receiver: daihocy-telegram
-      group_wait: 5s
+      group_wait: 45s
 
     - match:
         category: container-cpu
         container_name: master-data-dhy-production
         app_type: Đại Học Y
       receiver: daihocy-telegram
-      group_wait: 5s
+      group_wait: 45s
 
     - match:
         category: container-status
         container_name: pay-dhy-production
         app_type: Đại Học Y
       receiver: daihocy-telegram
-      group_wait: 5s
+      group_wait: 45s
 
     - match:
         category: container-memory
         container_name: pay-dhy-production
         app_type: Đại Học Y
       receiver: daihocy-telegram
-      group_wait: 5s
+      group_wait: 45s
 
     - match:
         category: container-cpu
         container_name: pay-dhy-production
         app_type: Đại Học Y
       receiver: daihocy-telegram
-      group_wait: 5s
+      group_wait: 45s
 
     - match:
         category: container-status
         container_name: auth-server-dhy-production
         app_type: Đại Học Y
       receiver: daihocy-telegram
-      group_wait: 5s
+      group_wait: 45s
 
     - match:
         category: container-memory
         container_name: auth-server-dhy-production
         app_type: Đại Học Y
       receiver: daihocy-telegram
-      group_wait: 5s
+      group_wait: 45s
 
     - match:
         category: container-cpu
         container_name: auth-server-dhy-production
         app_type: Đại Học Y
       receiver: daihocy-telegram
-      group_wait: 5s
+      group_wait: 45s
 
     - match:
         category: container-status
         container_name: zipkin
         app_type: Đại Học Y
       receiver: daihocy-telegram
-      group_wait: 5s
+      group_wait: 45s
 
     - match:
         category: container-memory
         container_name: zipkin
         app_type: Đại Học Y
       receiver: daihocy-telegram
-      group_wait: 5s
+      group_wait: 45s
 
     - match:
         category: container-cpu
         container_name: zipkin
         app_type: Đại Học Y
       receiver: daihocy-telegram
-      group_wait: 5s
+      group_wait: 45s
 
     - match:
         category: container-status
         container_name: rabbitmq
         app_type: Đại Học Y
       receiver: daihocy-telegram
-      group_wait: 5s
+      group_wait: 45s
 
     - match:
         category: container-memory
         container_name: rabbitmq
         app_type: Đại Học Y
       receiver: daihocy-telegram
-      group_wait: 5s
+      group_wait: 45s
 
     - match:
         category: container-cpu
         container_name: rabbitmq
         app_type: Đại Học Y
       receiver: daihocy-telegram
-      group_wait: 5s
+      group_wait: 45s
 
     - match:
         category: container-status
         container_name: redis-cache
         app_type: Đại Học Y
       receiver: daihocy-telegram
-      group_wait: 5s
+      group_wait: 45s
 
     - match:
         category: container-memory
         container_name: redis-cache
         app_type: Đại Học Y
       receiver: daihocy-telegram
-      group_wait: 5s
+      group_wait: 45s
 
     - match:
         category: container-cpu
         container_name: redis-cache
         app_type: Đại Học Y
       receiver: daihocy-telegram
-      group_wait: 5s
+      group_wait: 45s
 ####################################################
 ########### MEDIPLUS ##############################
 ####################################################
